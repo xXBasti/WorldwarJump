@@ -9,4 +9,8 @@ GameWorld::GameWorld()
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // Input-connection to World scene
+    input = new Input();
+    scene->addItem(input);
 }

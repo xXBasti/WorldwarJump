@@ -2,6 +2,7 @@
 #define GAMEWORLD_H
 
 #include <QGraphicsView>
+#include "input.h"
 
 
 //! The world our game is based on. The fundamental stage. - WANG
@@ -14,6 +15,7 @@ public:
 
     // Member attributes
     QGraphicsScene * scene;
+    Input * input;
 
 };
 

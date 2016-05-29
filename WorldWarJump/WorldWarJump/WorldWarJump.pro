@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     GameplayInterface.cpp \
     input.cpp \
-    gameworld.cpp
+    gameworld.cpp \
+    worldobject.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
     input.h \
-    gameworld.h
+    gameworld.h \
+    worldobject.h
 
 
 FORMS    += mainwindow.ui
