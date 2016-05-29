@@ -11,6 +11,8 @@ public:
     WorldObject(Input* passInput);
 private:
     Input *input;
+    int weigth;
+
 public slots:
     void move();
 };
