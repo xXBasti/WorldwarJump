@@ -2,6 +2,7 @@
 #define GAMEWORLD_H
 
 #include <QGraphicsView>
+#include "GameplayInterface.h"
 
 
 //! The world our game is based on. The fundamental stage. - WANG
@@ -13,7 +14,7 @@ public:
     GameWorld();
 
     // Member attributes
-    QGraphicsScene * scene;
+    GameplayInterface * scene;
 
 };
 

@@ -21,6 +21,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
     input.h \
+    gameworld.h
 
 
 FORMS    += mainwindow.ui
