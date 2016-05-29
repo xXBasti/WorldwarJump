@@ -18,9 +18,6 @@ int main(int argc, char *argv[])
     world->scene->addItem(player1Unit1);
 
     w.setCentralWidget(world);
-
-    //world -> show();
-
     w.show();
     return a.exec();
 }

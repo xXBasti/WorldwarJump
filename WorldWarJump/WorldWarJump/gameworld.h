@@ -3,7 +3,9 @@
 
 #include <QGraphicsView>
 #include "input.h"
-
+#include <QGraphicsScene>
+#include <QGraphicsEllipseItem>
+#include "GameplayInterface.h"
 
 //! The world our game is based on. The fundamental stage. - WANG
 class GameWorld: public QGraphicsView
@@ -14,9 +16,11 @@ public:
     GameWorld();
 
     // Member attributes
-    QGraphicsScene * scene;
     Input * input;
+    GameplayInterface * scene;
 
+    //! Terrain, the playground for our battle units in form of an inner circle. - WANG
+    QGraphicsEllipseItem *terrain;
 };
 
 #endif // GAMEWORLD_H
