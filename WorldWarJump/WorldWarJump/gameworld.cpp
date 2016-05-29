@@ -22,5 +22,6 @@ GameWorld::GameWorld()
 
     // Input-connection to World scene
     input = new Input();
+
     scene->addItem(input);
 }
