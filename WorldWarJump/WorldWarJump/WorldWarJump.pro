@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    input.cpp
+    input.cpp \
+    gameworld.cpp
 
 HEADERS  += mainwindow.h \
-    input.h
+    input.h \
+    gameworld.h
 
 FORMS    += mainwindow.ui
