@@ -1,7 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
-
 #include <QGraphicsRectItem>
+
 class Input : public QObject, public QGraphicsRectItem {
     Q_OBJECT
 public:

@@ -5,7 +5,10 @@
 
 
 Input::Input(){
+    setRect(0,0,0,0);
+    setFlag(QGraphicsItem::ItemIsFocusable);
 }
+
 
 Input::~Input(){
 }
