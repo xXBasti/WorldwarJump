@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     w.setCentralWidget(world);
 
-    //world -> show();
+    world -> show();
 
     w.show();
     return a.exec();

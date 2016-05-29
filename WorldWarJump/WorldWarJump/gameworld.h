@@ -2,6 +2,8 @@
 #define GAMEWORLD_H
 
 #include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsEllipseItem>
 
 
 //! The world our game is based on. The fundamental stage. - WANG
@@ -14,6 +16,9 @@ public:
 
     // Member attributes
     QGraphicsScene * scene;
+
+    //! Terrain, the playground for our battle units in form of an inner circle. - WANG
+    QGraphicsEllipseItem *terrain;
 
 };
 
