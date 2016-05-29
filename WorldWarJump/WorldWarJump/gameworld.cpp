@@ -1,11 +1,15 @@
 #include "gameworld.h"
 #include <QGraphicsScene>
+<<<<<<< HEAD
 #include <QGraphicsEllipseItem>
 
+=======
+#include "GameplayInterface.h"
+>>>>>>> 074cb69799db12d77dd92167216db74e3eb3cb19
 
 GameWorld::GameWorld()
 {
-    scene = new QGraphicsScene(this);
+    scene = new GameplayInterface();
 
     scene->setSceneRect(0,0,700,700);
     setScene(scene);
