@@ -8,11 +8,14 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
+
 
     GameWorld *world = new GameWorld;
-    world -> show();
 
+    w.setCentralWidget(world);
 
+    //world -> show();
+
+    w.show();
     return a.exec();
 }

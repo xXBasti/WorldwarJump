@@ -7,9 +7,8 @@
 class GameplayInterface : public QGraphicsScene
 {
     public:
-        GameplayInterface();
 
-        void exit();
+        GameplayInterface();
 
         void pause();
 
