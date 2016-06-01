@@ -18,14 +18,12 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     if (worldObject->parentView->getGameWorldSize() <  worldObject->y() + worldObject->rect().height()){
         worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
     }
-
-    double timeStep = 2;
     double * speed = worldObject->getSpeed();
     double xPos = worldObject->x();
     double yPos = worldObject->y();
     worldObject->setPos(xPos+timeStep*speed[0],
                         yPos+timeStep*speed[1]);
-    speed[1] = speed[1]+1;
+    speed[1] = speed[1]+gravity;
     worldObject->setSpeed(speed);
 }
 /**

@@ -19,6 +19,9 @@ public:
 
     //Tomas
     void calculateNewValues(WorldObject *);
+    // Std: gravity = 1; timeStep = 2;
+    double gravity = 1;
+    double timeStep = 2;
     //Tomas
 
     //Basti
