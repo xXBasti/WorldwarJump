@@ -3,18 +3,6 @@
 
 GameplayInterface::GameplayInterface()
 {
-    timer->start(20);
-
+    physicsCalulator = new PhysicsCalc();
 }
 
-void GameplayInterface::pause()
-{
-    timer->stop();
-
-}
-
-void GameplayInterface::resume()
-{
-    timer->start(20);
-
-}

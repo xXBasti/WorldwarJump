@@ -24,6 +24,10 @@ public:
     int getGameWorldSize() const;
     void setGameWorldSize(int value);
 
+    //Implemented pause and resume
+    void pause();
+    void resume();
+
 private:
     //! Resolution of GameplayInterface
     int GameWorldSize;

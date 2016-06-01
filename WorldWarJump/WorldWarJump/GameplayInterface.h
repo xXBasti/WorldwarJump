@@ -2,21 +2,14 @@
 #define GAMEPLAYINTERFACE_H
 
 #include <QGraphicsScene>
-#include <QTimer>
+#include "physicscalc.h"
 
-class GameplayInterface : public QGraphicsScene
-{
-    public:
+class GameplayInterface : public QGraphicsScene {
+    Q_OBJECT
+public:
 
         GameplayInterface();
-//Implemented pause and resume
-        void pause();
-        void resume();
-
-    private:
-
-        //! Gameplay refresh rate
-        QTimer *timer = new QTimer;
+        PhysicsCalc * physicsCalulator;
 };
 
 #endif // GAMEPLAYINTERFACE_H

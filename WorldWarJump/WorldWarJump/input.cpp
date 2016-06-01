@@ -3,11 +3,12 @@
 #include <QGraphicsRectItem>
 #include <QKeyEvent>
 
-
 Input::Input(){
     setRect(0,0,50,50);
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
+    timer = new QTimer();
+    timer->start(20);
 }
 
 

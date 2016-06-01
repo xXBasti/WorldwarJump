@@ -36,3 +36,15 @@ void GameWorld::setGameWorldSize(int value)
 {
     GameWorldSize = value;
 }
+
+void GameWorld::pause()
+{
+    input->timer->stop();
+
+}
+
+void GameWorld::resume()
+{
+    input->timer->start(20);
+}
+
