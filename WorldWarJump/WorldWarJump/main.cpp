@@ -8,6 +8,8 @@
 #include "physicscalc.h"
 #include "gameworld.h"
 
+#define M_PI 3.14159
+
 int main(int argc, char *argv[])
 {
     double e1[2]={1,1};

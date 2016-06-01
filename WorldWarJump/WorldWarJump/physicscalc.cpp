@@ -2,6 +2,7 @@
 //#include <QtMath>
 #include <cmath>
 
+#define M_PI 3.14159
 
 PhysicsCalc::PhysicsCalc()
 {
@@ -13,7 +14,7 @@ PhysicsCalc::PhysicsCalc()
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    worldObject->setPos(worldObject->x()+20, worldObject->y()+20);
+    worldObject->setPos(worldObject->x()+1, worldObject->y()+1);
 }
 /**
  * @brief PhysicsCalc::eulToPol

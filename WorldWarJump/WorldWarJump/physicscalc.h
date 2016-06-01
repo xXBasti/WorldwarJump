@@ -2,6 +2,7 @@
 #define PHYSICSCLAC_H
 
 #include "worldobject.h"
+
 /*
  * eul[1] =x
  * eul[2] =y
