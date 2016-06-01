@@ -5,7 +5,8 @@
 void WorldObject::move()
 {
     qDebug() << "move command received";
-    setPos(x(), y()-10);
+    setPos(x(), y()-1.5);
+    qDebug() <<this->pos();
 }
 
 WorldObject::WorldObject(Input* passInput)
