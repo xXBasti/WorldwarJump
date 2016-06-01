@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     GameplayInterface.cpp \
     input.cpp \
     gameworld.cpp \
-    worldobject.cpp
+    worldobject.cpp \
+    physicsclac.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
     input.h \
     gameworld.h \
-    worldobject.h
+    worldobject.h \
+    physicsclac.h
 
 
 FORMS    += mainwindow.ui
