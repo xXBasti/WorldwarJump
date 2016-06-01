@@ -10,8 +10,6 @@ GameWorld::GameWorld()
     scene->setSceneRect(0,0,GameWorldSize,GameWorldSize);
     setScene(scene);
 
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(700,700);
 
     terrain = new QGraphicsEllipseItem(10,10,680,680);
