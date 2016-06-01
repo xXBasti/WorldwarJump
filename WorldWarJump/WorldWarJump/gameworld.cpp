@@ -5,8 +5,9 @@
 
 GameWorld::GameWorld()
 {
+    setGameWorldSize(700);
     scene = new GameplayInterface();
-    scene->setSceneRect(0,0,700,700);
+    scene->setSceneRect(0,0,GameWorldSize,GameWorldSize);
     setScene(scene);
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -24,4 +25,14 @@ GameWorld::GameWorld()
     input = new Input();
 
     scene->addItem(input);
+}
+
+int GameWorld::getGameWorldSize() const
+{
+    return GameWorldSize;
+}
+
+void GameWorld::setGameWorldSize(int value)
+{
+    GameWorldSize = value;
 }

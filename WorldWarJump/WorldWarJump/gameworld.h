@@ -21,6 +21,13 @@ public:
 
     //! Terrain, the playground for our battle units in form of an inner circle. - WANG
     QGraphicsEllipseItem *terrain;
+    int getGameWorldSize() const;
+    void setGameWorldSize(int value);
+
+private:
+    //! Resolution of GameplayInterface
+    int GameWorldSize;
+
 };
 
 #endif // GAMEWORLD_H
