@@ -2,10 +2,10 @@
 #define PHYSICSCLAC_H
 
 
-class PhysicsClac
+class PhysicsCalc
 {
 public:
-    PhysicsClac();
+    PhysicsCalc();
 
     int* eulToPol(int*);
     int* PolToEul(int*);

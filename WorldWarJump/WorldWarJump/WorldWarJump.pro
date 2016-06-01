@@ -18,14 +18,14 @@ SOURCES += main.cpp\
     input.cpp \
     gameworld.cpp \
     worldobject.cpp \
-    physicsclac.cpp
+    physicscalc.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
     input.h \
     gameworld.h \
     worldobject.h \
-    physicsclac.h
+    physicscalc.h
 
 
 FORMS    += mainwindow.ui
