@@ -23,7 +23,7 @@ GameWorld::GameWorld()
 
     // Input-connection to World scene
     input = new Input();
-
+    input->setRect(0,0,GameWorldSize,GameWorldSize);
     scene->addItem(input);
 }
 

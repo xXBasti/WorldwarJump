@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
     GameWorld *world = new GameWorld();
 
-    WorldObject * player1Unit1 = new WorldObject(world->input);
+    WorldObject * player1Unit1 = new WorldObject(world);
     player1Unit1->setPos(100,100);
     world->scene->addItem(player1Unit1);
 

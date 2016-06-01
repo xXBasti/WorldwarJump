@@ -14,7 +14,14 @@ PhysicsCalc::PhysicsCalc()
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    worldObject->setPos(worldObject->x()+1, worldObject->y()+1);
+    double timeStep = 0.001;
+    double * speed = worldObject->getSpeed();
+    double xPos = worldObject->x();
+    double yPos = worldObject->y();
+    worldObject->setPos(xPos+speed[0],
+                        yPos+speed[1]);
+    speed[1] = speed[1]+0.5;
+    worldObject->setSpeed(speed);
 }
 /**
  * @brief PhysicsCalc::eulToPol

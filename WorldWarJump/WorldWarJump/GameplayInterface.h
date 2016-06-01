@@ -2,7 +2,7 @@
 #define GAMEPLAYINTERFACE_H
 
 #include <QGraphicsScene>
-#include "physicscalc.h"
+class PhysicsCalc;
 
 class GameplayInterface : public QGraphicsScene {
     Q_OBJECT
