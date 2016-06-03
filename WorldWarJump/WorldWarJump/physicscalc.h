@@ -1,7 +1,9 @@
-#ifndef PHYSICSCLAC_H
-#define PHYSICSCLAC_H
+#ifndef PHYSICSCALC_H
+#define PHYSICSCALC_H
 
 #include "worldobject.h"
+#include <QGraphicsItem>
+#include "gameworld.h"
 
 /*
  * eul[1] =x
@@ -28,6 +30,9 @@ public:
     void eulToPol(double * eul, double* pol);
     void polToEul(double * pol, double* eul);
     //Basti
+
+    //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
+    bool CollideWithTerrain(WorldObject *);
 };
 
 #endif // PHYSICSCLAC_H

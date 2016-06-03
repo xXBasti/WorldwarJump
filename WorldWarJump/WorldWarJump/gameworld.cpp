@@ -2,6 +2,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsEllipseItem>
 #include "GameplayInterface.h"
+#include "terrain.h"
 
 GameWorld::GameWorld()
 {
@@ -12,9 +13,9 @@ GameWorld::GameWorld()
 
     setFixedSize(700,700);
 
-    terrain = new QGraphicsPixmapItem();
-    terrain->setPixmap(QPixmap(":/images/terrain.png"));
+    Terrain *terrain = new Terrain;
     scene->addItem(terrain);
+
 
     // Scrollbar disabling
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

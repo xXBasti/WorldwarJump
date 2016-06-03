@@ -1,6 +1,9 @@
 #include "physicscalc.h"
 //#include <QtMath>
 #include <cmath>
+#include <typeinfo>
+#include "gameworld.h"
+#include "terrain.h"
 
 #define M_PI 3.14159
 
@@ -63,4 +66,18 @@ void PhysicsCalc::eulToPol(double * eul, double* pol){
 void PhysicsCalc::polToEul(double * pol, double* eul){
     eul[0]=round(pol[0]*cos(pol[1])*100)/100;
     eul[1]=round(pol[0]*sin(pol[1])*100)/100;
+}
+
+bool PhysicsCalc::CollideWithTerrain(WorldObject *)
+{
+    /*QList<QGraphicsItem *> colliding_items = WorldObject *::collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i)
+    {
+        if(typeid(*(colliding_items[i]))== typeid(Terrain))
+        {
+            return true;
+        }
+    }
+    return false;
+    */
 }
