@@ -29,7 +29,7 @@ public:
     void resume();
 
 private:
-    //! Resolution of GameplayInterface
+    //! defines the resolution of GameplayInterface
     int GameWorldSize;
 
 };

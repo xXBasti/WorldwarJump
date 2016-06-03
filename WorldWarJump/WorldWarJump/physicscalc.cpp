@@ -13,7 +13,7 @@ PhysicsCalc::PhysicsCalc()
 }
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject
-* based on it's current position and on its current speed.
+* based on it's current position and its current speed.
 * Then it sets the object's new position and new speed
 * When the WorldObject moves below the ground (collision) the movement speed of the WorldObject is inverted
 * @param worldObject the WorldObject instance for which new position
@@ -22,6 +22,18 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     if (worldObject->parentView->getGameWorldSize() <  worldObject->y() + worldObject->rect().height()){
         worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
     }
+
+    /*
+    if (CollideWithTerrain(worldObject) == true)  //Collision detection - WANG
+    {
+        worldObject->setPos(worldObject->x(),worldObject->y());
+        worldObject->setSpeed(0);
+        return;
+    }
+
+    THIS SHIT SUCKS.
+    */
+
     double * speed = worldObject->getSpeed();
     double xPos = worldObject->x();
     double yPos = worldObject->y();
@@ -29,6 +41,7 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
                         yPos+timeStep*speed[1]);
     speed[1] = speed[1]+gravity;
     worldObject->setSpeed(speed);
+    return;
 }
 /**
  * @brief PhysicsCalc::eulToPol
