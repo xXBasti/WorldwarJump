@@ -32,7 +32,7 @@ public:
     //Basti
 
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
-    bool CollideWithTerrain(WorldObject *);
+    bool CollideWithTerrain(WorldObject* object);
 };
 
 #endif // PHYSICSCLAC_H
