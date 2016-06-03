@@ -5,6 +5,7 @@
 #include "input.h"
 #include <QGraphicsScene>
 #include <QGraphicsEllipseItem>
+#include <QGraphicsPixmapItem>
 #include "GameplayInterface.h"
 
 //! The world our game is based on. The fundamental stage. - WANG
@@ -20,7 +21,7 @@ public:
     GameplayInterface * scene;
 
     //! Terrain, the playground for our battle units in form of an inner circle. - WANG
-    QGraphicsEllipseItem *terrain;
+    QGraphicsPixmapItem *terrain;
     int getGameWorldSize() const;
     void setGameWorldSize(int value);
 

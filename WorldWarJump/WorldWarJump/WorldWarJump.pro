@@ -34,3 +34,6 @@ unix|win32: LIBS += -L$$PWD/'../../../../../../Program Files (x86)/Windows Kits/
 
 INCLUDEPATH += $$PWD/'../../../../../../Program Files (x86)/Windows Kits/10/Lib/10.0.10586.0/um/x64'
 DEPENDPATH += $$PWD/'../../../../../../Program Files (x86)/Windows Kits/10/Lib/10.0.10586.0/um/x64'
+
+RESOURCES += \
+    res.qrc

@@ -12,7 +12,8 @@ GameWorld::GameWorld()
 
     setFixedSize(700,700);
 
-    terrain = new QGraphicsEllipseItem(10,10,680,680);
+    terrain = new QGraphicsPixmapItem();
+    terrain->setPixmap(QPixmap(":/images/terrain.png"));
     scene->addItem(terrain);
 
     // Scrollbar disabling
