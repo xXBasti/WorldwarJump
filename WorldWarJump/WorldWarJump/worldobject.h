@@ -26,6 +26,7 @@ class WorldObject : public QObject, public QGraphicsRectItem {
         void setRotVel(double newRotVel);
         double getRotVel() const;
         //For orientation
+        bool collidedBefore;
 
     private:
 

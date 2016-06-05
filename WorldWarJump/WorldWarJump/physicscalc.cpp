@@ -52,9 +52,12 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    if (CollideWithTerrain(worldObject)){
+    if (CollideWithTerrain(worldObject) && !(worldObject->collidedBefore)){
+
         worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
-    }
+        worldObject->getSpeed()[0] = -0.85*worldObject->getSpeed()[0];
+        worldObject->collidedBefore = 1;
+    }else if(!(CollideWithTerrain(worldObject))) worldObject->collidedBefore = 0;
 
 
     if (CollideWithTerrain(worldObject) == true)  //Collision detection - WANG
