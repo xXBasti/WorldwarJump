@@ -64,12 +64,28 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
 
 
     double * speed = worldObject->getSpeed();
-    double xPos = worldObject->x();
-    double yPos = worldObject->y();
-    worldObject->setPos(xPos+timeStep*speed[0],
-                        yPos+timeStep*speed[1]);
-    speed[1] = speed[1]+gravity;
+  //qDebug() << speed[0] << speed[1];
+    double eulPos[2]= {0};
+    double polSpeed[2]= {0};
+
+    double polPos[2]= {0};
+   /* this->eulToPol(eulPos,polPos,'p');
+    this->eulToPol(speed,polSpeed,'v');
+    qDebug() << polSpeed[0] << polSpeed[1];
+    polSpeed[0]=polSpeed[0]+gravity;
+    this->polToEul(polSpeed,speed,'v');
+     */
+    eulPos[0] = worldObject->x();
+    eulPos[1] = worldObject->y();
+    speed[0]=speed[0]+((eulPos[0]-350)/350);
+    speed[1]=speed[1]+((eulPos[1]-350)/350);
+    worldObject->setPos(eulPos[0]+timeStep*speed[0],
+                        eulPos[1]+timeStep*speed[1]);
+    qDebug() <<"\n\n";
+    //speed[1] = speed[1]+gravity;
+    //speed[0]=speed[0]+gravity*polPos[1];
     worldObject->setSpeed(speed);
+    qDebug() << speed[0] << speed[1];
     return;
 }
 /**
@@ -78,9 +94,25 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
  * @param pol
  */
 
-void PhysicsCalc::eulToPol(double * eul, double* pol){
-    double e1=eul[0]-350;
-    double e2=eul[1]-350;
+void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
+    double e1;
+    double e2;
+    switch(type){
+    case 'p':
+        e1=eul[0]-350; //350 später gamesize/2
+        e2=eul[1]-350; // damit polar kosi in der Mitte des Bildschirms ist.
+        break;
+    case 'v':
+        e1=eul[0];
+        e2=eul[1];
+        break;
+    default:
+        e1=eul[0];
+        e2=eul[1];
+        break;
+    }
+
+
     pol[0]=sqrt(e1*e1+e2*e2);
     if(e1>0){
         if(e2>=0){
@@ -100,6 +132,9 @@ void PhysicsCalc::eulToPol(double * eul, double* pol){
         if(e2<0){
             pol[1]=((3*M_PI)/2);
         }
+        if(e2==0){
+            pol[1]=0;
+        }
     }
 }
 
@@ -108,9 +143,23 @@ void PhysicsCalc::eulToPol(double * eul, double* pol){
  * @param pol
  * @param eul
  */
-void PhysicsCalc::polToEul(double * pol, double* eul){
-    eul[0]=round(pol[0]*cos(pol[1])*100)/100;
-    eul[1]=round(pol[0]*sin(pol[1])*100)/100;
+void PhysicsCalc::polToEul(double * pol, double* eul,char type){
+    switch(type){
+    case 'p':
+        eul[0]=round(pol[0]*cos(pol[1])*100)/100+350;
+        eul[1]=round(pol[0]*sin(pol[1])*100)/100+350;
+        break;
+    case 'v':
+        eul[0]=round(pol[0]*cos(pol[1])*100)/100;
+        eul[1]=round(pol[0]*sin(pol[1])*100)/100;
+        break;
+    default:
+        eul[0]=round(pol[0]*cos(pol[1])*100)/100;
+        eul[1]=round(pol[0]*sin(pol[1])*100)/100;
+        break;
+    }
+
+
 }
 
 bool PhysicsCalc::CollideWithTerrain(WorldObject* object)

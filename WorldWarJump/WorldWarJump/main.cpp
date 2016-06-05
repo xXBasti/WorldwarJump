@@ -12,10 +12,10 @@
 
 int main(int argc, char *argv[])
 {
-    double e1[2]={1,1};
+   /* double e1[2]={100,100};
     double p1[2]={1,M_PI};
     double e2[2]={0};
-    double p2[2]={0};
+    double p2[2]={0}; */
 
     QApplication a(argc, argv);
     MainWindow w;
@@ -28,10 +28,10 @@ int main(int argc, char *argv[])
 
     w.setCentralWidget(world);
     w.show();
-    PhysicsCalc* p= new PhysicsCalc();
-    p->eulToPol(e1,p2);
-    p->polToEul(p1,e2);
+   /* PhysicsCalc* p= new PhysicsCalc();
+    p->eulToPol(e1,p2,'p');
+    p->polToEul(p1,e2,'p');
     qDebug() << p2[0] << p2[1];
-    qDebug() << e2[0] << e2[1];
+    qDebug() << e2[0] << e2[1];*/
     return a.exec();
 }

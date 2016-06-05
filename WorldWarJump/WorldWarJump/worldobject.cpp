@@ -25,6 +25,7 @@ void WorldObject::jump()
     rotVel = random_var *15 + rotVel;
 }
 
+
 WorldObject::WorldObject(GameWorld * parentView) {
     this->parentView = parentView;
     setRect(0,0,50,100);
