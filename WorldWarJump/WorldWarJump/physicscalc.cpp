@@ -79,23 +79,25 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
  */
 
 void PhysicsCalc::eulToPol(double * eul, double* pol){
-    pol[0]=sqrt(eul[0]*eul[0]+eul[1]*eul[1]);
-    if(eul[0]>0){
-        if(eul[1]>=0){
-            pol[1]=atan(eul[1]/eul[0]);
+    double e1=eul[0]-350;
+    double e2=eul[1]-350;
+    pol[0]=sqrt(e1*e1+e2*e2);
+    if(e1>0){
+        if(e2>=0){
+            pol[1]=atan(e2/e1);
         }
         if(eul[1]<0){
-            pol[1]=atan(eul[1]/eul[0]+2*M_PI);
+            pol[1]=atan(e2/e1+2*M_PI);
         }
     }
-    if(eul[0]<0){
-        pol[1]=atan(eul[1]/eul[0]+M_PI);
+    if(e1<0){
+        pol[1]=atan(e2/e1+M_PI);
     }
-    if(eul[0]==0){
-        if(eul[1]>0){
+    if(e1==0){
+        if(e2>0){
            pol[1]=M_PI/2;
         }
-        if(eul[1]<0){
+        if(e2<0){
             pol[1]=((3*M_PI)/2);
         }
     }
