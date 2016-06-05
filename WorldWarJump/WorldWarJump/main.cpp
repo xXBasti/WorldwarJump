@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
     w.setCentralWidget(world);
     w.show();
-    PhysicsCalc* p= new PhysicsCalc();
+    PhysicsCalc* p= world->scene->physicsCalulator;
     p->eulToPol(e1,p2);
     p->polToEul(p1,e2);
     qDebug() << p2[0] << p2[1];

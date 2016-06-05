@@ -26,6 +26,11 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     angular[1] = worldObject->getRotVel();
 
     worldObject->setRotation(angular[0] + timeStep*angular[1]);
+    angular[0] = angular[0] + timeStep*angular[1];
+    if(angular[0] > 360){
+        //angular[0] = (static_cast<double>((static_cast<int>angular[0])%360));
+        angular[0] = angular[0] - 360;
+    }
     angular[1] = exp(-(timeStep/30))*angular[1];
 
     updateRotValues(worldObject, angular);
@@ -36,7 +41,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
  */
 void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 {
-    worldObject->setOrientation( angular[0]);
+    worldObject->setOrientation(angular[0]);
     worldObject->setRotVel(angular[1]);
 }
 /**

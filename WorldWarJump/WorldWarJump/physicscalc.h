@@ -6,18 +6,17 @@
 #include "gameworld.h"
 
 /*
- * eul[1] =x
- * eul[2] =y
- * pol[1] =r
- * pol[2] =fi
+ * eul[0] =x
+ * eul[1] =y
+ * pol[0] =r
+ * pol[1] =phi
  */
 
 class PhysicsCalc
 {
 public:
     PhysicsCalc();
-    int* eulToPol(int*);
-    int* PolToEul(int*);
+
 
     //Can
     void calculateNewRotValues(WorldObject * worldObject);
