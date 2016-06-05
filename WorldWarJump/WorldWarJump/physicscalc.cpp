@@ -5,6 +5,7 @@
 #include "gameworld.h"
 #include "terrain.h"
 #include <typeinfo>
+#include <QDebug>
 
 #define M_PI 3.14159
 
@@ -50,16 +51,17 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
     }
 
-    /*
+
     if (CollideWithTerrain(worldObject) == true)  //Collision detection - WANG
     {
-        worldObject->setPos(worldObject->x(),worldObject->y());
-        worldObject->setSpeed(0);
-        return;
+        //worldObject->setPos(worldObject->x(),worldObject->y());
+        //worldObject->setSpeed(0);
+        qDebug()<<"Collision!";
+
     }
 
-    THIS SHIT SUCKS.
-    */
+    //THIS SHIT SUCKS.
+
 
     double * speed = worldObject->getSpeed();
     double xPos = worldObject->x();
