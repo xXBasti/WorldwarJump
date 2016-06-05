@@ -8,23 +8,15 @@
 
 class WorldObject : public QObject, public QGraphicsRectItem {
     Q_OBJECT
-<<<<<<< HEAD
-public:
-    WorldObject(GameWorld *parentView);
-    void setSpeed(double* newSpeed);
-    double* getSpeed();
-    GameWorld * parentView;
-private:
-    double speed [2];
-    void getNewValuesFromPhysicsCalc();
-public slots:
-    void move();
-    void jump();
-=======
+
+
 
     public:
 
-        WorldObject(Input* passInput);
+        WorldObject(GameWorld *parentView);
+        void setSpeed(double* newSpeed);
+        double* getSpeed();
+        GameWorld * parentView;
 
         //For orientation
 
@@ -37,7 +29,8 @@ public slots:
 
     private:
 
-        Input *input;
+        double speed [2];
+        void getNewValuesFromPhysicsCalc();
         int weigth;
 
         //For orientation
@@ -49,7 +42,8 @@ public slots:
     public slots:
 
         void move();
->>>>>>> dev_Can
+        void jump();
+
 };
 
 #endif // WORLDOBJECT_H
