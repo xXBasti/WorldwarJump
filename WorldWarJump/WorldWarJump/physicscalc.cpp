@@ -47,7 +47,7 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    if (worldObject->parentView->getGameWorldSize() <  worldObject->y() + worldObject->rect().height()){
+    if (CollideWithTerrain(worldObject)){
         worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
     }
 
