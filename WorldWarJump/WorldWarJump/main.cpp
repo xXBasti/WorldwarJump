@@ -8,7 +8,7 @@
 #include "physicscalc.h"
 #include "gameworld.h"
 
-//#define M_PI 3.14159
+#define M_PI 3.14159
 
 int main(int argc, char *argv[])
 {
@@ -23,14 +23,20 @@ int main(int argc, char *argv[])
     GameWorld *world = new GameWorld();
 
     WorldObject * player1Unit1 = new WorldObject(world);
-    player1Unit1->setPos(150,300);
+    player1Unit1->setPos(350,350);
     world->scene->addItem(player1Unit1);
 
     w.setCentralWidget(world);
     w.show();
+
    /* PhysicsCalc* p= new PhysicsCalc();
     p->eulToPol(e1,p2,'p');
     p->polToEul(p1,e2,'p');
+
+    PhysicsCalc* p= world->scene->physicsCalulator;
+    p->eulToPol(e1,p2);
+    p->polToEul(p1,e2);
+
     qDebug() << p2[0] << p2[1];
     qDebug() << e2[0] << e2[1];*/
     return a.exec();

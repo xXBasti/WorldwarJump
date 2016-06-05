@@ -6,6 +6,9 @@
 #include "physicscalc.h"
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
+
+#define M_PI 3.14159
 
 /**
  * @brief WorldObject::move
@@ -18,11 +21,25 @@ void WorldObject::move()
 
 void WorldObject::jump()
 {
-    speed[1] = -8;
-    std::srand(std::time(0));
+    //speed[1] = -8;
+    double speedPol[2];
+    double speedEul[2];
+    speedPol[0] = 8;
+    speedPol[1] = ((orientation-90)/360)*2*M_PI;
+
+    ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
+
+    speed[0] = speedEul[0] + speed[0];
+    speed[1] = speedEul[1] + speed[1];
+
+    //Create a randm variable that gives -1 or 1
+    /*std::srand(std::time(0));
     int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-    qDebug() << random_var;
-    rotVel = random_var *15 + rotVel;
+    qDebug() << random_var;*/
+    //Introduce chance in rotation
+    //rotVel = random_var *1 + rotVel;
+    rotVel = 5 + rotVel;
+    qDebug() << "Orientation" << orientation;
 }
 
 

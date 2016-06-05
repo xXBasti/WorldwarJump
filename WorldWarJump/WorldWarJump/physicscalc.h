@@ -6,10 +6,10 @@
 #include "gameworld.h"
 
 /*
- * eul[1] =x
- * eul[2] =y
- * pol[1] =r
- * pol[2] =fi
+ * eul[0] =x
+ * eul[1] =y
+ * pol[0] =r
+ * pol[1] =phi
  */
 
 class PhysicsCalc
@@ -26,8 +26,9 @@ public:
 
     //Tomas
     void calculateNewValues(WorldObject *);
+    double vectorsAbsoluteValue(double* vector);
     // Std: gravity = 1; timeStep = 2;
-    double gravity = 0.1;
+    double gravity = 0.001;
     double timeStep = 2;
     //Tomas
 

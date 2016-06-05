@@ -7,6 +7,9 @@
 #include <typeinfo>
 #include <QDebug>
 
+#include <stdlib.h>
+#include <ctime>
+
 #define M_PI 3.14159
 
 PhysicsCalc::PhysicsCalc()
@@ -26,6 +29,11 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     angular[1] = worldObject->getRotVel();
 
     worldObject->setRotation(angular[0] + timeStep*angular[1]);
+    angular[0] = angular[0] + timeStep*angular[1];
+    if(angular[0] > 360){
+        //angular[0] = (static_cast<double>((static_cast<int>angular[0])%360));
+        angular[0] = angular[0] - 360;
+    }
     angular[1] = exp(-(timeStep/30))*angular[1];
 
     updateRotValues(worldObject, angular);
@@ -36,7 +44,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
  */
 void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 {
-    worldObject->setOrientation( angular[0]);
+    worldObject->setOrientation(angular[0]);
     worldObject->setRotVel(angular[1]);
 }
 /**
@@ -47,9 +55,19 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    if (CollideWithTerrain(worldObject)){
-        worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
-    }
+    if (CollideWithTerrain(worldObject) ){
+
+        double norm = vectorsAbsoluteValue(worldObject->getSpeed());
+        worldObject->getSpeed()[1] = 0.001*((worldObject->y()-350)/norm)*worldObject->getSpeed()[1];
+        worldObject->getSpeed()[0] = 0.001*((worldObject->x()-350)/norm)*worldObject->getSpeed()[0];
+
+        worldObject->setRotVel(-0.85*worldObject->getRotVel());
+        std::srand(std::time(0));
+        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
+        worldObject->setRotVel(random_var*5 + worldObject->getRotVel());
+        worldObject->collidedBefore = 1;
+
+    }else if(!(CollideWithTerrain(worldObject))) worldObject->collidedBefore = 0;
 
 
     if (CollideWithTerrain(worldObject) == true)  //Collision detection - WANG
@@ -87,6 +105,11 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     worldObject->setSpeed(speed);
     qDebug() << speed[0] << speed[1];
     return;
+}
+
+double PhysicsCalc::vectorsAbsoluteValue(double *vector)
+{
+    return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);
 }
 /**
  * @brief PhysicsCalc::eulToPol
