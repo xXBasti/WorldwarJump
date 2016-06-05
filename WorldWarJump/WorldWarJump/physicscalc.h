@@ -19,6 +19,13 @@ public:
     int* eulToPol(int*);
     int* PolToEul(int*);
 
+    //Can
+    void calculateNewRotValues(WorldObject * worldObject);
+    void updateRotValues(WorldObject * worldObject, double * angular);
+
+
+    //Can
+
     //Tomas
     void calculateNewValues(WorldObject *);
     // Std: gravity = 1; timeStep = 2;

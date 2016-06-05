@@ -11,6 +11,33 @@
 PhysicsCalc::PhysicsCalc()
 {
 }
+
+/**
+* @brief PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject
+* based on it's current orientation and its current angular velocity.
+* Angular array stores in the following order, the angle and angular velocity
+* @param the worldobject to be calculated
+*/
+void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
+{
+    double angular[2];
+    angular[0] = worldObject->getRotVel();
+    angular[1] = worldObject->getOrientation();
+
+    worldObject->setRotation(angular[0] + timeStep*angular[1]);
+    angular[1] = exp(-(timeStep/5))*angular[1];
+
+    updateRotValues(worldObject, angular);
+}
+/**
+ * @brief PhysicsCalc::updateRotValues sets the objects new orientation and new angular velocity
+ * @param the Worldobject to be updated
+ */
+void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
+{
+    worldObject->setOrientation( angular[0]);
+    worldObject->setRotVel(angular[1]);
+}
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject
 * based on it's current position and its current speed.
