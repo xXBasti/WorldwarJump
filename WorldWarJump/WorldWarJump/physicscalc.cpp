@@ -21,11 +21,11 @@ PhysicsCalc::PhysicsCalc()
 void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
 {
     double angular[2];
-    angular[0] = worldObject->getRotVel();
-    angular[1] = worldObject->getOrientation();
+    angular[0] = worldObject->getOrientation();
+    angular[1] = worldObject->getRotVel();
 
     worldObject->setRotation(angular[0] + timeStep*angular[1]);
-    angular[1] = exp(-(timeStep/5))*angular[1];
+    angular[1] = exp(-(timeStep/30))*angular[1];
 
     updateRotValues(worldObject, angular);
 }

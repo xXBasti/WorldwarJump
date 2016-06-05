@@ -22,7 +22,7 @@ void WorldObject::jump()
     std::srand(std::time(0));
     int random_var = static_cast<int>(((rand()%2) -0.5)*2);
     qDebug() << random_var;
-    rotVel = random_var *55;
+    rotVel = random_var *15 + rotVel;
 }
 
 WorldObject::WorldObject(GameWorld * parentView) {

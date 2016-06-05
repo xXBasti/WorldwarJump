@@ -10,6 +10,8 @@ public:
 
         GameplayInterface();
         PhysicsCalc * physicsCalulator;
+
+
 };
 
 #endif // GAMEPLAYINTERFACE_H
