@@ -30,6 +30,7 @@ WorldObject::WorldObject(GameWorld * parentView) {
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
+<<<<<<< HEAD
 double * WorldObject::getSpeed(){
     return speed;
 }
@@ -43,3 +44,28 @@ void WorldObject::setSpeed(double *newSpeed){
     speed[0] = newSpeed[0];
     speed[1] = newSpeed[1];
 }
+=======
+
+//For Orientation
+void WorldObject::setOrientation(double newOrientation)
+{
+    this->orientation = newOrientation;
+
+}
+
+double WorldObject::getOrientation() const
+{
+    return(orientation);
+}
+
+void WorldObject::setRotVel(double newRotVel)
+{
+    this->rotVel = newRotVel;
+}
+
+double WorldObject::getRotVel() const
+{
+    return(rotVel);
+}
+//For Orientation
+>>>>>>> dev_Can
