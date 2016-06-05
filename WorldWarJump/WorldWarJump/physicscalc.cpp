@@ -7,6 +7,9 @@
 #include <typeinfo>
 #include <QDebug>
 
+#include <stdlib.h>
+#include <ctime>
+
 #define M_PI 3.14159
 
 PhysicsCalc::PhysicsCalc()
@@ -56,7 +59,12 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
 
         worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
         worldObject->getSpeed()[0] = -0.85*worldObject->getSpeed()[0];
+
+        std::srand(std::time(0));
+        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
+        worldObject->setRotVel(random_var*5 + worldObject->getRotVel());
         worldObject->collidedBefore = 1;
+
     }else if(!(CollideWithTerrain(worldObject))) worldObject->collidedBefore = 0;
 
 
