@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     gameworld.cpp \
     worldobject.cpp \
     physicscalc.cpp \
-    terrain.cpp
+    terrain.cpp \
+    gamemenu.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     gameworld.h \
     worldobject.h \
     physicscalc.h \
-    terrain.h
+    terrain.h \
+    gamemenu.h
 
 
 FORMS    += mainwindow.ui
