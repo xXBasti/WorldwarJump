@@ -18,3 +18,27 @@ WorldObject::WorldObject(Input* passInput)
     this->input = passInput;
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
+
+
+//For Orientation
+void WorldObject::setOrientation(double newOrientation)
+{
+    this->orientation = newOrientation;
+
+}
+
+double WorldObject::getOrientation() const
+{
+    return(orientation);
+}
+
+void WorldObject::setRotVel(double newRotVel)
+{
+    this->rotVel = newRotVel;
+}
+
+double WorldObject::getRotVel() const
+{
+    return(rotVel);
+}
+//For Orientation
