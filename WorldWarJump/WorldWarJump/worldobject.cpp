@@ -24,7 +24,7 @@ void WorldObject::jump()
     //speed[1] = -8;
     double speedPol[2];
     double speedEul[2];
-    speedPol[0] = 8;
+    speedPol[0] = 15;
     speedPol[1] = ((orientation-90)/360)*2*M_PI;
 
     ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul);
@@ -68,6 +68,12 @@ void WorldObject::getNewValuesFromPhysicsCalc()
 void WorldObject::setSpeed(double *newSpeed){
     speed[0] = newSpeed[0];
     speed[1] = newSpeed[1];
+}
+
+void WorldObject::getPosition(double *outputPointer)
+{
+    outputPointer[0] = x();
+    outputPointer[1] = y();
 }
 
 

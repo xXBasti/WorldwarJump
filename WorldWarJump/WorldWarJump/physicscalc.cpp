@@ -55,38 +55,71 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    if (CollideWithTerrain(worldObject) && !(worldObject->collidedBefore)){
+    if (CollideWithTerrain(worldObject)){
 
-        worldObject->getSpeed()[1] = -0.85*worldObject->getSpeed()[1];
-        worldObject->getSpeed()[0] = -0.85*worldObject->getSpeed()[0];
-
-        std::srand(std::time(0));
-        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-        worldObject->setRotVel(random_var*5 + worldObject->getRotVel());
-        worldObject->collidedBefore = 1;
-
-    }else if(!(CollideWithTerrain(worldObject))) worldObject->collidedBefore = 0;
-
-
-    if (CollideWithTerrain(worldObject) == true)  //Collision detection - WANG
-    {
-        //worldObject->setPos(worldObject->x(),worldObject->y());
-        //worldObject->setSpeed(0);
         qDebug()<<"Collision!";
+        double * eulSpeed = worldObject->getSpeed();
 
+        double eulPosition [2];
+        worldObject->getPosition(eulPosition);
+        double radialSpeed [2];
+
+        velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
+        radialSpeed[0] = -(0.85*sqrt(radialSpeed[0]*radialSpeed[0])+abs(0.15*radialSpeed[1]));
+        radialSpeed[1] = 0.85*radialSpeed[1];
+        worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
+
+        velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
+        worldObject->setSpeed(eulSpeed);
+
+
+//        std::srand(std::time(0));
+//        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
+//        worldObject->setRotVel(random_var*5 + worldObject->getRotVel());
     }
-
     //THIS SHIT SUCKS.
 
-
     double * speed = worldObject->getSpeed();
-    double xPos = worldObject->x();
-    double yPos = worldObject->y();
-    worldObject->setPos(xPos+timeStep*speed[0],
-                        yPos+timeStep*speed[1]);
-    speed[1] = speed[1]+gravity;
+    double posCoordinates [2];
+    posCoordinates[0] = worldObject->x();
+    posCoordinates[1] = worldObject->y();
+    worldObject->setPos(posCoordinates[0]+timeStep*speed[0],
+                        posCoordinates[1]+timeStep*speed[1]);
+    speed[0] = speed[0]+gravity*(posCoordinates[0]-325 )/norm(posCoordinates); //GameWorldSize && GameUnitSize
+    speed[1] = speed[1]+gravity*(posCoordinates[1]-300 )/norm(posCoordinates);
     worldObject->setSpeed(speed);
     return;
+}
+
+double PhysicsCalc::norm(double *vector)
+{
+    return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);
+}
+
+/**
+ * @brief PhysicsCalc::velocityEulerToRadialCoordinates
+ * @param eulInputPosition objects position
+ * @param eulInputVelocity objects velocity
+ * @param radialOutput first direction is radial, second directions is tangential
+ * @param eulerToRadial true if transforming from euler to radial, or false if transforming from radial to euler
+ */
+void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)
+{
+    double lVector [2];
+    lVector[0] = eulInputPosition[0]-350 + (50/2); //GameWorldSize && GameUnitSize
+    lVector[1] = 350 - (100/2) - eulInputPosition[1];
+    double vecLength = norm(lVector);
+    double v_x = inputVelVector[0];
+    double v_y = inputVelVector[1];
+    if (eulerToRadial){
+        outputVelVector[0] = (v_x*lVector[0] - v_y*lVector[1])/vecLength;
+        outputVelVector[1] = (v_x*lVector[1] + v_y*lVector[0])/vecLength;
+        return;
+    } else {
+        outputVelVector[0] = (v_x*lVector[0] + v_y*lVector[1])/vecLength;
+        outputVelVector[1] = (-v_x*lVector[1] + v_y*lVector[0])/vecLength;
+    }
+
 }
 /**
  * @brief PhysicsCalc::eulToPol
