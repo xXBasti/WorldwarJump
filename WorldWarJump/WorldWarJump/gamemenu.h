@@ -4,20 +4,31 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QPixmap>
+#include <QInputEvent>
 
 class GameMenu : public QGraphicsView
 {
+    Q_OBJECT
 public:
     GameMenu();
 
     QGraphicsScene *scene;
     QGraphicsPixmapItem *menubackground;
 
+    QGraphicsPixmapItem *startButton;
+    QGraphicsPixmapItem *settingsButton;
+    QGraphicsPixmapItem *exitButton;
+
+
     int getGameMenuSize() const;
     void setGameMenuSize(int value);
+    void mousePressEvent(QMouseEvent *event);
 
 private:
     int GameMenuSize;
+
+
 
 };
 

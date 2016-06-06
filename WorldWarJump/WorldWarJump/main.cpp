@@ -7,6 +7,7 @@
 #include "worldobject.h"
 #include "physicscalc.h"
 #include "gameworld.h"
+#include "gamemenu.h"
 
 #define M_PI 3.14159
 
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
     MainWindow w;
 
     GameWorld *world = new GameWorld();
+    GameMenu *menu = new GameMenu();
 
     WorldObject * player1Unit1 = new WorldObject(world);
     player1Unit1->setPos(150,300);
