@@ -26,20 +26,26 @@ public:
 
     //Tomas
     void calculateNewValues(WorldObject *);
+
     double vectorsAbsoluteValue(double* vector);
+
+    double norm(double * vector);
+
     // Std: gravity = 1; timeStep = 2;
     double gravity = 0.001;
     double timeStep = 2;
+    void velocityEulerToRadialCoordinates(double * eulInputPosition, double * inputVelVector, double * outputVelVector, bool eulerToRadial);
     //Tomas
 
     //Basti
     void eulToPol(double * eul, double* pol,char type);
     void polToEul(double * pol, double* eul,char type);
+    void radialCollison(double colPosEul[2],double colSpeedRT[2]);
     //Basti
 
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
     bool CollideWithTerrain(WorldObject* object);
-    void radialCollison(double colPosEul[2],double colSpeedRT[2]);
+
 };
 
 #endif // PHYSICSCLAC_H

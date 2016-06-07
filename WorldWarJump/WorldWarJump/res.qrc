@@ -2,5 +2,6 @@
     <qresource prefix="/images">
         <file>terrain.png</file>
         <file>menubackground.png</file>
+        <file>startbutton.png</file>
     </qresource>
 </RCC>

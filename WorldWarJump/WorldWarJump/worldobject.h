@@ -15,6 +15,7 @@ class WorldObject : public QObject, public QGraphicsRectItem {
 
         WorldObject(GameWorld *parentView);
         void setSpeed(double* newSpeed);
+        void getPosition(double * outputPointer);
         double* getSpeed();
         GameWorld * parentView;
 
