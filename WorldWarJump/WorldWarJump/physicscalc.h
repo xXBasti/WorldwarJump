@@ -39,6 +39,7 @@ public:
 
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
     bool CollideWithTerrain(WorldObject* object);
+    void radialCollison(double colPosEul[2],double colSpeedRT[2]);
 };
 
 #endif // PHYSICSCLAC_H

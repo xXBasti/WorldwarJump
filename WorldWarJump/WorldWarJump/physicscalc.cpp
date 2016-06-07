@@ -55,11 +55,24 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-    if (CollideWithTerrain(worldObject) ){
+    if (CollideWithTerrain(worldObject) /*&& worldObject->collidedBefore==0*/){
 
+        double colSpeed[2]={0};
+        colSpeed[0]=worldObject->getSpeed()[0];
+        colSpeed[1]=worldObject->getSpeed()[1];
+        double colPosEul[2]={0};
+        colPosEul[0]=worldObject->x();
+        colPosEul[1]=worldObject->x();
+        this->radialCollison(colPosEul,colSpeed);
+        qDebug() << colSpeed[0] << colSpeed[1];
+        worldObject->getSpeed()[0]=colSpeed[0];
+        worldObject->getSpeed()[1]=colSpeed[1];
+
+        /* alt:
         double norm = vectorsAbsoluteValue(worldObject->getSpeed());
         worldObject->getSpeed()[1] = 0.001*((worldObject->y()-350)/norm)*worldObject->getSpeed()[1];
         worldObject->getSpeed()[0] = 0.001*((worldObject->x()-350)/norm)*worldObject->getSpeed()[0];
+        */
 
         worldObject->setRotVel(-0.85*worldObject->getRotVel());
         std::srand(std::time(0));
@@ -87,16 +100,18 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     double polSpeed[2]= {0};
 
     double polPos[2]= {0};
-   /* this->eulToPol(eulPos,polPos,'p');
+   /*
     this->eulToPol(speed,polSpeed,'v');
     qDebug() << polSpeed[0] << polSpeed[1];
     polSpeed[0]=polSpeed[0]+gravity;
     this->polToEul(polSpeed,speed,'v');
      */
+
     eulPos[0] = worldObject->x();
     eulPos[1] = worldObject->y();
-    speed[0]=speed[0]+((eulPos[0]-350)/350);
-    speed[1]=speed[1]+((eulPos[1]-350)/350);
+    this->eulToPol(eulPos,polPos,'p');
+    speed[0]=speed[0]+((eulPos[0]-350)/350);  // plus halb länge, weil das Koordinatensystem des Körpers oben links ist.
+    speed[1]=speed[1]+((eulPos[1]-350)/350);  // plus halbe länge, weil das Koordinatensystem " " ".. bzw. -(350-länge/2))
     worldObject->setPos(eulPos[0]+timeStep*speed[0],
                         eulPos[1]+timeStep*speed[1]);
     qDebug() <<"\n\n";
@@ -104,6 +119,7 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     //speed[0]=speed[0]+gravity*polPos[1];
     worldObject->setSpeed(speed);
     qDebug() << speed[0] << speed[1];
+    qDebug() <<"Winkel" << polPos[1];
     return;
 }
 
@@ -123,12 +139,15 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
     switch(type){
     case 'p':
         e1=eul[0]-350; //350 später gamesize/2
-        e2=eul[1]-350; // damit polar kosi in der Mitte des Bildschirms ist.
+        e2=(eul[1]-350); // damit polar kosi in der Mitte des Bildschirms ist.
         break;
     case 'v':
         e1=eul[0];
-        e2=eul[1];
+        e2=(eul[1]);
         break;
+    case 'b':
+        e1=eul[0]-350;
+        e2=-(eul[1]-350);
     default:
         e1=eul[0];
         e2=eul[1];
@@ -142,11 +161,11 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
             pol[1]=atan(e2/e1);
         }
         if(eul[1]<0){
-            pol[1]=atan(e2/e1+2*M_PI);
+            pol[1]=atan(e2/e1)+2*M_PI;
         }
     }
     if(e1<0){
-        pol[1]=atan(e2/e1+M_PI);
+        pol[1]=atan(e2/e1)+M_PI;
     }
     if(e1==0){
         if(e2>0){
@@ -170,19 +189,17 @@ void PhysicsCalc::polToEul(double * pol, double* eul,char type){
     switch(type){
     case 'p':
         eul[0]=round(pol[0]*cos(pol[1])*100)/100+350;
-        eul[1]=round(pol[0]*sin(pol[1])*100)/100+350;
+        eul[1]=(round(pol[0]*sin(pol[1])*100)/100+350);
         break;
     case 'v':
         eul[0]=round(pol[0]*cos(pol[1])*100)/100;
-        eul[1]=round(pol[0]*sin(pol[1])*100)/100;
+        eul[1]=(round(pol[0]*sin(pol[1])*100)/100);
         break;
     default:
         eul[0]=round(pol[0]*cos(pol[1])*100)/100;
         eul[1]=round(pol[0]*sin(pol[1])*100)/100;
         break;
     }
-
-
 }
 
 bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
@@ -197,4 +214,67 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
     }
     return false;
 
+}
+
+
+void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
+    double colPosPol[2]={0};
+    colPosEul[0]=colPosEul[0]+25;
+    colPosEul[1]=colPosEul[1]+50;
+    double colSpeedRT[2]={0};
+    this->eulToPol(colPosEul,colPosPol,'p');
+    double fi=colPosPol[1];
+    qDebug() << fi;
+    if (fi<=(M_PI/2)){
+        colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
+    }
+    if (fi<=(M_PI) && fi>(M_PI/2)){
+        colSpeedRT[0]=abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
+    }
+    if (fi<=(M_PI*1.5) && fi>M_PI){
+        colSpeedRT[0]=abs(colSpeed[0]*sin(fi))-abs(colSpeed[1]*cos(fi));
+    }
+    if (fi<=(2*M_PI) && fi>(M_PI*1.5)){
+        colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))-abs(colSpeed[1]*cos(fi));
+    }
+    colSpeedRT[1]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
+
+    qDebug() << colSpeedRT[0] << colSpeedRT[1];
+    colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
+    colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
+    qDebug() << colSpeed[0] << colSpeed[1];
+    /*
+    if(colPosPol[1]<=90){
+        fi=colPosPol[1];
+        colSpeedRT[0]=colSpeed[0]*cos(fi)+colSpeed[1]*sin(fi);
+        colSpeedRT[1]=-colSpeed[0]*sin(fi)+colSpeed[1]*cos(fi);
+        colSpeedRT[0]=colSpeedRT[0]*(-1);
+        colSpeed[0]=(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
+        colSpeed[1]=(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
+    }
+    if(colPosPol[1]<=180 && colPosPol[1]>90){
+        fi=colPosPol[1]-M_PI*0.5;
+        colSpeedRT[0]=-colSpeed[0]*cos(fi)+colSpeed[1]*sin(fi);
+        colSpeedRT[1]=-colSpeed[0]*sin(fi)-colSpeed[1]*cos(fi);
+        colSpeedRT[0]=colSpeedRT[0]*(-1);
+        colSpeed[0]=-(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
+        colSpeed[1]=(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
+    }
+    if(colPosPol[1]<=270 && colPosPol[1]>180){
+        fi=colPosPol[1]-M_PI;
+        colSpeedRT[0]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
+        colSpeedRT[1]=+colSpeed[0]*sin(fi)-colSpeed[1]*cos(fi);
+        colSpeedRT[0]=colSpeedRT[0]*(-1);
+        colSpeed[0]=-(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
+        colSpeed[1]=-(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
+    }
+    if(colPosPol[1]<360 && colPosPol[1]>270){
+        fi=colPosPol[1]-M_PI*1.5;
+        colSpeedRT[0]=colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
+        colSpeedRT[1]=colSpeed[0]*sin(fi)+colSpeed[1]*cos(fi);
+        colSpeedRT[0]=colSpeedRT[0]*(-1);
+        colSpeed[0]=(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
+        colSpeed[1]=-(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
+    }
+    */
 }
