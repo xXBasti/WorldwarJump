@@ -30,9 +30,9 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
 
     worldObject->setRotation(angular[0] + timeStep*angular[1]);
     angular[0] = angular[0] + timeStep*angular[1];
-    if(angular[0] > 360){
-        //angular[0] = (static_cast<double>((static_cast<int>angular[0])%360));
-        angular[0] = angular[0] - 360;
+    if(angular[0] > 360 || angular[0] < -360){
+        angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
+        //angular[0] = angular[0] - 360;
     }
     angular[1] = exp(-(timeStep/30))*angular[1];
 
@@ -46,6 +46,38 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 {
     worldObject->setOrientation(angular[0]);
     worldObject->setRotVel(angular[1]);
+}
+/**
+ * @brief PhysicsCalc::gravityVector gives the gravity vector
+ * effecting an objects center of mass at a certain time.
+ * First element gives the x and the second gives the y coordinate.
+ * @param worldObject
+ */
+void PhysicsCalc::gravityVector(WorldObject *worldObject, double *gravityVector)
+{
+    gravityVector[0] = worldObject->sceneBoundingRect().center().x();
+    gravityVector[1] = worldObject->sceneBoundingRect().center().y();
+}
+
+void PhysicsCalc::getTopRight(WorldObject *worldObject, double * topRight)
+{
+}
+
+void PhysicsCalc::getTopLeft(WorldObject *worldObject, double topLeft)
+{
+}
+
+void PhysicsCalc::getBottomRight(WorldObject *worldObject, double *bottomRight)
+{
+
+    bottomRight[0] = worldObject->sceneBoundingRect().bottomRight().x();
+    bottomRight[1] = worldObject->sceneBoundingRect().bottomRight().y();
+}
+
+void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
+{
+    bottomLeft[0] = worldObject->sceneBoundingRect().bottomLeft().x();
+    bottomLeft[1] = worldObject->sceneBoundingRect().bottomLeft().y();
 }
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject

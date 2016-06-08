@@ -42,7 +42,13 @@ void WorldObject::jump()
     //rotVel = random_var *1 + rotVel;
     rotVel = 5 + rotVel;
     qDebug() << "Orientation" << orientation;
-}
+    qDebug() << "bottom left: " << this->boundingRect().bottomLeft();
+    qDebug() << "bottom right: " << this->boundingRect().bottomRight();
+    qDebug() << "Top left: " << this->scenePos();
+    qDebug() << "Top left: " << this->boundingRect().topLeft();
+    qDebug() << "Top right: " << this->boundingRect().topRight();
+
+ }
 
 
 WorldObject::WorldObject(GameWorld * parentView) {
@@ -50,12 +56,9 @@ WorldObject::WorldObject(GameWorld * parentView) {
     this->parentView = parentView;
     setPixmap(QPixmap(":/images/worldobject.png"));
     setTransformOriginPoint(12, 25);
+    //Apparently is more efficient for calculations:
+    this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
-    connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
-    connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
-    connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(jump()));
-    connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(jump()));
-    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));//Better use world timer, do we need input timer at all?
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
