@@ -55,8 +55,11 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
  */
 void PhysicsCalc::gravityVector(WorldObject *worldObject, double *gravityVector)
 {
-    gravityVector[0] = worldObject->sceneBoundingRect().center().x();
-    gravityVector[1] = worldObject->sceneBoundingRect().center().y();
+    double x = worldObject->getCenterOfMass()[0];
+    double y = worldObject->getCenterOfMass()[1];
+    QPointF point(x,y);
+    gravityVector[0] = 350 - worldObject->sceneTransform().map(point).x();
+    gravityVector[1] = 350 - worldObject->sceneTransform().map(point).y();
 }
 
 void PhysicsCalc::getTopRight(WorldObject *worldObject, double * topRight)

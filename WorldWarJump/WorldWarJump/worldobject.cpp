@@ -42,11 +42,11 @@ void WorldObject::jump()
     //rotVel = random_var *1 + rotVel;
     rotVel = 5 + rotVel;
     qDebug() << "Orientation" << orientation;
-    qDebug() << "bottom left: " << this->boundingRect().bottomLeft();
-    qDebug() << "bottom right: " << this->boundingRect().bottomRight();
+    qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
+    qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
     qDebug() << "Top left: " << this->scenePos();
-    qDebug() << "Top left: " << this->boundingRect().topLeft();
-    qDebug() << "Top right: " << this->boundingRect().topRight();
+    qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
+    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());
 
  }
 
@@ -55,7 +55,7 @@ WorldObject::WorldObject(GameWorld * parentView) {
 
     this->parentView = parentView;
     setPixmap(QPixmap(":/images/worldobject.png"));
-    setTransformOriginPoint(12, 25);
+    setTransformOriginPoint(centerOfMass[0], centerOfMass[1]);
     //Apparently is more efficient for calculations:
     this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
@@ -107,3 +107,15 @@ double WorldObject::getRotVel() const
     return(rotVel);
 }
 //For Orientation
+
+void WorldObject::setCenterOfMass(double *newCenterOfMass)
+{
+    centerOfMass[0] = newCenterOfMass[0];
+    centerOfMass[1] = newCenterOfMass[1];
+}
+
+double *WorldObject::getCenterOfMass()
+{
+    return centerOfMass;
+}
+
