@@ -4,8 +4,8 @@
 BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView)
 {
     this->parentView = parentView;
-    setRect(0,0,50,100);
-    setTransformOriginPoint(rect().width()/2, rect().height()/2);
+    //setRect(0,0,50,100);
+    //setTransformOriginPoint(rect().width()/2, rect().height()/2);
     switch(p){
         case player1:
             connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));

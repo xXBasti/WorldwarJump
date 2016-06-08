@@ -46,15 +46,17 @@ void WorldObject::jump()
 
 
 WorldObject::WorldObject(GameWorld * parentView) {
-   /* this->parentView = parentView;
-    setRect(0,0,50,100);
-    setTransformOriginPoint(rect().width()/2, rect().height()/2);
+
+    this->parentView = parentView;
+    setPixmap(QPixmap(":/images/worldobject.png"));
+    setTransformOriginPoint(12, 25);
+
     connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(jump()));
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));//Better use world timer, do we need input timer at all?
-    setFlag(QGraphicsItem::ItemIsFocusable); */
+    setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
 

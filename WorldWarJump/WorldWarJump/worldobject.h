@@ -2,14 +2,15 @@
 #define WORLDOBJECT_H
 
 #include <QObject>
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include "input.h"
 #include "gameworld.h"
 
 
+
 enum projectileType {missile, balistic, ray, scrap};
 
-class WorldObject : public QObject, public QGraphicsRectItem {
+class WorldObject : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 
 

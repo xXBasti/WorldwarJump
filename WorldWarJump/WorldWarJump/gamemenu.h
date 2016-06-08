@@ -14,6 +14,7 @@ public:
     GameMenu();
 
     QGraphicsScene *startScene;
+    QGraphicsScene *beforeGameScene;
     QGraphicsPixmapItem *menubackground;
 
     QGraphicsPixmapItem *startButton;
