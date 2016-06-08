@@ -1,4 +1,5 @@
 #include "gamemenu.h"
+#include "worldobject.h"
 #include "gameworld.h"
 
 #include <QGraphicsItem>
@@ -10,7 +11,7 @@ GameMenu::GameMenu()
 {
     setGameMenuSize(700);
 
-    scene = new QGraphicsScene;
+    startScene = new QGraphicsScene;
     menubackground = new QGraphicsPixmapItem;
     menubackground->setPixmap(QPixmap(":/images/menubackground.png"));
 
@@ -20,13 +21,13 @@ GameMenu::GameMenu()
     settingsButton = new QGraphicsPixmapItem;
     exitButton = new QGraphicsPixmapItem;
 
-    scene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
-    setScene(scene);
+    startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
+    setScene(startScene);
     setFixedSize(700,700);
 
 
-    scene->addItem(menubackground);
-    scene->addItem(startButton);
+    startScene->addItem(menubackground);
+    startScene->addItem(startButton);
 
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

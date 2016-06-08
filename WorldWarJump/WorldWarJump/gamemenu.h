@@ -13,7 +13,7 @@ class GameMenu : public QGraphicsView
 public:
     GameMenu();
 
-    QGraphicsScene *scene;
+    QGraphicsScene *startScene;
     QGraphicsPixmapItem *menubackground;
 
     QGraphicsPixmapItem *startButton;
