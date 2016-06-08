@@ -6,7 +6,7 @@
 #include "input.h"
 #include "gameworld.h"
 
-enum Player {player1, player2};
+
 enum projectileType {missile, balistic, ray, scrap};
 
 class WorldObject : public QObject, public QGraphicsRectItem {

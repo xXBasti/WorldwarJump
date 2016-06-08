@@ -5,9 +5,12 @@
 class BattleUnit :public WorldObject
 {
 public:
-    BattleUnit();
+    BattleUnit(GameWorld * parentView,Player p);
     void shoot();
+    double getFiredirection();
+    void setFiredirection(double direction);
 private:
+    double firedirection;
 
 };
 
