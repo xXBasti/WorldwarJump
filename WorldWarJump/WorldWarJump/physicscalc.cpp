@@ -64,23 +64,27 @@ void PhysicsCalc::gravityVector(WorldObject *worldObject, double *gravityVector)
 
 void PhysicsCalc::getTopRight(WorldObject *worldObject, double * topRight)
 {
+    topRight[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().topRight())).x();
+    topRight[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().topRight())).y();
 }
 
-void PhysicsCalc::getTopLeft(WorldObject *worldObject, double topLeft)
+void PhysicsCalc::getTopLeft(WorldObject *worldObject, double *topLeft)
 {
+    topLeft[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().topLeft())).x();
+    topLeft[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().topLeft())).y();
 }
 
 void PhysicsCalc::getBottomRight(WorldObject *worldObject, double *bottomRight)
 {
 
-    bottomRight[0] = worldObject->sceneBoundingRect().bottomRight().x();
-    bottomRight[1] = worldObject->sceneBoundingRect().bottomRight().y();
+    bottomRight[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomRight())).x();
+    bottomRight[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomRight())).y();
 }
 
 void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
 {
-    bottomLeft[0] = worldObject->sceneBoundingRect().bottomLeft().x();
-    bottomLeft[1] = worldObject->sceneBoundingRect().bottomLeft().y();
+    bottomLeft[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
+    bottomLeft[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
 }
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject

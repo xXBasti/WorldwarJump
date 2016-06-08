@@ -18,7 +18,7 @@ public:
     void gravityVector(WorldObject * worldObject, double * gravityVector);
     //Bounding rectangle coordinates
     void getTopRight(WorldObject * worldObject, double * topRight);
-    void getTopLeft(WorldObject * worldObject, double topLeft);
+    void getTopLeft(WorldObject * worldObject, double *topLeft);
     void getBottomRight(WorldObject * worldObject, double * bottomRight);
     void getBottomLeft(WorldObject * worldObject, double *bottomLeft);
 
