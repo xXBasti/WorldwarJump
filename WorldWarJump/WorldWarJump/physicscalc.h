@@ -32,7 +32,7 @@ public:
     double norm(double * vector);
 
     // Std: gravity = 1; timeStep = 2;
-    double gravity = 0.001;
+    double gravity = 1;
     double timeStep = 2;
     void velocityEulerToRadialCoordinates(double * eulInputPosition, double * inputVelVector, double * outputVelVector, bool eulerToRadial);
     //Tomas
