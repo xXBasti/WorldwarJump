@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     worldobject.cpp \
     physicscalc.cpp \
     terrain.cpp \
-    gamemenu.cpp
+    gamemenu.cpp \
+    projectile.cpp \
+    battleunit.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
@@ -29,7 +31,9 @@ HEADERS  += mainwindow.h \
     worldobject.h \
     physicscalc.h \
     terrain.h \
-    gamemenu.h
+    gamemenu.h \
+    projectile.h \
+    battleunit.h
 
 
 FORMS    += mainwindow.ui

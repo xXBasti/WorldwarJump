@@ -6,6 +6,9 @@
 #include "input.h"
 #include "gameworld.h"
 
+enum Player {player1, player2};
+enum projectileType {missile, balistic, ray, scrap};
+
 class WorldObject : public QObject, public QGraphicsRectItem {
     Q_OBJECT
 
@@ -41,6 +44,7 @@ class WorldObject : public QObject, public QGraphicsRectItem {
         double rotVel;
         //For orientation
 
+        int healthpoints;
     public slots:
 
         void move();
