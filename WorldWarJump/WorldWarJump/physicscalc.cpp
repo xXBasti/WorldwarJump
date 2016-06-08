@@ -55,103 +55,49 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
-/*
-    if (CollideWithTerrain(worldObject) /&& worldObject->collidedBefore==0/){
-
-        double colSpeed[2]={0};
-        colSpeed[0]=worldObject->getSpeed()[0];
-        colSpeed[1]=worldObject->getSpeed()[1];
-        double colPosEul[2]={0};
-        colPosEul[0]=worldObject->x();
-        colPosEul[1]=worldObject->x();
-        this->radialCollison(colPosEul,colSpeed);
-        qDebug() << colSpeed[0] << colSpeed[1];
-        worldObject->getSpeed()[0]=colSpeed[0];
-        worldObject->getSpeed()[1]=colSpeed[1];
-
-         alt:
-        double norm = vectorsAbsoluteValue(worldObject->getSpeed());
-        worldObject->getSpeed()[1] = 0.001*((worldObject->y()-350)/norm)*worldObject->getSpeed()[1];
-        worldObject->getSpeed()[0] = 0.001*((worldObject->x()-350)/norm)*worldObject->getSpeed()[0];
-
-
-        worldObject->setRotVel(-0.85*worldObject->getRotVel());
-        std::srand(std::time(0));
-        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-        worldObject->setRotVel(random_var*5 + worldObject->getRotVel());
-        worldObject->collidedBefore = 1;
- */
     if (CollideWithTerrain(worldObject)){
 
         qDebug()<<"Collision!";
         double * eulSpeed = worldObject->getSpeed();
-
         double eulPosition [2];
         worldObject->getPosition(eulPosition);
         double radialSpeed [2];
+        // radialSpeed[0] := radial speed
+        // radialSpeed[1] := tangential speed
 
-
+        // transform from eulSpeed to radialSpeed
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
+        // radial speed points to the center at collision
         radialSpeed[0] = -(0.85*sqrt(radialSpeed[0]*radialSpeed[0])+abs(0.15*radialSpeed[1]));
+        // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
+        // increase rotation at collision
         worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
+        // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
         worldObject->setSpeed(eulSpeed);
 
-
-//        std::srand(std::time(0));
-//        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-//        worldObject->setRotVel(random_var*5 + worldObject->getRotVel());
     }
-    //THIS SHIT SUCKS.
-
+    // get object's speed and position
     double * speed = worldObject->getSpeed();
-
-  /*qDebug() << speed[0] << speed[1];
-    double eulPos[2]= {0};
-    double polSpeed[2]= {0};
-
-    double polPos[2]= {0};
-
-    this->eulToPol(speed,polSpeed,'v');
-    qDebug() << polSpeed[0] << polSpeed[1];
-    polSpeed[0]=polSpeed[0]+gravity;
-    this->polToEul(polSpeed,speed,'v');
-
-
-    eulPos[0] = worldObject->x();
-    eulPos[1] = worldObject->y();
-    this->eulToPol(eulPos,polPos,'p');
-    speed[0]=speed[0]+((eulPos[0]-350)/350);  // plus halb länge, weil das Koordinatensystem des Körpers oben links ist.
-    speed[1]=speed[1]+((eulPos[1]-350)/350);  // plus halbe länge, weil das Koordinatensystem " " ".. bzw. -(350-länge/2))
-    worldObject->setPos(eulPos[0]+timeStep*speed[0],
-                        eulPos[1]+timeStep*speed[1]);
-    qDebug() <<"\n\n";
-    //speed[1] = speed[1]+gravity;
-    //speed[0]=speed[0]+gravity*polPos[1];
-    alt ?*/
-
     double posCoordinates [2];
     posCoordinates[0] = worldObject->x();
     posCoordinates[1] = worldObject->y();
+
+    // Euler
     worldObject->setPos(posCoordinates[0]+timeStep*speed[0],
                         posCoordinates[1]+timeStep*speed[1]);
-    speed[0] = speed[0]+gravity*(posCoordinates[0]-325 )/norm(posCoordinates); //GameWorldSize && GameUnitSize
-    speed[1] = speed[1]+gravity*(posCoordinates[1]-300 )/norm(posCoordinates);
+    speed[0] = speed[0]+gravity*(posCoordinates[0]-325 )/vectorsAbsoluteValue(posCoordinates); //GameWorldSize && GameUnitSize
+    speed[1] = speed[1]+gravity*(posCoordinates[1]-300 )/vectorsAbsoluteValue(posCoordinates);
 
+    // set new speed values
     worldObject->setSpeed(speed);
-
     return;
 }
 
 
 double PhysicsCalc::vectorsAbsoluteValue(double *vector)
-{
-    return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);
-}
-
-double PhysicsCalc::norm(double *vector)
 {
     return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);
 }
@@ -168,7 +114,7 @@ void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, dou
     double lVector [2];
     lVector[0] = eulInputPosition[0]-350 + (50/2); //GameWorldSize && GameUnitSize
     lVector[1] = 350 - (100/2) - eulInputPosition[1];
-    double vecLength = norm(lVector);
+    double vecLength = vectorsAbsoluteValue(lVector);
     double v_x = inputVelVector[0];
     double v_y = inputVelVector[1];
     if (eulerToRadial){
@@ -298,38 +244,4 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
     colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
     qDebug() << colSpeed[0] << colSpeed[1];
-    /*
-    if(colPosPol[1]<=90){
-        fi=colPosPol[1];
-        colSpeedRT[0]=colSpeed[0]*cos(fi)+colSpeed[1]*sin(fi);
-        colSpeedRT[1]=-colSpeed[0]*sin(fi)+colSpeed[1]*cos(fi);
-        colSpeedRT[0]=colSpeedRT[0]*(-1);
-        colSpeed[0]=(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
-        colSpeed[1]=(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
-    }
-    if(colPosPol[1]<=180 && colPosPol[1]>90){
-        fi=colPosPol[1]-M_PI*0.5;
-        colSpeedRT[0]=-colSpeed[0]*cos(fi)+colSpeed[1]*sin(fi);
-        colSpeedRT[1]=-colSpeed[0]*sin(fi)-colSpeed[1]*cos(fi);
-        colSpeedRT[0]=colSpeedRT[0]*(-1);
-        colSpeed[0]=-(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
-        colSpeed[1]=(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
-    }
-    if(colPosPol[1]<=270 && colPosPol[1]>180){
-        fi=colPosPol[1]-M_PI;
-        colSpeedRT[0]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
-        colSpeedRT[1]=+colSpeed[0]*sin(fi)-colSpeed[1]*cos(fi);
-        colSpeedRT[0]=colSpeedRT[0]*(-1);
-        colSpeed[0]=-(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
-        colSpeed[1]=-(colSpeedRT[0]/cos(fi))-(colSpeedRT[1]/sin(fi));
-    }
-    if(colPosPol[1]<360 && colPosPol[1]>270){
-        fi=colPosPol[1]-M_PI*1.5;
-        colSpeedRT[0]=colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
-        colSpeedRT[1]=colSpeed[0]*sin(fi)+colSpeed[1]*cos(fi);
-        colSpeedRT[0]=colSpeedRT[0]*(-1);
-        colSpeed[0]=(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
-        colSpeed[1]=-(colSpeedRT[0]/cos(fi))+(colSpeedRT[1]/sin(fi));
-    }
-    */
 }
