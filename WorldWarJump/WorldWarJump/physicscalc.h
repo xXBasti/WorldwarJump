@@ -5,13 +5,6 @@
 #include <QGraphicsItem>
 #include "gameworld.h"
 
-/*
- * eul[0] =x
- * eul[1] =y
- * pol[0] =r
- * pol[1] =phi
- */
-
 class PhysicsCalc
 {
 public:
@@ -27,9 +20,7 @@ public:
     //Tomas
     void calculateNewValues(WorldObject *);
 
-    double vectorsAbsoluteValue(double* vector);
-
-    double norm(double * vector);
+    double vectorsAbsoluteValue(double * vector);
 
     // Std: gravity = 1; timeStep = 2;
     double gravity = 1;
