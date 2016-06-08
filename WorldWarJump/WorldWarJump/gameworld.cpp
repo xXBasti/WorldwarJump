@@ -5,6 +5,7 @@
 #include "terrain.h"
 #include "worldobject.h"
 #include "physicscalc.h"
+#include "battleunit.h"
 #include <QDebug>
 
 #include <stdlib.h>
@@ -35,7 +36,7 @@ GameWorld::GameWorld()
     input->setRect(0,0,GameWorldSize,GameWorldSize);
     scene->addItem(input);
 
-    WorldObject *player1Unit1 = new WorldObject(this);
+    BattleUnit *player1Unit1 = new BattleUnit(this,player1);
     player1Unit1->setPos(350,350);
     scene->addItem(player1Unit1);
 

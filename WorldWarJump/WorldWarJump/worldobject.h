@@ -6,14 +6,11 @@
 #include "input.h"
 #include "gameworld.h"
 
-<<<<<<< HEAD
-class WorldObject : public QObject, public QGraphicsPixmapItem {
-=======
-enum Player {player1, player2};
+
+
 enum projectileType {missile, balistic, ray, scrap};
 
-class WorldObject : public QObject, public QGraphicsRectItem {
->>>>>>> 26efc100a513ee8df2af4e2c99c7de1d4d94a3ca
+class WorldObject : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 
 

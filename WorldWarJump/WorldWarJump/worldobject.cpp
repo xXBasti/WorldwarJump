@@ -46,9 +46,11 @@ void WorldObject::jump()
 
 
 WorldObject::WorldObject(GameWorld * parentView) {
+
     this->parentView = parentView;
     setPixmap(QPixmap(":/images/worldobject.png"));
     setTransformOriginPoint(12, 25);
+
     connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(jump()));
