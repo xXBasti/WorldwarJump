@@ -3,5 +3,6 @@
         <file>terrain.png</file>
         <file>menubackground.png</file>
         <file>startbutton.png</file>
+        <file>worldobject.png</file>
     </qresource>
 </RCC>

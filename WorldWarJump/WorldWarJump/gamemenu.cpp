@@ -1,11 +1,14 @@
 #include "gamemenu.h"
 #include "worldobject.h"
 #include "gameworld.h"
+#include "mainwindow.h"
 
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QDebug>
+
+#define M_PI 3.14159
 
 GameMenu::GameMenu()
 {
@@ -59,6 +62,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             //qDebug()<<"start";
             GameWorld *world = new GameWorld;
             world->show();
+            this->destroy();
+
         }
     }
 }
