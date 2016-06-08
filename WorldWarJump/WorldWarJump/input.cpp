@@ -7,7 +7,7 @@ Input::Input(){
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
     timer = new QTimer();
-    timer->start(80);
+    timer->start(20);
 }
 
 
