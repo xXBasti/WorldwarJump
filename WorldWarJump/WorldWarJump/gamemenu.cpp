@@ -1,4 +1,5 @@
 #include "gamemenu.h"
+#include "gameworld.h"
 
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
@@ -52,10 +53,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 {
     if(QGraphicsItem *item = itemAt(event->pos()))
     {
-        //if(item == startButton)
-        //{
-            qDebug()<<"Clicked on"<<item;
-        //}
+        if(item == this->startButton)
+        {
+            //qDebug()<<"start";
+            GameWorld *world = new GameWorld;
+            world->show();
+        }
     }
 }
 

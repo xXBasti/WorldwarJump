@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
     player1Unit1->setPos(350,350);
     world->scene->addItem(player1Unit1);
 
-    w.setCentralWidget(world);
+    w.setCentralWidget(menu);
     w.show();
 
     PhysicsCalc* p= new PhysicsCalc();
