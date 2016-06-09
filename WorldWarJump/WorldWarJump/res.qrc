@@ -4,5 +4,10 @@
         <file>menubackground.png</file>
         <file>startbutton.png</file>
         <file>worldobject.png</file>
+        <file>exitbutton.png</file>
+        <file>settingsbutton.png</file>
+        <file>startbattlebutton.png</file>
+        <file>terrainbackground.png</file>
+        <file>aboutbutton.png</file>
     </qresource>
 </RCC>

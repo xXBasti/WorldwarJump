@@ -16,12 +16,12 @@
 
 GameWorld::GameWorld()
 {
-    setGameWorldSize(700);
+    setGameWorldSize(800);
     scene = new GameplayInterface();
     scene->setSceneRect(0,0,GameWorldSize,GameWorldSize);
     setScene(scene);
 
-    setFixedSize(700,700);
+    setFixedSize(GameWorldSize,GameWorldSize);
 
     Terrain *terrain = new Terrain;
     scene->addItem(terrain);
@@ -37,7 +37,7 @@ GameWorld::GameWorld()
     scene->addItem(input);
 
     BattleUnit *player1Unit1 = new BattleUnit(this,player1);
-    player1Unit1->setPos(350,350);
+    player1Unit1->setPos(GameWorldSize/2,GameWorldSize/2);
     scene->addItem(player1Unit1);
 
     double e1[2]={300,300};

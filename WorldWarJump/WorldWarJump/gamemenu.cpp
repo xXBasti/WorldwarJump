@@ -19,7 +19,7 @@ GameMenu::GameMenu()
     player2UnitCount = 1;
     whichStage = 1;
 
-    setGameMenuSize(700);
+    setGameMenuSize(800);
 
     startScene = new QGraphicsScene;
     startSceneBackground = new QGraphicsPixmapItem;
@@ -30,20 +30,20 @@ GameMenu::GameMenu()
     startButton->setPos(sideMargin,topMargin*2+200);
 
     settingsButton = new QGraphicsPixmapItem;
-    settingsButton->setPixmap(QPixmap("ADD PATH"));
+    settingsButton->setPixmap(QPixmap(":/images/settingsbutton.png"));
     settingsButton->setPos(sideMargin,topMargin*3+250);
 
     aboutButton = new QGraphicsPixmapItem;
-    aboutButton->setPixmap(QPixmap("ADD PATH"));
+    aboutButton->setPixmap(QPixmap(":/images/aboutbutton.png"));
     aboutButton->setPos(sideMargin,topMargin*4+300);
 
     exitButton = new QGraphicsPixmapItem;
-    exitButton->setPixmap(QPixmap("ADD PATH"));
+    exitButton->setPixmap(QPixmap(":/images/exitbutton.png"));
     exitButton->setPos(sideMargin,topMargin*5+350);
 
     startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
     setScene(startScene);
-    setFixedSize(700,700);
+    setFixedSize(GameMenuSize,GameMenuSize);
 
 
     startScene->addItem(startSceneBackground);
@@ -105,7 +105,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             changeStageButton->setPos(GameMenuSize-sideMargin,topMargin*2+50);
 
             startBattleButton = new QGraphicsPixmapItem;
-            startBattleButton->setPixmap(QPixmap(":/images/startbutton.png"));
+            startBattleButton->setPixmap(QPixmap(":/images/startbattlebutton.png"));
             startBattleButton->setPos(GameMenuSize-sideMargin*2,GameMenuSize-topMargin*2);
 
             player1UnitPicture = new QGraphicsPixmapItem;
@@ -130,7 +130,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(beforeGameScene);
-            setFixedSize(700,700);
+            setFixedSize(GameMenuSize,GameMenuSize);
 
             beforeGameScene->addItem(beforeGameSceneBackground);
             beforeGameScene->addItem(addPlayer1UnitButton);
@@ -153,6 +153,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             GameWorld *gameScene = new GameWorld;
             w->setCentralWidget(gameScene);
             w->show();
+
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
@@ -179,7 +180,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->backButton)                             // Go back to main menu.
         {
             setScene(startScene);
-            setFixedSize(700,700);
+            setFixedSize(GameMenuSize,GameMenuSize);
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 

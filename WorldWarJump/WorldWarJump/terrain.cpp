@@ -4,5 +4,5 @@
 
 Terrain::Terrain()
 {
-    setPixmap(QPixmap(":/images/terrain.png"));
+    setPixmap(QPixmap(":/images/terrainbackground.png"));
 }
