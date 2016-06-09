@@ -27,9 +27,19 @@ GameMenu::GameMenu()
 
     startButton = new QGraphicsPixmapItem;
     startButton->setPixmap(QPixmap(":/images/startbutton.png"));
-    startButton->setPos(100,300);
+    startButton->setPos(sideMargin,topMargin*2+200);
+
     settingsButton = new QGraphicsPixmapItem;
+    settingsButton->setPixmap(QPixmap("ADD PATH"));
+    settingsButton->setPos(sideMargin,topMargin*3+250);
+
+    aboutButton = new QGraphicsPixmapItem;
+    aboutButton->setPixmap(QPixmap("ADD PATH"));
+    aboutButton->setPos(sideMargin,topMargin*4+300);
+
     exitButton = new QGraphicsPixmapItem;
+    exitButton->setPixmap(QPixmap("ADD PATH"));
+    exitButton->setPos(sideMargin,topMargin*5+350);
 
     startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
     setScene(startScene);
@@ -38,6 +48,9 @@ GameMenu::GameMenu()
 
     startScene->addItem(startSceneBackground);
     startScene->addItem(startButton);
+    startScene->addItem(settingsButton);
+    startScene->addItem(aboutButton);
+    startScene->addItem(exitButton);
 
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -65,7 +78,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 {
     if(QGraphicsItem *item = itemAt(event->pos()))
     {
-        if(item == this->startButton)
+        if(item == this->startButton)                   // Open beforeGameScene.
         {
             beforeGameScene = new QGraphicsScene;
             beforeGameSceneBackground = new QGraphicsPixmapItem;
@@ -93,7 +106,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
             startBattleButton = new QGraphicsPixmapItem;
             startBattleButton->setPixmap(QPixmap(":/images/startbutton.png"));
-            startBattleButton->setPos(GameMenuSize-sideMargin,GameMenuSize-topMargin);
+            startBattleButton->setPos(GameMenuSize-sideMargin*2,GameMenuSize-topMargin*2);
 
             player1UnitPicture = new QGraphicsPixmapItem;
             player1UnitPicture->setPixmap(QPixmap("ADD PATH"));
@@ -111,6 +124,10 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             stagePicture->setPixmap(QPixmap("ADD PATH"));
             stagePicture->setPos(sideMargin*4+150,topMargin*2+50);
 
+            backButton = new QGraphicsPixmapItem;
+            backButton->setPixmap(QPixmap("ADD PATH"));
+            backButton->setPos(sideMargin,GameMenuSize-topMargin*2);
+
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(beforeGameScene);
             setFixedSize(700,700);
@@ -126,33 +143,55 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(titlePicture);
             beforeGameScene->addItem(player1UnitPicture);
             beforeGameScene->addItem(player2UnitPicture);
+            beforeGameScene->addItem(backButton);
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-        } else if(item == this->startBattleButton)
+        } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
             GameWorld *gameScene = new GameWorld;
             w->setCentralWidget(gameScene);
             w->show();
 
-        } else if(item == this->addPlayer1UnitButton)
+        } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
             player1UnitCount++;
             qDebug()<<player1UnitCount;
-        } else if(item == this->addPlayer2UnitButton)
+
+        } else if(item == this->addPlayer2UnitButton)                   // Add player2 unit.
         {
             player2UnitCount++;
-        } else if(item == this->removePlayer1UnitButton)
+
+        } else if(item == this->removePlayer1UnitButton)                // Remove player1 unit.
         {
             if(player1UnitCount>1) player1UnitCount--;
-        } else if(item == this->removePlayer2UnitButton)
+
+        } else if(item == this->removePlayer2UnitButton)                // Remove player2 unit.
         {
             if(player2UnitCount>1) player2UnitCount--;
-        } else if(item == this->changeStageButton)
+
+        } else if(item == this->changeStageButton)                      // Change game stage.
         {
             if(whichStage == 1) whichStage++;
             if(whichStage == 2) whichStage--;
+
+        } else if(item == this->backButton)                             // Go back to main menu.
+        {
+            setScene(startScene);
+            setFixedSize(700,700);
+            setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+        } else if(item == this->settingsButton)                         // Open settings.
+        {
+
+        } else if(item == this->aboutButton)                            // Open about.
+        {
+
+        } else if (item == this->exitButton)                            // Exit the game.
+        {
+
         }
     }
 }

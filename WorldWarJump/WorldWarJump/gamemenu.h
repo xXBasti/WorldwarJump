@@ -34,6 +34,7 @@ public:
     //!Buttons on startScene
     QGraphicsPixmapItem *startButton;
     QGraphicsPixmapItem *settingsButton;
+    QGraphicsPixmapItem *aboutButton;
     QGraphicsPixmapItem *exitButton;
 
     //!Buttons on beforeGameScene
@@ -43,6 +44,7 @@ public:
     QGraphicsPixmapItem *removePlayer2UnitButton;
     QGraphicsPixmapItem *changeStageButton;
     QGraphicsPixmapItem *startBattleButton;
+    QGraphicsPixmapItem *backButton;
 
     //!Pictures on beforeGameScene
     QGraphicsPixmapItem *player1UnitPicture;
