@@ -15,8 +15,12 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    GameMenu *menu = new GameMenu();
+   // GameMenu *menu = new GameMenu();
 
+    MainWindow *w = new MainWindow;
+    GameWorld *world = new GameWorld;
+    w->setCentralWidget(world);
+    w->show();
 
 
     return a.exec();
