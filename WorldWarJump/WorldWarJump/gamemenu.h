@@ -7,11 +7,15 @@
 #include <QPixmap>
 #include <QInputEvent>
 
+#include "mainwindow.h"
+
 class GameMenu : public QGraphicsView
 {
     Q_OBJECT
 public:
     GameMenu();
+    MainWindow *w = new MainWindow;
+
 
     QGraphicsScene *startScene;
     QGraphicsScene *beforeGameScene;

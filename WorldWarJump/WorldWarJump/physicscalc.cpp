@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <ctime>
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 PhysicsCalc::PhysicsCalc()
 {
@@ -57,7 +57,7 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     if (CollideWithTerrain(worldObject)){
 
-        qDebug()<<"Collision!";
+        //qDebug()<<"Collision!";
         double * eulSpeed = worldObject->getSpeed();
         double eulPosition [2];
         worldObject->getPosition(eulPosition);

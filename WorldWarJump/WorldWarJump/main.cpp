@@ -14,13 +14,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
 
-    GameWorld *world = new GameWorld();
     GameMenu *menu = new GameMenu();
 
-    w.setCentralWidget(world);
-    w.show();
 
 
     return a.exec();

@@ -8,10 +8,10 @@
 #include <QGraphicsView>
 #include <QDebug>
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 GameMenu::GameMenu()
-{
+{    
     setGameMenuSize(700);
 
     startScene = new QGraphicsScene;
@@ -36,7 +36,8 @@ GameMenu::GameMenu()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-
+    w->setCentralWidget(this);
+    w->show();
 
 
 
@@ -61,8 +62,16 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         {
             //qDebug()<<"start";
             GameWorld *world = new GameWorld;
-            world->show();
-            this->destroy();
+            w->setCentralWidget(world);
+            w->show();
+            delete this;
+
+
+
+
+
+
+
 
         }
     }
