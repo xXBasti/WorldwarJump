@@ -8,7 +8,7 @@
 #include <ctime>
 #include <cmath>
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 
 
@@ -20,13 +20,18 @@ void WorldObject::move()
 {
     getNewValuesFromPhysicsCalc();
 }
+void WorldObject::hit(){
+    ((GameplayInterface*)scene())->physicsCalulator->hitUnit(this);
+
+
+}
 
 void WorldObject::jump()
 {
     //speed[1] = -8;
     double speedPol[2];
     double speedEul[2];
-    speedPol[0] = 15;
+    speedPol[0] = 5;
     speedPol[1] = ((orientation-90)/360)*2*M_PI;
 
     ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
@@ -46,9 +51,11 @@ void WorldObject::jump()
 
 
 WorldObject::WorldObject(GameWorld * parentView) {
-   /* this->parentView = parentView;
-    setRect(0,0,50,100);
-    setTransformOriginPoint(rect().width()/2, rect().height()/2);
+    /*
+    this->parentView = parentView;
+    setPixmap(QPixmap(":/images/worldobject.png"));
+    setTransformOriginPoint(12, 25);
+
     connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
     connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(jump()));
@@ -102,3 +109,8 @@ double WorldObject::getRotVel() const
     return(rotVel);
 }
 //For Orientation
+
+WorldObject::~WorldObject() {
+
+}
+

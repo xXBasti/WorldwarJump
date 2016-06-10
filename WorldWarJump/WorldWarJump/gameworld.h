@@ -10,6 +10,7 @@
 #include "terrain.h"
 
 enum Player {player1, player2};
+enum ProjectileType {missile, balistic, ray, scrap};
 
 //! The world our game is based on. The fundamental stage. - WANG
 class GameWorld: public QGraphicsView

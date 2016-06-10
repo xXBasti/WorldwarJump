@@ -3,17 +3,18 @@
 
 #include "worldobject.h"
 
-
+#include <QObject>
 
 class Projectile : public WorldObject
 {
+    Q_OBJECT
 public:
-    Projectile(GameWorld *parentView,int x,int y,double dir,projectileType pT);
+    Projectile(GameWorld *parentView,int x,int y,double dir,ProjectileType p);
     void fly();
-    void hit();
+
     ~Projectile();
 private:
-    enum projectileType pT;
+    ProjectileType pT;
     int damage;
 
 };

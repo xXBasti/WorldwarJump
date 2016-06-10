@@ -4,13 +4,14 @@
 #include <QList>
 #include "gameworld.h"
 #include "terrain.h"
+#include "battleunit.h"
 #include <typeinfo>
 #include <QDebug>
 
 #include <stdlib.h>
 #include <ctime>
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 PhysicsCalc::PhysicsCalc()
 {
@@ -57,7 +58,7 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     if (CollideWithTerrain(worldObject)){
 
-        qDebug()<<"Collision!";
+        //qDebug()<<"Collision!";
         double * eulSpeed = worldObject->getSpeed();
         double eulPosition [2];
         worldObject->getPosition(eulPosition);
@@ -77,8 +78,8 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
         worldObject->setSpeed(eulSpeed);
-
     }
+
     // get object's speed and position
     double * speed = worldObject->getSpeed();
     double posCoordinates [2];
@@ -217,6 +218,20 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
 
 }
 
+QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
+{
+    QList<QGraphicsItem *> colliding_items = object->collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i)
+    {
+        if(typeid(*(colliding_items[i]))== typeid(BattleUnit))
+        {
+            return (colliding_items[i]);
+        }
+    }
+    return NULL;
+}
+
+
 
 void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     double colPosPol[2]={0};
@@ -244,4 +259,14 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
     colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
     qDebug() << colSpeed[0] << colSpeed[1];
+}
+
+void PhysicsCalc::hitUnit(WorldObject * worldObject) {
+    QGraphicsItem* I=this->CollideWithUnit(worldObject);
+    if(!(I==NULL)){
+        I->setPos(350,350);
+        worldObject->~WorldObject();
+
+    }
+
 }

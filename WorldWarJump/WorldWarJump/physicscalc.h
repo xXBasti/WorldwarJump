@@ -7,6 +7,7 @@
 
 class PhysicsCalc
 {
+
 public:
     PhysicsCalc();
 
@@ -37,6 +38,8 @@ public:
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
     bool CollideWithTerrain(WorldObject* object);
 
+    QGraphicsItem *CollideWithUnit(WorldObject *object);
+    void hitUnit(WorldObject *worldObject);
 };
 
 #endif // PHYSICSCLAC_H

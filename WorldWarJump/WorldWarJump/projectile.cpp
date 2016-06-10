@@ -1,11 +1,23 @@
 #include "projectile.h"
 #include <QPainter>
+#include <QGraphicsEllipseItem>
+#include <QDebug>
 
-Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,projectileType pT) : WorldObject(parentView)
+Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,ProjectileType p) : WorldObject(parentView)
 {
-    int rx,ry;
+    qDebug() << "Launched";
+    this->parentView = parentView;
+    setPixmap(QPixmap(":/images/worldobject.png"));
+    setTransformOriginPoint(1, 1);
+    this->setPos(x,y);
+    parentView->scene->addItem(this);
+    qDebug() << "Launching";
+    int rx=0;
+    int ry=0;
     double velocity[2]={0};
-    switch (pT){
+    qDebug() << "Launching"<< p << dir;
+    /*
+    switch(p){
     case missile:
         rx=5;
         ry=2;
@@ -31,11 +43,16 @@ Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,projectileT
         velocity[1]=10*cos(dir);
         break;
     }
-
-    QPainter painter(parentView);
+    */
+    velocity[0]=5*sin(dir);
+    velocity[1]=5*cos(dir);
+    qDebug() <<"hwasf";
+    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
+  /*  QPainter painter(parentView);
     painter.setBrush(QBrush(Qt::black)); //Je nach typ
-    painter.drawEllipse(QPoint(x,y),rx,ry);
+    painter.drawEllipse(QPoint(x,y),rx,ry); */
     this->setSpeed(velocity);
+
 }
 
 Projectile::~Projectile(){
@@ -49,7 +66,4 @@ void Projectile::fly(){
 
 }
 
-void Projectile::hit(){
 
-
-}
