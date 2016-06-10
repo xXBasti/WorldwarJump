@@ -8,9 +8,10 @@
 class Projectile : public WorldObject
 {
 public:
-    Projectile(GameWorld *parentView,int x,int y,projectileType pT);
+    Projectile(GameWorld *parentView,int x,int y,double dir,projectileType pT);
     void fly();
     void hit();
+    ~Projectile();
 private:
     enum projectileType pT;
     int damage;

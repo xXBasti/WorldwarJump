@@ -6,12 +6,12 @@ class BattleUnit :public WorldObject
 {
 public:
     BattleUnit(GameWorld * parentView,Player p);
-    void shoot();
     double getFiredirection();
     void setFiredirection(double direction);
 private:
     double firedirection;
-
+public slots:
+    void shoot();
 };
 
 #endif // BATTLEUNIT_H

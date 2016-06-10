@@ -9,12 +9,13 @@ BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView
     switch(p){
         case player1:
             connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
-            connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(jump()));
+            connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(shoot()));
 
-            break;
+        break;
         case player2:
             connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
             connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(jump()));
+        break;
     }
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
 
@@ -25,9 +26,11 @@ BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView
 }
 
 void BattleUnit::shoot(){
-  //  this->pos();
-    this->getFiredirection();
-  //  Projectile p=new Projectile();
+    double pos[2];
+    this->getPosition(pos);
+    double dir=this->getFiredirection();
+
+    Projectile* p=new Projectile(parentView,pos[0],pos[1],dir,missile);
 
 
 
