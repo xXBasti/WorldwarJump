@@ -108,6 +108,16 @@ double WorldObject::getRotVel() const
 {
     return(rotVel);
 }
+
+void WorldObject::setHitCounter(int hit)
+{
+    this->hitcounter=hit;
+}
+
+int WorldObject::getHitCounter()
+{
+    return this->hitcounter;
+}
 //For Orientation
 
 WorldObject::~WorldObject() {

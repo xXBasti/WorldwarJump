@@ -13,10 +13,10 @@ public:
     void fly();
 
     ~Projectile();
+
 private:
     ProjectileType pT;
     int damage;
-
 };
 
 #endif // PROJECTILE_H

@@ -31,9 +31,10 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         double getRotVel() const;
         //For orientation
         bool collidedBefore;
-
+        void setHitCounter(int hit);
+        int getHitCounter();
         ~WorldObject();
-        void hit();
+
 private:
 
         double speed [2];
@@ -45,11 +46,12 @@ private:
         double orientation;
         double rotVel;
         //For orientation
-
+        int hitcounter =0;
         int healthpoints;
     public slots:
         void move();
         void jump();
+        void hit();
 
 };
 

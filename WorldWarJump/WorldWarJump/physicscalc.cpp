@@ -262,11 +262,15 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
 }
 
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
+    qDebug() <<"Hit?";
     QGraphicsItem* I=this->CollideWithUnit(worldObject);
     if(!(I==NULL)){
-        I->setPos(350,350);
-        worldObject->~WorldObject();
-
+        worldObject->setHitCounter(worldObject->getHitCounter()+1);
+        if((worldObject->getHitCounter())==5){
+            I->setPos(350,350);
+            qDebug() <<"Hit";
+            worldObject->~WorldObject();
+        }
     }
 
 }
