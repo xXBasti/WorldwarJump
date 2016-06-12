@@ -7,6 +7,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QDebug>
+#include <QApplication>
 
 #define M_PI 3.14159
 
@@ -14,6 +15,10 @@ GameMenu::GameMenu()
 {    
     topMargin = 50;
     sideMargin = 50;
+    buttonHeight = 75;
+    buttonWidth = 75;
+    unitHeight = 75;
+    unitWidth = 75;
 
     player1UnitCount = 1;
     player2UnitCount = 1;
@@ -85,36 +90,36 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
 
             addPlayer1UnitButton = new QGraphicsPixmapItem;
-            addPlayer1UnitButton->setPixmap(QPixmap("ADD PATH"));
-            addPlayer1UnitButton->setPos(sideMargin*2+50,topMargin*2+50);
+            addPlayer1UnitButton->setPixmap(QPixmap(":/images/addbutton.png"));
+            addPlayer1UnitButton->setPos(sideMargin*2+unitWidth,topMargin*4);
 
             addPlayer2UnitButton = new QGraphicsPixmapItem;
-            addPlayer2UnitButton->setPixmap(QPixmap("ADD PATH"));
-            addPlayer2UnitButton->setPos(sideMargin*2+50,topMargin*3+100);
+            addPlayer2UnitButton->setPixmap(QPixmap(":/images/addbutton.png"));
+            addPlayer2UnitButton->setPos(sideMargin*2+unitWidth,topMargin*5+buttonHeight);
 
             removePlayer1UnitButton = new QGraphicsPixmapItem;
-            removePlayer1UnitButton->setPixmap(QPixmap("ADD PATH"));
-            removePlayer1UnitButton->setPos(sideMargin*3+100,topMargin*2+50);
+            removePlayer1UnitButton->setPixmap(QPixmap(":/images/removebutton.png"));
+            removePlayer1UnitButton->setPos(sideMargin*3+unitWidth+buttonWidth,topMargin*4);
 
             removePlayer2UnitButton = new QGraphicsPixmapItem;
-            removePlayer2UnitButton->setPixmap(QPixmap("ADD PATH"));
-            removePlayer2UnitButton->setPos(sideMargin*3+100,topMargin*3+100);
+            removePlayer2UnitButton->setPixmap(QPixmap(":/images/removebutton.png"));
+            removePlayer2UnitButton->setPos(sideMargin*3+unitWidth+buttonWidth,topMargin*5+buttonHeight);
 
             changeStageButton = new QGraphicsPixmapItem;
             changeStageButton->setPixmap(QPixmap("ADD PATH"));
-            changeStageButton->setPos(GameMenuSize-sideMargin,topMargin*2+50);
+            changeStageButton->setPos(GameMenuSize-sideMargin-buttonWidth,topMargin*4);
 
             startBattleButton = new QGraphicsPixmapItem;
             startBattleButton->setPixmap(QPixmap(":/images/startbattlebutton.png"));
-            startBattleButton->setPos(GameMenuSize-sideMargin*2,GameMenuSize-topMargin*2);
+            startBattleButton->setPos(GameMenuSize-sideMargin-buttonWidth,GameMenuSize-topMargin-buttonHeight);
 
             player1UnitPicture = new QGraphicsPixmapItem;
             player1UnitPicture->setPixmap(QPixmap("ADD PATH"));
-            player1UnitPicture->setPos(sideMargin,topMargin*2+50);
+            player1UnitPicture->setPos(sideMargin,topMargin*4);
 
             player2UnitPicture = new QGraphicsPixmapItem;
             player2UnitPicture->setPixmap(QPixmap("ADD PATH"));
-            player2UnitPicture->setPos(sideMargin,topMargin*3+100);
+            player2UnitPicture->setPos(sideMargin,topMargin*5+unitHeight);
 
             titlePicture = new QGraphicsPixmapItem;
             titlePicture->setPixmap(QPixmap("ADD PATH"));
@@ -122,11 +127,19 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
             stagePicture = new QGraphicsPixmapItem;
             stagePicture->setPixmap(QPixmap("ADD PATH"));
-            stagePicture->setPos(sideMargin*4+150,topMargin*2+50);
+            stagePicture->setPos(sideMargin*4+buttonWidth*2+unitWidth,topMargin*4);
 
             backButton = new QGraphicsPixmapItem;
-            backButton->setPixmap(QPixmap("ADD PATH"));
-            backButton->setPos(sideMargin,GameMenuSize-topMargin*2);
+            backButton->setPixmap(QPixmap(":/images/backbutton.png"));
+            backButton->setPos(sideMargin,GameMenuSize-topMargin-buttonHeight);
+
+            player1UnitCountPicture = new QGraphicsPixmapItem;
+            player1UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
+            player1UnitCountPicture->setPos(sideMargin*3+unitWidth+12.5,topMargin*4);
+
+            player2UnitCountPicture = new QGraphicsPixmapItem;
+            player2UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
+            player2UnitCountPicture->setPos(sideMargin*3+unitWidth+12.5,topMargin*5+unitHeight);
 
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(beforeGameScene);
@@ -144,6 +157,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(player1UnitPicture);
             beforeGameScene->addItem(player2UnitPicture);
             beforeGameScene->addItem(backButton);
+            beforeGameScene->addItem(player1UnitCountPicture);
+            beforeGameScene->addItem(player2UnitCountPicture);
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -151,26 +166,93 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
             GameWorld *gameScene = new GameWorld;
-            w->setCentralWidget(gameScene);
-            w->show();
-
+            this->setScene(gameScene->scene);
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
             player1UnitCount++;
-            qDebug()<<player1UnitCount;
+            //qDebug()<<player1UnitCount;
+            switch(player1UnitCount)
+            {
+            case 2:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
+                //beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            case 3:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
+                //beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            case 4:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
+                //beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            }
 
         } else if(item == this->addPlayer2UnitButton)                   // Add player2 unit.
         {
             player2UnitCount++;
+            switch(player2UnitCount)
+            {
+            case 2:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
+               // beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            case 3:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
+               // beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            case 4:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
+               // beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            }
 
         } else if(item == this->removePlayer1UnitButton)                // Remove player1 unit.
         {
             if(player1UnitCount>1) player1UnitCount--;
+            //qDebug()<<player1UnitCount;
+            switch(player1UnitCount)
+            {
+            case 1:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
+              //  beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            case 2:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
+               // beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            case 3:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
+                //beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            case 4:
+                player1UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
+               // beforeGameScene->addItem(player1UnitCountPicture);
+                break;
+            }
 
         } else if(item == this->removePlayer2UnitButton)                // Remove player2 unit.
         {
             if(player2UnitCount>1) player2UnitCount--;
+            switch(player2UnitCount)
+            {
+            case 1:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
+               // beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            case 2:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
+                //beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            case 3:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
+                //beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            case 4:
+                player2UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
+               // beforeGameScene->addItem(player2UnitCountPicture);
+                break;
+            }
 
         } else if(item == this->changeStageButton)                      // Change game stage.
         {
@@ -186,13 +268,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if(item == this->settingsButton)                         // Open settings.
         {
+            settingsScene = new QGraphicsScene;
 
         } else if(item == this->aboutButton)                            // Open about.
         {
 
         } else if (item == this->exitButton)                            // Exit the game.
         {
-
+            QApplication::quit();
         }
     }
 }

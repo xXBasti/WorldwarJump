@@ -9,5 +9,12 @@
         <file>startbattlebutton.png</file>
         <file>terrainbackground.png</file>
         <file>aboutbutton.png</file>
+        <file>addbutton.png</file>
+        <file>removebutton.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>4.png</file>
+        <file>backbutton.png</file>
     </qresource>
 </RCC>
