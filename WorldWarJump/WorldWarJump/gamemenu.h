@@ -51,7 +51,8 @@ public:
     QGraphicsPixmapItem *player2UnitPicture;
     QGraphicsPixmapItem *stagePicture;
     QGraphicsPixmapItem *titlePicture;
-
+    QGraphicsPixmapItem *player1UnitCountPicture;
+    QGraphicsPixmapItem *player2UnitCountPicture;
 
     int getGameMenuSize() const;
     void setGameMenuSize(int value);
@@ -68,6 +69,10 @@ private:
     int GameMenuSize;
     int sideMargin;
     int topMargin;
+    int buttonWidth;
+    int buttonHeight;
+    int unitWidth;
+    int unitHeight;
 
     //!Parameters
     int player1UnitCount;
