@@ -18,11 +18,15 @@ public:
     bool getBeforeGameSceneAlreadyCreated() const;
     void setBeforeGameSceneAlreadyCreated(bool value);
 
+    bool getSettingsSceneAlreadyCreated() const;
+    void setSettingsSceneAlreadyCreated(bool value);
+
 private:
     int player1UnitCount;
     int player2UnitCount;
     int whichStage;
     bool beforeGameSceneAlreadyCreated;
+    bool settingsSceneAlreadyCreated;
 };
 
 #endif // GAMESETTINGS_H

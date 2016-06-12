@@ -5,6 +5,8 @@ GameSettings::GameSettings()
     player1UnitCount = 1;
     player2UnitCount = 1;
     whichStage = 1;
+    settingsSceneAlreadyCreated = false;
+    beforeGameSceneAlreadyCreated = false;
 }
 
 int GameSettings::getPlayer1UnitCount() const
@@ -45,5 +47,15 @@ bool GameSettings::getBeforeGameSceneAlreadyCreated() const
 void GameSettings::setBeforeGameSceneAlreadyCreated(bool value)
 {
     beforeGameSceneAlreadyCreated = value;
+}
+
+bool GameSettings::getSettingsSceneAlreadyCreated() const
+{
+    return settingsSceneAlreadyCreated;
+}
+
+void GameSettings::setSettingsSceneAlreadyCreated(bool value)
+{
+    settingsSceneAlreadyCreated = value;
 }
 

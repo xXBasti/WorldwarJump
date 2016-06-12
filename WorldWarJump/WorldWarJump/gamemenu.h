@@ -56,6 +56,12 @@ public:
     QGraphicsPixmapItem *player1UnitCountPicture;
     QGraphicsPixmapItem *player2UnitCountPicture;
 
+    //!Buttons on settingsScene
+    QGraphicsPixmapItem *muteButton;
+
+    //!Pictures on settingsScene
+    QGraphicsPixmapItem *settingsBackground;
+
     int getGameMenuSize() const;
     void setGameMenuSize(int value);
     void mousePressEvent(QMouseEvent *event);
