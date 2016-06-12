@@ -1,6 +1,7 @@
 #include "gamemenu.h"
 #include "worldobject.h"
 #include "gameworld.h"
+#include "gamesettings.h"
 #include "mainwindow.h"
 
 #include <QGraphicsItem>
@@ -13,16 +14,14 @@
 
 GameMenu::GameMenu()
 {    
+    settings = new GameSettings;
+
     topMargin = 50;
     sideMargin = 50;
     buttonHeight = 75;
     buttonWidth = 75;
     unitHeight = 75;
     unitWidth = 75;
-
-    player1UnitCount = 1;
-    player2UnitCount = 1;
-    whichStage = 1;
 
     setGameMenuSize(800);
 
@@ -83,7 +82,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 {
     if(QGraphicsItem *item = itemAt(event->pos()))
     {
-        if(item == this->startButton)                   // Open beforeGameScene.
+        if((item == this->startButton) && !(settings->getBeforeGameSceneAlreadyCreated()))                   // Open beforeGameScene.
         {
             beforeGameScene = new QGraphicsScene;
             beforeGameSceneBackground = new QGraphicsPixmapItem;
@@ -161,8 +160,13 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(player2UnitCountPicture);
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);\
 
+            settings->setBeforeGameSceneAlreadyCreated(true);
+
+        } else if((item == this->startButton) && (settings->getBeforeGameSceneAlreadyCreated()))
+        {
+            setScene(beforeGameScene);
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
             GameWorld *gameScene = new GameWorld;
@@ -170,8 +174,10 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
+            player1UnitCount = settings->getPlayer1UnitCount();
             player1UnitCount++;
-            //qDebug()<<player1UnitCount;
+            settings->setPlayer1UnitCount(player1UnitCount);
+            qDebug()<<player1UnitCount;
             switch(player1UnitCount)
             {
             case 2:
@@ -190,7 +196,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if(item == this->addPlayer2UnitButton)                   // Add player2 unit.
         {
+            player2UnitCount = settings->getPlayer2UnitCount();
             player2UnitCount++;
+            settings->setPlayer2UnitCount(player2UnitCount);
             switch(player2UnitCount)
             {
             case 2:
@@ -209,8 +217,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if(item == this->removePlayer1UnitButton)                // Remove player1 unit.
         {
-            if(player1UnitCount>1) player1UnitCount--;
-            //qDebug()<<player1UnitCount;
+            player1UnitCount = settings->getPlayer1UnitCount();
+            if(player1UnitCount>1)
+            {
+                player1UnitCount--;
+                settings->setPlayer1UnitCount(player1UnitCount);
+
+            }
+
             switch(player1UnitCount)
             {
             case 1:
@@ -230,10 +244,19 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                // beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             }
+            qDebug()<<player1UnitCount;
+
 
         } else if(item == this->removePlayer2UnitButton)                // Remove player2 unit.
         {
-            if(player2UnitCount>1) player2UnitCount--;
+            player2UnitCount = settings->getPlayer2UnitCount();
+            if(player2UnitCount>1)
+            {
+                player2UnitCount--;
+                settings->setPlayer2UnitCount(player2UnitCount);
+
+            }
+
             switch(player2UnitCount)
             {
             case 1:

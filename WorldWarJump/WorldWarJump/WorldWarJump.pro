@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     terrain.cpp \
     gamemenu.cpp \
     projectile.cpp \
-    battleunit.cpp
+    battleunit.cpp \
+    gamesettings.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     terrain.h \
     gamemenu.h \
     projectile.h \
-    battleunit.h
+    battleunit.h \
+    gamesettings.h
 
 
 FORMS    += mainwindow.ui
