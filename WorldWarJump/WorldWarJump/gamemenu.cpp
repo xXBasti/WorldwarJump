@@ -8,7 +8,7 @@
 #include <QGraphicsView>
 #include <QDebug>
 
-//#define M_PI 3.14159
+#define M_PI 3.14159
 
 GameMenu::GameMenu()
 {    
