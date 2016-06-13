@@ -5,7 +5,7 @@
 BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView)
 {
     this->parentView = parentView;
-    setPixmap(QPixmap(":/images/worldobject.png"));
+    setPixmap(QPixmap(":/images/redtank100.png"));
     setTransformOriginPoint(12, 25);
     switch(p){
         case player1:

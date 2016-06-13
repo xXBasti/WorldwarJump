@@ -16,5 +16,15 @@
         <file>3.png</file>
         <file>4.png</file>
         <file>backbutton.png</file>
+        <file>redtank150150.png</file>
+        <file>redtank100.png</file>
+        <file>redrocked70.png</file>
+        <file>bluetank100.png</file>
+        <file>bluetank150.png</file>
+        <file>redship100.png</file>
+        <file>redship150.png</file>
+        <file>blueship100.png</file>
+        <file>blueship150.png</file>
+        <file>bluerocked100.png</file>
     </qresource>
 </RCC>

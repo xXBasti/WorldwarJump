@@ -211,7 +211,9 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
     {
         if(typeid(*(colliding_items[i]))== typeid(Terrain))
         {
+            qDebug()<<"coli";
             return true;
+
         }
     }
     return false;

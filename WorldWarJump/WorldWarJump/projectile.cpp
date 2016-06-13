@@ -9,7 +9,7 @@ Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,ProjectileT
 {
     qDebug() << "Launched";
     this->parentView = parentView;
-    setPixmap(QPixmap(":/images/worldobject.png"));
+    setPixmap(QPixmap(":/images/redrocked70.png"));
     setTransformOriginPoint(1, 1);
     this->setPos(x,y);
     parentView->scene->addItem(this);
