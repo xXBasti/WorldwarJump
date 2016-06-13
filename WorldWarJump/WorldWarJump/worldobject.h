@@ -33,8 +33,14 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         bool collidedBefore;
         void setHitCounter(int hit);
         int getHitCounter();
+        int getWeight();
+        void setWeight(int w);
         ~WorldObject();
 
+        void setHealthpoints(int points);
+        int getHealthpoints();
+        int getDamage();
+        Player getPlayer();
 private:
 
         double speed [2];
@@ -48,6 +54,9 @@ private:
         //For orientation
         int hitcounter =0;
         int healthpoints;
+protected:
+        int damage;
+        Player pl;
     public slots:
         void move();
         void jump();

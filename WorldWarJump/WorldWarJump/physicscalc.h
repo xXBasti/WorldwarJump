@@ -4,6 +4,7 @@
 #include "worldobject.h"
 #include <QGraphicsItem>
 #include "gameworld.h"
+#include "gamesettings.h"
 
 class PhysicsCalc
 {
@@ -40,6 +41,11 @@ public:
 
     QGraphicsItem *CollideWithUnit(WorldObject *object);
     void hitUnit(WorldObject *worldObject);
+    void impuls(WorldObject *obj1, WorldObject *obj2);
+    void checkHealth(WorldObject *obj);
+    void unitcheck();
+private:
+    GameWorld gw;
 };
 
 #endif // PHYSICSCLAC_H

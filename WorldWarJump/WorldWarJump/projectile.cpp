@@ -9,42 +9,40 @@ Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,ProjectileT
 {
     qDebug() << "Launched";
     this->parentView = parentView;
-    setPixmap(QPixmap(":/images/redrocked70.png"));
+
     setTransformOriginPoint(1, 1);
     this->setPos(x,y);
     parentView->scene->addItem(this);
-    int rx=0;
-    int ry=0;
     double velocity[2]={0};
     qDebug() << "Launching"<< p << dir;
-    /*
+
     switch(p){
-    case missile:
-        rx=5;
-        ry=2;
+    case missile:      
         velocity[0]=5*sin(dir);
         velocity[1]=5*cos(dir);
+        setPixmap(QPixmap(":/images/redrocked70.png"));
+        this->damage=10;
         break;
-    case balistic:
-        rx=2;
-        ry=2;
+    case balistic:     
         velocity[0]=10*sin(dir);
         velocity[1]=10*cos(dir);
+        this->damage=5;
         break;
-    case ray:
-        rx=3;
-        ry=1;
+    case ray:     
         velocity[0]=15*sin(dir);
         velocity[1]=15*cos(dir);
+        this->damage=8;
+        setPixmap(QPixmap(":/images/projektile.png"));
         break;
     case scrap:
-        rx=3;
-        ry=3;
         velocity[0]=10*sin(dir);
         velocity[1]=10*cos(dir);
         break;
     }
-    */
+
+    this->setWeight(1);
+    this->setRotVel(0);
+
     velocity[0]=5*sin(dir);
     velocity[1]=5*cos(dir);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
