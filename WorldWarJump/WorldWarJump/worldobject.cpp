@@ -23,11 +23,10 @@ void WorldObject::move()
 
 void WorldObject::jump()
 {
-    //speed[1] = -8;
     double speedPol[2];
     double speedEul[2];
-    speedPol[0] = 5;
-    speedPol[1] = ((orientation-90)/360)*2*M_PI;
+    speedPol[0] = 7;
+    speedPol[1] = ((orientation-90)/180)*M_PI;
 
     ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
 
@@ -35,12 +34,12 @@ void WorldObject::jump()
     speed[1] = speedEul[1] + speed[1];
 
     //Create a randm variable that gives -1 or 1
-    /*std::srand(std::time(0));
+    std::srand(std::time(0));
     int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-    qDebug() << random_var;*/
+    qDebug() << random_var;
     //Introduce chance in rotation
-    //rotVel = random_var *1 + rotVel;
-    rotVel = 5 + rotVel;
+    rotVel = random_var *5 + rotVel;
+
     qDebug() << "Orientation" << orientation;
     qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
     qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
@@ -55,10 +54,15 @@ WorldObject::WorldObject(GameWorld * parentView) {
 
     this->parentView = parentView;
     setPixmap(QPixmap(":/images/worldobject.png"));
+    double newCenter[2];
+    newCenter[0] = 12.5;
+    newCenter[1] = 40;
+    setCenterOfMass(newCenter);
     setTransformOriginPoint(centerOfMass[0], centerOfMass[1]);
     //Apparently is more efficient for calculations:
     this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
+    qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
 

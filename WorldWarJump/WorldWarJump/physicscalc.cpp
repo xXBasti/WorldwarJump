@@ -14,6 +14,7 @@
 
 PhysicsCalc::PhysicsCalc()
 {
+    counter = 0;
 }
 
 /**
@@ -28,13 +29,30 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     angular[0] = worldObject->getOrientation();
     angular[1] = worldObject->getRotVel();
 
+    double gravityVector[2];
+    gravVec( worldObject , gravityVector);
+
+    double gravAngleDiff = gravityAngleDifference(angular[0], gravityVector);
+    if(gravAngleDiff > 180) gravAngleDiff = gravAngleDiff - 360;
+    if(gravAngleDiff < -180) gravAngleDiff = gravAngleDiff + 360;
+
     worldObject->setRotation(angular[0] + timeStep*angular[1]);
     angular[0] = angular[0] + timeStep*angular[1];
     if(angular[0] > 360 || angular[0] < -360){
         angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
         //angular[0] = angular[0] - 360;
     }
-    angular[1] = exp(-(timeStep/30))*angular[1];
+    //angular[1] = exp(-(timeStep/30))*angular[1];
+    if(gravAngleDiff < 0){
+        angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/50));
+    }else{
+        angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/50));
+    }
+    counter = counter +1;
+    if(counter == 50){
+        qDebug() << "Angle difference: "<<gravAngleDiff ;
+        counter = 0 ;
+    }
 
     updateRotValues(worldObject, angular);
 }
@@ -53,13 +71,29 @@ void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
  * First element gives the x and the second gives the y coordinate.
  * @param worldObject
  */
-void PhysicsCalc::gravityVector(WorldObject *worldObject, double *gravityVector)
+void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
 {
     double x = worldObject->getCenterOfMass()[0];
     double y = worldObject->getCenterOfMass()[1];
     QPointF point(x,y);
-    gravityVector[0] = 350 - worldObject->sceneTransform().map(point).x();
-    gravityVector[1] = 350 - worldObject->sceneTransform().map(point).y();
+    gravityVector[0] = worldObject->sceneTransform().map(point).x() - 350;
+    gravityVector[1] = worldObject->sceneTransform().map(point).y() - 350;
+}
+/**
+ * @brief PhysicsCalc::gravityAngleDifference calculates the angle
+ * from the gravity vector to the current orientation.
+ * The positive direction is clockwise.
+ * @param rotation
+ * @param gravityVector
+ * @return
+ */
+double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVector)
+{
+    double gravityVectorAngle = atan2(gravityVector[1], gravityVector[0])*(180/M_PI) - 90;
+    if(gravityVectorAngle < 0)  gravityVectorAngle += 360;
+    if(rotation < 0) rotation += 360;
+    return(rotation - gravityVectorAngle);
+
 }
 
 void PhysicsCalc::getTopRight(WorldObject *worldObject, double * topRight)
@@ -86,6 +120,7 @@ void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
     bottomLeft[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
     bottomLeft[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
 }
+
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject
 * based on it's current position and its current speed.
@@ -111,7 +146,7 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-        worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
+        //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
