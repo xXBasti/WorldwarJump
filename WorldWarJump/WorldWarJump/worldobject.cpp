@@ -62,6 +62,9 @@ WorldObject::WorldObject(GameWorld * parentView) {
     connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(jump()));
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));//Better use world timer, do we need input timer at all?
     setFlag(QGraphicsItem::ItemIsFocusable); */
+    speed[0] = speed[1] = 0;
+    setOrientation(0);
+    setRotVel(0);
 }
 
 
