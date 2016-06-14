@@ -45,8 +45,6 @@ void BattleUnit::shoot(){
     this->getPosition(pos);
     double dir=this->getFiredirection();
     double orient=this->getOrientation()*(M_PI/180);
-    dir=dir+orient;
-
-    Projectile* p=new Projectile(this->parentView,pos[0],pos[1],dir,ray);
-
+//    dir=dir+orient;
+    Projectile* p=new Projectile(this->parentView,pos[0],pos[1],orient,ray);
 }

@@ -75,10 +75,12 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         // increase rotation at collision
         // worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
-        worldObject->setRotVel(worldObject->getRotVel()*-0.9);
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
         worldObject->setSpeed(eulSpeed);
+
+        // make object's rotation inverse and dampened at collision
+        worldObject->setRotVel(worldObject->getRotVel()*-0.9);
     }
 
     // get object's speed and position

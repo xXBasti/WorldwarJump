@@ -45,8 +45,8 @@ Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,ProjectileT
         break;
     }
     */
-    velocity[0]=5*sin(dir);
-    velocity[1]=5*cos(dir);
+    velocity[0]=20*sin(dir); //parameter
+    velocity[1]=20*cos(dir);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
   /*  QPainter painter(parentView);
     painter.setBrush(QBrush(Qt::black)); //Je nach typ
