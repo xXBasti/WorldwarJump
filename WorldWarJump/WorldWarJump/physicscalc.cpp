@@ -69,12 +69,13 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         // transform from eulSpeed to radialSpeed
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
         // radial speed points to the center at collision
-        radialSpeed[0] = -(0.85*sqrt(radialSpeed[0]*radialSpeed[0])+abs(0.15*radialSpeed[1]));
+        radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-        worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
+        // worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
+        worldObject->setRotVel(worldObject->getRotVel()*-0.9);
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
         worldObject->setSpeed(eulSpeed);
@@ -91,6 +92,8 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
                         posCoordinates[1]+timeStep*speed[1]);
     speed[0] = speed[0]+gravity*(posCoordinates[0]-325 )/vectorsAbsoluteValue(posCoordinates); //GameWorldSize && GameUnitSize
     speed[1] = speed[1]+gravity*(posCoordinates[1]-300 )/vectorsAbsoluteValue(posCoordinates);
+    speed[0] = 0.98*speed[0]; //parameter
+    speed[1] = 0.98*speed[1];
 
     // set new speed values
     worldObject->setSpeed(speed);
