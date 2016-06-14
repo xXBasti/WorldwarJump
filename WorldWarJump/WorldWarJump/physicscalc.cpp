@@ -46,15 +46,22 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     //Stabilization module
     double distanceToGround = 350 - vectorsAbsoluteValue(gravityVector);
 
-    if(distanceToGround < 50){
+    if(distanceToGround < 100){
         if(gravAngleDiff < 0){
             angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/50));
         }else{
             angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/50));
         }
+
     //Stabilization module
+    }else if(distanceToGround < 200){
+        if(gravAngleDiff < 0){
+            angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/35));
+        }else{
+            angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/35));
+        }
     }else{
-        angular[1] = exp(-(timeStep/30))*angular[1];
+        angular[1] = exp(-(timeStep/100))*angular[1];
     }
     counter = counter +1;
     if(counter == 50){
