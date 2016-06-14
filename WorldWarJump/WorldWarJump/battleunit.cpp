@@ -9,7 +9,13 @@ BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView
 {
     this->parentView = parentView;
     setPixmap(QPixmap(":/images/redtank100.png"));
-    setTransformOriginPoint(12, 25);
+
+    double newCenter[2];
+    newCenter[0] = 30;
+    newCenter[1] = 20;
+    setCenterOfMass(newCenter);
+    setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
+
     switch(p){
         case player1:
             connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));

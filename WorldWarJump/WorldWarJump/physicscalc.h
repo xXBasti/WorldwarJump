@@ -12,10 +12,19 @@ public:
     PhysicsCalc();
 
     //Can
+    //Orientation
     void calculateNewRotValues(WorldObject * worldObject);
     void updateRotValues(WorldObject * worldObject, double * angular);
-
-
+    //Gravity vector
+    void gravVec(WorldObject * worldObject, double * gravityVector);
+    //Bounding rectangle coordinates
+    void getTopRight(WorldObject * worldObject, double * topRight);
+    void getTopLeft(WorldObject * worldObject, double *topLeft);
+    void getBottomRight(WorldObject * worldObject, double * bottomRight);
+    void getBottomLeft(WorldObject * worldObject, double *bottomLeft);
+    //Clockwise Rotation angle difference to the inverse of gravity vector
+    double gravityAngleDifference(double rotation, double * gravityVector);
+    int counter;
     //Can
 
     //Tomas

@@ -28,11 +28,11 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
-    //speed[1] = -8;
     double speedPol[2];
     double speedEul[2];
-    speedPol[0] = 4;
-    speedPol[1] = ((orientation-90)/360)*2*M_PI;
+
+    speedPol[0] = 7;
+    speedPol[1] = ((orientation-90)/180)*M_PI;
 
     ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
 
@@ -40,20 +40,40 @@ void WorldObject::jump()
     speed[1] = speedEul[1] + speed[1];
 
     //Create a randm variable that gives -1 or 1
-    ///*std::srand(std::time(0));
+    std::srand(std::time(0));
     int random_var = static_cast<int>(((rand()%2) -0.5)*2);
     qDebug() << random_var;
     //Introduce chance in rotation
-    rotVel = random_var *5 + rotVel; //parameter
-    //rotVel = 5 + rotVel;
+    setRotVel(random_var *5 + getRotVel());
+
     qDebug() << "Orientation" << orientation;
-}
+    qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
+    qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
+    qDebug() << "Top left: " << this->scenePos();
+    qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
+    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());
+
+ }
 
 
 WorldObject::WorldObject(GameWorld * parentView) {
+
     speed[0] = speed[1] = 0;
     setOrientation(0);
     setRotVel(0);
+
+    ///*this->parentView = parentView;
+    ///*setPixmap(QPixmap(":/images/worldobject.png"));
+    double newCenter[2];
+    newCenter[0] = 12.5;
+    newCenter[1] = 40;
+    setCenterOfMass(newCenter);
+    setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
+    //Apparently is more efficient for calculations:
+    ///*this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+
+    qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
+    //*setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
 
@@ -112,7 +132,17 @@ int WorldObject::getHitCounter()
 }
 //For Orientation
 
-WorldObject::~WorldObject() {
+void WorldObject::setCenterOfMass(double *newCenterOfMass)
+{
+    centerOfMass[0] = newCenterOfMass[0];
+    centerOfMass[1] = newCenterOfMass[1];
+}
+
+double *WorldObject::getCenterOfMass()
+{
+    return centerOfMass;
 
 }
+
+WorldObject::~WorldObject(){}
 

@@ -30,6 +30,9 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         void setRotVel(double newRotVel);
         double getRotVel() const;
         //For orientation
+
+        void setCenterOfMass(double * newCenterOfMass);
+        double * getCenterOfMass();
         bool collidedBefore;
         void setHitCounter(int hit);
         int getHitCounter();
@@ -46,8 +49,13 @@ private:
         double orientation;
         double rotVel;
         //For orientation
+
+        //! Center of mass to be the centerpoint of rotation and speed calculations -Can
+        double centerOfMass[2];
+
         int hitcounter =0;
         int healthpoints;
+
     public slots:
         void move();
         void jump();
