@@ -28,26 +28,24 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
-    double eulPosition [2];
-    getPosition(eulPosition);
-    double radialSpeed [2];
+    //speed[1] = -8;
+    double speedPol[2];
+    double speedEul[2];
+    speedPol[0] = 4;
+    speedPol[1] = ((orientation-90)/360)*2*M_PI;
 
-    // transform from eulSpeed to radialSpeed
-    ((GameplayInterface*)scene())->physicsCalulator->velocityEulerToRadialCoordinates(eulPosition, speed, radialSpeed, true);
-    // radial speed points to the center at collision
-    radialSpeed[0] = -7;    // parameter
-    radialSpeed[1] = -3;    // parameter
-    // transform from radialSpeed to eulSpeed
-    ((GameplayInterface*)scene())->physicsCalulator->velocityEulerToRadialCoordinates(eulPosition, radialSpeed, speed, false);
-    setSpeed(speed);
+    ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
+
+    speed[0] = speedEul[0] + speed[0];
+    speed[1] = speedEul[1] + speed[1];
 
     //Create a randm variable that gives -1 or 1
-    /*std::srand(std::time(0));
+    ///*std::srand(std::time(0));
     int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-    qDebug() << random_var;*/
+    qDebug() << random_var;
     //Introduce chance in rotation
-    //rotVel = random_var *1 + rotVel;
-    rotVel = 5 + rotVel;
+    rotVel = random_var *5 + rotVel; //parameter
+    //rotVel = 5 + rotVel;
     qDebug() << "Orientation" << orientation;
 }
 
