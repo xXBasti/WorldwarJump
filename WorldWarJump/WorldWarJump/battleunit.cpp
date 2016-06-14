@@ -11,21 +11,15 @@ BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView
         case player1:
             connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
             connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(shoot()));
+
         break;
         case player2:
             connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
             connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(shoot()));
         break;
     }
-    this->setWeight(10);
-    this->setHealthpoints(100);
-    double speed[2];
-    speed[0]=0;
-    speed[1]=0;
-    this->setSpeed(speed);
-    this->setRotVel(0);
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
-
+    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
 
 
     //Better use world timer, do we need input timer at all?
@@ -50,6 +44,6 @@ void BattleUnit::shoot(){
     double orient=this->getOrientation()*(M_PI/180);
     dir=dir+orient;
 
-    new Projectile(this->parentView,pos[0],pos[1],dir,ray);
+    Projectile* p=new Projectile(this->parentView,pos[0],pos[1],dir,ray);
 
 }

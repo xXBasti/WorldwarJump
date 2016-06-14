@@ -118,30 +118,7 @@ int WorldObject::getHitCounter()
 {
     return this->hitcounter;
 }
-
-int WorldObject::getWeight()
-{
-    return this->weigth;
-}
-
-void WorldObject::setWeight(int w)
-{
-    this->weigth=w;
-}
 //For Orientation
-
-int WorldObject::getHealthpoints(){
-    return this->healthpoints;
-}
-
-int WorldObject::getDamage()
-{
-    return this->damage;
-}
-
-void WorldObject::setHealthpoints(int points){
-    this->healthpoints=points;
-}
 
 WorldObject::~WorldObject() {
 
