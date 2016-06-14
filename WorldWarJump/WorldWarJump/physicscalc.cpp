@@ -40,19 +40,29 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     angular[0] = angular[0] + timeStep*angular[1];
     if(angular[0] > 360 || angular[0] < -360){
         angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
-        //angular[0] = angular[0] - 360;
     }
-    //angular[1] = exp(-(timeStep/30))*angular[1];
-    if(gravAngleDiff < 0){
-        angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/50));
+
+    //! The stabilization module only activates when the object is close to the ground -Can
+    //Stabilization module
+    double distanceToGround = 350 - vectorsAbsoluteValue(gravityVector);
+
+    if(distanceToGround < 50){
+        if(gravAngleDiff < 0){
+            angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/50));
+        }else{
+            angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/50));
+        }
+    //Stabilization module
     }else{
-        angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/50));
+        angular[1] = exp(-(timeStep/30))*angular[1];
     }
     counter = counter +1;
     if(counter == 50){
         qDebug() << "Angle difference: "<<gravAngleDiff ;
         counter = 0 ;
     }
+
+
 
     updateRotValues(worldObject, angular);
 }
@@ -146,7 +156,7 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-        //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
+        worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
