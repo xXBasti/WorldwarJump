@@ -28,16 +28,18 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
-    //speed[1] = -8;
-    double speedPol[2];
-    double speedEul[2];
-    speedPol[0] = 5;
-    speedPol[1] = ((orientation-90)/360)*2*M_PI;
+    double eulPosition [2];
+    getPosition(eulPosition);
+    double radialSpeed [2];
 
-    ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
-
-    speed[0] = speedEul[0] + speed[0];
-    speed[1] = speedEul[1] + speed[1];
+    // transform from eulSpeed to radialSpeed
+    ((GameplayInterface*)scene())->physicsCalulator->velocityEulerToRadialCoordinates(eulPosition, speed, radialSpeed, true);
+    // radial speed points to the center at collision
+    radialSpeed[0] = -7;    // parameter
+    radialSpeed[1] = -3;    // parameter
+    // transform from radialSpeed to eulSpeed
+    ((GameplayInterface*)scene())->physicsCalulator->velocityEulerToRadialCoordinates(eulPosition, radialSpeed, speed, false);
+    setSpeed(speed);
 
     //Create a randm variable that gives -1 or 1
     /*std::srand(std::time(0));
@@ -51,17 +53,6 @@ void WorldObject::jump()
 
 
 WorldObject::WorldObject(GameWorld * parentView) {
-    /*
-    this->parentView = parentView;
-    setPixmap(QPixmap(":/images/worldobject.png"));
-    setTransformOriginPoint(12, 25);
-
-    connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
-    connect(parentView->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
-    connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(jump()));
-    connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(jump()));
-    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));//Better use world timer, do we need input timer at all?
-    setFlag(QGraphicsItem::ItemIsFocusable); */
     speed[0] = speed[1] = 0;
     setOrientation(0);
     setRotVel(0);

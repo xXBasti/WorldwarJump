@@ -73,7 +73,7 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-        // worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
+         worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
@@ -92,8 +92,10 @@ void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
     // Euler
     worldObject->setPos(posCoordinates[0]+timeStep*speed[0],
                         posCoordinates[1]+timeStep*speed[1]);
-    speed[0] = speed[0]+gravity*(posCoordinates[0]-325 )/vectorsAbsoluteValue(posCoordinates); //GameWorldSize && GameUnitSize
-    speed[1] = speed[1]+gravity*(posCoordinates[1]-300 )/vectorsAbsoluteValue(posCoordinates);
+    double radialSpeed [2];
+    velocityEulerToRadialCoordinates(posCoordinates, speed, radialSpeed, true);
+    radialSpeed[0] = radialSpeed[0]+gravity; //parameter
+    velocityEulerToRadialCoordinates(posCoordinates, radialSpeed, speed, false);
     speed[0] = 0.98*speed[0]; //parameter
     speed[1] = 0.98*speed[1];
 
@@ -118,8 +120,8 @@ double PhysicsCalc::vectorsAbsoluteValue(double *vector)
 void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)
 {
     double lVector [2];
-    lVector[0] = eulInputPosition[0]-350 + (50/2); //GameWorldSize && GameUnitSize
-    lVector[1] = 350 - (100/2) - eulInputPosition[1];
+    lVector[0] = eulInputPosition[0] - 375; //GameWorldSize && GameUnitSize
+    lVector[1] = 375 - eulInputPosition[1];
     double vecLength = vectorsAbsoluteValue(lVector);
     double v_x = inputVelVector[0];
     double v_y = inputVelVector[1];
@@ -269,11 +271,11 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
 }
 
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
-    qDebug() <<"Hit?";
+//    qDebug() <<"Hit?";
     QGraphicsItem* I=this->CollideWithUnit(worldObject);
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
-        if((worldObject->getHitCounter())==5){
+        if((worldObject->getHitCounter())==4){
             I->setPos(350,350);
             qDebug() <<"Hit";
             worldObject->~WorldObject();
