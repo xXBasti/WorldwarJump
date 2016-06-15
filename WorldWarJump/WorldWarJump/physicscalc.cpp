@@ -44,12 +44,11 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     if(angular[0] > 360 || angular[0] < -360){
         angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
     }
-
     //! The stabilization module only activates when the object is close to the ground -Can
     //Stabilization module
-    double distanceToGround = 350 - vectorsAbsoluteValue(gravityVector);
+    double distanceToGround = 400 - vectorsAbsoluteValue(gravityVector);
 
-    if(distanceToGround < 150){
+    if(distanceToGround < 200){
         if(gravAngleDiff < 0){
             angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/50));
         }else{
@@ -57,7 +56,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         }
 
     //Stabilization module
-    }else if(distanceToGround < 250){
+    }else if(distanceToGround < 300){
         if(gravAngleDiff < 0){
             angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/35));
         }else{
@@ -98,8 +97,8 @@ void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
     double x = worldObject->getCenterOfMass()[0];
     double y = worldObject->getCenterOfMass()[1];
     QPointF point(x,y);
-    gravityVector[0] = worldObject->sceneTransform().map(point).x() - 350;
-    gravityVector[1] = worldObject->sceneTransform().map(point).y() - 350;
+    gravityVector[0] = worldObject->sceneTransform().map(point).x() - 400;
+    gravityVector[1] = worldObject->sceneTransform().map(point).y() - 400;
 }
 /**
  * @brief PhysicsCalc::gravityAngleDifference calculates the angle
@@ -250,16 +249,16 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
     double e2;
     switch(type){
     case 'p':
-        e1=eul[0]-350; //350 später gamesize/2
-        e2=(eul[1]-350); // damit polar kosi in der Mitte des Bildschirms ist.
+        e1=eul[0]-400; //350 später gamesize/2
+        e2=(eul[1]-400); // damit polar kosi in der Mitte des Bildschirms ist.
         break;
     case 'v':
         e1=eul[0];
         e2=(eul[1]);
         break;
     case 'b':
-        e1=eul[0]-350;
-        e2=-(eul[1]-350);
+        e1=eul[0]-400;
+        e2=-(eul[1]-400);
     default:
         e1=eul[0];
         e2=eul[1];
@@ -300,8 +299,8 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
 void PhysicsCalc::polToEul(double * pol, double* eul,char type){
     switch(type){
     case 'p':
-        eul[0]=round(pol[0]*cos(pol[1])*100)/100+350;
-        eul[1]=(round(pol[0]*sin(pol[1])*100)/100+350);
+        eul[0]=round(pol[0]*cos(pol[1])*100)/100+400;
+        eul[1]=(round(pol[0]*sin(pol[1])*100)/100+400);
         break;
     case 'v':
         eul[0]=round(pol[0]*cos(pol[1])*100)/100;

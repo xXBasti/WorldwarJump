@@ -28,31 +28,41 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
-    double speedPol[2];
-    double speedEul[2];
+    double centerToObject[2] = {0};
+    ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
+    double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
 
-    speedPol[0] = 7;
-    speedPol[1] = ((orientation-90)/180)*M_PI;
+    if(distanceToCenter > 250){
 
-    ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
+        double speedPol[2];
+        double speedEul[2];
 
-    speed[0] = speedEul[0] + speed[0];
-    speed[1] = speedEul[1] + speed[1];
+        speedPol[0] = 7;
+        speedPol[1] = ((orientation-90)/180)*M_PI;
 
-    //Create a randm variable that gives -1 or 1
-    std::srand(std::time(0));
-    int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-    qDebug() << random_var;
-    //Introduce chance in rotation
-    setRotVel(random_var *5 + getRotVel());
+        ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
 
+        speed[0] = speedEul[0] + speed[0];
+        speed[1] = speedEul[1] + speed[1];
+
+        //Create a randm variable that gives -1 or 1
+        std::srand(std::time(0));
+        int random_var = static_cast<int>(((rand()%2) -0.5)*2);
+        qDebug() << "Random Variable: " <<random_var;
+        //Introduce chance in rotation
+        setRotVel(random_var *5 + getRotVel());
+
+    }
+    /*qDebug() << "Distance to Center:" << distanceToCenter;
+    QPointF point(this->getCenterOfMass()[0],this->getCenterOfMass()[1]);
+    qDebug() << "Center: " << this->sceneTransform().map(point);
     qDebug() << "Orientation" << orientation;
     qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
     qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
     qDebug() << "Top left: " << this->scenePos();
     qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
     qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());
-
+    */
  }
 
 

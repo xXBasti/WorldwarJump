@@ -190,8 +190,8 @@ void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
 void Projectile::polToEul(double * pol, double* eul,char type){
     switch(type){
     case 'p':
-        eul[0]=round(pol[0]*cos(pol[1])*100)/100+350;
-        eul[1]=(round(pol[0]*sin(pol[1])*100)/100+350);
+        eul[0]=round(pol[0]*cos(pol[1])*100)/100+400;
+        eul[1]=(round(pol[0]*sin(pol[1])*100)/100+400);
         break;
     case 'v':
         eul[0]=round(pol[0]*cos(pol[1])*100)/100;
