@@ -97,6 +97,13 @@ Player WorldObject::getPlayer() const
 }
 
 void WorldObject::setSpeed(double *newSpeed){
+    //Limit to max Speed
+    double objectspeed = sqrt(newSpeed[0]*newSpeed[0] + newSpeed[1]*newSpeed[1]);
+    double speedlimit = 200;
+    if(objectspeed > speedlimit) {
+        newSpeed[0] = newSpeed[0]*(speedlimit/objectspeed);
+        newSpeed[1] = newSpeed[1]*(speedlimit/objectspeed);
+    }
     speed[0] = newSpeed[0];
     speed[1] = newSpeed[1];
 }

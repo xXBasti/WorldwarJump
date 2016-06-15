@@ -176,14 +176,14 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-         worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
+         //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
         worldObject->setSpeed(eulSpeed);
 
         // make object's rotation inverse and dampened at collision
-        worldObject->setRotVel(worldObject->getRotVel()*-0.9);
+        worldObject->setRotVel(worldObject->getRotVel()*-0.7);
     }
 
     // get object's speed and position
@@ -202,7 +202,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     speed[0] = 0.98*speed[0]; //parameter
     speed[1] = 0.98*speed[1];
 
-    // set new speed values
+    // set new speed values 
     worldObject->setSpeed(speed);
     return;
 }
