@@ -85,7 +85,7 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
             velocity[1]=10*cos(dir);
             break;
     }
-    setPicture(shootingUnit->getPlayer(),p);
+    setPicture(shootingUnit->getPlayer());
     setTransformOriginPoint(1, 1);
     this->setPos(x,y);
     this->setOrientation(dir);
@@ -96,10 +96,9 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     recoil(shootingUnit,this);
 }
 
-void Projectile::setPicture(Player p,ProjectileType pT)
+void Projectile::setPicture(Player p)
 {
-    qDebug() <<pT << p;
-    switch(pT){
+    switch(this->pT){
     case missile:
         qDebug() <<"adasd";
         switch(p){
@@ -165,8 +164,8 @@ void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
     v1s[0]= v1[0];
     v1s[1]= v1[1];
 
-    v1s[0]=(m2*v2[0]-m1*v1[0])/m1;
-    v1s[1]=(m2*v2[0]-m1*v1[0])/m1;
+    v1s[0]=(m1*v1[0]-m2*v2[0])/m1;
+    v1s[1]=(m1*v1[0]-m2*v2[0])/m1;
     obj1->setSpeed(v1s);
 }
 

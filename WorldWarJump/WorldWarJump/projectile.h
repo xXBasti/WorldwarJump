@@ -17,7 +17,7 @@ public:
 private:
     ProjectileType pT;
     int damage;
-    void setPicture(Player p, ProjectileType pT);
+    void setPicture(Player p);
 };
 
 #endif // PROJECTILE_H
