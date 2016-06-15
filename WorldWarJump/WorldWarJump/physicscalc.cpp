@@ -150,8 +150,16 @@ void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
 * When the WorldObject moves below the ground (collision) the movement speed of the WorldObject is inverted
 * @param worldObject the WorldObject instance for which new position
 */
-void PhysicsCalc::calculateNewValues(WorldObject * worldObject) {
+void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
+
+        if(typeid(*worldObject)== typeid(Projectile)){
+            worldObject->setHitCounter(worldObject->getHitCounter()+1);
+            if(worldObject->getHitCounter()>=10){
+                worldObject->~WorldObject();
+                return;
+            }
+        }
 
         //qDebug()<<"Collision!";
         double * eulSpeed = worldObject->getSpeed();

@@ -86,8 +86,9 @@ double * WorldObject::getSpeed(){
 
 void WorldObject::getNewValuesFromPhysicsCalc()
 {
-    ((GameplayInterface*)scene())->physicsCalulator->calculateNewValues(this);
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewRotValues(this);
+    ((GameplayInterface*)scene())->physicsCalulator->calculateNewValues(this);
+
 }
 
 Player WorldObject::getPlayer() const

@@ -120,9 +120,7 @@ void Projectile::setPicture(Player p)
 {
     switch(this->pT){
     case missile:
-        qDebug() <<"adasd";
         switch(p){
-            qDebug() <<"adasd";
             case player1:
                 setPixmap(QPixmap(":/images/redrocked70.png"));
                 break;
