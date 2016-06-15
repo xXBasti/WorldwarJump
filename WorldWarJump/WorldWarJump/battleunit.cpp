@@ -31,7 +31,8 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p) : WorldObject(parentVie
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
 
     this->setWeight(100);
-    this->damage=0;
+    this->setDamage(0);
+    this->setHealthpoints(100);
     this->setRotVel(0);
     //Better use world timer, do we need input timer at all?
     setFlag(QGraphicsItem::ItemIsFocusable);
@@ -64,5 +65,5 @@ void BattleUnit::setPicture()
 
 void BattleUnit::shoot(){
     qDebug() <<"fire";
-    new Projectile(parentView, this,balistic);
+    new Projectile(parentView, this,missile);
 }

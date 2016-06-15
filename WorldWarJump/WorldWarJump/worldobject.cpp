@@ -171,6 +171,11 @@ int WorldObject::getDamage()
     return this->damage;
 }
 
+void WorldObject::setDamage(int d)
+{
+    this->damage=d;
+}
+
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
 }

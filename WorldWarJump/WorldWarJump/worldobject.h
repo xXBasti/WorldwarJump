@@ -44,9 +44,10 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         void setWeight(int w);
         int getHealthpoints();
         int getDamage();
+        void setDamage(int d);
         void setHealthpoints(int points);
 protected:
-        int damage;
+
         Player p;
 private:
 
@@ -61,7 +62,7 @@ private:
 
         //! Center of mass to be the centerpoint of rotation and speed calculations -Can
         double centerOfMass[2];
-
+        int damage;
         int hitcounter =0;
         int healthpoints;
 

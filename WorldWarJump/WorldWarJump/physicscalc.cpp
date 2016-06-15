@@ -309,7 +309,6 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
     {
         if(typeid(*(colliding_items[i]))== typeid(Terrain))
         {
-            qDebug()<<"coli";
             return true;
 
         }
@@ -370,7 +369,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
         if((worldObject->getHitCounter())>=5){
             impuls(I,worldObject);
             I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
-            qDebug() << "you have "<<I->getHealthpoints();
+            qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
             checkHealth(I);
             worldObject->~WorldObject();
         }
