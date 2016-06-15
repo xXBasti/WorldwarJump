@@ -76,29 +76,37 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     this->parentView = parentView;
     switch(p){ //parameter
         case missile:
-            speedPol[0] = 10;
+
+            speedPol[0] = 20;
             this->setDamage(10);
-            this->setWeight(30);
-            break;
-        case balistic:
-            speedPol[0] = 10;
-            this->setDamage(5);
             this->setWeight(10);
             break;
-        case ray:
-            speedPol[0] = 15;
-            this->setDamage(8);
+        case balistic:
+
+            speedPol[0] = 30;
+            this->setDamage(5);
             this->setWeight(5);
             break;
+        case ray:
+
+            speedPol[0] = 40;
+            this->setDamage(8);
+            this->setWeight(2);
+            break;
         case scrap:
+
             speedPol[0] = 10;
             break;
     }
 
     setPicture(shootingUnit->getPlayer());
     setTransformOriginPoint(1, 1);
+    this->setRotVel(0);
+    this->setRotation(0);
+    this->setHealthpoints(1);
     this->setPos(x,y);
     this->setOrientation(shootingUnit->getOrientation());
+
     parentView->scene->addItem(this);
 
 
