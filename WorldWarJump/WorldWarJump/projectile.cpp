@@ -49,40 +49,90 @@
 //    velocity[0]=20*sin(dir); //parameter
 //    velocity[1]=20*cos(dir);
 //    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
-//  /*  QPainter painter(parentView);
-//    painter.setBrush(QBrush(Qt::black)); //Je nach typ
-//    painter.drawEllipse(QPoint(x,y),rx,ry); */
 //    this->setSpeed(velocity);
 //    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
 //}
 
-Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit) :WorldObject(parentView, getPlayer()){
+Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p) :WorldObject(parentView, getPlayer()){
     double x = shootingUnit->x();
     double y = shootingUnit->y();
+    double velocity[2]={0};
     double dir = shootingUnit->getOrientation()*(M_PI/180);
     this->parentView = parentView;
-    setPicture(shootingUnit->getPlayer());
+    switch(p){ //parameter
+        case missile:
+            velocity[0]=5*sin(dir);
+            velocity[1]=5*cos(dir);
+            this->damage=10;
+            break;
+        case balistic:
+            velocity[0]=10*sin(dir);
+            velocity[1]=10*cos(dir);
+            this->damage=5;
+            break;
+        case ray:
+            velocity[0]=15*sin(dir);
+            velocity[1]=15*cos(dir);
+            this->damage=8;
+            break;
+        case scrap:
+            velocity[0]=10*sin(dir);
+            velocity[1]=10*cos(dir);
+            break;
+    }
+    setPicture(shootingUnit->getPlayer(),pT);
     setTransformOriginPoint(1, 1);
     this->setPos(x,y);
+    this->setOrientation(dir);
     parentView->scene->addItem(this);
-    double velocity[2]={0};
-    velocity[0]=20*sin(dir); //parameter
-    velocity[1]=20*cos(dir);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
     this->setSpeed(velocity);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
+    recoil(shootingUnit,this);
 }
 
-void Projectile::setPicture(Player p)
+void Projectile::setPicture(Player p,ProjectileType pT)
 {
-    switch(p){
-        case player1:
-            setPixmap(QPixmap(":/images/redrocked70.png"));
-            break;
-        case player2:
-            setPixmap(QPixmap(":/images/bluerocked100.png"));
-            break;
-    default:
+    switch(pT){
+    case missile:
+        switch(p){
+            case player1:
+                setPixmap(QPixmap(":/images/redrocked70.png"));
+                break;
+            case player2:
+                setPixmap(QPixmap(":/images/bluerocked100.png"));
+                break;
+        }
+        break;
+    case balistic:
+        switch(p){
+            case player1:
+                setPixmap(QPixmap(":/images/redrocked70.png"));
+                break;
+            case player2:
+                setPixmap(QPixmap(":/images/bluerocked100.png"));
+                break;
+        }
+        break;
+    case ray:
+        switch(p){
+            case player1:
+                setPixmap(QPixmap(":/images/projektile.png"));
+                break;
+            case player2:
+                setPixmap(QPixmap(":/images/projektile.png"));
+                break;
+        }
+        break;
+    case scrap:
+        switch(p){
+            case player1:
+                setPixmap(QPixmap(":/images/redrocked70.png"));
+                break;
+            case player2:
+                setPixmap(QPixmap(":/images/bluerocked100.png"));
+                break;
+        }
         break;
     }
 }
@@ -98,4 +148,17 @@ void Projectile::fly(){
 
 }
 
+void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
+    double* v1=obj1->getSpeed();
+    double* v2=obj2->getSpeed();
+    double v1s[2];
+    int m1=obj1->getWeight();
+    int m2=obj2->getWeight();
+    v1s[0]= v1[0];
+    v1s[1]= v1[1];
+
+    v1s[0]=(m2*v2[0]-m1*v1[0])/m1;
+    v1s[1]=(m2*v2[0]-m1*v1[0])/m1;
+    obj1->setSpeed(v1s);
+}
 

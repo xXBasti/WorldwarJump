@@ -49,6 +49,8 @@ public:
 
     QGraphicsItem *CollideWithUnit(WorldObject *object);
     void hitUnit(WorldObject *worldObject);
+    void impuls(WorldObject *obj1, WorldObject *obj2);
+    void checkHealth(WorldObject *obj);
 };
 
 #endif // PHYSICSCLAC_H

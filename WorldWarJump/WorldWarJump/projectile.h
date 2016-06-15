@@ -9,16 +9,15 @@ class Projectile : public WorldObject
 {
     Q_OBJECT
 public:
-    Projectile(GameWorld *parentView,int x,int y,double dir,ProjectileType p);
+    Projectile(GameWorld *parentView,WorldObject *shootingUnit,ProjectileType p);
     void fly();
 
     ~Projectile();
-
-    Projectile(GameWorld *parentView, WorldObject *shootingUnit);
+    void recoil(WorldObject* obj1,WorldObject* obj2);
 private:
     ProjectileType pT;
     int damage;
-    void setPicture(Player p);
+    void setPicture(Player p, ProjectileType pT);
 };
 
 #endif // PROJECTILE_H

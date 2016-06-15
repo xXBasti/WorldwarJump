@@ -26,5 +26,6 @@
         <file>blueship100.png</file>
         <file>blueship150.png</file>
         <file>bluerocked100.png</file>
+        <file>projektile.png</file>
     </qresource>
 </RCC>

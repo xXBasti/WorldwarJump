@@ -76,6 +76,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p) {
 
     qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
     //*setFlag(QGraphicsItem::ItemIsFocusable);
+
 }
 
 
@@ -151,5 +152,31 @@ double *WorldObject::getCenterOfMass()
 
 }
 
-WorldObject::~WorldObject(){}
+int WorldObject::getWeight()
+{
+    return this->weigth;
+}
+
+void WorldObject::setWeight(int w)
+{
+    this->weigth=w;
+}
+
+int WorldObject::getHealthpoints(){
+    return this->healthpoints;
+}
+
+int WorldObject::getDamage()
+{
+    return this->damage;
+}
+
+void WorldObject::setHealthpoints(int points){
+    this->healthpoints=points;
+}
+
+WorldObject::~WorldObject() {
+
+}
+
 

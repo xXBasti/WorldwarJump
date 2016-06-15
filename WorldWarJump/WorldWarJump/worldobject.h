@@ -40,12 +40,19 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
 
         Player getPlayer() const;
 
+        int getWeight();
+        void setWeight(int w);
+        int getHealthpoints();
+        int getDamage();
+        void setHealthpoints(int points);
+protected:
+        int damage;
+        Player p;
 private:
 
         double speed [2];
         void getNewValuesFromPhysicsCalc();
         int weigth;
-        Player p;
         //For orientation
         //! Orientation and Angular Rotational Velocity of the objects -Can
         double orientation;
