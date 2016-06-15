@@ -16,7 +16,7 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
 
     public:
 
-        WorldObject(GameWorld *parentView);
+        WorldObject(GameWorld *parentView, Player p);
         void setSpeed(double* newSpeed);
         void getPosition(double * outputPointer);
         double* getSpeed();
@@ -38,12 +38,14 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         int getHitCounter();
         ~WorldObject();
 
+        Player getPlayer() const;
+
 private:
 
         double speed [2];
         void getNewValuesFromPhysicsCalc();
         int weigth;
-
+        Player p;
         //For orientation
         //! Orientation and Angular Rotational Velocity of the objects -Can
         double orientation;

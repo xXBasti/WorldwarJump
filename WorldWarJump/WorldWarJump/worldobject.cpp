@@ -56,8 +56,10 @@ void WorldObject::jump()
  }
 
 
-WorldObject::WorldObject(GameWorld * parentView) {
+WorldObject::WorldObject(GameWorld * parentView, Player p) {
 
+    this->parentView = parentView;
+    this->p = p;
     speed[0] = speed[1] = 0;
     setOrientation(0);
     setRotVel(0);
@@ -85,6 +87,11 @@ void WorldObject::getNewValuesFromPhysicsCalc()
 {
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewValues(this);
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewRotValues(this);
+}
+
+Player WorldObject::getPlayer() const
+{
+    return p;
 }
 
 void WorldObject::setSpeed(double *newSpeed){

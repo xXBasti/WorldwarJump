@@ -14,9 +14,11 @@ public:
 
     ~Projectile();
 
+    Projectile(GameWorld *parentView, WorldObject *shootingUnit);
 private:
     ProjectileType pT;
     int damage;
+    void setPicture(Player p);
 };
 
 #endif // PROJECTILE_H

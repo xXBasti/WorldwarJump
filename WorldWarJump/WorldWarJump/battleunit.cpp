@@ -5,10 +5,10 @@
 #include "projectile.h"
 #include <QDebug>
 
-BattleUnit::BattleUnit(GameWorld * parentView,Player p) : WorldObject(parentView)
+BattleUnit::BattleUnit(GameWorld * parentView, Player p) : WorldObject(parentView, p)
 {
     this->parentView = parentView;
-    setPixmap(QPixmap(":/images/redtank100.png"));
+    setPicture();
 
     double newCenter[2];
     newCenter[0] = 30;
@@ -45,12 +45,22 @@ void BattleUnit::setFiredirection(double direction){
     this->firedirection=direction;
 }
 
+void BattleUnit::setPicture()
+{
+    Player p = getPlayer();
+    switch(p){
+        case player1:
+            setPixmap(QPixmap(":/images/redtank100.png"));
+            break;
+        case player2:
+            setPixmap(QPixmap(":/images/blueship100.png"));
+            break;
+    default:
+        break;
+    }
+}
+
 void BattleUnit::shoot(){
     qDebug() <<"fire";
-    double pos[2];
-    this->getPosition(pos);
-    double dir=this->getFiredirection();
-    double orient=this->getOrientation()*(M_PI/180);
-//    dir=dir+orient;
-    Projectile* p=new Projectile(this->parentView,pos[0],pos[1],orient,ray);
+    new Projectile(parentView, this);
 }

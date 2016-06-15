@@ -16,7 +16,8 @@
 
 GameWorld::GameWorld()
 {
-    setGameWorldSize(800);
+    GameWorldSize = 800;
+    setGameWorldSize(GameWorldSize);
     scene = new GameplayInterface();
     scene->setSceneRect(0,0,GameWorldSize,GameWorldSize);
     setScene(scene);
@@ -39,6 +40,10 @@ GameWorld::GameWorld()
     BattleUnit *player1Unit1 = new BattleUnit(this,player1);
     player1Unit1->setPos(GameWorldSize/2,GameWorldSize/2);
     scene->addItem(player1Unit1);
+
+    BattleUnit *player2Unit1 = new BattleUnit(this,player2);
+    player2Unit1->setPos(GameWorldSize/3,GameWorldSize/3);
+    scene->addItem(player2Unit1);
 
     double e1[2]={300,300};
     double p1[2]={1,M_PI};

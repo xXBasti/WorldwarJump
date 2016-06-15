@@ -17,13 +17,5 @@ int main(int argc, char *argv[])
 
     GameMenu *menu = new GameMenu();
 
-/*
-    MainWindow *w = new MainWindow;
-    GameWorld *world = new GameWorld;
-    w->setCentralWidget(world);
-    w->show();
-*/
-
-
     return a.exec();
 }
