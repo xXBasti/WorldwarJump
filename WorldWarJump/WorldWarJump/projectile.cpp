@@ -63,22 +63,22 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     this->parentView = parentView;
     switch(p){ //parameter
         case missile:
-            velocity[0]=10*sin(dir);
-            velocity[1]=10*cos(dir);
+            velocity[0]=20*sin(dir);
+            velocity[1]=20*cos(dir);
             this->setDamage(10);
-            this->setWeight(30);
-            break;
-        case balistic:
-            velocity[0]=10*sin(dir);
-            velocity[1]=10*cos(dir);
-            this->setDamage(5);
             this->setWeight(10);
             break;
-        case ray:
-            velocity[0]=15*sin(dir);
-            velocity[1]=15*cos(dir);
-            this->setDamage(8);
+        case balistic:
+            velocity[0]=30*sin(dir);
+            velocity[1]=30*cos(dir);
+            this->setDamage(5);
             this->setWeight(5);
+            break;
+        case ray:
+            velocity[0]=40*sin(dir);
+            velocity[1]=40*cos(dir);
+            this->setDamage(8);
+            this->setWeight(2);
             break;
         case scrap:
             velocity[0]=10*sin(dir);
@@ -87,8 +87,11 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     }
     setPicture(shootingUnit->getPlayer());
     setTransformOriginPoint(1, 1);
+    this->setRotVel(0);
+    this->setRotation(0);
+    this->setHealthpoints(1);
     this->setPos(x,y);
-    this->setOrientation(dir);
+    this->setOrientation(dir+M_PI/4);
     parentView->scene->addItem(this);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
     this->setSpeed(velocity);

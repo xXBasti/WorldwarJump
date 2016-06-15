@@ -5,6 +5,7 @@
 #include "gameworld.h"
 #include "terrain.h"
 #include "battleunit.h"
+#include "projectile.h"
 #include <typeinfo>
 #include <QDebug>
 
@@ -322,7 +323,7 @@ QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
     QList<QGraphicsItem *> colliding_items = object->collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
-        if(typeid(*(colliding_items[i]))== typeid(BattleUnit))
+        if(typeid(*(colliding_items[i]))== typeid(BattleUnit) || typeid(*(colliding_items[i]))== typeid(Projectile))
         {
             return (colliding_items[i]);
         }
@@ -366,7 +367,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
 
-        if((worldObject->getHitCounter())>=5){
+        if((worldObject->getHitCounter())>=4){
             impuls(I,worldObject);
             I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
             qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
