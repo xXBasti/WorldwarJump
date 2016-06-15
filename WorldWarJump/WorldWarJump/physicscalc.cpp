@@ -66,7 +66,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     }
     counter = counter +1;
     if(counter == 50){
-        qDebug() << "Angle difference: "<<gravAngleDiff ;
+     //   qDebug() << "Angle difference: "<<gravAngleDiff ;
         counter = 0 ;
     }
 
@@ -379,9 +379,36 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
+        if(obj->getPlayer()==player1){
+            setPlayerone(getPlayerone()-1);
+        }
+        else{
+            setPlayertwo(getPlayertwo()-1);
+        }
         obj->~WorldObject();
-
+            checkUnit();
     }
+
+}
+
+int PhysicsCalc::getPlayerone()
+{
+    return playerone;
+}
+
+int PhysicsCalc::getPlayertwo()
+{
+    return playertwo;
+}
+
+void PhysicsCalc::setPlayerone(int po)
+{
+    this->playerone=po;
+}
+
+void PhysicsCalc::setPlayertwo(int pt)
+{
+    this->playertwo=pt;
 }
 
 
@@ -406,3 +433,12 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 }
 
 
+void PhysicsCalc::checkUnit(){
+    if(this->getPlayerone()<=0){
+        qDebug() <<"Player two wins";
+    }
+    if(this->getPlayertwo()<=0){
+        qDebug() <<"Player one wins";
+    }
+
+}

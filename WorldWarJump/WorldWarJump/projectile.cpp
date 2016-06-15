@@ -63,17 +63,20 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
         case missile:
             velocity[0]=5*sin(dir);
             velocity[1]=5*cos(dir);
-            this->setDamage(50);
+            this->setDamage(10);
+            this->setWeight(30);
             break;
         case balistic:
             velocity[0]=10*sin(dir);
             velocity[1]=10*cos(dir);
             this->setDamage(5);
+            this->setWeight(10);
             break;
         case ray:
             velocity[0]=15*sin(dir);
             velocity[1]=15*cos(dir);
             this->setDamage(8);
+            this->setWeight(5);
             break;
         case scrap:
             velocity[0]=10*sin(dir);

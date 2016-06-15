@@ -181,7 +181,7 @@ void WorldObject::setHealthpoints(int points){
 }
 
 WorldObject::~WorldObject() {
-
+    qDebug() <<"Terminated!";
 }
 
 

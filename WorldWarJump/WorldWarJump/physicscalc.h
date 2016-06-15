@@ -51,6 +51,14 @@ public:
     void hitUnit(WorldObject *worldObject);
     void impuls(WorldObject *obj1, WorldObject *obj2);
     void checkHealth(WorldObject *obj);
+    int getPlayerone();
+    int getPlayertwo();
+    void setPlayerone(int po);
+    void setPlayertwo(int pt);
+    void checkUnit();
+private:
+    int playerone;
+    int playertwo;
 };
 
 #endif // PHYSICSCLAC_H
