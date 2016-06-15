@@ -57,12 +57,14 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     double x = shootingUnit->x();
     double y = shootingUnit->y();
     double velocity[2]={0};
-    double dir = shootingUnit->getOrientation()*(M_PI/180);
+    this->pT=p;
+    qDebug() <<"launch";
+    double dir = shootingUnit->getOrientation();
     this->parentView = parentView;
     switch(p){ //parameter
         case missile:
-            velocity[0]=5*sin(dir);
-            velocity[1]=5*cos(dir);
+            velocity[0]=10*sin(dir);
+            velocity[1]=10*cos(dir);
             this->setDamage(10);
             this->setWeight(30);
             break;
@@ -83,7 +85,7 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
             velocity[1]=10*cos(dir);
             break;
     }
-    setPicture(shootingUnit->getPlayer(),pT);
+    setPicture(shootingUnit->getPlayer(),p);
     setTransformOriginPoint(1, 1);
     this->setPos(x,y);
     this->setOrientation(dir);
@@ -96,9 +98,12 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
 
 void Projectile::setPicture(Player p,ProjectileType pT)
 {
+    qDebug() <<pT << p;
     switch(pT){
     case missile:
+        qDebug() <<"adasd";
         switch(p){
+            qDebug() <<"adasd";
             case player1:
                 setPixmap(QPixmap(":/images/redrocked70.png"));
                 break;
