@@ -68,7 +68,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     }
     counter = counter +1;
     if(counter == 50){
-        qDebug() << "Angle difference: "<<gravAngleDiff ;
+     //   qDebug() << "Angle difference: "<<gravAngleDiff ;
         counter = 0 ;
     }
 
@@ -313,7 +313,6 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
     {
         if(typeid(*(colliding_items[i]))== typeid(Terrain))
         {
-            qDebug()<<"coli";
             return true;
 
         }
@@ -366,15 +365,84 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
 }
 
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
-//    qDebug() <<"Hit?";
-    QGraphicsItem* I=this->CollideWithUnit(worldObject);
+    //QGraphicsItem* I=this->CollideWithUnit(worldObject);
+    WorldObject* I=(WorldObject*)this->CollideWithUnit(worldObject);
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
-        if((worldObject->getHitCounter())==4){
-            I->setPos(350,350);
-            qDebug() <<"Hit";
+
+        if((worldObject->getHitCounter())>=5){
+            impuls(I,worldObject);
+            I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
+            qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
+            checkHealth(I);
             worldObject->~WorldObject();
         }
+    }
+
+}
+
+void PhysicsCalc::checkHealth(WorldObject* obj){
+    if (obj->getHealthpoints()<=0){
+        if(obj->getPlayer()==player1){
+            setPlayerone(getPlayerone()-1);
+        }
+        else{
+            setPlayertwo(getPlayertwo()-1);
+        }
+        obj->~WorldObject();
+            checkUnit();
+    }
+
+}
+
+int PhysicsCalc::getPlayerone()
+{
+    return playerone;
+}
+
+int PhysicsCalc::getPlayertwo()
+{
+    return playertwo;
+}
+
+void PhysicsCalc::setPlayerone(int po)
+{
+    this->playerone=po;
+}
+
+void PhysicsCalc::setPlayertwo(int pt)
+{
+    this->playertwo=pt;
+}
+
+
+void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
+    double* v1=obj1->getSpeed();
+    double* v2=obj2->getSpeed();
+    double v1s[2];
+    double v2s[2];
+    int m1=obj1->getWeight();
+    int m2=obj2->getWeight();
+    v1s[0]= v1[0];
+    v1s[1]= v1[1];
+    v2s[0]= v2[0];
+    v2s[1]= v2[1];
+
+    v1s[0]=((m1-m2)*v1[0]+2*m2*v2[0])/(m1+m2);
+    v1s[1]=((m1-m2)*v1[1]+2*m2*v2[1])/(m1+m2);
+    v2s[0]=((m2-m1)*v2[0]+2*m1*v1[0])/(m1+m2);
+    v2s[1]=((m2-m1)*v2[1]+2*m1*v1[1])/(m1+m2);
+    obj1->setSpeed(v1s);
+    obj2->setSpeed(v2s);
+}
+
+
+void PhysicsCalc::checkUnit(){
+    if(this->getPlayerone()<=0){
+        qDebug() <<"Player two wins";
+    }
+    if(this->getPlayertwo()<=0){
+        qDebug() <<"Player one wins";
     }
 
 }

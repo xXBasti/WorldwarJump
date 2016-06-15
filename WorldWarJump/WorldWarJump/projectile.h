@@ -9,12 +9,13 @@ class Projectile : public WorldObject
 {
     Q_OBJECT
 public:
-    Projectile(GameWorld *parentView,int x,int y,double dir,ProjectileType p);
+    Projectile(GameWorld *parentView,WorldObject *shootingUnit,ProjectileType p);
     void fly();
 
     ~Projectile();
-
-    Projectile(GameWorld *parentView, WorldObject *shootingUnit);
+    void recoil(WorldObject* obj1,WorldObject* obj2);
+    //I needed to transport this
+    void polToEul(double * pol, double* eul,char type);
 private:
     ProjectileType pT;
     int damage;
