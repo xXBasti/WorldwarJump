@@ -4,7 +4,9 @@
 #include <QDebug>
 #include <iostream>
 #include <time.h>
-#include <QtMath>
+#include <cmath>
+#include "physicscalc.h"
+#define M_PI 3.14159
 
 //Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,ProjectileType p) : WorldObject(parentView)
 //{
@@ -59,17 +61,25 @@
 Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit) :WorldObject(parentView, getPlayer()){
     double x = shootingUnit->x();
     double y = shootingUnit->y();
-    double dir = shootingUnit->getOrientation()*(M_PI/180);
+
     this->parentView = parentView;
     setPicture(shootingUnit->getPlayer());
     setTransformOriginPoint(1, 1);
     this->setPos(x,y);
     parentView->scene->addItem(this);
-    double velocity[2]={0};
-    velocity[0]=20*sin(dir); //parameter
-    velocity[1]=20*cos(dir);
+
+    //Import from world object
+    double speedPol[2] = {0};
+    double speedEul[2] = {0};
+
+    speedPol[0] = 20;
+    speedPol[1] = ((shootingUnit->getOrientation()-30)/180)*M_PI;
+
+    ((GameplayInterface*)scene())->physicsCalulator->polToEul(speedPol,speedEul,'v');
+    //Import from worldobject
+
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
-    this->setSpeed(velocity);
+    this->setSpeed(speedEul);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
 }
 

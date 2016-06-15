@@ -5,6 +5,7 @@
 #include "gameworld.h"
 #include "terrain.h"
 #include "battleunit.h"
+#include "projectile.h"
 #include <typeinfo>
 #include <QDebug>
 
@@ -37,7 +38,8 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     if(gravAngleDiff > 180) gravAngleDiff = gravAngleDiff - 360;
     if(gravAngleDiff < -180) gravAngleDiff = gravAngleDiff + 360;
 
-    worldObject->setRotation(angular[0] + timeStep*angular[1]);
+    if(typeid(worldObject) == typeid(Projectile)){}else{
+    worldObject->setRotation(angular[0] + timeStep*angular[1]);}
     angular[0] = angular[0] + timeStep*angular[1];
     if(angular[0] > 360 || angular[0] < -360){
         angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
@@ -71,7 +73,9 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     }
 
 
-
+if(typeid(*worldObject) == typeid(Projectile)){
+    return;
+}
     updateRotValues(worldObject, angular);
 }
 /**
