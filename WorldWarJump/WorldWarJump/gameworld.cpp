@@ -37,19 +37,19 @@ GameWorld::GameWorld()
     input->setRect(0,0,GameWorldSize,GameWorldSize);
     scene->addItem(input);
 
-    BattleUnit *player1Unit2 = new BattleUnit(this,player1);
+    BattleUnit *player1Unit2 = new BattleUnit(this,player1,Tank);
     player1Unit2->setPos(GameWorldSize/2,GameWorldSize/3);
     scene->addItem(player1Unit2);
 
-    BattleUnit *player1Unit1 = new BattleUnit(this,player1);
+    BattleUnit *player1Unit1 = new BattleUnit(this,player1,Tank);
     player1Unit1->setPos(GameWorldSize/2,GameWorldSize/2);
     scene->addItem(player1Unit1);
 
-    BattleUnit *player2Unit2 = new BattleUnit(this,player2);
+    BattleUnit *player2Unit2 = new BattleUnit(this,player2,Ship);
     player2Unit2->setPos(GameWorldSize/3,GameWorldSize/2);
     scene->addItem(player2Unit2);
 
-    BattleUnit *player2Unit1 = new BattleUnit(this,player2);
+    BattleUnit *player2Unit1 = new BattleUnit(this,player2,Ship);
     player2Unit1->setPos(GameWorldSize/3,GameWorldSize/3);
     scene->addItem(player2Unit1);
 
