@@ -187,6 +187,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if(CollideWithUnit(worldObject)!=NULL){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         inverseSpeed(worldObject,wO);
+        meeleDamage(wO,worldObject);
     }
     // get object's speed and position
     double * speed = worldObject->getSpeed();
@@ -466,4 +467,20 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     v2[1]=v2[1]*-1;
     colliding1->setSpeed(v1);
     colliding2->setSpeed(v2);
+}
+
+void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
+    //The slower Object gets the Damage
+    double* v1=colliding1->getSpeed();
+    double* v2=colliding2->getSpeed();
+    if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
+       colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
+       qDebug() <<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
+       checkHealth(colliding1);
+    }
+    if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
+        colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
+        qDebug() <<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
+        checkHealth(colliding2);
+    }
 }

@@ -42,11 +42,6 @@ public:
     void eulToPol(double * eul, double* pol,char type);
     void polToEul(double * pol, double* eul,char type);
     void radialCollison(double colPosEul[2],double colSpeedRT[2]);
-    //Basti
-
-    //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
-    bool CollideWithTerrain(WorldObject* object);
-
     QGraphicsItem *CollideWithUnit(WorldObject *object);
     void hitUnit(WorldObject *worldObject);
     void impuls(WorldObject *obj1, WorldObject *obj2);
@@ -57,6 +52,14 @@ public:
     void setPlayertwo(int pt);
     void checkUnit();
     void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
+    void meeleDamage(WorldObject *colliding1, WorldObject *colliding2);
+    //Basti
+
+    //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
+    bool CollideWithTerrain(WorldObject* object);
+
+
+
 private:
     int playerone;
     int playertwo;
