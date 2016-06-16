@@ -23,10 +23,18 @@ public:
 
     static int getGameWorldSize();
 
+    static double getGravity();
+    static void setGravity(double value);
+
+    static double getTimeStep();
+    static void setTimeStep(double value);
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
     static int GameWorldSize;
+    static double gravity;
+    static double timeStep;
     int whichStage;
     bool beforeGameSceneAlreadyCreated;
     bool settingsSceneAlreadyCreated;

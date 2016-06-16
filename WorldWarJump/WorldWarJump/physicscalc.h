@@ -4,6 +4,7 @@
 #include "worldobject.h"
 #include <QGraphicsItem>
 #include "gameworld.h"
+#include "gamesettings.h"
 
 class PhysicsCalc
 {
@@ -29,12 +30,10 @@ public:
 
     //Tomas
     void calculateNewValues(WorldObject *);
-
     double vectorsAbsoluteValue(double * vector);
-
-    // Std: gravity = 1; timeStep = 2;
-    double gravity = 0.15;
-    double timeStep = 2;
+    GameSettings * settings;
+    double gravity = settings->getGravity();
+    double timeStep = settings->getTimeStep();
     void velocityEulerToRadialCoordinates(double * eulInputPosition, double * inputVelVector, double * outputVelVector, bool eulerToRadial);
     //Tomas
 

@@ -9,6 +9,8 @@ GameSettings::GameSettings()
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
 int GameSettings::GameWorldSize = 800;
+double GameSettings::gravity = 0.15;
+double GameSettings::timeStep= 2;
 
 int GameSettings::getPlayer1UnitCount() const
 {
@@ -63,5 +65,25 @@ void GameSettings::setSettingsSceneAlreadyCreated(bool value)
 int GameSettings::getGameWorldSize()
 {
     return GameWorldSize;
+}
+
+double GameSettings::getGravity()
+{
+    return gravity;
+}
+
+void GameSettings::setGravity(double value)
+{
+    gravity = value;
+}
+
+double GameSettings::getTimeStep()
+{
+    return timeStep;
+}
+
+void GameSettings::setTimeStep(double value)
+{
+    timeStep = value;
 }
 

@@ -40,7 +40,6 @@ GameWorld::GameWorld()
 
     addUnits();
 
-
     double e1[2]={300,300};
     double p1[2]={1,M_PI};
     double e2[2]={0};
