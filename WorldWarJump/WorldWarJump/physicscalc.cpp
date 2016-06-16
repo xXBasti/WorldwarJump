@@ -184,8 +184,9 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
     }
-    if(CollideWithUnit(worldObject)!=NULL){
+    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
+        //impuls(wO,worldObject);
         inverseSpeed(worldObject,wO);
         meeleDamage(wO,worldObject);
     }
@@ -475,12 +476,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
     if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
        colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
-       qDebug() <<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
+       qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
        checkHealth(colliding1);
     }
     if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
         colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
-        qDebug() <<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
+        qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
         checkHealth(colliding2);
     }
 }
