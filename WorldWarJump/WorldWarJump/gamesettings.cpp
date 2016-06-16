@@ -2,12 +2,13 @@
 
 GameSettings::GameSettings()
 {
-    player1UnitCount = 1;
-    player2UnitCount = 1;
     whichStage = 1;
     settingsSceneAlreadyCreated = false;
     beforeGameSceneAlreadyCreated = false;
 }
+int GameSettings::player1UnitCount = 1;
+int GameSettings::player2UnitCount = 1;
+int GameSettings::GameWorldSize = 800;
 
 int GameSettings::getPlayer1UnitCount() const
 {
@@ -57,5 +58,10 @@ bool GameSettings::getSettingsSceneAlreadyCreated() const
 void GameSettings::setSettingsSceneAlreadyCreated(bool value)
 {
     settingsSceneAlreadyCreated = value;
+}
+
+int GameSettings::getGameWorldSize()
+{
+    return GameWorldSize;
 }
 

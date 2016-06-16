@@ -89,6 +89,20 @@ WorldObject::WorldObject(GameWorld * parentView, Player p) {
 
 }
 
+WorldObject::WorldObject(Player p) {
+
+    this->p = p;
+    speed[0] = speed[1] = 0;
+    setOrientation(0);
+    setRotVel(0);
+
+    double newCenter[2];
+    newCenter[0] = 12.5;
+    newCenter[1] = 40;
+    setCenterOfMass(newCenter);
+    setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
+}
+
 
 double * WorldObject::getSpeed(){
     return speed;

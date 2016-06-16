@@ -7,6 +7,7 @@ class BattleUnit :public WorldObject
     Q_OBJECT
 public:
     BattleUnit(GameWorld * parentView, Player p,unitType unittype);
+    BattleUnit(Player p,unitType unitType);
     double getFiredirection();
     void setFiredirection(double direction);
     unitType getUnittype();

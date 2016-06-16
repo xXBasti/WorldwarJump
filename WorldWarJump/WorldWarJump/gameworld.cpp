@@ -7,6 +7,7 @@
 #include "physicscalc.h"
 #include "battleunit.h"
 #include <QDebug>
+#include "gamesettings.h"
 
 #include <stdlib.h>
 #include <cmath>
@@ -16,7 +17,8 @@
 
 GameWorld::GameWorld()
 {
-    GameWorldSize = 800;
+    GameSettings * settings;
+    GameWorldSize = settings->getGameWorldSize();
     setGameWorldSize(GameWorldSize);
     scene = new GameplayInterface();
     scene->setSceneRect(0,0,GameWorldSize,GameWorldSize);

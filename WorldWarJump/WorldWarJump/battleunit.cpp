@@ -39,6 +39,37 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,unitType unittype) : Wor
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
+BattleUnit::BattleUnit(Player p,unitType unittype) : WorldObject(p)
+{
+    this->ut=unittype;
+    setPicture();
+
+    double newCenter[2];
+    newCenter[0] = 30;
+    newCenter[1] = 20;
+    setCenterOfMass(newCenter);
+    setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
+
+    switch(p){
+    case player1:
+        connect(((GameplayInterface*)scene())->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
+        connect(((GameplayInterface*)scene())->input, SIGNAL(playerOneShoot()), this, SLOT(shoot()));
+        break;
+    case player2:
+        connect(((GameplayInterface*)scene())->input, SIGNAL(playerTwoJump()), this, SLOT(jump()));
+        connect(((GameplayInterface*)scene())->input, SIGNAL(playerTwoShoot()), this, SLOT(shoot()));
+        break;
+    }
+    connect(((GameplayInterface*)scene())->timer, SIGNAL(timeout()), this, SLOT(move()));
+    connect(((GameplayInterface*)scene())->timer, SIGNAL(timeout()), this, SLOT(move()));
+
+    this->setWeight(100);
+    this->setDamage(5);
+    this->setHealthpoints(100);
+    this->setRotVel(0);
+    //Better use world timer, do we need input timer at all?
+}
+
 
 
 double BattleUnit::getFiredirection(){

@@ -17,6 +17,7 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
     public:
 
         WorldObject(GameWorld *parentView, Player p);
+        WorldObject(Player p);
         void setSpeed(double* newSpeed);
         void getPosition(double * outputPointer);
         double* getSpeed();

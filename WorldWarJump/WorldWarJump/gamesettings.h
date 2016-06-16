@@ -21,9 +21,12 @@ public:
     bool getSettingsSceneAlreadyCreated() const;
     void setSettingsSceneAlreadyCreated(bool value);
 
+    static int getGameWorldSize();
+
 private:
-    int player1UnitCount;
-    int player2UnitCount;
+    static int player1UnitCount;
+    static int player2UnitCount;
+    static int GameWorldSize;
     int whichStage;
     bool beforeGameSceneAlreadyCreated;
     bool settingsSceneAlreadyCreated;
