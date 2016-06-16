@@ -184,7 +184,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
     }
-
+    if(CollideWithUnit(worldObject)!=NULL){
+        WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
+        inverseSpeed(worldObject,wO);
+    }
     // get object's speed and position
     double * speed = worldObject->getSpeed();
     double posCoordinates [2];
@@ -452,4 +455,15 @@ void PhysicsCalc::checkUnit(){
         qDebug() <<"Player one wins";
     }
 
+}
+
+void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
+    double* v1=colliding1->getSpeed();
+    double* v2=colliding2->getSpeed();
+    v1[0]=v1[0]*-1;
+    v1[1]=v1[1]*-1;
+    v2[0]=v2[0]*-1;
+    v2[1]=v2[1]*-1;
+    colliding1->setSpeed(v1);
+    colliding2->setSpeed(v2);
 }

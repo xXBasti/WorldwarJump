@@ -56,6 +56,7 @@ public:
     void setPlayerone(int po);
     void setPlayertwo(int pt);
     void checkUnit();
+    void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
 private:
     int playerone;
     int playertwo;
