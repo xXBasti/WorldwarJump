@@ -34,8 +34,9 @@ public:
 
 private:
     //! defines the resolution of GameplayInterface
-    int GameWorldSize;
-
+    int gameWorldSize;
+    GameSettings * settings;
+    void addUnits();
 };
 
 #endif // GAMEWORLD_H

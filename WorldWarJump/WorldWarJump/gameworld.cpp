@@ -17,14 +17,13 @@
 
 GameWorld::GameWorld()
 {
-    GameSettings * settings;
-    GameWorldSize = settings->getGameWorldSize();
-    setGameWorldSize(GameWorldSize);
+    gameWorldSize = settings->getGameWorldSize();
+    setGameWorldSize(gameWorldSize);
     scene = new GameplayInterface();
-    scene->setSceneRect(0,0,GameWorldSize,GameWorldSize);
+    scene->setSceneRect(0,0,gameWorldSize,gameWorldSize);
     setScene(scene);
 
-    setFixedSize(GameWorldSize,GameWorldSize);
+    setFixedSize(gameWorldSize,gameWorldSize);
 
     Terrain *terrain = new Terrain;
     scene->addItem(terrain);
@@ -36,24 +35,11 @@ GameWorld::GameWorld()
 
     // Input-connection to World scene
     input = new Input();
-    input->setRect(0,0,GameWorldSize,GameWorldSize);
+    input->setRect(0,0,gameWorldSize,gameWorldSize);
     scene->addItem(input);
 
-    BattleUnit *player1Unit2 = new BattleUnit(this,player1,Tank);
-    player1Unit2->setPos(GameWorldSize/2,GameWorldSize/3);
-    scene->addItem(player1Unit2);
+    addUnits();
 
-    BattleUnit *player1Unit1 = new BattleUnit(this,player1,Tank);
-    player1Unit1->setPos(GameWorldSize/2,GameWorldSize/2);
-    scene->addItem(player1Unit1);
-
-    BattleUnit *player2Unit2 = new BattleUnit(this,player2,Ship);
-    player2Unit2->setPos(GameWorldSize/3,GameWorldSize/2);
-    scene->addItem(player2Unit2);
-
-    BattleUnit *player2Unit1 = new BattleUnit(this,player2,Ship);
-    player2Unit1->setPos(GameWorldSize/3,GameWorldSize/3);
-    scene->addItem(player2Unit1);
 
     double e1[2]={300,300};
     double p1[2]={1,M_PI};
@@ -74,12 +60,12 @@ GameWorld::GameWorld()
 
 int GameWorld::getGameWorldSize() const
 {
-    return GameWorldSize;
+    return gameWorldSize;
 }
 
 void GameWorld::setGameWorldSize(int value)
 {
-    GameWorldSize = value;
+    gameWorldSize = value;
 }
 
 void GameWorld::pause()
@@ -91,5 +77,21 @@ void GameWorld::pause()
 void GameWorld::resume()
 {
     input->timer->start(20);
+}
+
+void GameWorld::addUnits()
+{
+    int player1Units = settings->getPlayer1UnitCount();
+    for(int i = 1; i <= player1Units; i++){
+        BattleUnit *player1Unit = new BattleUnit(this,player1,Tank);
+        player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
+        scene->addItem(player1Unit);
+    }
+    int player2Unit = settings->getPlayer2UnitCount();
+    for(int i = 1; i <= player2Unit; i++){
+        BattleUnit *player2Unit = new BattleUnit(this,player2, Ship);
+        player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
+        scene->addItem(player2Unit);
+    }
 }
 
