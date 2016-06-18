@@ -48,27 +48,40 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     //! The stabilization module only activates when the object is close to the ground -Can
     //Stabilization module
     double distanceToGround = 400 - vectorsAbsoluteValue(gravityVector);
-
+    int stabilizationFactor;
+    int timeDecay;
+    double maxRotVel = 7;
     if(distanceToGround < 200){
-        if(gravAngleDiff < 0){
-            angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/50));
-        }else{
-            angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/50));
+        stabilizationFactor = 80;
+        timeDecay = 30;
+        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+
+        if(angular[1] < - maxRotVel){
+            angular[1] = -maxRotVel;
+        }else if(angular[1] > maxRotVel){
+            angular[1] = maxRotVel;
         }
 
-    //Stabilization module
     }else if(distanceToGround < 300){
-        if(gravAngleDiff < 0){
-            angular[1] =  exp(-(timeStep/30))*(angular[1] - (gravAngleDiff/35));
-        }else{
-            angular[1] = exp(-(timeStep/30))*(angular[1] -  (gravAngleDiff/35));
+        stabilizationFactor = 70;
+        timeDecay = 35;
+        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+
+        if(angular[1] < - maxRotVel){
+            angular[1] = -maxRotVel;
+        }else if(angular[1] > maxRotVel){
+            angular[1] = maxRotVel;
         }
+
     }else{
-        angular[1] = exp(-(timeStep/100))*angular[1];
+        stabilizationFactor = 200;
+        timeDecay = 80;
+        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
     }
     counter = counter +1;
     if(counter == 50){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
+        qDebug() << "Angle velocity: " << angular[1];
         counter = 0 ;
     }
 
