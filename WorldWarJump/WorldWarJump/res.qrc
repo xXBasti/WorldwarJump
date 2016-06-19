@@ -27,5 +27,9 @@
         <file>blueship150.png</file>
         <file>bluerocked100.png</file>
         <file>projektile.png</file>
+        <file>background.png</file>
+    </qresource>
+    <qresource prefix="/sound">
+        <file>sound/gameBGM.wav</file>
     </qresource>
 </RCC>

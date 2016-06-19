@@ -31,6 +31,7 @@ public:
     Input * input;
     GameplayInterface * scene;
     QTimer * levelSwitchTimer;
+    QGraphicsPixmapItem *background;
 
     void setGameWorldSize(int value);
 

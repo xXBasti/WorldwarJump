@@ -35,7 +35,7 @@ void GameSettings::setPlayer2UnitCount(int value)
     player2UnitCount = value;
 }
 
-int GameSettings::getWhichStage() const
+int GameSettings::getWhichStage()
 {
     return whichStage;
 }

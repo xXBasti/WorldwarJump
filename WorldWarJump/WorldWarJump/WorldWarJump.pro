@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     gamemenu.cpp \
     projectile.cpp \
     battleunit.cpp \
-    gamesettings.cpp
+    gamesettings.cpp \
+    soundplayer.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
@@ -35,7 +36,8 @@ HEADERS  += mainwindow.h \
     gamemenu.h \
     projectile.h \
     battleunit.h \
-    gamesettings.h
+    gamesettings.h \
+    soundplayer.h
 
 
 FORMS    += mainwindow.ui
@@ -47,3 +49,5 @@ DEPENDPATH += $$PWD/'../../../../../../Program Files (x86)/Windows Kits/10/Lib/1
 
 RESOURCES += \
     res.qrc
+
+QT += multimedia

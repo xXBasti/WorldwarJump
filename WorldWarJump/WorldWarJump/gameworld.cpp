@@ -26,6 +26,10 @@ GameWorld::GameWorld()
     input = new Input();
     scene->addItem(input);
 
+    background = new QGraphicsPixmapItem;
+    background->setPixmap(QPixmap(":/images/background.png"));
+    scene->addItem(background);
+
     // terrain and it's timer
     terrain = new Terrain;
     scene->addItem(terrain);

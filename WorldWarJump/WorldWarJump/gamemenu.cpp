@@ -9,12 +9,18 @@
 #include <QGraphicsView>
 #include <QDebug>
 #include <QApplication>
+#include <QMediaPlayer>
 
 #define M_PI 3.14159
 
 GameMenu::GameMenu()
 {    
     settings = new GameSettings;
+    sound = new QMediaPlayer;
+
+    sound->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
+    sound->play();
+
 
     topMargin = 50;
     sideMargin = 50;
