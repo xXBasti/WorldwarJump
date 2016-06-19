@@ -475,7 +475,6 @@ void PhysicsCalc::checkWinCondition(){
         qDebug() <<"Player one wins";
         emit this->playertwowins();
     }
-
 }
 
 void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
