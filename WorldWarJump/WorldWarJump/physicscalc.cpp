@@ -81,7 +81,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     counter = counter +1;
     if(counter == 50){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
-        qDebug() << "Angle velocity: " << angular[1];
+        //qDebug() << "Angle velocity: " << angular[1];
         counter = 0 ;
     }
 
@@ -369,7 +369,7 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     double colSpeedRT[2]={0};
     this->eulToPol(colPosEul,colPosPol,'p');
     double fi=colPosPol[1];
-    qDebug() << fi;
+    //qDebug() << fi;
     if (fi<=(M_PI/2)){
         colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
     }
@@ -384,10 +384,10 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     }
     colSpeedRT[1]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
 
-    qDebug() << colSpeedRT[0] << colSpeedRT[1];
+    //qDebug() << colSpeedRT[0] << colSpeedRT[1];
     colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
     colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
-    qDebug() << colSpeed[0] << colSpeed[1];
+    //qDebug() << colSpeed[0] << colSpeed[1];
 }
 
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
@@ -399,7 +399,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
         if((worldObject->getHitCounter())>=4){
             impuls(I,worldObject);
             I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
-            qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
+            //qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
             checkHealth(I);
             worldObject->~WorldObject();
         }
@@ -465,9 +465,12 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 
 void PhysicsCalc::checkUnit(){
     if(this->getPlayerone()<=0){
+        emit this->playeronewins();
         qDebug() <<"Player two wins";
+
     }
     if(this->getPlayertwo()<=0){
+        emit this->playertwowins();
         qDebug() <<"Player one wins";
     }
 
@@ -490,12 +493,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
     if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
        colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
-       qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
+     //  qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
        checkHealth(colliding1);
     }
     if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
         colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
-        qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
+       // qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
         checkHealth(colliding2);
     }
 }

@@ -8,7 +8,9 @@ class GameplayInterface : public QGraphicsScene {
     Q_OBJECT
 public:
     GameplayInterface();
-    PhysicsCalc * physicsCalulator;
+    PhysicsCalc *physicsCalulator;
+
+
 };
 
 #endif // GAMEPLAYINTERFACE_H

@@ -28,10 +28,12 @@ public:
     QGraphicsScene *beforeGameScene;
     QGraphicsScene *settingsScene;
     QGraphicsScene *aboutScene;
+    QGraphicsScene *endScene;
 
     //!Background pictures
     QGraphicsPixmapItem *startSceneBackground;
     QGraphicsPixmapItem *beforeGameSceneBackground;
+    QGraphicsPixmapItem *endSceneBackground;
 
     //ALL FOLLOWING ICONS (EXCEPT TITLEPIC) ARE SUPPOSED TO BE 50x50
 
@@ -64,6 +66,10 @@ public:
     //!Pictures on settingsScene
     QGraphicsPixmapItem *settingsBackground;
 
+    //!Pictures on endScene
+    QGraphicsPixmapItem *playeronewinsPic;
+    QGraphicsPixmapItem *playertwowinsPic;
+
     int getGameMenuSize() const;
     void setGameMenuSize(int value);
     void mousePressEvent(QMouseEvent *event);
@@ -87,6 +93,11 @@ private:
     int player1UnitCount;
     int player2UnitCount;
     int whichStage;
+
+public slots:
+    //For the endscreen.
+    void playeronewon();
+    void playertwowon();
 
 };
 

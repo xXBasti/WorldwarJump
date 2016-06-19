@@ -3,6 +3,7 @@
 #include "gameworld.h"
 #include "gamesettings.h"
 #include "mainwindow.h"
+#include "physicscalc.h"
 
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
@@ -182,6 +183,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
             GameWorld *gameScene = new GameWorld;
+            connect(gameScene,SIGNAL(playeronewinsSignal()),this,SLOT(playeronewon()));
+            connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
+
             this->setScene(gameScene->scene);
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
@@ -348,5 +352,41 @@ int GameMenu::getPlayer2UnitCount() const
 int GameMenu::getWhichStage() const
 {
     return whichStage;
+}
+
+void GameMenu::playeronewon()
+{
+    QApplication::quit();
+    endScene = new QGraphicsScene;
+
+    endSceneBackground = new QGraphicsPixmapItem;
+    endSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+
+    playeronewinsPic = new QGraphicsPixmapItem;
+    playeronewinsPic->setPixmap(QPixmap(":/images/playeronewins.png"));
+    playeronewinsPic->setPos(sideMargin,topMargin);
+
+    endScene->addItem(endSceneBackground);
+    endScene->addItem(playeronewinsPic);
+    this->setScene(endScene);
+}
+
+void GameMenu::playertwowon()
+{
+    QApplication::quit();
+    endScene = new QGraphicsScene;
+
+    endSceneBackground = new QGraphicsPixmapItem;
+    endSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+
+    playertwowinsPic = new QGraphicsPixmapItem;
+    playertwowinsPic->setPixmap(QPixmap(":/images/playertwowins.png"));
+    playertwowinsPic->setPos(sideMargin,topMargin);
+
+    endScene->addItem(endSceneBackground);
+    endScene->addItem(playertwowinsPic);
+    this->setScene(endScene);
+
+
 }
 
