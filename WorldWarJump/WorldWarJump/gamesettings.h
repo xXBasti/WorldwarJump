@@ -25,7 +25,7 @@ public:
     static void setWhichStage(int value);
 
     static double getGravity();
-    static void setGravity(double value);
+    static void setGravityFromMenu(double value);
 
     static double getTimeStep();
     static void setTimeStep(double value);
