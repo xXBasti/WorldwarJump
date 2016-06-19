@@ -18,7 +18,7 @@ void SoundPlayer::playShoot()
 
 void SoundPlayer::playMenuBGM()
 {
-    this->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
+    //this->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
 
 }
 

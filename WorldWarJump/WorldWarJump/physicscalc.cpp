@@ -82,7 +82,6 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     counter = counter +1;
     if(counter == 200){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
-<<<<<<< HEAD
      //   qDebug() << "Angle velocity: " << angular[1];
         //double * point = {0};
         //getBottomLeft(worldObject,point);
@@ -96,9 +95,6 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         //qDebug() << "Top right: " << QPointF(point[0],point[1]);
 /*        getImpactPoint(worldObject, point);
         qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
-=======
-        //qDebug() << "Angle velocity: " << angular[1];
->>>>>>> 620fcef75a232c3a68b92730b509033a3aa20e75
         counter = 0 ;
     }
 
