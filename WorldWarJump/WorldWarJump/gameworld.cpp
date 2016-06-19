@@ -22,6 +22,9 @@ GameWorld::GameWorld()
     scene = new GameplayInterface();
     setScene(scene);
 
+    connect(scene->physicsCalulator,SIGNAL(playeronewins()),this,SLOT(playeronewins()));
+    connect(scene->physicsCalulator,SIGNAL(playertwowins()),this,SLOT(playertwowins()));
+
     // Input-connection to World scene
     input = new Input();
     scene->addItem(input);
@@ -29,7 +32,7 @@ GameWorld::GameWorld()
     // terrain, background and level switch timer
 
     background = new QGraphicsPixmapItem;
-    background->setPixmap(QPixmap(":/images/background.png"));
+    background->setPixmap(QPixmap(":/images/weltallBackground.png"));
     scene->addItem(background);
 
     terrain = new Terrain;
@@ -99,6 +102,7 @@ void GameWorld::addUnits()
 void GameWorld::changeLevel()
 {
     int stage = settings->getWhichStage();
+    /*
     switch(stage){
     case 0:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
@@ -123,5 +127,18 @@ void GameWorld::changeLevel()
     }
     settings->setWhichStage((stage + 1)%3);
     qDebug() << "Level changed!";
+    */
 }
+
+void GameWorld::playeronewins()
+{
+    emit this->playeronewinsSignal();
+}
+
+void GameWorld::playertwowins()
+{
+    emit this->playertwowinsSignal();
+}
+
+
 

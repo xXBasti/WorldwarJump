@@ -1,14 +1,16 @@
 #ifndef PHYSICSCALC_H
 #define PHYSICSCALC_H
 
+#include <QObject>
+
 #include "worldobject.h"
 #include <QGraphicsItem>
 #include "gameworld.h"
 #include "gamesettings.h"
 
-class PhysicsCalc
+class PhysicsCalc : public QObject
 {
-
+Q_OBJECT
 public:
     PhysicsCalc();
 
@@ -57,11 +59,14 @@ public:
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
     bool CollideWithTerrain(WorldObject* object);
 
-
+signals:
+    void playeronewins();
+    void playertwowins();
 
 private:
     int playerone;
     int playertwo;
+
 };
 
 #endif // PHYSICSCLAC_H

@@ -9,5 +9,8 @@ GameplayInterface::GameplayInterface()
     setSceneRect(0,0,gameWorldSize,gameWorldSize);
 
     physicsCalulator = new PhysicsCalc();
+
 }
+
+
 
