@@ -174,13 +174,12 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             }
         }
 
-        //qDebug()<<"Collision!";
         double * eulSpeed = worldObject->getSpeed();
         double eulPosition [2];
         worldObject->getPosition(eulPosition);
         double radialSpeed [2];
-        // radialSpeed[0] := radial speed
-        // radialSpeed[1] := tangential speed
+        // radialSpeed[0] is radial speed
+        // radialSpeed[1] is tangential speed
 
         // transform from eulSpeed to radialSpeed
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);

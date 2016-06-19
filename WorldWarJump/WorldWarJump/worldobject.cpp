@@ -22,8 +22,6 @@ void WorldObject::move()
 }
 void WorldObject::hit(){
     ((GameplayInterface*)scene())->physicsCalulator->hitUnit(this);
-
-
 }
 
 void WorldObject::jump()
