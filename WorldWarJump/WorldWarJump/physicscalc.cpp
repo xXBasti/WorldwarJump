@@ -6,6 +6,7 @@
 #include "terrain.h"
 #include "battleunit.h"
 #include "projectile.h"
+#include "gamesettings.h"
 #include <typeinfo>
 #include <QDebug>
 
@@ -395,12 +396,14 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
     WorldObject* I=(WorldObject*)this->CollideWithUnit(worldObject);
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
-
+        bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
         if((worldObject->getHitCounter())>=4){
             impuls(I,worldObject);
-            I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
-            qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
-            checkHealth(I);
+            if(!frendlyFireCheck){
+                I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
+                qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
+                checkHealth(I);
+            }
             worldObject->~WorldObject();
         }
     }
@@ -410,10 +413,10 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
-            setPlayerone(getPlayerone()-1);
+            settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
-            setPlayertwo(getPlayertwo()-1);
+            settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
             checkUnit();
@@ -464,10 +467,10 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 
 
 void PhysicsCalc::checkUnit(){
-    if(this->getPlayerone()<=0){
+    if(settings->getPlayer1UnitCount()<=0){
         qDebug() <<"Player two wins";
     }
-    if(this->getPlayertwo()<=0){
+    if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
     }
 
@@ -488,14 +491,16 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     //The slower Object gets the Damage
     double* v1=colliding1->getSpeed();
     double* v2=colliding2->getSpeed();
-    if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
-       colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
-       qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
-       checkHealth(colliding1);
-    }
-    if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
-        colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
-        qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
-        checkHealth(colliding2);
+    if( !( (!settings->getFrendlyFire()) && (colliding1->getPlayer()==colliding2->getPlayer()) ) ){
+        if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
+           colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
+           qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
+           checkHealth(colliding1);
+        }
+        if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
+            colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
+            qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
+            checkHealth(colliding2);
+        }
     }
 }
