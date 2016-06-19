@@ -30,6 +30,8 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
 
         void setRotVel(double newRotVel);
         double getRotVel() const;
+
+        void getTopRight(double * topRight);
         //For orientation
 
         void setCenterOfMass(double * newCenterOfMass);

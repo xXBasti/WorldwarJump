@@ -56,13 +56,16 @@ void WorldObject::jump()
     /*qDebug() << "Distance to Center:" << distanceToCenter;
     QPointF point(this->getCenterOfMass()[0],this->getCenterOfMass()[1]);
     qDebug() << "Center: " << this->sceneTransform().map(point);
-    qDebug() << "Orientation" << orientation;
-    qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
+    qDebug() << "Orientation" << orientation;*/
+    /*qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
     qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
     qDebug() << "Top left: " << this->scenePos();
     qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
-    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());
-    */
+    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());*/
+    double * impactPoint = {0};
+    getTopRight(impactPoint);
+    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);
+
  }
 
 
@@ -159,6 +162,13 @@ void WorldObject::setRotVel(double newRotVel)
 double WorldObject::getRotVel() const
 {
     return(rotVel);
+}
+
+void WorldObject::getTopRight(double *topRight)
+{
+    QPointF point = this->sceneTransform().map(this->boundingRect().topRight());
+    topRight[0] = point.x();
+    topRight[1] = point.y();
 }
 
 void WorldObject::setHitCounter(int hit)
