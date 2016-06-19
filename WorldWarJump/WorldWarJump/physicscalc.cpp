@@ -79,9 +79,21 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
     }
     counter = counter +1;
-    if(counter == 50){
+    if(counter == 200){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
-        qDebug() << "Angle velocity: " << angular[1];
+     //   qDebug() << "Angle velocity: " << angular[1];
+        //double * point = {0};
+        //getBottomLeft(worldObject,point);
+        //qDebug() << "bottom left: " << QPointF(point[0],point[1]);
+        //getBottomRight(worldObject,point);
+        //qDebug() << "bottom right: " << QPointF(point[0],point[1]);
+        //qDebug() << "Top left: " << worldObject->scenePos();
+        //getTopLeft(worldObject,point);
+        //qDebug() << "Top left: " << QPointF(point[0],point[1]);
+        //getTopRight(worldObject, point);
+        //qDebug() << "Top right: " << QPointF(point[0],point[1]);
+/*        getImpactPoint(worldObject, point);
+        qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
         counter = 0 ;
     }
 
@@ -152,8 +164,49 @@ void PhysicsCalc::getBottomRight(WorldObject *worldObject, double *bottomRight)
 
 void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
 {
-    bottomLeft[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
-    bottomLeft[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
+    QPointF point = worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft());
+    bottomLeft[0] = point.x();;
+    bottomLeft[1] = point.y();;
+}
+
+void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
+{
+    double ** cornerpoint;
+    double * topRight = {0};
+    getTopRight(worldObject, topRight);
+    topRight[0] = topRight[0] - 400;
+    topRight[1] = topRight[1] - 400;
+    cornerpoint[0] = topRight;
+    double * topLeft = {0};
+    getTopRight(worldObject, topLeft);
+    topLeft[0] = topLeft[0] - 400;
+    topLeft[1] = topLeft[1] - 400;
+    cornerpoint[1] = topLeft;
+    double * bottomRight = {0};
+    getTopRight(worldObject, bottomRight);
+    bottomRight[0] = bottomRight[0] - 400;
+    bottomRight[1] = bottomRight[1] - 400;
+    cornerpoint[2] = bottomRight;
+    double * bottomLeft = {0};
+    getTopRight(worldObject, bottomLeft);
+    bottomLeft[0] = bottomLeft[0] - 400;
+    bottomLeft[1] = bottomLeft[1] - 400;
+    cornerpoint[3] = bottomLeft;
+
+    double abs = vectorsAbsoluteValue(cornerpoint[0]);
+    double nextAbs;
+    int biggest = 0;
+    for(int i = 1; i < 4; i++){
+         nextAbs = vectorsAbsoluteValue(cornerpoint[i]);
+         if(abs < nextAbs){
+             abs = nextAbs;
+             biggest = i;
+         }
+    }
+
+    impactPoint[0] = cornerpoint[biggest][0];
+    impactPoint[1] = cornerpoint[biggest][1];
+
 }
 
 /**
@@ -193,7 +246,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
-        worldObject->setSpeed(eulSpeed);
+        //*worldObject->setSpeed(eulSpeed);
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
@@ -221,7 +274,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     speed[1] = 0.98*speed[1];
 
     // set new speed values 
-    worldObject->setSpeed(speed);
+    //*worldObject->setSpeed(speed);
     return;
 }
 
