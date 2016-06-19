@@ -30,7 +30,7 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,unitType unittype) : Wor
     }
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
     connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
-
+    this->p=p;
     this->setWeight(100);
     this->setDamage(5);
     this->setHealthpoints(100);
@@ -61,26 +61,26 @@ void BattleUnit::setPicture()
         case player1:
             switch(u){
                 case Tank:
-                setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/redtank100.png"));
                 break;
                 case Soldier:
-                setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/redtank100.png"));
                 break;
                 case Ship:
-                setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/redtank100.png"));
                 break;
             }
         break;
         case player2:
             switch(u){
                 case Tank:
-                setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/redtank100.png"));
                 break;
                 case Soldier:
-                setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/redtank100.png"));
                 break;
                 case Ship:
-                setPixmap(QPixmap(":/images/blueship100.png"));
+                    setPixmap(QPixmap(":/images/blueship100.png"));
                 break;
             }
         break;

@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include "gamesettings.h"
 
 #define M_PI 3.14159
 
@@ -22,8 +23,6 @@ void WorldObject::move()
 }
 void WorldObject::hit(){
     ((GameplayInterface*)scene())->physicsCalulator->hitUnit(this);
-
-
 }
 
 void WorldObject::jump()

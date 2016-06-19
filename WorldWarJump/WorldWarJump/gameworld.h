@@ -46,6 +46,14 @@ private:
     void addUnits();
 public slots:
     void changeLevel();
+    void playeronewins();
+    void playertwowins();
+
+signals:
+    void playeronewinsSignal();
+    void playertwowinsSignal();
+
+
 };
 
 #endif // GAMEWORLD_H

@@ -6,6 +6,7 @@
 #include "terrain.h"
 #include "battleunit.h"
 #include "projectile.h"
+#include "gamesettings.h"
 #include <typeinfo>
 #include <QDebug>
 
@@ -81,6 +82,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     counter = counter +1;
     if(counter == 200){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
+<<<<<<< HEAD
      //   qDebug() << "Angle velocity: " << angular[1];
         //double * point = {0};
         //getBottomLeft(worldObject,point);
@@ -94,6 +96,9 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         //qDebug() << "Top right: " << QPointF(point[0],point[1]);
 /*        getImpactPoint(worldObject, point);
         qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
+=======
+        //qDebug() << "Angle velocity: " << angular[1];
+>>>>>>> 620fcef75a232c3a68b92730b509033a3aa20e75
         counter = 0 ;
     }
 
@@ -227,13 +232,12 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             }
         }
 
-        //qDebug()<<"Collision!";
         double * eulSpeed = worldObject->getSpeed();
         double eulPosition [2];
         worldObject->getPosition(eulPosition);
         double radialSpeed [2];
-        // radialSpeed[0] := radial speed
-        // radialSpeed[1] := tangential speed
+        // radialSpeed[0] is radial speed
+        // radialSpeed[1] is tangential speed
 
         // transform from eulSpeed to radialSpeed
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
@@ -422,7 +426,7 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     double colSpeedRT[2]={0};
     this->eulToPol(colPosEul,colPosPol,'p');
     double fi=colPosPol[1];
-    qDebug() << fi;
+    //qDebug() << fi;
     if (fi<=(M_PI/2)){
         colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
     }
@@ -437,10 +441,10 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     }
     colSpeedRT[1]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
 
-    qDebug() << colSpeedRT[0] << colSpeedRT[1];
+    //qDebug() << colSpeedRT[0] << colSpeedRT[1];
     colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
     colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
-    qDebug() << colSpeed[0] << colSpeed[1];
+    //qDebug() << colSpeed[0] << colSpeed[1];
 }
 
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
@@ -448,12 +452,15 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
     WorldObject* I=(WorldObject*)this->CollideWithUnit(worldObject);
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
-
+        bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
         if((worldObject->getHitCounter())>=4){
             impuls(I,worldObject);
-            I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
-            qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
-            checkHealth(I);
+            if(!frendlyFireCheck){
+                I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
+                qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
+                checkHealth(I);
+            }
+
             worldObject->~WorldObject();
         }
     }
@@ -463,13 +470,13 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
-            setPlayerone(getPlayerone()-1);
+            settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
-            setPlayertwo(getPlayertwo()-1);
+            settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
-            checkUnit();
+            checkWinCondition();
     }
 
 }
@@ -516,14 +523,15 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 }
 
 
-void PhysicsCalc::checkUnit(){
-    if(this->getPlayerone()<=0){
+void PhysicsCalc::checkWinCondition(){
+    if(settings->getPlayer1UnitCount()<=0){
+        emit this->playeronewins();
         qDebug() <<"Player two wins";
     }
-    if(this->getPlayertwo()<=0){
+    if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
+        emit this->playertwowins();
     }
-
 }
 
 void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
@@ -541,14 +549,17 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     //The slower Object gets the Damage
     double* v1=colliding1->getSpeed();
     double* v2=colliding2->getSpeed();
-    if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
-       colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
-       qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
-       checkHealth(colliding1);
-    }
-    if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
-        colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
-        qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
-        checkHealth(colliding2);
+
+    if( !( (!settings->getFrendlyFire()) && (colliding1->getPlayer()==colliding2->getPlayer()) ) ){
+        if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
+           colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
+           //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
+           checkHealth(colliding1);
+        }
+        if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
+            colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
+            //qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
+            checkHealth(colliding2);
+        }
     }
 }

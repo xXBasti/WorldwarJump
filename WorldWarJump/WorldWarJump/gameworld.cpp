@@ -22,17 +22,22 @@ GameWorld::GameWorld()
     scene = new GameplayInterface();
     setScene(scene);
 
+    connect(scene->physicsCalulator,SIGNAL(playeronewins()),this,SLOT(playeronewins()));
+    connect(scene->physicsCalulator,SIGNAL(playertwowins()),this,SLOT(playertwowins()));
+
     // Input-connection to World scene
     input = new Input();
     scene->addItem(input);
 
+    // terrain, background and level switch timer
+
     background = new QGraphicsPixmapItem;
-    background->setPixmap(QPixmap(":/images/background.png"));
+    background->setPixmap(QPixmap(":/images/weltallBackground.png"));
     scene->addItem(background);
 
-    // terrain and it's timer
     terrain = new Terrain;
     scene->addItem(terrain);
+
     levelSwitchTimer = new QTimer();
     levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
     connect(levelSwitchTimer, SIGNAL(timeout()), this, SLOT(changeLevel()));
@@ -97,20 +102,43 @@ void GameWorld::addUnits()
 void GameWorld::changeLevel()
 {
     int stage = settings->getWhichStage();
+    /*
     switch(stage){
     case 0:
+        levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
+        background->setPixmap(QPixmap(":/images/pics/bomb.jpg"));
         terrain->setPixmap(QPixmap(":/images/terrainbackground.png"));
+        scene->physicsCalulator->gravity = settings->getGravity();
         break;
     case 1:
+        levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000/2);
+        background->setPixmap(QPixmap(":/images/pics/space.jpg"));
         terrain->setPixmap(QPixmap(":/images/terrainbackground.png"));
+        scene->physicsCalulator->gravity = -settings->getGravity()/2;
         break;
     case 2:
+        levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
+        background->setPixmap(QPixmap(":/images/background.png"));
         terrain->setPixmap(QPixmap(":/images/terrainbackground.png"));
+        scene->physicsCalulator->gravity = settings->getGravity();
         break;
     default:
         qDebug() << "stage number out of boundaries";
     }
     settings->setWhichStage((stage + 1)%3);
     qDebug() << "Level changed!";
+    */
 }
+
+void GameWorld::playeronewins()
+{
+    emit this->playeronewinsSignal();
+}
+
+void GameWorld::playertwowins()
+{
+    emit this->playertwowinsSignal();
+}
+
+
 

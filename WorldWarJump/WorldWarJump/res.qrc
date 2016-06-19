@@ -28,6 +28,14 @@
         <file>bluerocked100.png</file>
         <file>projektile.png</file>
         <file>background.png</file>
+
+        <file>playertwowins.png</file>
+        <file>playeronewins.png</file>
+        <file>weltallBackground.png</file>
+        <file>weltallterrain.png</file>
+
+        <file>pics/bomb.jpg</file>
+        <file>pics/space.jpg</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
