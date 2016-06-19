@@ -100,6 +100,7 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     }
 
     setPicture(shootingUnit->getPlayer());
+    this->p=shootingUnit->getPlayer();
     setTransformOriginPoint(1, 1);
     this->setRotVel(0);
     this->setRotation(0);

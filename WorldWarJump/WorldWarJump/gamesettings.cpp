@@ -14,6 +14,10 @@ int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 0;
+bool GameSettings::frendlyfire=false;
+int GameSettings::meeleDmg=0;
+
+
 
 int GameSettings::getPlayer1UnitCount() const
 {
@@ -100,3 +104,18 @@ void GameSettings::setSecondsToChangeLevel(int value)
     secondsToChangeLevel = value;
 }
 
+void GameSettings::setFrendlyFire(bool value){
+    this->frendlyfire=value;
+}
+
+bool GameSettings::getFrendlyFire(){
+    return frendlyfire;
+}
+
+void GameSettings::setMeeleDmg(int value){
+    this->meeleDmg=value;
+}
+
+int GameSettings::getMeeleDmg(){
+    return meeleDmg;
+}
