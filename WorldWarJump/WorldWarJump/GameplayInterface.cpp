@@ -1,23 +1,13 @@
 #include "GameplayInterface.h"
-#include <QDebug>
 #include "physicscalc.h"
+#include "gamesettings.h"
 
 GameplayInterface::GameplayInterface()
 {
-    gameWorldSize = settings->getGameWorldSize();
+    GameSettings * settings;
+    int gameWorldSize = settings->getGameWorldSize();
+    setSceneRect(0,0,gameWorldSize,gameWorldSize);
+
     physicsCalulator = new PhysicsCalc();
-    timer = new QTimer();
-    timer->start(20);
-
-    input = new Input();
-    input->setRect(0,0,gameWorldSize,gameWorldSize);
-    this->addItem(input);
-}
-
-void GameplayInterface::createAndAddUnits()
-{
-    int player1UnitCount = (int)settings->getPlayer1UnitCount();
-    for(int i=1; i <= player1UnitCount; i++){
-    }
 }
 

@@ -12,8 +12,6 @@ public:
     int getPlayer2UnitCount() const;
     void setPlayer2UnitCount(int value);
 
-    int getWhichStage() const;
-    void setWhichStage(int value);
 
     bool getBeforeGameSceneAlreadyCreated() const;
     void setBeforeGameSceneAlreadyCreated(bool value);
@@ -23,11 +21,17 @@ public:
 
     static int getGameWorldSize();
 
+    static int getWhichStage();
+    static void setWhichStage(int value);
+
     static double getGravity();
     static void setGravity(double value);
 
     static double getTimeStep();
     static void setTimeStep(double value);
+
+    static int getSecondsToChangeLevel();
+    static void setSecondsToChangeLevel(int value);
 
 private:
     static int player1UnitCount;
@@ -35,7 +39,8 @@ private:
     static int GameWorldSize;
     static double gravity;
     static double timeStep;
-    int whichStage;
+    static int secondsToChangeLevel;
+    static int whichStage;
     bool beforeGameSceneAlreadyCreated;
     bool settingsSceneAlreadyCreated;
 };

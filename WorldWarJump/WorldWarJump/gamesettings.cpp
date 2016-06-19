@@ -2,15 +2,18 @@
 
 GameSettings::GameSettings()
 {
-    whichStage = 1;
     settingsSceneAlreadyCreated = false;
     beforeGameSceneAlreadyCreated = false;
 }
+
+// static members are not defined in the constructor
+int GameSettings::secondsToChangeLevel = 1;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
 int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
+int GameSettings::whichStage = 1;
 
 int GameSettings::getPlayer1UnitCount() const
 {
@@ -85,5 +88,15 @@ double GameSettings::getTimeStep()
 void GameSettings::setTimeStep(double value)
 {
     timeStep = value;
+}
+
+int GameSettings::getSecondsToChangeLevel()
+{
+    return secondsToChangeLevel;
+}
+
+void GameSettings::setSecondsToChangeLevel(int value)
+{
+    secondsToChangeLevel = value;
 }
 

@@ -2,12 +2,16 @@
 #include <QDebug>
 #include <QGraphicsRectItem>
 #include <QKeyEvent>
+#include "gamesettings.h"
 
 Input::Input(){
+    GameSettings * settings;
+    int gameWorldSize = settings->getGameWorldSize();
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
     timer = new QTimer();
     timer->start(20);
+    setRect(0,0,gameWorldSize,gameWorldSize);
 }
 
 
