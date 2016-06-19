@@ -7,16 +7,16 @@ GameSettings::GameSettings()
 }
 
 // static members are not defined in the constructor
-int GameSettings::secondsToChangeLevel = 5;
+int GameSettings::secondsToChangeLevel = 10;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
+int GameSettings::maxUnitsPerPlayer = 4;
 int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 0;
-bool GameSettings::frendlyfire=false;
-int GameSettings::meeleDmg=0;
-
+bool GameSettings::frendlyfire=true;
+int GameSettings::meeleDmg=10;
 
 
 int GameSettings::getPlayer1UnitCount() const
@@ -26,7 +26,9 @@ int GameSettings::getPlayer1UnitCount() const
 
 void GameSettings::setPlayer1UnitCount(int value)
 {
-    player1UnitCount = value;
+    if(0 <= value && value <= maxUnitsPerPlayer){
+        player1UnitCount = value;
+    }
 }
 
 int GameSettings::getPlayer2UnitCount() const
@@ -36,7 +38,9 @@ int GameSettings::getPlayer2UnitCount() const
 
 void GameSettings::setPlayer2UnitCount(int value)
 {
-    player2UnitCount = value;
+    if(0 <= value && value <= maxUnitsPerPlayer){
+        player2UnitCount = value;
+    }
 }
 
 int GameSettings::getWhichStage()

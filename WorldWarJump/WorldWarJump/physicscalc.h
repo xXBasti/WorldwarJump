@@ -49,7 +49,7 @@ public:
     int getPlayertwo();
     void setPlayerone(int po);
     void setPlayertwo(int pt);
-    void checkUnit();
+    void checkWinCondition();
     void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
     void meeleDamage(WorldObject *colliding1, WorldObject *colliding2);
     //Basti

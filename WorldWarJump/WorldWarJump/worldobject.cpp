@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include "gamesettings.h"
 
 #define M_PI 3.14159
 

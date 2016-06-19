@@ -418,7 +418,7 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
             settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
-            checkUnit();
+            checkWinCondition();
     }
 
 }
@@ -465,7 +465,7 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 }
 
 
-void PhysicsCalc::checkUnit(){
+void PhysicsCalc::checkWinCondition(){
     if(settings->getPlayer1UnitCount()<=0){
         qDebug() <<"Player two wins";
     }
