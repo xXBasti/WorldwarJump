@@ -356,7 +356,7 @@ int GameMenu::getWhichStage() const
 
 void GameMenu::playeronewon()
 {
-    QApplication::quit();
+    //QApplication::quit();
     endScene = new QGraphicsScene;
 
     endSceneBackground = new QGraphicsPixmapItem;
@@ -373,7 +373,7 @@ void GameMenu::playeronewon()
 
 void GameMenu::playertwowon()
 {
-    QApplication::quit();
+    //QApplication::quit();
     endScene = new QGraphicsScene;
 
     endSceneBackground = new QGraphicsPixmapItem;

@@ -25,7 +25,7 @@ public:
     static void setWhichStage(int value);
 
     static double getGravity();
-    static void setGravity(double value);
+    static void setGravityFromMenu(double value);
 
     static double getTimeStep();
     static void setTimeStep(double value);
@@ -33,6 +33,10 @@ public:
     static int getSecondsToChangeLevel();
     static void setSecondsToChangeLevel(int value);
 
+    bool getFrendlyFire();
+    void setFrendlyFire(bool value);
+    int getMeeleDmg();
+    void setMeeleDmg(int value);
 private:
     static int player1UnitCount;
     static int player2UnitCount;
@@ -43,6 +47,8 @@ private:
     static int whichStage;
     bool beforeGameSceneAlreadyCreated;
     bool settingsSceneAlreadyCreated;
+    static bool frendlyfire;
+    static int meeleDmg;
 };
 
 #endif // GAMESETTINGS_H

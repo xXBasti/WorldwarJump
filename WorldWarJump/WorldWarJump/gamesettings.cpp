@@ -7,13 +7,17 @@ GameSettings::GameSettings()
 }
 
 // static members are not defined in the constructor
-int GameSettings::secondsToChangeLevel = 1;
+int GameSettings::secondsToChangeLevel = 5;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
 int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
-int GameSettings::whichStage = 1;
+int GameSettings::whichStage = 0;
+bool GameSettings::frendlyfire=false;
+int GameSettings::meeleDmg=0;
+
+
 
 int GameSettings::getPlayer1UnitCount() const
 {
@@ -75,7 +79,7 @@ double GameSettings::getGravity()
     return gravity;
 }
 
-void GameSettings::setGravity(double value)
+void GameSettings::setGravityFromMenu(double value)
 {
     gravity = value;
 }
@@ -100,3 +104,18 @@ void GameSettings::setSecondsToChangeLevel(int value)
     secondsToChangeLevel = value;
 }
 
+void GameSettings::setFrendlyFire(bool value){
+    this->frendlyfire=value;
+}
+
+bool GameSettings::getFrendlyFire(){
+    return frendlyfire;
+}
+
+void GameSettings::setMeeleDmg(int value){
+    this->meeleDmg=value;
+}
+
+int GameSettings::getMeeleDmg(){
+    return meeleDmg;
+}
