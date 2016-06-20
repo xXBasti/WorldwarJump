@@ -61,9 +61,9 @@ void WorldObject::jump()
     qDebug() << "Top left: " << this->scenePos();
     qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
     qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());*/
-    double * impactPoint = {0};
+    /*double * impactPoint = {0};
     getTopRight(impactPoint);
-    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);
+    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);*/
 
  }
 
