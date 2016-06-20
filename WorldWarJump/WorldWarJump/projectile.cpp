@@ -57,6 +57,9 @@
 //}
 
 Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p) :WorldObject(parentView, getPlayer()){
+
+    ObjectType = 'p';
+
     double x = shootingUnit->x();
     double y = shootingUnit->y();
 
@@ -204,4 +207,5 @@ void Projectile::polToEul(double * pol, double* eul,char type){
         break;
     }
 }
+
 

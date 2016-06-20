@@ -30,6 +30,8 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
 
         void setRotVel(double newRotVel);
         double getRotVel() const;
+
+        void getTopRight(double * topRight);
         //For orientation
 
         void setCenterOfMass(double * newCenterOfMass);
@@ -47,10 +49,15 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         int getDamage();
         void setDamage(int d);
         void setHealthpoints(int points);
+
+        char getChar();
 protected:
 
         Player p;
+        char ObjectType;
 private:
+
+
 
         double speed [2];
         void getNewValuesFromPhysicsCalc();

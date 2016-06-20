@@ -25,6 +25,8 @@ public:
     void getTopLeft(WorldObject * worldObject, double *topLeft);
     void getBottomRight(WorldObject * worldObject, double * bottomRight);
     void getBottomLeft(WorldObject * worldObject, double *bottomLeft);
+    //Find the closest rectangle corner to the ground
+    void getImpactPoint(WorldObject * worldObject, double *impactPoint);
     //Clockwise Rotation angle difference to the inverse of gravity vector
     double gravityAngleDifference(double rotation, double * gravityVector);
     int counter;
@@ -51,7 +53,7 @@ public:
     int getPlayertwo();
     void setPlayerone(int po);
     void setPlayertwo(int pt);
-    void checkUnit();
+    void checkWinCondition();
     void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
     void meeleDamage(WorldObject *colliding1, WorldObject *colliding2);
     //Basti

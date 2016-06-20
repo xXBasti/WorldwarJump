@@ -191,9 +191,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
             player1UnitCount = settings->getPlayer1UnitCount();
+            qDebug()<<player1UnitCount;
             player1UnitCount++;
             settings->setPlayer1UnitCount(player1UnitCount);
-            qDebug()<<player1UnitCount;
             switch(player1UnitCount)
             {
             case 2:

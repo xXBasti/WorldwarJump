@@ -40,6 +40,7 @@ public:
 private:
     static int player1UnitCount;
     static int player2UnitCount;
+    static int maxUnitsPerPlayer;
     static int GameWorldSize;
     static double gravity;
     static double timeStep;

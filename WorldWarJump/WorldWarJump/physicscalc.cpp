@@ -40,56 +40,84 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     if(gravAngleDiff > 180) gravAngleDiff = gravAngleDiff - 360;
     if(gravAngleDiff < -180) gravAngleDiff = gravAngleDiff + 360;
 
-    if(typeid(worldObject) == typeid(Projectile)){}else{
-    worldObject->setRotation(angular[0] + timeStep*angular[1]);}
-    angular[0] = angular[0] + timeStep*angular[1];
-    if(angular[0] > 360 || angular[0] < -360){
-        angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
-    }
-    //! The stabilization module only activates when the object is close to the ground -Can
-    //Stabilization module
-    double distanceToGround = 400 - vectorsAbsoluteValue(gravityVector);
-    int stabilizationFactor;
-    int timeDecay;
-    double maxRotVel = 7;
-    if(distanceToGround < 200){
-        stabilizationFactor = 80;
-        timeDecay = 30;
-        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+    if(worldObject->getChar() == 'p'){
 
-        if(angular[1] < - maxRotVel){
-            angular[1] = -maxRotVel;
-        }else if(angular[1] > maxRotVel){
-            angular[1] = maxRotVel;
+        angular[1] = 0;
+        double projectileSpeed[2] = {0};
+        projectileSpeed[0] = worldObject->getSpeed()[0];
+        projectileSpeed[1] = worldObject->getSpeed()[1];
+        double polSpeed[2] = {0};
+        eulToPol(projectileSpeed, polSpeed, 'v');
+        double speedAngle = (polSpeed[1]*(180/M_PI));
+        angular[0] = speedAngle;
+        worldObject->setRotation(angular[0]);
+
+    }else if(worldObject->getChar() == 'b'){
+        worldObject->setRotation(angular[0] + timeStep*angular[1]);
+        angular[0] = angular[0] + timeStep*angular[1];
+        if(angular[0] > 360 || angular[0] < -360){
+           angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
         }
+        //! The stabilization module only activates when the object is close to the ground -Can
+        //Stabilization module
+        double distanceToGround = 400 - vectorsAbsoluteValue(gravityVector);
+        int stabilizationFactor;
+        int timeDecay;
+        double maxRotVel = 7;
+        if(distanceToGround < 200){
+            stabilizationFactor = 80;
+            timeDecay = 30;
+            angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
 
-    }else if(distanceToGround < 300){
-        stabilizationFactor = 70;
-        timeDecay = 35;
-        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+            if(angular[1] < - maxRotVel){
+                angular[1] = -maxRotVel;
+            }else if(angular[1] > maxRotVel){
+                angular[1] = maxRotVel;
+            }
 
-        if(angular[1] < - maxRotVel){
-            angular[1] = -maxRotVel;
-        }else if(angular[1] > maxRotVel){
-            angular[1] = maxRotVel;
+        }else if(distanceToGround < 300){
+            stabilizationFactor = 70;
+            timeDecay = 35;
+            angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+
+            if(angular[1] < - maxRotVel){
+                angular[1] = -maxRotVel;
+            }else if(angular[1] > maxRotVel){
+                angular[1] = maxRotVel;
+            }
+
+        }else{
+            stabilizationFactor = 200;
+            timeDecay = 80;
+            angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
         }
-
-    }else{
-        stabilizationFactor = 200;
-        timeDecay = 80;
-        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
     }
-    counter = counter +1;
-    if(counter == 50){
+     counter = counter +1;
+     if(counter == 50){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
-        //qDebug() << "Angle velocity: " << angular[1];
-        counter = 0 ;
-    }
+     //   qDebug() << "Angle velocity: " << angular[1];
+        //double * point = {0};
+        //getBottomLeft(worldObject,point);
+        //qDebug() << "bottom left: " << QPointF(point[0],point[1]);
+        //getBottomRight(worldObject,point);
+        //qDebug() << "bottom right: " << QPointF(point[0],point[1]);
+        //qDebug() << "Top left: " << worldObject->scenePos();
+        //getTopLeft(worldObject,point);
+        //qDebug() << "Top left: " << QPointF(point[0],point[1]);
+        //getTopRight(worldObject, point);
+        //qDebug() << "Top right: " << QPointF(point[0],point[1]);
+/*        getImpactPoint(worldObject, point);
+        qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
+         if(worldObject->getChar() == 'p'){
+             qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
+         }
+     counter = 0 ;
 
+ }
 
-if(typeid(*worldObject) == typeid(Projectile)){
+/*if(typeid(*worldObject) == typeid(Projectile)){
     return;
-}
+}*/
     updateRotValues(worldObject, angular);
 }
 /**
@@ -153,8 +181,49 @@ void PhysicsCalc::getBottomRight(WorldObject *worldObject, double *bottomRight)
 
 void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
 {
-    bottomLeft[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
-    bottomLeft[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft())).x();;
+    QPointF point = worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft());
+    bottomLeft[0] = point.x();;
+    bottomLeft[1] = point.y();;
+}
+
+void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
+{
+    double ** cornerpoint;
+    double * topRight = {0};
+    getTopRight(worldObject, topRight);
+    topRight[0] = topRight[0] - 400;
+    topRight[1] = topRight[1] - 400;
+    cornerpoint[0] = topRight;
+    double * topLeft = {0};
+    getTopRight(worldObject, topLeft);
+    topLeft[0] = topLeft[0] - 400;
+    topLeft[1] = topLeft[1] - 400;
+    cornerpoint[1] = topLeft;
+    double * bottomRight = {0};
+    getTopRight(worldObject, bottomRight);
+    bottomRight[0] = bottomRight[0] - 400;
+    bottomRight[1] = bottomRight[1] - 400;
+    cornerpoint[2] = bottomRight;
+    double * bottomLeft = {0};
+    getTopRight(worldObject, bottomLeft);
+    bottomLeft[0] = bottomLeft[0] - 400;
+    bottomLeft[1] = bottomLeft[1] - 400;
+    cornerpoint[3] = bottomLeft;
+
+    double abs = vectorsAbsoluteValue(cornerpoint[0]);
+    double nextAbs;
+    int biggest = 0;
+    for(int i = 1; i < 4; i++){
+         nextAbs = vectorsAbsoluteValue(cornerpoint[i]);
+         if(abs < nextAbs){
+             abs = nextAbs;
+             biggest = i;
+         }
+    }
+
+    impactPoint[0] = cornerpoint[biggest][0];
+    impactPoint[1] = cornerpoint[biggest][1];
+
 }
 
 /**
@@ -193,7 +262,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
-        worldObject->setSpeed(eulSpeed);
+        //*worldObject->setSpeed(eulSpeed);
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
@@ -221,7 +290,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     speed[1] = 0.98*speed[1];
 
     // set new speed values 
-    worldObject->setSpeed(speed);
+    //*worldObject->setSpeed(speed);
     return;
 }
 
@@ -419,7 +488,7 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
             settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
-            checkUnit();
+            checkWinCondition();
     }
 
 }
@@ -466,19 +535,15 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 }
 
 
-void PhysicsCalc::checkUnit(){
-
+void PhysicsCalc::checkWinCondition(){
     if(settings->getPlayer1UnitCount()<=0){
-                emit this->playeronewins();
+        emit this->playeronewins();
         qDebug() <<"Player two wins";
-
     }
-
     if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
         emit this->playertwowins();
     }
-
 }
 
 void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){

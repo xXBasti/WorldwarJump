@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include "gamesettings.h"
 
 #define M_PI 3.14159
 
@@ -54,18 +55,22 @@ void WorldObject::jump()
     /*qDebug() << "Distance to Center:" << distanceToCenter;
     QPointF point(this->getCenterOfMass()[0],this->getCenterOfMass()[1]);
     qDebug() << "Center: " << this->sceneTransform().map(point);
-    qDebug() << "Orientation" << orientation;
-    qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
+    qDebug() << "Orientation" << orientation;*/
+    /*qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
     qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
     qDebug() << "Top left: " << this->scenePos();
     qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
-    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());
-    */
+    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());*/
+    /*double * impactPoint = {0};
+    getTopRight(impactPoint);
+    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);*/
+
  }
 
 
 WorldObject::WorldObject(GameWorld * parentView, Player p) {
 
+    ObjectType = 'o';
     this->parentView = parentView;
     this->p = p;
     speed[0] = speed[1] = 0;
@@ -159,6 +164,13 @@ double WorldObject::getRotVel() const
     return(rotVel);
 }
 
+void WorldObject::getTopRight(double *topRight)
+{
+    QPointF point = this->sceneTransform().map(this->boundingRect().topRight());
+    topRight[0] = point.x();
+    topRight[1] = point.y();
+}
+
 void WorldObject::setHitCounter(int hit)
 {
     this->hitcounter=hit;
@@ -208,6 +220,11 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+}
+
+char WorldObject::getChar()
+{
+    return ObjectType;
 }
 
 WorldObject::~WorldObject() {
