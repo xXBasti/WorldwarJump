@@ -16,7 +16,9 @@ public:
     void recoil(WorldObject* obj1,WorldObject* obj2);
     //I needed to transport this
     void polToEul(double * pol, double* eul,char type);
+
 private:
+
     ProjectileType pT;
     int damage;
     void setPicture(Player p);

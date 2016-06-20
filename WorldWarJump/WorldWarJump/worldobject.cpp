@@ -70,6 +70,7 @@ void WorldObject::jump()
 
 WorldObject::WorldObject(GameWorld * parentView, Player p) {
 
+    ObjectType = 'o';
     this->parentView = parentView;
     this->p = p;
     speed[0] = speed[1] = 0;
@@ -219,6 +220,11 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+}
+
+char WorldObject::getChar()
+{
+    return ObjectType;
 }
 
 WorldObject::~WorldObject() {

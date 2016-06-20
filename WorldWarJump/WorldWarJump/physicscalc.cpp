@@ -40,47 +40,60 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
     if(gravAngleDiff > 180) gravAngleDiff = gravAngleDiff - 360;
     if(gravAngleDiff < -180) gravAngleDiff = gravAngleDiff + 360;
 
-    if(typeid(worldObject) == typeid(Projectile)){}else{
-    worldObject->setRotation(angular[0] + timeStep*angular[1]);}
-    angular[0] = angular[0] + timeStep*angular[1];
-    if(angular[0] > 360 || angular[0] < -360){
-        angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
-    }
-    //! The stabilization module only activates when the object is close to the ground -Can
-    //Stabilization module
-    double distanceToGround = 400 - vectorsAbsoluteValue(gravityVector);
-    int stabilizationFactor;
-    int timeDecay;
-    double maxRotVel = 7;
-    if(distanceToGround < 200){
-        stabilizationFactor = 80;
-        timeDecay = 30;
-        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+    if(worldObject->getChar() == 'p'){
 
-        if(angular[1] < - maxRotVel){
-            angular[1] = -maxRotVel;
-        }else if(angular[1] > maxRotVel){
-            angular[1] = maxRotVel;
+        angular[1] = 0;
+        double projectileSpeed[2] = {0};
+        projectileSpeed[0] = worldObject->getSpeed()[0];
+        projectileSpeed[1] = worldObject->getSpeed()[1];
+        double polSpeed[2] = {0};
+        eulToPol(projectileSpeed, polSpeed, 'v');
+        double speedAngle = (polSpeed[1]*(180/M_PI));
+        angular[0] = speedAngle;
+        worldObject->setRotation(angular[0]);
+
+    }else if(worldObject->getChar() == 'b'){
+        worldObject->setRotation(angular[0] + timeStep*angular[1]);
+        angular[0] = angular[0] + timeStep*angular[1];
+        if(angular[0] > 360 || angular[0] < -360){
+           angular[0] = (static_cast<double>((static_cast<int>(angular[0]))%360));
         }
+        //! The stabilization module only activates when the object is close to the ground -Can
+        //Stabilization module
+        double distanceToGround = 400 - vectorsAbsoluteValue(gravityVector);
+        int stabilizationFactor;
+        int timeDecay;
+        double maxRotVel = 7;
+        if(distanceToGround < 200){
+            stabilizationFactor = 80;
+            timeDecay = 30;
+            angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
 
-    }else if(distanceToGround < 300){
-        stabilizationFactor = 70;
-        timeDecay = 35;
-        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+            if(angular[1] < - maxRotVel){
+                angular[1] = -maxRotVel;
+            }else if(angular[1] > maxRotVel){
+                angular[1] = maxRotVel;
+            }
 
-        if(angular[1] < - maxRotVel){
-            angular[1] = -maxRotVel;
-        }else if(angular[1] > maxRotVel){
-            angular[1] = maxRotVel;
+        }else if(distanceToGround < 300){
+            stabilizationFactor = 70;
+            timeDecay = 35;
+            angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+
+            if(angular[1] < - maxRotVel){
+                angular[1] = -maxRotVel;
+            }else if(angular[1] > maxRotVel){
+                angular[1] = maxRotVel;
+            }
+
+        }else{
+            stabilizationFactor = 200;
+            timeDecay = 80;
+            angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
         }
-
-    }else{
-        stabilizationFactor = 200;
-        timeDecay = 80;
-        angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
     }
-    counter = counter +1;
-    if(counter == 200){
+     counter = counter +1;
+     if(counter == 50){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
      //   qDebug() << "Angle velocity: " << angular[1];
         //double * point = {0};
@@ -95,13 +108,16 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         //qDebug() << "Top right: " << QPointF(point[0],point[1]);
 /*        getImpactPoint(worldObject, point);
         qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
-        counter = 0 ;
-    }
+         if(worldObject->getChar() == 'p'){
+             qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
+         }
+     counter = 0 ;
 
+ }
 
-if(typeid(*worldObject) == typeid(Projectile)){
+/*if(typeid(*worldObject) == typeid(Projectile)){
     return;
-}
+}*/
     updateRotValues(worldObject, angular);
 }
 /**
