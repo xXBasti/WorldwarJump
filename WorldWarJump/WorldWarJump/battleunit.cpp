@@ -7,6 +7,7 @@
 
 BattleUnit::BattleUnit(GameWorld * parentView, Player p,unitType unittype) : WorldObject(parentView, p)
 {
+    ObjectType = 'b';
     this->parentView = parentView;
     this->ut=unittype;
     setPicture();

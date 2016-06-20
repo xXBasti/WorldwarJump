@@ -62,15 +62,16 @@ void WorldObject::jump()
     qDebug() << "Top left: " << this->scenePos();
     qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
     qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());*/
-    double * impactPoint = {0};
+    /*double * impactPoint = {0};
     getTopRight(impactPoint);
-    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);
+    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);*/
 
  }
 
 
 WorldObject::WorldObject(GameWorld * parentView, Player p) {
 
+    ObjectType = 'o';
     this->parentView = parentView;
     this->p = p;
     speed[0] = speed[1] = 0;
@@ -220,6 +221,11 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+}
+
+char WorldObject::getChar()
+{
+    return ObjectType;
 }
 
 WorldObject::~WorldObject() {
