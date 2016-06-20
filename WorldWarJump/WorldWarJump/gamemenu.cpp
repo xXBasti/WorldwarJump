@@ -368,6 +368,8 @@ void GameMenu::playeronewon()
 
     endScene->addItem(endSceneBackground);
     endScene->addItem(playeronewinsPic);
+    endScene->addItem(backButton);
+
     this->setScene(endScene);
 }
 
@@ -385,6 +387,8 @@ void GameMenu::playertwowon()
 
     endScene->addItem(endSceneBackground);
     endScene->addItem(playertwowinsPic);
+    endScene->addItem(backButton);
+
     this->setScene(endScene);
 
 
