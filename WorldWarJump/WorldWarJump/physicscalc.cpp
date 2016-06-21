@@ -553,11 +553,11 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 
 
 void PhysicsCalc::checkWinCondition(){
-    if(settings->getPlayer1UnitCount()<=0){
+    if(settings->getPlayer1UnitCount()<=-1){
         emit this->playeronewins();
         qDebug() <<"Player two wins";
     }
-    if(settings->getPlayer2UnitCount()<=0){
+    if(settings->getPlayer2UnitCount()<=-1){
         qDebug() <<"Player one wins";
         emit this->playertwowins();
     }
