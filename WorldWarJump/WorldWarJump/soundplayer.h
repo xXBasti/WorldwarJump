@@ -12,9 +12,10 @@ class SoundPlayer : public QObject
 public:
     SoundPlayer();
     QMediaPlayer *BGMplayer;
-    QMediaPlayer *SEplayer;
+    QMediaPlayer *Jumpplayer;
+    QMediaPlayer *Shootplayer;
     QMediaPlaylist *BGMplaylist;
-    QMediaPlaylist *SEplaylist;
+    //QMediaPlaylist *SEplaylist;
 
     void playMenuBGM();
     void playGameBGM();

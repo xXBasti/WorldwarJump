@@ -10,14 +10,14 @@ SoundPlayer::SoundPlayer()
     BGMplayer = new QMediaPlayer;
     BGMplaylist = new QMediaPlaylist;
 
-    SEplayer = new QMediaPlayer;
-    SEplaylist = new QMediaPlaylist;
+    Jumpplayer = new QMediaPlayer;
+    Jumpplayer->setMedia(QUrl("qrc:/sound/sound/jump.wav"));
+
+    Shootplayer = new QMediaPlayer;
+    Shootplayer->setMedia(QUrl("qrc:/sound/sound/shoot1.mp3"));
 
     BGMplaylist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav")); //Add menuBGM at pos 1.
     BGMplaylist->addMedia(QUrl("qrc:/sound/sound/gameBGM1.mp3")); //Add gameBGM at pos 2.
-
-    SEplaylist->addMedia(QUrl("qrc:/sound/sound/jump.wav"));
-    SEplaylist->addMedia(QUrl("qrc:/sound/sound/shoot.wav"));
 
 
 
@@ -43,16 +43,15 @@ void SoundPlayer::playGameBGM()
 
 void SoundPlayer::playJump()
 {
-    SEplaylist->setCurrentIndex(1);
-    SEplaylist->setPlaybackMode(QMediaPlaylist::CurrentItemOnce);
-    SEplayer->setPlaylist(SEplaylist);
-    SEplayer->play();
+
+    Jumpplayer->play();
 
 }
 
 void SoundPlayer::playShoot()
 {
-
+    Shootplayer->play();
+    qDebug()<<"shoot!!!";
 }
 
 void SoundPlayer::playHit()

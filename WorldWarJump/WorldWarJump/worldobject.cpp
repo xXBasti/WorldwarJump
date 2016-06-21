@@ -27,13 +27,14 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
-    soundpointer->playJump();
+
     double centerToObject[2] = {0};
     ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
     double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
 
     if(/*distanceToCenter > 250*/((GameplayInterface*)scene())->physicsCalulator->collideWithAny(this)){
 
+        soundpointer->playJump();
         double speedPol[2];
         double speedEul[2];
 

@@ -41,5 +41,6 @@
         <file>sound/gameBGM1.mp3</file>
         <file>sound/jump.wav</file>
         <file>sound/shoot.wav</file>
+        <file>sound/shoot1.mp3</file>
     </qresource>
 </RCC>
