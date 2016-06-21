@@ -220,6 +220,7 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+    emit this->sendHealth(healthpoints);
 }
 
 char WorldObject::getChar()

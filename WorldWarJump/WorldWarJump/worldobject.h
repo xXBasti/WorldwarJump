@@ -74,11 +74,12 @@ private:
         int hitcounter =0;
         int healthpoints;
 
-    public slots:
+public slots:
         void move();
         void jump();
         void hit();
-
+signals:
+        void sendHealth(int health);
 };
 
 #endif // WORLDOBJECT_H
