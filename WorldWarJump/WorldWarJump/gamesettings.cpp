@@ -7,7 +7,7 @@ GameSettings::GameSettings()
 }
 
 // static members are not defined in the constructor
-int GameSettings::secondsToChangeLevel = 10;
+int GameSettings::secondsToChangeLevel = 5;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
 int GameSettings::maxUnitsPerPlayer = 4;

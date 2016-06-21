@@ -21,8 +21,6 @@
         <file>blueship150.png</file>
         <file>bluerocked100.png</file>
         <file>background.png</file>
-        <file>weltallBackground.png</file>
-        <file>weltallterrain.png</file>
         <file>pics/bomb.jpg</file>
         <file>pics/space.jpg</file>
         <file>pics/MenusAndButtons/Menu.png</file>
@@ -36,6 +34,10 @@
         <file>pics/muteSE.png</file>
         <file>pics/MenusAndButtons/PlayerOneWins.png</file>
         <file>pics/MenusAndButtons/PlayerTwoWins.png</file>
+        <file>pics/TerrainAndBackgrounds/Hiroshima_Background.png</file>
+        <file>pics/TerrainAndBackgrounds/Hiroshima_Front.png</file>
+        <file>pics/TerrainAndBackgrounds/weltallBackground.png</file>
+        <file>pics/TerrainAndBackgrounds/weltallterrain.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>

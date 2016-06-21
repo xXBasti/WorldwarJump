@@ -35,7 +35,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     // terrain, background and level switch timer
 
     background = new QGraphicsPixmapItem;
-    background->setPixmap(QPixmap(":/images/weltallBackground.png"));
+    background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Background.png"));
     scene->addItem(background);
 
     terrain = new Terrain;
@@ -118,19 +118,18 @@ void GameWorld::addUnits()
 void GameWorld::changeLevel()
 {
     int stage = settings->getWhichStage();
-    /*
     switch(stage){
     case 0:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
-        background->setPixmap(QPixmap(":/images/pics/bomb.jpg"));
-        terrain->setPixmap(QPixmap(":/images/terrainbackground.png"));
+        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Background.png"));
+        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
         break;
     case 1:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000/2);
-        background->setPixmap(QPixmap(":/images/pics/space.jpg"));
-        terrain->setPixmap(QPixmap(":/images/terrainbackground.png"));
-        scene->physicsCalulator->gravity = -settings->getGravity()/2;
+        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallBackground.png"));
+        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
+        scene->physicsCalulator->gravity = 0;
         break;
     case 2:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
@@ -141,9 +140,8 @@ void GameWorld::changeLevel()
     default:
         qDebug() << "stage number out of boundaries";
     }
-    settings->setWhichStage((stage + 1)%3);
+    settings->setWhichStage((stage + 1)%2);
     qDebug() << "Level changed!";
-    */
 }
 
 void GameWorld::playeronewins()
