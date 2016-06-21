@@ -49,8 +49,11 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         int getDamage();
         void setDamage(int d);
         void setHealthpoints(int points);
-
+        void setProjectile(int proj);
+        int getProjectile();
         char getChar();
+        bool getfirstcollide();
+        void setfirstcollide(bool col);
 protected:
 
         Player p;
@@ -73,6 +76,8 @@ private:
         int damage;
         int hitcounter =0;
         int healthpoints;
+        int projectilselector;
+        bool firstcollide;
 
 public slots:
         void move();

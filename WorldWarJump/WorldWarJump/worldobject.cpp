@@ -76,7 +76,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p) {
     speed[0] = speed[1] = 0;
     setOrientation(0);
     setRotVel(0);
-
+    this->setfirstcollide(true);
     ///*this->parentView = parentView;
     ///*setPixmap(QPixmap(":/images/worldobject.png"));
     double newCenter[2];
@@ -223,9 +223,29 @@ void WorldObject::setHealthpoints(int points){
     emit this->sendHealth(healthpoints);
 }
 
+void WorldObject::setProjectile(int proj)
+{
+    this->projectilselector=proj;
+}
+
+int WorldObject::getProjectile()
+{
+    return projectilselector;
+}
+
 char WorldObject::getChar()
 {
     return ObjectType;
+}
+
+bool WorldObject::getfirstcollide()
+{
+    return this->firstcollide;
+}
+
+void WorldObject::setfirstcollide(bool col)
+{
+    this->firstcollide=col;
 }
 
 WorldObject::~WorldObject() {

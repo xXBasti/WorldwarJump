@@ -268,10 +268,16 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
     }
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) ){
+        if(worldObject->getfirstcollide()){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         //impuls(wO,worldObject);
         inverseSpeed(worldObject,wO);
         meeleDamage(wO,worldObject);
+        worldObject->setfirstcollide(false);
+        }
+    }
+    else{
+        worldObject->setfirstcollide(true);
     }
     // get object's speed and position
     double * speed = worldObject->getSpeed();
@@ -479,6 +485,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
                 checkHealth(I);
+                ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             }
 
             worldObject->~WorldObject();
