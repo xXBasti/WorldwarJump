@@ -14,8 +14,25 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     setPicture();
     this->setProjectile(0);
     double newCenter[2];
-    newCenter[0] = 30;
-    newCenter[1] = 20;
+
+    switch(this->ut){
+        case Tank:
+
+            newCenter[0] = this->pixmap().width()*(30/100);
+            newCenter[1] = this->pixmap().height()*(20/61);
+            break;
+        case Soldier:
+
+            newCenter[0] = this->pixmap().width();
+            newCenter[1] = this->pixmap().height();
+            break;
+        case Ship:
+
+            newCenter[0] = this->pixmap().width()*(60/100);
+            newCenter[1] = this->pixmap().height()*(20/62);
+            break;
+    }
+
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
 

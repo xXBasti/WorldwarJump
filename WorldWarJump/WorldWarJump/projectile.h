@@ -3,14 +3,16 @@
 
 #include "worldobject.h"
 #include "soundplayer.h"
-
+#include "battleunit.h"
 #include <QObject>
 
 class Projectile : public WorldObject
 {
     Q_OBJECT
 public:
-    Projectile(GameWorld *parentView,WorldObject *shootingUnit,ProjectileType p,SoundPlayer *soundplayer);
+
+    Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer);
+
     void fly();
 
     ~Projectile();

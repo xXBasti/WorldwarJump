@@ -25,7 +25,6 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
         playlist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
         playlist->setCurrentIndex(1);
         playlist->setPlaybackMode(QMediaPlaylist::Loop);
-
         sound->setPlaylist(playlist);
         sound->play();
     }*/
