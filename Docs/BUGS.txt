@@ -1,0 +1,2 @@
+BUG: Wenn man 1 einheit gegen 1 spielt dann fertig wird dann nochmal 1 einheit gegen 1 einheit spielt erscheint der Gegenspieler nicht
+BUG: Wenn sich zwei projectile des gleichen Spielers treffen beendet sich das Spiel.

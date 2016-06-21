@@ -34,22 +34,22 @@ GameMenu::GameMenu()
 
     startScene = new QGraphicsScene;
     startSceneBackground = new QGraphicsPixmapItem;
-    startSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+    startSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     startButton = new QGraphicsPixmapItem;
-    startButton->setPixmap(QPixmap(":/images/startbutton.png"));
+    startButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayButton.png"));
     startButton->setPos(sideMargin,topMargin*2+200);
 
     settingsButton = new QGraphicsPixmapItem;
-    settingsButton->setPixmap(QPixmap(":/images/settingsbutton.png"));
+    settingsButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/SettingsButton.png"));
     settingsButton->setPos(sideMargin,topMargin*3+250);
 
     aboutButton = new QGraphicsPixmapItem;
-    aboutButton->setPixmap(QPixmap(":/images/aboutbutton.png"));
+    aboutButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/AboutButton.png"));
     aboutButton->setPos(sideMargin,topMargin*4+300);
 
     exitButton = new QGraphicsPixmapItem;
-    exitButton->setPixmap(QPixmap(":/images/exitbutton.png"));
+    exitButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/ExitButton.png"));
     exitButton->setPos(sideMargin,topMargin*5+350);
 
     backButton = new QGraphicsPixmapItem;
@@ -96,7 +96,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         {
             beforeGameScene = new QGraphicsScene;
             beforeGameSceneBackground = new QGraphicsPixmapItem;
-            beforeGameSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+            beforeGameSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
             addPlayer1UnitButton = new QGraphicsPixmapItem;
             addPlayer1UnitButton->setPixmap(QPixmap(":/images/addbutton.png"));
@@ -308,7 +308,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         {
             settingsScene = new QGraphicsScene;
             settingsBackground = new QGraphicsPixmapItem;
-            settingsBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+            settingsBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
             muteButton = new QGraphicsPixmapItem;
             muteButton->setPixmap(QPixmap("ADD PATH"));
@@ -360,7 +360,7 @@ void GameMenu::playeronewon()
     endScene = new QGraphicsScene;
 
     endSceneBackground = new QGraphicsPixmapItem;
-    endSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+    endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playeronewinsPic = new QGraphicsPixmapItem;
     playeronewinsPic->setPixmap(QPixmap(":/images/playeronewins.png"));
@@ -379,7 +379,7 @@ void GameMenu::playertwowon()
     endScene = new QGraphicsScene;
 
     endSceneBackground = new QGraphicsPixmapItem;
-    endSceneBackground->setPixmap(QPixmap(":/images/menubackground.png"));
+    endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playertwowinsPic = new QGraphicsPixmapItem;
     playertwowinsPic->setPixmap(QPixmap(":/images/playertwowins.png"));
