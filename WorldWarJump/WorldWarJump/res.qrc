@@ -1,13 +1,8 @@
 <RCC>
     <qresource prefix="/images">
-        <file>menubackground.png</file>
-        <file>startbutton.png</file>
         <file>worldobject.png</file>
-        <file>exitbutton.png</file>
-        <file>settingsbutton.png</file>
         <file>startbattlebutton.png</file>
         <file>terrainbackground.png</file>
-        <file>aboutbutton.png</file>
         <file>addbutton.png</file>
         <file>removebutton.png</file>
         <file>1.png</file>
@@ -26,8 +21,6 @@
         <file>blueship150.png</file>
         <file>bluerocked100.png</file>
         <file>background.png</file>
-        <file>playertwowins.png</file>
-        <file>playeronewins.png</file>
         <file>weltallBackground.png</file>
         <file>weltallterrain.png</file>
         <file>pics/bomb.jpg</file>
