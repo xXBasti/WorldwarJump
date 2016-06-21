@@ -2,6 +2,7 @@
 #define PROJECTILE_H
 
 #include "worldobject.h"
+#include "battleunit.h"
 
 #include <QObject>
 
@@ -9,7 +10,7 @@ class Projectile : public WorldObject
 {
     Q_OBJECT
 public:
-    Projectile(GameWorld *parentView,WorldObject *shootingUnit,ProjectileType p);
+    Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p);
     void fly();
 
     ~Projectile();

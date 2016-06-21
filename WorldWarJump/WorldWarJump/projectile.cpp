@@ -7,6 +7,7 @@
 #include <cmath>
 #include "physicscalc.h"
 #include "GameplayInterface.h"
+#include "battleunit.h"
 #define M_PI 3.14159
 
 //Projectile::Projectile(GameWorld *parentView, int x,int y,double dir,ProjectileType p) : WorldObject(parentView)
@@ -56,7 +57,7 @@
 //    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
 //}
 
-Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p) :WorldObject(parentView, getPlayer()){
+Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p) :WorldObject(parentView, getPlayer()){
 
     ObjectType = 'p';
 
@@ -66,39 +67,55 @@ Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,Projecti
     this->pT=p;
     qDebug() <<"launch";
 
-    //Import from world object
+    //Projectile angle
     double speedPol[2] = {0};
     double speedEul[2] = {0};
 
-    speedPol[0] = 20;
-    speedPol[1] = ((shootingUnit->getOrientation()-30)/180)*M_PI;
+    switch(shootingUnit->getUnittype()){
+        case Tank:
+
+            speedPol[0] = 10;
+            speedPol[1] = ((shootingUnit->getOrientation())-30/180)*M_PI;
+            break;
+        case Soldier:
+
+            speedPol[0] = 10;
+            speedPol[1] = ((shootingUnit->getOrientation()-90)/180)*M_PI;
+            break;
+        case Ship:
+
+            speedPol[0] = 12;
+            speedPol[1] = ((shootingUnit->getOrientation()-165)/180)*M_PI;
+            break;
+    }
+
 
     polToEul(speedPol,speedEul,'v');
-    //Import from worldobject
+    //Projectile angle
 
     this->parentView = parentView;
     switch(p){ //parameter
         case missile:
 
-            speedPol[0] = 20;
+            speedPol[0] = speedPol[0] * 2;
             this->setDamage(10);
             this->setWeight(10);
             break;
         case balistic:
 
-            speedPol[0] = 30;
+            speedPol[0] = speedPol[0] * 3;
             this->setDamage(5);
             this->setWeight(5);
             break;
         case ray:
 
-            speedPol[0] = 40;
+            speedPol[0] = speedPol[0] * 4;
             this->setDamage(8);
             this->setWeight(2);
             break;
         case scrap:
 
-            speedPol[0] = 10;
+            speedPol[0] = speedPol[0] * 1;
             break;
     }
 
