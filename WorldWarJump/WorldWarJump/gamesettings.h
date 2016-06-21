@@ -37,6 +37,12 @@ public:
     void setFrendlyFire(bool value);
     int getMeeleDmg();
     void setMeeleDmg(int value);
+    static bool getBGMMuted();
+    static void setBGMMuted(bool value);
+
+    static bool getSEMuted();
+    static void setSEMuted(bool value);
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
@@ -50,6 +56,8 @@ private:
     bool settingsSceneAlreadyCreated;
     static bool frendlyfire;
     static int meeleDmg;
+    static bool BGMMuted;
+    static bool SEMuted;
 };
 
 #endif // GAMESETTINGS_H

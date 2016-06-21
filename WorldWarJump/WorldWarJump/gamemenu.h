@@ -6,6 +6,7 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QInputEvent>
+#include <QMediaPlaylist>
 
 #include "mainwindow.h"
 #include "gamesettings.h"
@@ -19,6 +20,7 @@ public:
     GameMenu();
     GameSettings *settings;
     QMediaPlayer *sound;
+    QMediaPlaylist *playlist;
 
     //!Mainwindow of WorldWarJump
     MainWindow *w = new MainWindow;

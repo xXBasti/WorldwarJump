@@ -18,10 +18,17 @@ GameMenu::GameMenu()
 {    
     settings = new GameSettings;
     sound = new QMediaPlayer;
+    playlist = new QMediaPlaylist;
 
-    sound->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
-    sound->play();
+    if(!GameSettings::getBGMMuted())
+    {
+        playlist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
+        playlist->setCurrentIndex(1);
+        playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
+        sound->setPlaylist(playlist);
+        sound->play();
+    }
 
     topMargin = 50;
     sideMargin = 50;
@@ -187,6 +194,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
 
             this->setScene(gameScene->scene);
+            gameScene->scene->addItem(backButton);
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
