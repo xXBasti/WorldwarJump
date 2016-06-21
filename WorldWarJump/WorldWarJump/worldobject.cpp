@@ -31,7 +31,7 @@ void WorldObject::jump()
     ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
     double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
 
-    if(distanceToCenter > 250){
+    if(/*distanceToCenter > 250*/((GameplayInterface*)scene())->physicsCalulator->collideWithAny(this)){
 
         double speedPol[2];
         double speedEul[2];

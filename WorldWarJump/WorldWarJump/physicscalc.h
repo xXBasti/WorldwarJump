@@ -61,6 +61,7 @@ public:
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
     bool CollideWithTerrain(WorldObject* object);
 
+    bool collideWithAny(WorldObject *object);
 signals:
     void playeronewins();
     void playertwowins();

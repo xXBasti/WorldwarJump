@@ -429,7 +429,15 @@ QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
     return NULL;
 }
 
-
+bool PhysicsCalc::collideWithAny(WorldObject* object){
+    if(CollideWithTerrain(object)){
+        return true;
+    }
+    if(CollideWithUnit(object)!=NULL){
+        return true;
+    }
+    return false;
+}
 
 void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     double colPosPol[2]={0};
@@ -575,3 +583,4 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
         }
     }
 }
+
