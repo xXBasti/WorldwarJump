@@ -93,7 +93,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         }
     }
      counter = counter +1;
-     if(counter == 50){
+     if(counter == 200){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
      //   qDebug() << "Angle velocity: " << angular[1];
         //double * point = {0};
@@ -111,7 +111,8 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
          if(worldObject->getChar() == 'p'){
              qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
          }
-     counter = 0 ;
+
+         counter = 0 ;
 
  }
 
@@ -157,6 +158,19 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
     if(gravityVectorAngle < 0)  gravityVectorAngle += 360;
     if(rotation < 0) rotation += 360;
     return(rotation - gravityVectorAngle);
+
+}
+
+double PhysicsCalc::roundDown(double numberToRound, int digit)
+{
+    if(numberToRound >= 0){
+
+        return(pow(10, -digit)*floor((pow(10, digit)*numberToRound)));
+
+    }else{
+
+        return(-pow(10, -digit)*floor((pow(10, digit)*abs(numberToRound))));
+    }
 
 }
 
@@ -254,7 +268,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // transform from eulSpeed to radialSpeed
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
         // radial speed points to the center at collision
-        radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
+        radialSpeed[0] = -abs(radialSpeed[0])*0.8 -abs(0.15*radialSpeed[1]);
+        qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
+        radialSpeed[0] = roundDown(radialSpeed[0],1);
+        qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
