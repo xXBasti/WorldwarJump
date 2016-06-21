@@ -56,7 +56,7 @@
 //    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
 //}
 
-Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p) :WorldObject(parentView, getPlayer()){
+Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p,SoundPlayer *soundplayer) :WorldObject(parentView, getPlayer(),soundplayer){
 
     ObjectType = 'p';
 

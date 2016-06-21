@@ -14,13 +14,13 @@
 
 #define M_PI 3.14159
 
-GameMenu::GameMenu()
+GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
-    sound = new QMediaPlayer;
-    playlist = new QMediaPlaylist;
+    //sound = new QMediaPlayer;
+    //playlist = new QMediaPlaylist;
 
-    if(!GameSettings::getBGMMuted())
+    /*if(!GameSettings::getBGMMuted())
     {
         playlist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
         playlist->setCurrentIndex(1);
@@ -28,7 +28,9 @@ GameMenu::GameMenu()
 
         sound->setPlaylist(playlist);
         sound->play();
-    }
+    }*/
+    soundpointer = soundplayer;
+    soundpointer->playMenuBGM();
 
     topMargin = 50;
     sideMargin = 50;
@@ -189,12 +191,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setScene(beforeGameScene);
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
-            GameWorld *gameScene = new GameWorld;
+            GameWorld *gameScene = new GameWorld(soundpointer);
             connect(gameScene,SIGNAL(playeronewinsSignal()),this,SLOT(playeronewon()));
             connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
 
             this->setScene(gameScene->scene);
             gameScene->scene->addItem(backButton);
+            soundpointer->playGameBGM();
+
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {

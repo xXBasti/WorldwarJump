@@ -6,11 +6,22 @@
 #include <QMediaPlayer>
 
 
-class SoundPlayer : public QMediaPlaylist
+class SoundPlayer : public QObject
 {
     Q_OBJECT
 public:
     SoundPlayer();
+    QMediaPlayer *BGMplayer;
+    QMediaPlayer *SEplayer;
+    QMediaPlaylist *BGMplaylist;
+    QMediaPlaylist *SEplaylist;
+
+    void playMenuBGM();
+    void playGameBGM();
+    void playJump();
+    void playShoot();
+    void playHit();
+
 };
 
 #endif // SOUNDPLAYER_H

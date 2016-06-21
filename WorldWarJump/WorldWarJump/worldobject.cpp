@@ -27,6 +27,7 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
+    soundpointer->playJump();
     double centerToObject[2] = {0};
     ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
     double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
@@ -51,6 +52,7 @@ void WorldObject::jump()
         //Introduce chance in rotation
         setRotVel(random_var *5 + getRotVel());
 
+
     }
     /*qDebug() << "Distance to Center:" << distanceToCenter;
     QPointF point(this->getCenterOfMass()[0],this->getCenterOfMass()[1]);
@@ -68,7 +70,9 @@ void WorldObject::jump()
  }
 
 
-WorldObject::WorldObject(GameWorld * parentView, Player p) {
+WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplayer) {
+
+    soundpointer=soundplayer;
 
     ObjectType = 'o';
     this->parentView = parentView;

@@ -38,5 +38,8 @@
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
+        <file>sound/gameBGM1.mp3</file>
+        <file>sound/jump.wav</file>
+        <file>sound/shoot.wav</file>
     </qresource>
 </RCC>

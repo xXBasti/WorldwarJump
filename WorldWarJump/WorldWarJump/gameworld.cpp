@@ -16,8 +16,9 @@
 
 #define M_PI 3.14159
 
-GameWorld::GameWorld()
+GameWorld::GameWorld(SoundPlayer *soundplayer)
 {
+    soundpointer = soundplayer;
     setGameWorldSize(settings->getGameWorldSize());
     setFixedSize(gameWorldSize,gameWorldSize);
 
@@ -82,7 +83,7 @@ void GameWorld::addUnits()
 {
     int player1Units = settings->getPlayer1UnitCount();
     for(int i = 1; i <= player1Units; i++){
-        BattleUnit *player1Unit = new BattleUnit(this,player1,Tank);
+        BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
         player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player1Unit);
         QProgressBar* poh= new QProgressBar();
@@ -98,7 +99,7 @@ void GameWorld::addUnits()
     }
     int player2Unit = settings->getPlayer2UnitCount();
     for(int i = 1; i <= player2Unit; i++){
-        BattleUnit *player2Unit = new BattleUnit(this,player2, Ship);
+        BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Ship);
         player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player2Unit);
         QProgressBar* pth= new QProgressBar();
