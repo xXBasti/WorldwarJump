@@ -64,7 +64,8 @@ public:
     QGraphicsPixmapItem *player2UnitCountPicture;
 
     //!Buttons on settingsScene
-    QGraphicsPixmapItem *muteButton;
+    QGraphicsPixmapItem *muteBGMButton;
+    QGraphicsPixmapItem *muteSEButton;
 
     //!Pictures on settingsScene
     QGraphicsPixmapItem *settingsBackground;

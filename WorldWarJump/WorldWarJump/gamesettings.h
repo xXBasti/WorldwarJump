@@ -43,6 +43,9 @@ public:
     static bool getSEMuted();
     static void setSEMuted(bool value);
 
+    static bool BGMMuted;
+    static bool SEMuted;
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
@@ -56,8 +59,7 @@ private:
     bool settingsSceneAlreadyCreated;
     static bool frendlyfire;
     static int meeleDmg;
-    static bool BGMMuted;
-    static bool SEMuted;
+
 };
 
 #endif // GAMESETTINGS_H

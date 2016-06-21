@@ -25,33 +25,39 @@ SoundPlayer::SoundPlayer()
 
 void SoundPlayer::playMenuBGM()
 {
-    BGMplaylist->setCurrentIndex(1);
-    BGMplaylist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
-    BGMplayer->setPlaylist(BGMplaylist);
-    BGMplayer->play();
+    if(!GameSettings::BGMMuted)
+    {
+        BGMplaylist->setCurrentIndex(1);
+        BGMplaylist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
+        BGMplayer->setPlaylist(BGMplaylist);
+        BGMplayer->play();
+    }
 }
 
 void SoundPlayer::playGameBGM()
 {
-
-    BGMplaylist->setPlaybackMode(QMediaPlaylist::Loop);
-    //BGMplaylist->setCurrentIndex(1);
-    BGMplaylist->next();
-    BGMplaylist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
-
+    if(!GameSettings::BGMMuted)
+    {
+        BGMplaylist->setPlaybackMode(QMediaPlaylist::Loop);
+        //BGMplaylist->setCurrentIndex(1);
+        BGMplaylist->next();
+        BGMplaylist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
+    } else
+    {
+        BGMplayer->stop();
+    }
 }
 
 void SoundPlayer::playJump()
 {
 
-    Jumpplayer->play();
+    if(!GameSettings::SEMuted)Jumpplayer->play();
 
 }
 
 void SoundPlayer::playShoot()
 {
-    Shootplayer->play();
-    qDebug()<<"shoot!!!";
+    if(!GameSettings::SEMuted)Shootplayer->play();
 }
 
 void SoundPlayer::playHit()

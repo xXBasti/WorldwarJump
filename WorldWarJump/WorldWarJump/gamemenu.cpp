@@ -322,23 +322,30 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsBackground = new QGraphicsPixmapItem;
             settingsBackground->setPixmap(QPixmap(":/images/menubackground.png"));
 
-            muteButton = new QGraphicsPixmapItem;
-            muteButton->setPixmap(QPixmap("ADD PATH"));
-            muteButton->setPos(GameMenuSize-sideMargin,topMargin*4);
-            muteButton->setZValue(1);
+            muteBGMButton = new QGraphicsPixmapItem;
+            muteBGMButton->setPixmap(QPixmap(":/images/pics/muteBGM.png"));
+            muteBGMButton->setPos(GameMenuSize-sideMargin*2,topMargin*4);
+            muteBGMButton->setZValue(1);
+
+            muteSEButton = new QGraphicsPixmapItem;
+            muteSEButton->setPixmap(QPixmap(":/images/pics/muteSE.png"));
+            muteSEButton->setPos(GameMenuSize-sideMargin*2,topMargin*5+buttonHeight);
+            muteSEButton->setZValue(1);
 
             settingsScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(settingsScene);
             setFixedSize(GameMenuSize,GameMenuSize);
 
             settingsScene->addItem(settingsBackground);
-            settingsScene->addItem(muteButton);
+            settingsScene->addItem(muteBGMButton);
+            settingsScene->addItem(muteSEButton);
             settingsScene->addItem(backButton);
 
             settings->setSettingsSceneAlreadyCreated(true);
 
         } else if((item == this->settingsButton)&&(settings->getSettingsSceneAlreadyCreated()))
         {
+
             settingsScene->addItem(backButton);
             setScene(settingsScene);
         } else if(item == this->aboutButton)                            // Open about.
@@ -347,6 +354,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if (item == this->exitButton)                            // Exit the game.
         {
             QApplication::quit();
+        } else if (item == this->muteBGMButton)                         // Mute BGM
+        {
+            settings->setBGMMuted(!settings->getBGMMuted());
+            if(settings->getBGMMuted()) soundpointer->BGMplayer->stop();
+            if(!settings->getBGMMuted()) soundpointer->BGMplayer->play();
+        } else if (item == this->muteSEButton)                          // Mute SE
+        {
+            settings->setSEMuted(!settings->getSEMuted());
         }
     }
 }

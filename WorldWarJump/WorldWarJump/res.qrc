@@ -35,6 +35,8 @@
         <file>pics/space.jpg</file>
         <file>ray_red.png</file>
         <file>ray_blue.png</file>
+        <file>pics/muteBGM.png</file>
+        <file>pics/muteSE.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
