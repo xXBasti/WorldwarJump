@@ -70,12 +70,13 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     //Projectile angle
     double speedPol[2] = {0};
     double speedEul[2] = {0};
+    unitType Type = shootingUnit->getUnittype();
 
-    switch(shootingUnit->getUnittype()){
+    switch(Type){
         case Tank:
 
             speedPol[0] = 10;
-            speedPol[1] = ((shootingUnit->getOrientation())-30/180)*M_PI;
+            speedPol[1] = ((shootingUnit->getOrientation()-30)/180)*M_PI;
             break;
         case Soldier:
 
@@ -123,10 +124,10 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->p=shootingUnit->getPlayer();
     setTransformOriginPoint(1, 1);
     this->setRotVel(0);
-    this->setRotation(0);
+    this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);
     this->setPos(x,y);
-    this->setOrientation(shootingUnit->getOrientation());
+    this->setOrientation(speedPol[1]*(180/M_PI));
 
     parentView->scene->addItem(this);
 
@@ -135,6 +136,9 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->setSpeed(speedEul);
     connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
+
+    qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
+    qDebug() << "Projectile orientation: " << speedPol[1]*(180/M_PI) ;
 }
 
 void Projectile::setPicture(Player p)

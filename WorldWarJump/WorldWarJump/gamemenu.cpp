@@ -19,7 +19,7 @@ GameMenu::GameMenu()
     settings = new GameSettings;
     sound = new QMediaPlayer;
 
-    sound->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
+    //sound->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
     sound->play();
 
 
