@@ -56,13 +56,13 @@
 //    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
 //}
 
-Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p) :WorldObject(parentView, getPlayer()){
+Projectile::Projectile(GameWorld *parentView, WorldObject *shootingUnit,ProjectileType p,SoundPlayer *soundplayer) :WorldObject(parentView, getPlayer(),soundplayer){
 
     ObjectType = 'p';
 
     double x = shootingUnit->x();
     double y = shootingUnit->y();
-
+    this->shootingUnit=shootingUnit;
     this->pT=p;
     qDebug() <<"launch";
 
@@ -146,10 +146,10 @@ void Projectile::setPicture(Player p)
     case ray:
         switch(p){
             case player1:
-                setPixmap(QPixmap(":/images/projektile.png"));
+                setPixmap(QPixmap(":/images/ray_red.png"));
                 break;
             case player2:
-                setPixmap(QPixmap(":/images/projektile.png"));
+                setPixmap(QPixmap(":/images/ray_blue.png"));
                 break;
         }
         break;
@@ -206,6 +206,11 @@ void Projectile::polToEul(double * pol, double* eul,char type){
         eul[1]=round(pol[0]*sin(pol[1])*100)/100;
         break;
     }
+}
+
+WorldObject *Projectile::getshootingUnit()
+{
+    return this->shootingUnit;
 }
 
 

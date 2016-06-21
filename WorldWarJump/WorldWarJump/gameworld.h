@@ -9,6 +9,7 @@
 #include <QGraphicsPixmapItem>
 #include "GameplayInterface.h"
 #include "gamesettings.h"
+#include "soundplayer.h"
 
 class Terrain;
 
@@ -24,7 +25,7 @@ class GameWorld: public QGraphicsView
 public:
     // Member functions
     //! GameWorld Constructor
-    GameWorld();
+    GameWorld(SoundPlayer *soundplayer);
 
     // Member attributes
     Terrain * terrain;
@@ -39,6 +40,9 @@ public:
     void pause();
     void resume();
 
+    //for sound
+    SoundPlayer *soundpointer;
+
 private:
     //! defines the resolution of GameplayInterface
     int gameWorldSize;
@@ -49,6 +53,7 @@ public slots:
     void playeronewins();
     void playertwowins();
 
+    void setBar(int value);
 signals:
     void playeronewinsSignal();
     void playertwowinsSignal();

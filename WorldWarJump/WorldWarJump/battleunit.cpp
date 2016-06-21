@@ -5,13 +5,14 @@
 #include "projectile.h"
 #include <QDebug>
 
-BattleUnit::BattleUnit(GameWorld * parentView, Player p,unitType unittype) : WorldObject(parentView, p)
+BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer, unitType unittype) : WorldObject(parentView, p,soundplayer)
 {
+    soundpointer = soundplayer;
     ObjectType = 'b';
     this->parentView = parentView;
     this->ut=unittype;
     setPicture();
-
+    this->setProjectile(0);
     double newCenter[2];
     newCenter[0] = 30;
     newCenter[1] = 20;
@@ -89,6 +90,17 @@ void BattleUnit::setPicture()
 }
 
 void BattleUnit::shoot(){
-    qDebug() <<"fire";
-    new Projectile(parentView, this,missile);
+   // qDebug() <<"fire"<<this->getProjectile();
+    soundpointer->playShoot();
+    switch(this->getProjectile()%2){
+    case 0:
+        new Projectile(parentView, this,balistic,soundpointer);
+        break;
+    case 1:
+        new Projectile(parentView, this,ray,soundpointer);
+        break;
+    case 2:
+        new Projectile(parentView, this,missile,soundpointer);
+        break;
+    }
 }

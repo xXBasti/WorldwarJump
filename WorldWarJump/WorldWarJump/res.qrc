@@ -25,7 +25,6 @@
         <file>blueship100.png</file>
         <file>blueship150.png</file>
         <file>bluerocked100.png</file>
-        <file>projektile.png</file>
         <file>background.png</file>
         <file>playertwowins.png</file>
         <file>playeronewins.png</file>
@@ -38,8 +37,18 @@
         <file>pics/MenusAndButtons/AboutButton.png</file>
         <file>pics/MenusAndButtons/ExitButton.png</file>
         <file>pics/MenusAndButtons/SettingsButton.png</file>
+        <file>ray_red.png</file>
+        <file>ray_blue.png</file>
+        <file>pics/muteBGM.png</file>
+        <file>pics/muteSE.png</file>
+        <file>pics/MenusAndButtons/PlayerOneWins.png</file>
+        <file>pics/MenusAndButtons/PlayerTwoWins.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
+        <file>sound/gameBGM1.mp3</file>
+        <file>sound/jump.wav</file>
+        <file>sound/shoot.wav</file>
+        <file>sound/shoot1.mp3</file>
     </qresource>
 </RCC>

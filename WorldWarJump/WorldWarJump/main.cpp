@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    GameMenu *menu = new GameMenu();
+    SoundPlayer *sound = new SoundPlayer;
+    GameMenu *menu = new GameMenu(sound);
 
     return a.exec();
 }

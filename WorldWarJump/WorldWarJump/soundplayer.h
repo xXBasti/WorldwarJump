@@ -1,25 +1,28 @@
 #ifndef SOUNDPLAYER_H
 #define SOUNDPLAYER_H
 
-#include<QMediaPlayer>
+#include <QObject>
+#include <QMediaPlaylist>
+#include <QMediaPlayer>
 
 
-class SoundPlayer : public QMediaPlayer
+class SoundPlayer : public QObject
 {
+    Q_OBJECT
 public:
     SoundPlayer();
+    QMediaPlayer *BGMplayer;
+    QMediaPlayer *Jumpplayer;
+    QMediaPlayer *Shootplayer;
+    QMediaPlaylist *BGMplaylist;
+    //QMediaPlaylist *SEplaylist;
 
     void playMenuBGM();
     void playGameBGM();
-
-public slots:
     void playJump();
     void playShoot();
     void playHit();
-    void playBounce();
-    void playClicked();
-    void muteSoundEffects();
-    void muteBGM();
+
 };
 
 #endif // SOUNDPLAYER_H

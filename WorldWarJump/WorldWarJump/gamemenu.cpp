@@ -14,14 +14,23 @@
 
 #define M_PI 3.14159
 
-GameMenu::GameMenu()
+GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
-    sound = new QMediaPlayer;
+    //sound = new QMediaPlayer;
+    //playlist = new QMediaPlaylist;
 
-    sound->setMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
-    sound->play();
+    /*if(!GameSettings::getBGMMuted())
+    {
+        playlist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
+        playlist->setCurrentIndex(1);
+        playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
+        sound->setPlaylist(playlist);
+        sound->play();
+    }*/
+    soundpointer = soundplayer;
+    soundpointer->playMenuBGM();
 
     topMargin = 50;
     sideMargin = 50;
@@ -182,11 +191,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setScene(beforeGameScene);
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
-            GameWorld *gameScene = new GameWorld;
+            GameWorld *gameScene = new GameWorld(soundpointer);
             connect(gameScene,SIGNAL(playeronewinsSignal()),this,SLOT(playeronewon()));
             connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
 
             this->setScene(gameScene->scene);
+            gameScene->scene->addItem(backButton);
+            soundpointer->playGameBGM();
+
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
         {
@@ -310,23 +322,30 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsBackground = new QGraphicsPixmapItem;
             settingsBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
-            muteButton = new QGraphicsPixmapItem;
-            muteButton->setPixmap(QPixmap("ADD PATH"));
-            muteButton->setPos(GameMenuSize-sideMargin,topMargin*4);
-            muteButton->setZValue(1);
+            muteBGMButton = new QGraphicsPixmapItem;
+            muteBGMButton->setPixmap(QPixmap(":/images/pics/muteBGM.png"));
+            muteBGMButton->setPos(GameMenuSize-sideMargin*2,topMargin*4);
+            muteBGMButton->setZValue(1);
+
+            muteSEButton = new QGraphicsPixmapItem;
+            muteSEButton->setPixmap(QPixmap(":/images/pics/muteSE.png"));
+            muteSEButton->setPos(GameMenuSize-sideMargin*2,topMargin*5+buttonHeight);
+            muteSEButton->setZValue(1);
 
             settingsScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(settingsScene);
             setFixedSize(GameMenuSize,GameMenuSize);
 
             settingsScene->addItem(settingsBackground);
-            settingsScene->addItem(muteButton);
+            settingsScene->addItem(muteBGMButton);
+            settingsScene->addItem(muteSEButton);
             settingsScene->addItem(backButton);
 
             settings->setSettingsSceneAlreadyCreated(true);
 
         } else if((item == this->settingsButton)&&(settings->getSettingsSceneAlreadyCreated()))
         {
+
             settingsScene->addItem(backButton);
             setScene(settingsScene);
         } else if(item == this->aboutButton)                            // Open about.
@@ -335,6 +354,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if (item == this->exitButton)                            // Exit the game.
         {
             QApplication::quit();
+        } else if (item == this->muteBGMButton)                         // Mute BGM
+        {
+            settings->setBGMMuted(!settings->getBGMMuted());
+            if(settings->getBGMMuted()) soundpointer->BGMplayer->stop();
+            if(!settings->getBGMMuted()) soundpointer->BGMplayer->play();
+        } else if (item == this->muteSEButton)                          // Mute SE
+        {
+            settings->setSEMuted(!settings->getSEMuted());
         }
     }
 }
@@ -363,8 +390,8 @@ void GameMenu::playeronewon()
     endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playeronewinsPic = new QGraphicsPixmapItem;
-    playeronewinsPic->setPixmap(QPixmap(":/images/playeronewins.png"));
-    playeronewinsPic->setPos(sideMargin,topMargin);
+    playeronewinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerOneWins.png"));
+    playeronewinsPic->setPos(sideMargin,topMargin+settings->getGameWorldSize()/4);
 
     endScene->addItem(endSceneBackground);
     endScene->addItem(playeronewinsPic);
@@ -382,8 +409,8 @@ void GameMenu::playertwowon()
     endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playertwowinsPic = new QGraphicsPixmapItem;
-    playertwowinsPic->setPixmap(QPixmap(":/images/playertwowins.png"));
-    playertwowinsPic->setPos(sideMargin,topMargin);
+    playertwowinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerTwoWins.png"));
+    playertwowinsPic->setPos(sideMargin,topMargin+settings->getGameWorldSize()/4);
 
     endScene->addItem(endSceneBackground);
     endScene->addItem(playertwowinsPic);

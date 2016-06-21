@@ -3,6 +3,7 @@
 #include <QGraphicsRectItem>
 #include <QTimer>
 
+
 class Input : public QObject, public QGraphicsRectItem {
     Q_OBJECT
 public:
@@ -11,6 +12,7 @@ public:
     //! Gameplay refresh rate
     QTimer * timer;
     ~Input();
+
 signals:
     void playerOneJump();
     void playerOneShoot();

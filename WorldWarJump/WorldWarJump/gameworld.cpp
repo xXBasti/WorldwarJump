@@ -9,13 +9,16 @@
 #include "gamesettings.h"
 #include <stdlib.h>
 #include <cmath>
+#include <QProgressBar>
 #include "input.h"
 #include "terrain.h"
+#include <QLabel>
 
 #define M_PI 3.14159
 
-GameWorld::GameWorld()
+GameWorld::GameWorld(SoundPlayer *soundplayer)
 {
+    soundpointer = soundplayer;
     setGameWorldSize(settings->getGameWorldSize());
     setFixedSize(gameWorldSize,gameWorldSize);
 
@@ -42,28 +45,21 @@ GameWorld::GameWorld()
     levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
     connect(levelSwitchTimer, SIGNAL(timeout()), this, SLOT(changeLevel()));
 
+    QLabel* lOne=new QLabel();
+    lOne->setGeometry(5,5,80,15);
+    lOne->setText("Player One");
+    //lOne->setAttribute(Qt::WA_TranslucentBackground); could be nice transparent?!
+    scene->addWidget(lOne);
+    QLabel* lTwo=new QLabel();
+    lTwo->setGeometry(715,5,80,15);
+    lTwo->setText("Player Two");
+    scene->addWidget(lTwo);
     addUnits();
 
     // Scrollbar disabling
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    //What are the next lines?
-//    double e1[2]={300,300};
-//    double p1[2]={1,M_PI};
-//    double e2[2]={0};
-//    double p2[2]={0};
-
-//    PhysicsCalc* p= new PhysicsCalc();
-//    p->eulToPol(e1,p2,'p');
-//    p->polToEul(p1,e2,'v');
-
-//    qDebug() << p2[0] << p2[1];
-//    qDebug() << e2[0] << e2[1];
-//    p->eulToPol(e2,p1,'v');
-//    p->polToEul(p2,e1,'p');
-//    qDebug() << p1[0] << p1[1];
-//    qDebug() << e1[0] << e1[1];
 }
 
 void GameWorld::setGameWorldSize(int value)
@@ -87,15 +83,35 @@ void GameWorld::addUnits()
 {
     int player1Units = settings->getPlayer1UnitCount();
     for(int i = 1; i <= player1Units; i++){
-        BattleUnit *player1Unit = new BattleUnit(this,player1,Tank);
+        BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
         player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player1Unit);
+        QProgressBar* poh= new QProgressBar();
+        scene->addWidget(poh);
+        poh->setMaximumWidth(80);
+        poh->setMaximumHeight(10);
+        poh->setValue(100);
+        poh->setGeometry(5,25+(i-1)*20,100,15);
+        poh->setMaximum(100);
+        poh->setTextVisible(false);
+        poh->setVisible(true);
+        connect(player1Unit,SIGNAL(sendHealth(int)),poh,SLOT(setValue(int)));
     }
     int player2Unit = settings->getPlayer2UnitCount();
     for(int i = 1; i <= player2Unit; i++){
-        BattleUnit *player2Unit = new BattleUnit(this,player2, Ship);
+        BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Ship);
         player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player2Unit);
+        QProgressBar* pth= new QProgressBar();
+        scene->addWidget(pth);
+        pth->setMaximumWidth(80);
+        pth->setMaximumHeight(10);
+        pth->setMaximum(100);
+        pth->setValue(100);
+        pth->setGeometry(715,25+(i-1)*15,80,10);
+        pth->setTextVisible(false);
+        pth->setVisible(true);
+        connect(player2Unit,SIGNAL(sendHealth(int)),pth,SLOT(setValue(int)));
     }
 }
 
@@ -140,5 +156,8 @@ void GameWorld::playertwowins()
     emit this->playertwowinsSignal();
 }
 
+void GameWorld::setBar(int value){
 
+
+}
 

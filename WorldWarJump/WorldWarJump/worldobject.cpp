@@ -27,12 +27,14 @@ void WorldObject::hit(){
 
 void WorldObject::jump()
 {
+
     double centerToObject[2] = {0};
     ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
     double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
 
-    if(distanceToCenter > 250){
+    if(/*distanceToCenter > 250*/((GameplayInterface*)scene())->physicsCalulator->collideWithAny(this)){
 
+        soundpointer->playJump();
         double speedPol[2];
         double speedEul[2];
 
@@ -51,6 +53,7 @@ void WorldObject::jump()
         //Introduce chance in rotation
         setRotVel(random_var *5 + getRotVel());
 
+
     }
     /*qDebug() << "Distance to Center:" << distanceToCenter;
     QPointF point(this->getCenterOfMass()[0],this->getCenterOfMass()[1]);
@@ -68,7 +71,9 @@ void WorldObject::jump()
  }
 
 
-WorldObject::WorldObject(GameWorld * parentView, Player p) {
+WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplayer) {
+
+    soundpointer=soundplayer;
 
     ObjectType = 'o';
     this->parentView = parentView;
@@ -76,7 +81,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p) {
     speed[0] = speed[1] = 0;
     setOrientation(0);
     setRotVel(0);
-
+    this->setfirstcollide(true);
     ///*this->parentView = parentView;
     ///*setPixmap(QPixmap(":/images/worldobject.png"));
     double newCenter[2];
@@ -220,11 +225,32 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+    emit this->sendHealth(healthpoints);
+}
+
+void WorldObject::setProjectile(int proj)
+{
+    this->projectilselector=proj;
+}
+
+int WorldObject::getProjectile()
+{
+    return projectilselector;
 }
 
 char WorldObject::getChar()
 {
     return ObjectType;
+}
+
+bool WorldObject::getfirstcollide()
+{
+    return this->firstcollide;
+}
+
+void WorldObject::setfirstcollide(bool col)
+{
+    this->firstcollide=col;
 }
 
 WorldObject::~WorldObject() {
