@@ -18,8 +18,8 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     switch(this->ut){
         case Tank:
 
-            newCenter[0] = this->pixmap().width()*(30/100);
-            newCenter[1] = this->pixmap().height()*(20/61);
+            newCenter[0] = 30/*this->pixmap().width()*(30/100)*/;
+            newCenter[1] = 20/*this->pixmap().height()*(20/61)*/;
             break;
         case Soldier:
 
@@ -28,8 +28,8 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
             break;
         case Ship:
 
-            newCenter[0] = this->pixmap().width()*(60/100);
-            newCenter[1] = this->pixmap().height()*(20/62);
+            newCenter[0] = 60/*this->pixmap().width()*(60/100)*/;
+            newCenter[1] = 20/*this->pixmap().height()*(20/62)*/;
             break;
     }
 
