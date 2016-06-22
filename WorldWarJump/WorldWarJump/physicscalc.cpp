@@ -580,12 +580,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
 
     if( !( (!settings->getFrendlyFire()) && (colliding1->getPlayer()==colliding2->getPlayer()) ) ){
-        if(vectorsAbsoluteValue(v1)<vectorsAbsoluteValue(v2)){
+        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>10){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
            //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
            checkHealth(colliding1);
         }
-        if(vectorsAbsoluteValue(v1)>vectorsAbsoluteValue(v2)){
+        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>10){
             colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
             //qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
             checkHealth(colliding2);
