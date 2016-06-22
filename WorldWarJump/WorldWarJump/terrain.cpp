@@ -2,5 +2,5 @@
 
 Terrain::Terrain()
 {
-    setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Front.png"));
+    setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battleground_Front.png"));
 }

@@ -35,7 +35,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     // terrain, background and level switch timer
 
     background = new QGraphicsPixmapItem;
-    background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Background.png"));
+    background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battlefield_Background.png"));
     scene->addItem(background);
 
     terrain = new Terrain;
@@ -121,8 +121,8 @@ void GameWorld::changeLevel()
     switch(stage){
     case 0:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
-        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Background.png"));
-        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Hiroshima_Front.png"));
+        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battlefield_Background.png"));
+        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battleground_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
         break;
     case 1:
