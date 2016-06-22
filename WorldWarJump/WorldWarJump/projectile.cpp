@@ -122,7 +122,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
 
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
-    setTransformOriginPoint(1, 1);
+    setTransformOriginPoint(35, 15);
     this->setRotVel(0);
     this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);
