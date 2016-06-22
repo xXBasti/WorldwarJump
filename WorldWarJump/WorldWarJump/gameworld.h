@@ -32,6 +32,7 @@ public:
     Input * input;
     GameplayInterface * scene;
     QTimer * levelSwitchTimer;
+    QTimer * backGroundRotationTimer;
     QGraphicsPixmapItem *background;
 
     void setGameWorldSize(int value);
@@ -52,8 +53,8 @@ public slots:
     void changeLevel();
     void playeronewins();
     void playertwowins();
-
     void setBar(int value);
+    void rotateBackground();
 signals:
     void playeronewinsSignal();
     void playertwowinsSignal();

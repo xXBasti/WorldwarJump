@@ -44,6 +44,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     levelSwitchTimer = new QTimer();
     levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
     connect(levelSwitchTimer, SIGNAL(timeout()), this, SLOT(changeLevel()));
+    backGroundRotationTimer = new QTimer();
 
     QLabel* lOne=new QLabel();
     lOne->setGeometry(5,5,80,15);
@@ -120,14 +121,19 @@ void GameWorld::changeLevel()
     int stage = settings->getWhichStage();
     switch(stage){
     case 0:
+        backGroundRotationTimer->stop();
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
         background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battlefield_Background.png"));
+        background->setRotation(0);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battleground_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
         break;
     case 1:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000/2);
         background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallBackground.png"));
+        background->setTransformOriginPoint(gameWorldSize/2, gameWorldSize/2);
+        backGroundRotationTimer->start(20);
+        connect(backGroundRotationTimer, SIGNAL(timeout()), this, SLOT(rotateBackground()));
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
         scene->physicsCalulator->gravity = 0;
         break;
@@ -157,5 +163,11 @@ void GameWorld::playertwowins()
 void GameWorld::setBar(int value){
 
 
+}
+
+void GameWorld::rotateBackground()
+{
+    qDebug() << background->rotation();
+    background->setRotation(background->rotation()+0.2);
 }
 
