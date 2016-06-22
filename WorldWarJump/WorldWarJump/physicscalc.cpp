@@ -93,7 +93,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
         }
     }
      counter = counter +1;
-     if(counter == 50){
+     if(counter == 200){
      //   qDebug() << "Angle difference: "<<gravAngleDiff ;
      //   qDebug() << "Angle velocity: " << angular[1];
         //double * point = {0};
@@ -111,7 +111,8 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
          if(worldObject->getChar() == 'p'){
              qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
          }
-     counter = 0 ;
+
+         counter = 0 ;
 
  }
 
@@ -157,6 +158,19 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
     if(gravityVectorAngle < 0)  gravityVectorAngle += 360;
     if(rotation < 0) rotation += 360;
     return(rotation - gravityVectorAngle);
+
+}
+
+double PhysicsCalc::roundDown(double numberToRound, int digit)
+{
+    if(numberToRound >= 0){
+
+        return(pow(10, -digit)*floor((pow(10, digit)*numberToRound)));
+
+    }else{
+
+        return(-pow(10, -digit)*floor((pow(10, digit)*abs(numberToRound))));
+    }
 
 }
 
@@ -254,7 +268,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // transform from eulSpeed to radialSpeed
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
         // radial speed points to the center at collision
-        radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
+        radialSpeed[0] = -abs(radialSpeed[0])*0.8 -abs(0.15*radialSpeed[1]);
+        qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
+        radialSpeed[0] = roundDown(radialSpeed[0],1);
+        qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
@@ -268,16 +285,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
     }
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) ){
-        if(worldObject->getfirstcollide()){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         //impuls(wO,worldObject);
         inverseSpeed(worldObject,wO);
         meeleDamage(wO,worldObject);
-        worldObject->setfirstcollide(false);
-        }
-    }
-    else{
-        worldObject->setfirstcollide(true);
     }
     // get object's speed and position
     double * speed = worldObject->getSpeed();
@@ -295,7 +306,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     speed[0] = 0.98*speed[0]; //parameter
     speed[1] = 0.98*speed[1];
 
-    // set new speed values 
+    // set new speed values
     //*worldObject->setSpeed(speed);
     return;
 }
@@ -435,15 +446,7 @@ QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
     return NULL;
 }
 
-bool PhysicsCalc::collideWithAny(WorldObject* object){
-    if(CollideWithTerrain(object)){
-        return true;
-    }
-    if(CollideWithUnit(object)!=NULL){
-        return true;
-    }
-    return false;
-}
+
 
 void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     double colPosPol[2]={0};
@@ -485,7 +488,6 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
                 checkHealth(I);
-                ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             }
 
             worldObject->~WorldObject();
@@ -497,11 +499,9 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
-            if((typeid(*obj) == typeid(BattleUnit)))
             settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
-            if((typeid(*obj) == typeid(BattleUnit)))
             settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
@@ -593,3 +593,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     }
 }
 
+bool PhysicsCalc::collideWithAny(WorldObject* object){
+    if(CollideWithTerrain(object)){
+        return true;
+    }
+    if(CollideWithUnit(object)!=NULL){
+        return true;
+    }
+    return false;
+}

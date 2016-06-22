@@ -30,6 +30,8 @@ public:
     //Clockwise Rotation angle difference to the inverse of gravity vector
     double gravityAngleDifference(double rotation, double * gravityVector);
     int counter;
+    //Gives the rounded down number after a certain digit
+    double roundDown(double numberToRound, int digit);
     //Can
 
     //Tomas
