@@ -46,9 +46,27 @@ public:
     static bool BGMMuted;
     static bool SEMuted;
 
+    static int getPlayerRedTankCount();
+    static void setPlayerRedTankCount(int value);
+
+    static int getPlayerRedShipCount();
+    static void setPlayerRedShipCount(int value);
+
+    static int getPlayerBlueShipCount();
+    static void setPlayerBlueShipCount(int value);
+
+    static int getPlayerBlueTankCount();
+    static void setPlayerBlueTankCount(int value);
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
+
+    static int playerRedTankCount;
+    static int playerRedShipCount;
+    static int playerBlueShipCount;
+    static int playerBlueTankCount;
+
     static int maxUnitsPerPlayer;
     static int GameWorldSize;
     static double gravity;

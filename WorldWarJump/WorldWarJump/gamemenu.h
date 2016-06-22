@@ -49,6 +49,16 @@ public:
     //!Buttons on beforeGameScene
     QGraphicsPixmapItem *addPlayer1UnitButton;
     QGraphicsPixmapItem *addPlayer2UnitButton;
+
+    QGraphicsPixmapItem *addRedTankButton; //New
+    QGraphicsPixmapItem *addRedShipButton;
+    QGraphicsPixmapItem *removeRedTankButton;
+    QGraphicsPixmapItem *removeRedShipButton;
+    QGraphicsPixmapItem *addBlueTankButton;
+    QGraphicsPixmapItem *addBlueShipButton;
+    QGraphicsPixmapItem *removeBlueTankButton;
+    QGraphicsPixmapItem *removeBlueShipButton;//End new
+
     QGraphicsPixmapItem *removePlayer1UnitButton;
     QGraphicsPixmapItem *removePlayer2UnitButton;
     QGraphicsPixmapItem *changeStageButton;
@@ -62,6 +72,16 @@ public:
     QGraphicsPixmapItem *titlePicture;
     QGraphicsPixmapItem *player1UnitCountPicture;
     QGraphicsPixmapItem *player2UnitCountPicture;
+
+    QGraphicsPixmapItem *playerRedShipCountPicture; //new
+    QGraphicsPixmapItem *playerRedTankCountPicture;
+    QGraphicsPixmapItem *playerBlueShipCountPicture;
+    QGraphicsPixmapItem *playerBlueTankCountPicture;
+
+    QGraphicsPixmapItem *redShipPicture;
+    QGraphicsPixmapItem *redTankPicture;
+    QGraphicsPixmapItem *blueShipPicture;
+    QGraphicsPixmapItem *blueTankPicture; //end new
 
     //!Buttons on settingsScene
     QGraphicsPixmapItem *muteBGMButton;
@@ -96,6 +116,12 @@ private:
 
     int player1UnitCount;
     int player2UnitCount;
+
+    int playerRedTankCount; //new
+    int playerRedShipCount;
+    int playerBlueTankCount;
+    int playerBlueShipCount; //end new
+
     int whichStage;
 
 public slots:
