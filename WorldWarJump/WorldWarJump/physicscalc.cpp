@@ -109,7 +109,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
 /*        getImpactPoint(worldObject, point);
         qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
          if(worldObject->getChar() == 'p'){
-             qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
+            // qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
          }
 
          counter = 0 ;

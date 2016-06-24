@@ -167,7 +167,7 @@ void GameWorld::setBar(int value){
 
 void GameWorld::rotateBackground()
 {
-    qDebug() << background->rotation();
+    //qDebug() << background->rotation();
     background->setRotation(background->rotation()+0.2);
 }
 

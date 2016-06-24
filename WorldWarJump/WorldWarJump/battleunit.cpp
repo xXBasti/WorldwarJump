@@ -72,6 +72,31 @@ unitType BattleUnit::getUnittype()
     return this->ut;
 }
 
+void BattleUnit::calculateShootingPoint(double * Point)
+{
+
+    unitType u = getUnittype();
+    QPointF qpoint;
+    switch(u){
+        case Tank:
+
+            //qpoint = this->sceneTransform().map(QPointF(this->pixmap().width(),this->pixmap().height()));
+            qpoint = this->sceneTransform().map(QPointF(130,12));
+            break;
+        case Soldier:
+
+            qpoint = this->sceneTransform().map(QPointF(this->pixmap().width(),this->pixmap().height()));
+            break;
+        case Ship:
+
+            qpoint = this->sceneTransform().map(QPointF(-10,20));
+            break;
+    }
+
+    Point[0] = qpoint.x();
+    Point[1] = qpoint.y();
+}
+
 void BattleUnit::setPicture()
 {
     Player p = getPlayer();
@@ -109,15 +134,18 @@ void BattleUnit::setPicture()
 void BattleUnit::shoot(){
    // qDebug() <<"fire"<<this->getProjectile();
     soundpointer->playShoot();
+    double nozzle[2];
+    calculateShootingPoint(nozzle);
+
     switch(this->getProjectile()%2){
     case 0:
-        new Projectile(parentView, this,balistic,soundpointer);
+        new Projectile(parentView, this, balistic, soundpointer, nozzle);
         break;
     case 1:
-        new Projectile(parentView, this,ray,soundpointer);
+        new Projectile(parentView, this, ray, soundpointer ,nozzle);
         break;
     case 2:
-        new Projectile(parentView, this,missile,soundpointer);
+        new Projectile(parentView, this, missile, soundpointer, nozzle);
         break;
     }
 }

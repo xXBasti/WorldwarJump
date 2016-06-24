@@ -11,7 +11,7 @@ class Projectile : public WorldObject
     Q_OBJECT
 public:
 
-    Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer);
+    Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer, double *shootingPoint);
 
     void fly();
 

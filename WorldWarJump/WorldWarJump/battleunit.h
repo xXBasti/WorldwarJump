@@ -14,6 +14,7 @@ public:
     double getFiredirection();
     void setFiredirection(double direction);
     unitType getUnittype();
+    void calculateShootingPoint(double *Point);
 private:
     double firedirection;
     void setPicture();

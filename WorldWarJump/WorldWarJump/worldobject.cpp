@@ -49,7 +49,7 @@ void WorldObject::jump()
         //Create a randm variable that gives -1 or 1
         std::srand(std::time(0));
         int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-        qDebug() << "Random Variable: " <<random_var;
+        //qDebug() << "Random Variable: " <<random_var;
         //Introduce chance in rotation
         setRotVel(random_var *5 + getRotVel());
 
@@ -92,7 +92,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     //Apparently is more efficient for calculations:
     ///*this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
-    qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
+    //qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
     //*setFlag(QGraphicsItem::ItemIsFocusable);
 
 }
