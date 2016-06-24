@@ -122,7 +122,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
 
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
-    setTransformOriginPoint(35, 15);
+    setTransformOriginPoint((this->pixmap().width())/2,(this->pixmap().height())/2);
     this->setRotVel(0);
     this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);
@@ -139,7 +139,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
 
     //qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
     //qDebug() << "Projectile orientation: " << speedPol[1]*(180/M_PI) ;
-        qDebug() << shootingUnit->getUnittype() << "  X: " << x << "Y: " << y;
+    //qDebug() << shootingUnit->getUnittype() << "  X: " << x << "Y: " << y;
 }
 
 void Projectile::setPicture(Player p)

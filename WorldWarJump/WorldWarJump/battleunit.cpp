@@ -18,20 +18,22 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     switch(this->ut){
         case Tank:
 
-            newCenter[0] = 30/*this->pixmap().width()*(30/100)*/;
-            newCenter[1] = 20/*this->pixmap().height()*(20/61)*/;
+            newCenter[0] = static_cast<int>(this->pixmap().width()*(30.0/100.0));
+            newCenter[1] = static_cast<int>(this->pixmap().height()*(20.0/61.0));
             break;
         case Soldier:
 
-            newCenter[0] = this->pixmap().width();
-            newCenter[1] = this->pixmap().height();
+            newCenter[0] = static_cast<int>(this->pixmap().width());
+            newCenter[1] = static_cast<int>(this->pixmap().height());
             break;
         case Ship:
 
-            newCenter[0] = 60/*this->pixmap().width()*(60/100)*/;
-            newCenter[1] = 20/*this->pixmap().height()*(20/62)*/;
+            newCenter[0] = static_cast<int>(this->pixmap().width()*(60.0/100.0));
+            newCenter[1] = static_cast<int>(this->pixmap().height()*(20.0/62.0));
             break;
     }
+
+    qDebug() << "CenterX: " << newCenter[0] << "CenterY: " << newCenter[1] ;
 
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
