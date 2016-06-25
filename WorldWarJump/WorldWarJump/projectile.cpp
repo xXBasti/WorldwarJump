@@ -188,6 +188,8 @@ void Projectile::setPicture(Player p)
     }
 }
 
+
+
 Projectile::~Projectile(){
 }
 

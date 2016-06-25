@@ -251,10 +251,13 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
 
         if(typeid(*worldObject)== typeid(Projectile)){
-            worldObject->setHitCounter(worldObject->getHitCounter()+1);
-            if(worldObject->getHitCounter()>=10){
-                worldObject->~WorldObject();
-                return;
+            if(worldObject->getBounced() == 0){
+                worldObject->setBounced(1);
+                worldObject->setHitCounter(worldObject->getHitCounter()+1);
+                if(worldObject->getHitCounter()>=3){
+                    worldObject->~WorldObject();
+                    return;
+                }
             }
         }
 
@@ -283,6 +286,8 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
+    }else{
+        worldObject->setBounced(0);
     }
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);

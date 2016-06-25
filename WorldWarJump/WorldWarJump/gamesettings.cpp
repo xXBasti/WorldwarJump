@@ -25,8 +25,8 @@ int GameSettings::whichStage = 0;
 bool GameSettings::frendlyfire=true;
 int GameSettings::meeleDmg=10;
 
-bool GameSettings::BGMMuted = true;
-bool GameSettings::SEMuted = true;
+bool GameSettings::BGMMuted = false;
+bool GameSettings::SEMuted = false;
 
 
 int GameSettings::getPlayer1UnitCount() const

@@ -19,11 +19,13 @@ public:
     void polToEul(double * pol, double* eul,char type);
     WorldObject *getshootingUnit();
 
-private:
+
+    private:
     WorldObject* shootingUnit;
     ProjectileType pT;
     int damage;
     void setPicture(Player p);
+
 };
 
 #endif // PROJECTILE_H
