@@ -1,1 +1,3 @@
 BUG: Wenn man 1 einheit gegen 1 spielt dann fertig wird dann nochmal 1 einheit gegen 1 einheit spielt erscheint der Gegenspieler nicht
+BUG: Wenn man shoot gedrückt hält schubst Recoil den Tank nicht immer nach hinten und der Schiff wird nach unten gedrückt. 25/06
+BUG: Der Schiff shießt gegen den Boden und der missile bounced gegen ihn selbst. 25/06

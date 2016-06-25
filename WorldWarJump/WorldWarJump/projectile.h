@@ -13,8 +13,6 @@ public:
 
     Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer, double *shootingPoint);
 
-    void fly();
-
     ~Projectile();
     void recoil(WorldObject* obj1,WorldObject* obj2);
     //I needed to transport this //Wtf?

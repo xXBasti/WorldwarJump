@@ -70,13 +70,13 @@ void GameWorld::setGameWorldSize(int value)
 
 void GameWorld::pause()
 {
-    input->timer->stop();
+    input->refreshRateTimer->stop();
     levelSwitchTimer->stop();
 }
 
 void GameWorld::resume()
 {
-    input->timer->start(20);
+    input->refreshRateTimer->start(20);
     levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
 }
 

@@ -49,8 +49,8 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
             connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(shoot()));
         break;
     }
-    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
-    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
     this->p=p;
     this->setWeight(100);
     this->setDamage(5);

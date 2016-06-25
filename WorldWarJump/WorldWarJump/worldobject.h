@@ -17,7 +17,6 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
     public:
 
         WorldObject(GameWorld *parentView, Player p, SoundPlayer *soundplayer);
-        WorldObject(Player p);
 
         //for sound
         SoundPlayer *soundpointer;

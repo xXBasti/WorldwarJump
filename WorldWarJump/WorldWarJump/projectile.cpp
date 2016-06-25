@@ -65,7 +65,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     int y = static_cast<int>(shootingPoint[1]);
     this->shootingUnit=shootingUnit;
     this->pT=p;
-    qDebug() <<"launch";
+//    qDebug() <<"launch";
 
     //Projectile angle
     double speedPol[2] = {0};
@@ -132,9 +132,9 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     parentView->scene->addItem(this);
     this->setPos(x,y);
 
-    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(move()));
     this->setSpeed(speedEul);
-    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
 
     //qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
@@ -189,15 +189,8 @@ void Projectile::setPicture(Player p)
 }
 
 Projectile::~Projectile(){
-
-
 }
 
-void Projectile::fly(){
-
-
-
-}
 
 void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
     double* v1=obj1->getSpeed();

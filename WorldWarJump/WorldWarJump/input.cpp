@@ -9,8 +9,8 @@ Input::Input(){
     int gameWorldSize = settings->getGameWorldSize();
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
-    timer = new QTimer();
-    timer->start(20);
+    refreshRateTimer = new QTimer();
+    refreshRateTimer->start(20);
     setRect(0,0,gameWorldSize,gameWorldSize);
 }
 
@@ -19,7 +19,6 @@ Input::~Input(){
 }
 
 void Input::keyPressEvent(QKeyEvent *k){
-    qDebug() << "key pressed";
     if(k->key() ==Qt::Key_Up){
     emit this->playerOneJump();
     }
