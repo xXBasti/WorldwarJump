@@ -511,7 +511,7 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
             settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
-            checkWinCondition();
+        checkWinCondition();
     }
 
 }

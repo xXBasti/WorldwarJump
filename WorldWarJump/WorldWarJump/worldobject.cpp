@@ -231,6 +231,8 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+    if(healthpoints<0)
+        healthpoints=0;
     emit this->sendHealth(healthpoints);
 }
 
