@@ -85,7 +85,7 @@ void BattleUnit::calculateShootingPoint(double * Point)
         case Tank:
 
             //qpoint = this->sceneTransform().map(QPointF(this->pixmap().width(),this->pixmap().height()));
-            qpoint = this->sceneTransform().map(QPointF(130,12));
+            qpoint = this->sceneTransform().map(QPointF(95,-7));
             break;
         case Soldier:
 
@@ -93,7 +93,7 @@ void BattleUnit::calculateShootingPoint(double * Point)
             break;
         case Ship:
 
-            qpoint = this->sceneTransform().map(QPointF(-10,20));
+            qpoint = this->sceneTransform().map(QPointF(-10,40));
             break;
     }
 
