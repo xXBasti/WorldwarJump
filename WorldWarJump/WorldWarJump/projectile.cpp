@@ -37,7 +37,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
             break;
         case Ship:
 
-            speedPol[1] = ((shootingUnit->getOrientation()-165)/180)*M_PI;
+            speedPol[1] = ((shootingUnit->getOrientation()-145)/180)*M_PI;
             break;
     }
 
@@ -73,7 +73,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     polToEul(speedPol,speedEul,'v');
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
-    setTransformOriginPoint((this->pixmap().width())/2,(this->pixmap().height())/2);
+    setTransformOriginPoint(0,0/*(this->pixmap().width())/2,(this->pixmap().height())/2*/);
     this->setRotVel(0);
     this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);
