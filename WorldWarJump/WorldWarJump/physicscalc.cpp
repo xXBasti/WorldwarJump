@@ -252,6 +252,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
 
         if(typeid(*worldObject)== typeid(Projectile)){
+            if(worldObject->orientationChanged == false){
+                worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
+                worldObject->orientationChanged = true;
+            }
             if(worldObject->getBounced() == 0){
                 worldObject->setBounced(1);
                 worldObject->setHitCounter(worldObject->getHitCounter()+1);
@@ -298,15 +302,15 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         }
     }
     //Change projectile transform point to the center if not changed
-    if(worldObject->getChar() == 'p'){
+    /*if(worldObject->getChar() == 'p'){
         if(worldObject->orientationChanged == false){
             worldObject->orientationChangeCount++;
-            if(worldObject->orientationChangeCount >= 4){
+            if(worldObject->orientationChangeCount >= 1){
                 worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
                 worldObject->orientationChangeCount = 4;
             }
         }
-    }
+    }*/
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         //impuls(wO,worldObject);

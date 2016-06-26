@@ -51,13 +51,13 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     switch(p){ //parameter
         case missile:
 
-            speedPol[0] = 5;
+            speedPol[0] = 20;
             this->setDamage(20);
             this->setWeight(20);
             break;
         case balistic:
 
-            speedPol[0] = 28;
+            speedPol[0] = 5;
             this->setDamage(10);
             this->setWeight(10);
             break;
