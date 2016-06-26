@@ -249,13 +249,6 @@ void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 * @param worldObject the WorldObject instance for which new position
 */
 void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
-    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
-        WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
-        //impuls(wO,worldObject);
-        //inverseSpeed(worldObject,wO);
-        this->unitUnitCollisionFunc(worldObject,wO);
-        meeleDamage(wO,worldObject);
-    }
     if (CollideWithTerrain(worldObject)){
 
         if(typeid(*worldObject)== typeid(Projectile)){
@@ -304,7 +297,13 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             worldObject->jumpCounter = JumpFrameLimit;
         }
     }
-
+    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
+        WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
+        //impuls(wO,worldObject);
+        //inverseSpeed(worldObject,wO);
+        this->unitUnitCollisionFunc(worldObject,wO);
+        meeleDamage(wO,worldObject);
+    }
     // get object's speed and position
     double * speed = worldObject->getSpeed();
     double posCoordinates [2];
