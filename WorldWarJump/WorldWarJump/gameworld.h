@@ -53,7 +53,6 @@ public slots:
     void playeronewins();
     void playertwowins();
 
-    void setBar(int value);
 signals:
     void playeronewinsSignal();
     void playertwowinsSignal();

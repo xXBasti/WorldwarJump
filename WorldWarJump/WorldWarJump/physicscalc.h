@@ -7,6 +7,7 @@
 #include <QGraphicsItem>
 #include "gameworld.h"
 #include "gamesettings.h"
+#include "battleunit.h"
 
 class PhysicsCalc : public QObject
 {
@@ -58,12 +59,14 @@ public:
     void checkWinCondition();
     void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
     void meeleDamage(WorldObject *colliding1, WorldObject *colliding2);
+    bool collideWithAny(WorldObject *object);
+    void unitUnitCollisionFunc(BattleUnit *bat1, BattleUnit *bat2);
     //Basti
 
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG
     bool CollideWithTerrain(WorldObject* object);
 
-    bool collideWithAny(WorldObject *object);
+
 signals:
     void playeronewins();
     void playertwowins();

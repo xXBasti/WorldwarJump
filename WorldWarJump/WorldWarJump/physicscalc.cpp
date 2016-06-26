@@ -484,12 +484,12 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
         bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
         if((worldObject->getHitCounter())>=4){
             impuls(I,worldObject);
+            ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
                 checkHealth(I);
             }
-
             worldObject->~WorldObject();
         }
     }
@@ -568,8 +568,8 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
     v1[0]=v1[0]*-1;
     v1[1]=v1[1]*-1;
-    v2[0]=v2[0]*-1;
-    v2[1]=v2[1]*-1;
+    v2[0]=v2[0]*1;
+    v2[1]=v2[1]*1;
     colliding1->setSpeed(v1);
     colliding2->setSpeed(v2);
 }
@@ -579,7 +579,7 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v1=colliding1->getSpeed();
     double* v2=colliding2->getSpeed();
 
-    if( !( (!settings->getFrendlyFire()) && (colliding1->getPlayer()==colliding2->getPlayer()) ) ){
+    if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
         if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>10){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
            //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
@@ -601,4 +601,28 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
         return true;
     }
     return false;
+}
+
+void PhysicsCalc::unitUnitCollisionFunc(BattleUnit* bat1,BattleUnit* bat2){
+    double* c1=bat1->getCenterOfMass();
+    double* c2=bat2->getCenterOfMass();
+    double* s1=bat1->getSpeed();
+    double* s2=bat2->getSpeed();
+    double shd1[2]; //Speed in hit direction;
+    double shd2[2];
+    double vec[2];
+    double dir[2];
+    double angle1,angle2;
+    vec[0]=c2[0]-c1[0];
+    vec[1]=c2[1]-c1[1];
+    dir[0]=vec[0]/vectorsAbsoluteValue(vec);
+    dir[1]=vec[1]/vectorsAbsoluteValue(vec);
+    angle1=atan(vec[0]/vec[1]);
+    angle2=atan(vec[1]/vec[0]);
+    shd1[0]=s1[0]*sin(angle1)+s1[1]*sin(angle2);
+    shd1[1]=s1[0]*cos(angle1)+s1[1]*cos(angle2);
+
+
+
+
 }
