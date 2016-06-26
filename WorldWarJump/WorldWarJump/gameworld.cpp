@@ -123,8 +123,9 @@ void GameWorld::addUnits()
     int playerRedShips = settings->getPlayerRedShipCount();
     int playerBlueTanks = settings->getPlayerBlueTankCount();
     int playerBlueShips = settings->getPlayerBlueShipCount();
+    int i;
 
-    for(int i = 1; i <= playerRedTanks; i++){
+    for((playerRedTanks!=0) && (i = 1); i <= playerRedTanks; i++){
         BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
         player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player1Unit);
@@ -140,7 +141,7 @@ void GameWorld::addUnits()
         connect(player1Unit,SIGNAL(sendHealth(int)),poh,SLOT(setValue(int)));
     }
 
-    for(int i = playerRedTanks+1; i <= playerRedTanks+playerRedShips; i++){
+    for((playerRedShips!=0) && (i = playerRedTanks+1); i <= playerRedTanks+playerRedShips; i++){
         BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Ship);
         player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player1Unit);
@@ -156,7 +157,7 @@ void GameWorld::addUnits()
         connect(player1Unit,SIGNAL(sendHealth(int)),poh,SLOT(setValue(int)));
     }
 
-    for(int i = 1; i <= playerBlueShips; i++){
+    for((playerBlueShips!=0) && (i = 1); i <= playerBlueShips; i++){
         BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Ship);
         player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player2Unit);
@@ -172,7 +173,7 @@ void GameWorld::addUnits()
         connect(player2Unit,SIGNAL(sendHealth(int)),pth,SLOT(setValue(int)));
     }
 
-    for(int i = playerBlueShips+1; i <= playerBlueShips+playerBlueTanks; i++){
+    for((playerBlueTanks!=0) && (i = playerBlueShips+1); i <= playerBlueShips+playerBlueTanks; i++){
         BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Tank);
         player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player2Unit);

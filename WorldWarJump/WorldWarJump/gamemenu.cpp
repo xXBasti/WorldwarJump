@@ -206,19 +206,19 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
             ////////////////
             playerRedShipCountPicture = new QGraphicsPixmapItem;
-            playerRedShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
+            playerRedShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
             playerRedShipCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*8+unitHeight*4);
 
             playerRedTankCountPicture = new QGraphicsPixmapItem;
-            playerRedTankCountPicture->setPixmap(QPixmap(":/images/1.png"));
+            playerRedTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
             playerRedTankCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*7+unitHeight*3);
 
             playerBlueShipCountPicture = new QGraphicsPixmapItem;
-            playerBlueShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
+            playerBlueShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
             playerBlueShipCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*6+unitHeight);
 
             playerBlueTankCountPicture = new QGraphicsPixmapItem;
-            playerBlueTankCountPicture->setPixmap(QPixmap(":/images/1.png"));
+            playerBlueTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
             playerBlueTankCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*5);
 
             redShipPicture = new QGraphicsPixmapItem;
@@ -317,6 +317,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 //beforeGameScene->addItem(player1UnitCountPicture);
                 break;
+
+
             }
 
         } else if(item == this->addRedShipButton)
@@ -335,6 +337,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             case 4:
                 playerRedShipCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 break;
+            case 0:
+                playerRedShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
+                break;
+            case 1:
+                playerRedShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
+                break;
             }
          } else if(item == this->addRedTankButton)
         {
@@ -351,6 +359,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 break;
             case 4:
                 playerRedTankCountPicture->setPixmap(QPixmap(":/images/4.png"));
+                break;
+            case 1:
+                playerRedTankCountPicture->setPixmap(QPixmap(":/images/1.png"));
+                break;
+            case 0:
+                playerRedTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
         } else if(item == this->addBlueShipButton)
@@ -369,6 +383,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             case 4:
                 playerBlueShipCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 break;
+            case 1:
+                playerBlueShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
+                break;
+            case 0:
+                playerBlueShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
+                break;
             }
         } else if(item == this->addBlueTankButton)
         {
@@ -385,6 +405,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 break;
             case 4:
                 playerBlueTankCountPicture->setPixmap(QPixmap(":/images/4.png"));
+                break;
+            case 1:
+                playerBlueTankCountPicture->setPixmap(QPixmap(":/images/1.png"));
+                break;
+            case 0:
+                playerBlueTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
 
@@ -440,7 +466,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->removePlayer2UnitButton)                // Remove player2 unit.
         {
             player2UnitCount = settings->getPlayer2UnitCount();
-            if(player2UnitCount>1)
+            if(player2UnitCount>0)
             {
                 player2UnitCount--;
                 settings->setPlayer2UnitCount(player2UnitCount);
@@ -469,7 +495,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->removeRedShipButton)
         {
             playerRedShipCount = settings->getPlayerRedShipCount();
-            if(playerRedShipCount>1)
+            if(playerRedShipCount>0)
             {
                 playerRedShipCount--;
                 settings->setPlayerRedShipCount(playerRedShipCount);
@@ -488,11 +514,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             case 4:
                 playerRedShipCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 break;
+            case 0:
+                playerRedShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
+                break;
             }
         } else if(item == this->removeRedTankButton)
         {
             playerRedTankCount = settings->getPlayerRedTankCount();
-            if(playerRedTankCount>1)
+            if(playerRedTankCount>0)
             {
                 playerRedTankCount--;
                 settings->setPlayerRedTankCount(playerRedTankCount);
@@ -511,11 +540,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             case 4:
                 playerRedTankCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 break;
+            case 0:
+                playerRedTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
+                break;
             }
         } else if(item == this->removeBlueShipButton)
         {
             playerBlueShipCount = settings->getPlayerBlueShipCount();
-            if(playerBlueShipCount>1)
+            if(playerBlueShipCount>0)
             {
                 playerBlueShipCount--;
                 settings->setPlayerBlueShipCount(playerBlueShipCount);
@@ -534,11 +566,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             case 4:
                 playerBlueShipCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 break;
+            case 0:
+                playerBlueShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
+                break;
             }
         } else if(item == this->removeBlueTankButton)
         {
             playerBlueTankCount = settings->getPlayerBlueTankCount();
-            if(playerBlueTankCount>1)
+            if(playerBlueTankCount>0)
             {
                 playerBlueTankCount--;
                 settings->setPlayerBlueTankCount(playerBlueTankCount);
@@ -556,6 +591,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 break;
             case 4:
                 playerBlueTankCountPicture->setPixmap(QPixmap(":/images/4.png"));
+                break;
+            case 0:
+                playerBlueTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
         } else if(item == this->changeStageButton)                      // Change game stage.
