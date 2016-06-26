@@ -276,7 +276,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
-        radialSpeed[0] = roundDown(0.65*radialSpeed[0],1);
+        radialSpeed[0] = roundDown(0.95*radialSpeed[0],1);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
@@ -594,12 +594,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
 
     if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
-        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>10){
+        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>5){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
            //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
            checkHealth(colliding1);
         }
-        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>10){
+        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>5){
             colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
             //qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
             checkHealth(colliding2);
@@ -641,14 +641,14 @@ void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
     angle1=speed1pol[1];
     qDebug() <<angle1;
     vechd[0]=vec[0]*sin(angle1)+vec[1]*cos(angle1); //Sin und cos vertauschen?
-    vechd[1]=-vec[0]*cos(angle1)+vec[1]*sin(angle1);
+    vechd[1]=vec[0]*cos(angle1)+vec[1]*sin(angle1);
     shd1[0]=s1[0]*cos(angle1)+s1[1]*sin(angle1);
-    shd1[1]=-s1[0]*sin(angle1)+s1[1]*cos(angle1);
+    shd1[1]=s1[0]*sin(angle1)+s1[1]*cos(angle1);
     shd2[0]=s2[0]*cos(angle1)+s2[1]*sin(angle1);
-    shd2[1]=-s2[0]*sin(angle1)+s2[1]*cos(angle1);
+    shd2[1]=s2[0]*sin(angle1)+s2[1]*cos(angle1);
     if(vechd[0]!=0){
-        shd1[0]=sqrt(shd1[0]*shd1[0])*(-vechd[0]/(sqrt(vechd[0]*vechd[0])));
-        shd2[0]=sqrt(shd2[0]*shd2[0])*(vechd[0]/(sqrt(vechd[0]*vechd[0])));
+        shd1[0]=sqrt(shd1[0]*shd1[0]+1)*-(vechd[0]/(sqrt(vechd[0]*vechd[0])));
+        shd2[0]=sqrt(shd2[0]*shd2[0]+1)*(vechd[0]/(sqrt(vechd[0]*vechd[0])));
     }
     s1[0]=cos(angle1)*shd1[0]+sin(angle1)*shd1[1];
     s1[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
