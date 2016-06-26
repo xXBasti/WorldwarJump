@@ -14,7 +14,9 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     setPicture();
     this->setProjectile(0);
     double newCenter[2];
-
+    shootTimer= new QTimer();
+    shootTimer->start(500);
+    connect(shootTimer,SIGNAL(timeout()),this,SLOT(setShootAble()));
     switch(this->ut){
         case Tank:
 
@@ -134,20 +136,26 @@ void BattleUnit::setPicture()
 }
 
 void BattleUnit::shoot(){
-   // qDebug() <<"fire"<<this->getProjectile();
-    soundpointer->playShoot();
-    double nozzle[2];
-    calculateShootingPoint(nozzle);
+    if(ableToShoot){
+        soundpointer->playShoot();
+        double nozzle[2];
+        calculateShootingPoint(nozzle);
 
-    switch(this->getProjectile()%2){
-    case 0:
-        new Projectile(parentView, this, balistic, soundpointer, nozzle);
-        break;
-    case 1:
-        new Projectile(parentView, this, ray, soundpointer ,nozzle);
-        break;
-    case 2:
-        new Projectile(parentView, this, missile, soundpointer, nozzle);
-        break;
+        switch(this->getProjectile()%2){
+        case 0:
+            new Projectile(parentView, this, balistic, soundpointer, nozzle);
+            break;
+        case 1:
+            new Projectile(parentView, this, ray, soundpointer ,nozzle);
+            break;
+        case 2:
+            new Projectile(parentView, this, missile, soundpointer, nozzle);
+            break;
+        }
+        ableToShoot=false;
     }
+}
+
+void BattleUnit::setShootAble(){
+    this->ableToShoot=true;
 }
