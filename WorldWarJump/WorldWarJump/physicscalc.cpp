@@ -276,7 +276,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
-        radialSpeed[0] = roundDown(0.65*radialSpeed[0],1);
+        radialSpeed[0] = roundDown(0.70*radialSpeed[0],1);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];

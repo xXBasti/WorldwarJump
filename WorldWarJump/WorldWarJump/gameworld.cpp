@@ -125,7 +125,7 @@ void GameWorld::addUnits()
     int playerBlueShips = settings->getPlayerBlueShipCount();
     int i;
 
-    for((playerRedTanks!=0) && (i = 1); i <= playerRedTanks; i++){
+    for(i = 1; (playerRedTanks!=0) && (i <= playerRedTanks); i++){
         BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
         player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
         scene->addItem(player1Unit);
