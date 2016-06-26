@@ -33,6 +33,8 @@ public:
     int counter;
     //Gives the rounded down number after a certain digit
     double roundDown(double numberToRound, int digit);
+    //Frame limit for jumping after collision
+    int JumpFrameLimit;
     //Can
 
     //Tomas
