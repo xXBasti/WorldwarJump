@@ -513,9 +513,11 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
+            if(typeid(*obj) == typeid(BattleUnit))
             settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
+            if(typeid(*obj) == typeid(BattleUnit))
             settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
@@ -567,11 +569,11 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 
 
 void PhysicsCalc::checkWinCondition(){
-    if(settings->getPlayer1UnitCount()<=-1){
+    if(settings->getPlayer1UnitCount()<=0){
         emit this->playeronewins();
         qDebug() <<"Player two wins";
     }
-    if(settings->getPlayer2UnitCount()<=-1){
+    if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
         emit this->playertwowins();
     }
