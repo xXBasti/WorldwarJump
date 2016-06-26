@@ -109,7 +109,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
 /*        getImpactPoint(worldObject, point);
         qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
          if(worldObject->getChar() == 'p'){
-             qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
+            // qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
          }
 
          counter = 0 ;
@@ -251,10 +251,13 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
 
         if(typeid(*worldObject)== typeid(Projectile)){
-            worldObject->setHitCounter(worldObject->getHitCounter()+1);
-            if(worldObject->getHitCounter()>=10){
-                worldObject->~WorldObject();
-                return;
+            if(worldObject->getBounced() == 0){
+                worldObject->setBounced(1);
+                worldObject->setHitCounter(worldObject->getHitCounter()+1);
+                if(worldObject->getHitCounter()>=3){
+                    worldObject->~WorldObject();
+                    return;
+                }
             }
         }
 
@@ -270,10 +273,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
-        radialSpeed[0] = roundDown(radialSpeed[0],1);
+        radialSpeed[0] = roundDown(0.85*radialSpeed[0],1);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
-        //radialSpeed[1] = 0.85*radialSpeed[1];
+        radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
          //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
@@ -283,11 +286,14 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
+    }else{
+        worldObject->setBounced(0);
     }
-    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) ){
+    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         //impuls(wO,worldObject);
-        inverseSpeed(worldObject,wO);
+        //inverseSpeed(worldObject,wO);
+        this->unitUnitCollisionFunc(worldObject,wO);
         meeleDamage(wO,worldObject);
     }
     // get object's speed and position
@@ -603,26 +609,45 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
     return false;
 }
 
-void PhysicsCalc::unitUnitCollisionFunc(BattleUnit* bat1,BattleUnit* bat2){
-    double* c1=bat1->getCenterOfMass();
-    double* c2=bat2->getCenterOfMass();
+void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
+    double c1[2];
+    bat1->getPosition(c1);
+    double c2[2];
+    bat2->getPosition(c2);
     double* s1=bat1->getSpeed();
     double* s2=bat2->getSpeed();
     double shd1[2]; //Speed in hit direction;
     double shd2[2];
+    double speed1pol[2];
     double vec[2];
+    double vechd[2];
     double dir[2];
     double angle1,angle2;
     vec[0]=c2[0]-c1[0];
     vec[1]=c2[1]-c1[1];
+    qDebug() <<vec[0]<<vec[1];
     dir[0]=vec[0]/vectorsAbsoluteValue(vec);
     dir[1]=vec[1]/vectorsAbsoluteValue(vec);
     angle1=atan(vec[0]/vec[1]);
-    angle2=atan(vec[1]/vec[0]);
-    shd1[0]=s1[0]*sin(angle1)+s1[1]*sin(angle2);
-    shd1[1]=s1[0]*cos(angle1)+s1[1]*cos(angle2);
-
-
+    eulToPol(vec,speed1pol,'v');
+    angle1=speed1pol[1];
+    qDebug() <<angle1;
+    vechd[0]=vec[0]*sin(angle1)+vec[1]*cos(angle1); //Sin und cos vertauschen?
+    vechd[1]=-vec[0]*cos(angle1)+vec[1]*sin(angle1);
+    shd1[0]=s1[0]*cos(angle1)+s1[1]*sin(angle1);
+    shd1[1]=-s1[0]*sin(angle1)+s1[1]*cos(angle1);
+    shd2[0]=s2[0]*cos(angle1)+s2[1]*sin(angle1);
+    shd2[1]=-s2[0]*sin(angle1)+s2[1]*cos(angle1);
+    if(vechd[0]!=0){
+        shd1[0]=sqrt(shd1[0]*shd1[0])*(-vechd[0]/(sqrt(vechd[0]*vechd[0])));
+        shd2[0]=sqrt(shd2[0]*shd2[0])*(vechd[0]/(sqrt(vechd[0]*vechd[0])));
+    }
+    s1[0]=cos(angle1)*shd1[0]+sin(angle1)*shd1[1];
+    s1[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
+    s2[0]=cos(angle1)*shd1[0]+sin(angle1)*shd1[1];
+    s2[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
+    bat1->setSpeed(s1);
+    bat2->setSpeed(s2);
 
 
 }

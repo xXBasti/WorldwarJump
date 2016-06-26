@@ -17,7 +17,6 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
     public:
 
         WorldObject(GameWorld *parentView, Player p, SoundPlayer *soundplayer);
-        WorldObject(Player p);
 
         //for sound
         SoundPlayer *soundpointer;
@@ -56,13 +55,18 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         void setProjectile(int proj);
         int getProjectile();
         char getChar();
-        bool getfirstcollide();
-        void setfirstcollide(bool col);
-protected:
+
+        bool getBounced() const;
+        void setBounced(bool value);
+
+        bool getFirstcollide() const;
+        void setFirstcollide(bool col);
+
+    protected:
 
         Player p;
         char ObjectType;
-private:
+    private:
 
 
 
@@ -81,6 +85,7 @@ private:
         int hitcounter =0;
         int healthpoints;
         int projectilselector;
+        bool bounced;
         bool firstcollide;
 
 public slots:

@@ -10,12 +10,20 @@ GameSettings::GameSettings()
 int GameSettings::secondsToChangeLevel = 5;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
+
+int GameSettings::playerBlueShipCount = 1;
+int GameSettings::playerBlueTankCount = 1;
+int GameSettings::playerRedShipCount = 1;
+int GameSettings::playerRedTankCount = 1;
+
+
 int GameSettings::maxUnitsPerPlayer = 4;
 int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 0;
 bool GameSettings::frendlyfire=true;
+bool GameSettings::unitCollision=true;
 int GameSettings::meeleDmg=10;
 
 bool GameSettings::BGMMuted = false;
@@ -141,6 +149,51 @@ bool GameSettings::getSEMuted()
 void GameSettings::setSEMuted(bool value)
 {
     SEMuted = value;
+}
+
+int GameSettings::getPlayerRedTankCount()
+{
+    return playerRedTankCount;
+}
+
+void GameSettings::setPlayerRedTankCount(int value)
+{
+    playerRedTankCount = value;
+}
+
+int GameSettings::getPlayerRedShipCount()
+{
+    return playerRedShipCount;
+}
+
+void GameSettings::setPlayerRedShipCount(int value)
+{
+    playerRedShipCount = value;
+}
+
+int GameSettings::getPlayerBlueShipCount()
+{
+    return playerBlueShipCount;
+}
+
+void GameSettings::setPlayerBlueShipCount(int value)
+{
+    playerBlueShipCount = value;
+}
+
+bool GameSettings::getUnitcollison()
+{
+    return unitCollision;
+}
+
+int GameSettings::getPlayerBlueTankCount()
+{
+    return playerBlueTankCount;
+}
+
+void GameSettings::setPlayerBlueTankCount(int value)
+{
+    playerBlueTankCount = value;
 }
 
 int GameSettings::getMeeleDmg(){

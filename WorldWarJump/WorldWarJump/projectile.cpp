@@ -57,15 +57,15 @@
 //    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
 //}
 
-Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer) :WorldObject(parentView, getPlayer(),soundplayer){
+Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){
 
     ObjectType = 'p';
 
-    double x = shootingUnit->x();
-    double y = shootingUnit->y();
+    int x = static_cast<int>(shootingPoint[0]);
+    int y = static_cast<int>(shootingPoint[1]);
     this->shootingUnit=shootingUnit;
     this->pT=p;
-    qDebug() <<"launch";
+//    qDebug() <<"launch";
 
     //Projectile angle
     double speedPol[2] = {0};
@@ -122,23 +122,24 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
 
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
-    setTransformOriginPoint(35, 15);
+    setTransformOriginPoint((this->pixmap().width())/2,(this->pixmap().height())/2);
     this->setRotVel(0);
     this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);
-    this->setPos(x,y);
+
     this->setOrientation(speedPol[1]*(180/M_PI));
 
     parentView->scene->addItem(this);
+    this->setPos(x,y);
 
-
-    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(move()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(move()));
     this->setSpeed(speedEul);
-    connect(parentView->input->timer, SIGNAL(timeout()),this , SLOT(hit()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
 
-    qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
-    qDebug() << "Projectile orientation: " << speedPol[1]*(180/M_PI) ;
+    //qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
+    //qDebug() << "Projectile orientation: " << speedPol[1]*(180/M_PI) ;
+    //qDebug() << shootingUnit->getUnittype() << "  X: " << x << "Y: " << y;
 }
 
 void Projectile::setPicture(Player p)
@@ -187,16 +188,11 @@ void Projectile::setPicture(Player p)
     }
 }
 
+
+
 Projectile::~Projectile(){
-
-
 }
 
-void Projectile::fly(){
-
-
-
-}
 
 void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
     double* v1=obj1->getSpeed();

@@ -49,7 +49,7 @@ void WorldObject::jump()
         //Create a randm variable that gives -1 or 1
         std::srand(std::time(0));
         int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-        qDebug() << "Random Variable: " <<random_var;
+        //qDebug() << "Random Variable: " <<random_var;
         //Introduce chance in rotation
         setRotVel(random_var *5 + getRotVel());
 
@@ -81,7 +81,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     speed[0] = speed[1] = 0;
     setOrientation(0);
     setRotVel(0);
-    this->setfirstcollide(true);
+    this->setFirstcollide(true);
     ///*this->parentView = parentView;
     ///*setPixmap(QPixmap(":/images/worldobject.png"));
     double newCenter[2];
@@ -92,25 +92,10 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     //Apparently is more efficient for calculations:
     ///*this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
-    qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
+    //qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
     //*setFlag(QGraphicsItem::ItemIsFocusable);
 
 }
-
-WorldObject::WorldObject(Player p) {
-
-    this->p = p;
-    speed[0] = speed[1] = 0;
-    setOrientation(0);
-    setRotVel(0);
-
-    double newCenter[2];
-    newCenter[0] = 12.5;
-    newCenter[1] = 40;
-    setCenterOfMass(newCenter);
-    setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
-}
-
 
 double * WorldObject::getSpeed(){
     return speed;
@@ -121,6 +106,26 @@ void WorldObject::getNewValuesFromPhysicsCalc()
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewRotValues(this);
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewValues(this);
 
+}
+
+bool WorldObject::getFirstcollide() const
+{
+    return firstcollide;
+}
+
+void WorldObject::setFirstcollide(bool col)
+{
+    firstcollide = col;
+}
+
+bool WorldObject::getBounced() const
+{
+    return bounced;
+}
+
+void WorldObject::setBounced(bool value)
+{
+    bounced = value;
 }
 
 Player WorldObject::getPlayer() const
@@ -243,18 +248,9 @@ char WorldObject::getChar()
     return ObjectType;
 }
 
-bool WorldObject::getfirstcollide()
-{
-    return this->firstcollide;
-}
-
-void WorldObject::setfirstcollide(bool col)
-{
-    this->firstcollide=col;
-}
 
 WorldObject::~WorldObject() {
-    qDebug() <<"Terminated!";
+//    qDebug() <<"Terminated!";
 }
 
 

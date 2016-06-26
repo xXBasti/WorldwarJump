@@ -60,7 +60,7 @@ public:
     void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
     void meeleDamage(WorldObject *colliding1, WorldObject *colliding2);
     bool collideWithAny(WorldObject *object);
-    void unitUnitCollisionFunc(BattleUnit *bat1, BattleUnit *bat2);
+    void unitUnitCollisionFunc(WorldObject *bat1, WorldObject *bat2);
     //Basti
 
     //! CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG

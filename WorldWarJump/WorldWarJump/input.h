@@ -10,7 +10,7 @@ public:
     Input();
     void keyPressEvent(QKeyEvent *k);
     //! Gameplay refresh rate
-    QTimer * timer;
+    QTimer * refreshRateTimer;
     ~Input();
 
 signals:

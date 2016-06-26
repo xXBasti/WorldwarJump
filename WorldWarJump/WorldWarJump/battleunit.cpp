@@ -18,20 +18,22 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     switch(this->ut){
         case Tank:
 
-            newCenter[0] = this->pixmap().width()*(30/100);
-            newCenter[1] = this->pixmap().height()*(20/61);
+            newCenter[0] = static_cast<int>(this->pixmap().width()*(30.0/100.0));
+            newCenter[1] = static_cast<int>(this->pixmap().height()*(20.0/61.0));
             break;
         case Soldier:
 
-            newCenter[0] = this->pixmap().width();
-            newCenter[1] = this->pixmap().height();
+            newCenter[0] = static_cast<int>(this->pixmap().width());
+            newCenter[1] = static_cast<int>(this->pixmap().height());
             break;
         case Ship:
 
-            newCenter[0] = this->pixmap().width()*(60/100);
-            newCenter[1] = this->pixmap().height()*(20/62);
+            newCenter[0] = static_cast<int>(this->pixmap().width()*(60.0/100.0));
+            newCenter[1] = static_cast<int>(this->pixmap().height()*(20.0/62.0));
             break;
     }
+
+    qDebug() << "CenterX: " << newCenter[0] << "CenterY: " << newCenter[1] ;
 
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
@@ -47,8 +49,8 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
             connect(parentView->input, SIGNAL(playerTwoShoot()), this, SLOT(shoot()));
         break;
     }
-    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
-    connect(parentView->input->timer, SIGNAL(timeout()), this, SLOT(move()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
+    connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
     this->p=p;
     this->setWeight(100);
     this->setDamage(5);
@@ -70,6 +72,31 @@ void BattleUnit::setFiredirection(double direction){
 unitType BattleUnit::getUnittype()
 {
     return this->ut;
+}
+
+void BattleUnit::calculateShootingPoint(double * Point)
+{
+
+    unitType u = getUnittype();
+    QPointF qpoint;
+    switch(u){
+        case Tank:
+
+            //qpoint = this->sceneTransform().map(QPointF(this->pixmap().width(),this->pixmap().height()));
+            qpoint = this->sceneTransform().map(QPointF(130,12));
+            break;
+        case Soldier:
+
+            qpoint = this->sceneTransform().map(QPointF(this->pixmap().width(),this->pixmap().height()));
+            break;
+        case Ship:
+
+            qpoint = this->sceneTransform().map(QPointF(-10,20));
+            break;
+    }
+
+    Point[0] = qpoint.x();
+    Point[1] = qpoint.y();
 }
 
 void BattleUnit::setPicture()
@@ -109,15 +136,18 @@ void BattleUnit::setPicture()
 void BattleUnit::shoot(){
    // qDebug() <<"fire"<<this->getProjectile();
     soundpointer->playShoot();
+    double nozzle[2];
+    calculateShootingPoint(nozzle);
+
     switch(this->getProjectile()%2){
     case 0:
-        new Projectile(parentView, this,balistic,soundpointer);
+        new Projectile(parentView, this, balistic, soundpointer, nozzle);
         break;
     case 1:
-        new Projectile(parentView, this,ray,soundpointer);
+        new Projectile(parentView, this, ray, soundpointer ,nozzle);
         break;
     case 2:
-        new Projectile(parentView, this,missile,soundpointer);
+        new Projectile(parentView, this, missile, soundpointer, nozzle);
         break;
     }
 }

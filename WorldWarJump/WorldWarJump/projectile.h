@@ -11,9 +11,7 @@ class Projectile : public WorldObject
     Q_OBJECT
 public:
 
-    Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer);
-
-    void fly();
+    Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer, double *shootingPoint);
 
     ~Projectile();
     void recoil(WorldObject* obj1,WorldObject* obj2);
@@ -21,11 +19,13 @@ public:
     void polToEul(double * pol, double* eul,char type);
     WorldObject *getshootingUnit();
 
-private:
+
+    private:
     WorldObject* shootingUnit;
     ProjectileType pT;
     int damage;
     void setPicture(Player p);
+
 };
 
 #endif // PROJECTILE_H
