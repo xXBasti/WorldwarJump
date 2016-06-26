@@ -204,7 +204,7 @@ void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
     v1s[1]= v1[1];
 
     v1s[0]=(m1*v1[0]-m2*v2[0])/m1;
-    v1s[1]=(m1*v1[0]-m2*v2[0])/m1;
+    v1s[1]=(m1*v1[1]-m2*v2[1])/m1;
     obj1->setSpeed(v1s);
 }
 
