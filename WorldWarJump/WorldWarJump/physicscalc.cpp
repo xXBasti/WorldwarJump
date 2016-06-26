@@ -257,6 +257,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
                 worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
                 worldObject->orientationChanged = true;
             }
+            //Count number of bounces a projectile has and if it is above the threashold destroy it
             if(worldObject->getBounced() == 0){
                 worldObject->setBounced(1);
                 worldObject->setHitCounter(worldObject->getHitCounter()+1);
