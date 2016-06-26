@@ -20,6 +20,7 @@ public:
     WorldObject *getshootingUnit();
 
 
+
     private:
     WorldObject* shootingUnit;
     ProjectileType pT;

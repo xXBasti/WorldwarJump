@@ -27,7 +27,7 @@ bool GameSettings::unitCollision=false;
 int GameSettings::meeleDmg=10;
 
 
-bool GameSettings::BGMMuted = true;
+bool GameSettings::BGMMuted = false;
 bool GameSettings::SEMuted = false;
 
 bool GameSettings::gameCreated = false;
