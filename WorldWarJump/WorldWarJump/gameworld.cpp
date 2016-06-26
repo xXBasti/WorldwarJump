@@ -82,7 +82,7 @@ void GameWorld::resume()
 
 void GameWorld::addUnits()
 {
-    int player1Units = settings->getPlayer1UnitCount();
+    /*int player1Units = settings->getPlayer1UnitCount();
     for(int i = 1; i <= player1Units; i++){
         BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
         player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
@@ -114,6 +114,79 @@ void GameWorld::addUnits()
         pth->setVisible(true);
         connect(player2Unit,SIGNAL(sendHealth(int)),pth,SLOT(setValue(int)));
     }
+    */
+
+    ///////////////////////////////////
+
+    int playerRedTanks = settings->getPlayerRedTankCount();
+    int playerRedShips = settings->getPlayerRedShipCount();
+    int playerBlueTanks = settings->getPlayerBlueTankCount();
+    int playerBlueShips = settings->getPlayerBlueShipCount();
+
+    for(int i = 1; i <= playerRedTanks; i++){
+        BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
+        player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
+        scene->addItem(player1Unit);
+        QProgressBar* poh= new QProgressBar();
+        scene->addWidget(poh);
+        poh->setMaximumWidth(80);
+        poh->setMaximumHeight(10);
+        poh->setValue(100);
+        poh->setGeometry(5,25+(i-1)*20,100,15);
+        poh->setMaximum(100);
+        poh->setTextVisible(false);
+        poh->setVisible(true);
+        connect(player1Unit,SIGNAL(sendHealth(int)),poh,SLOT(setValue(int)));
+    }
+
+    for(int i = playerRedTanks+1; i <= playerRedTanks+playerRedShips; i++){
+        BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Ship);
+        player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
+        scene->addItem(player1Unit);
+        QProgressBar* poh= new QProgressBar();
+        scene->addWidget(poh);
+        poh->setMaximumWidth(80);
+        poh->setMaximumHeight(10);
+        poh->setValue(100);
+        poh->setGeometry(5,25+(i-1)*20,100,15);
+        poh->setMaximum(100);
+        poh->setTextVisible(false);
+        poh->setVisible(true);
+        connect(player1Unit,SIGNAL(sendHealth(int)),poh,SLOT(setValue(int)));
+    }
+
+    for(int i = 1; i <= playerBlueShips; i++){
+        BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Ship);
+        player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
+        scene->addItem(player2Unit);
+        QProgressBar* pth= new QProgressBar();
+        scene->addWidget(pth);
+        pth->setMaximumWidth(80);
+        pth->setMaximumHeight(10);
+        pth->setMaximum(100);
+        pth->setValue(100);
+        pth->setGeometry(715,25+(i-1)*15,80,10);
+        pth->setTextVisible(false);
+        pth->setVisible(true);
+        connect(player2Unit,SIGNAL(sendHealth(int)),pth,SLOT(setValue(int)));
+    }
+
+    for(int i = playerBlueShips+1; i <= playerBlueShips+playerBlueTanks; i++){
+        BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Tank);
+        player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
+        scene->addItem(player2Unit);
+        QProgressBar* pth= new QProgressBar();
+        scene->addWidget(pth);
+        pth->setMaximumWidth(80);
+        pth->setMaximumHeight(10);
+        pth->setMaximum(100);
+        pth->setValue(100);
+        pth->setGeometry(715,25+(i-1)*15,80,10);
+        pth->setTextVisible(false);
+        pth->setVisible(true);
+        connect(player2Unit,SIGNAL(sendHealth(int)),pth,SLOT(setValue(int)));
+    }
+
 }
 
 void GameWorld::changeLevel()

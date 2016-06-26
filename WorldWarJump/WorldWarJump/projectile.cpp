@@ -151,7 +151,7 @@ void Projectile::setPicture(Player p)
                 setPixmap(QPixmap(":/images/redrocked70.png"));
                 break;
             case player2:
-                setPixmap(QPixmap(":/images/bluerocked100.png"));
+                setPixmap(QPixmap(":/images/pics/bluerocked70.png"));
                 break;
         }
         break;
@@ -161,7 +161,7 @@ void Projectile::setPicture(Player p)
                 setPixmap(QPixmap(":/images/redrocked70.png"));
                 break;
             case player2:
-                setPixmap(QPixmap(":/images/bluerocked100.png"));
+                setPixmap(QPixmap(":/images/pics/bluerocked70.png"));
                 break;
         }
         break;
@@ -181,7 +181,7 @@ void Projectile::setPicture(Player p)
                 setPixmap(QPixmap(":/images/redrocked70.png"));
                 break;
             case player2:
-                setPixmap(QPixmap(":/images/bluerocked100.png"));
+                setPixmap(QPixmap(":/images/pics/bluerocked70.png"));
                 break;
         }
         break;

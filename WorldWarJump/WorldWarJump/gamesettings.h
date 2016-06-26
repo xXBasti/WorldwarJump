@@ -46,6 +46,8 @@ public:
     static bool BGMMuted;
     static bool SEMuted;
 
+    static bool gameCreated;
+
     static int getPlayerRedTankCount();
     static void setPlayerRedTankCount(int value);
 
