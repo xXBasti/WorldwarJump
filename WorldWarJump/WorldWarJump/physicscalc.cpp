@@ -276,7 +276,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
-        radialSpeed[0] = roundDown(0.95*radialSpeed[0],1);
+        radialSpeed[0] = roundDown(0.65*radialSpeed[0],1);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
@@ -288,7 +288,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         //*worldObject->setSpeed(eulSpeed);
 
         // make object's rotation inverse and dampened at collision
-        worldObject->setRotVel(worldObject->getRotVel()*-0.7);
+        worldObject->setRotVel(roundDown(worldObject->getRotVel()*-0.7,0));
     }else{
         worldObject->setBounced(0);
         worldObject->jumpCounter ++;
