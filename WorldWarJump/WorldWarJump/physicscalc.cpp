@@ -252,14 +252,16 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
 
         if(typeid(*worldObject)== typeid(Projectile)){
+            //Change projectile transformation point to center with first collision
             if(worldObject->orientationChanged == false){
                 worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
                 worldObject->orientationChanged = true;
             }
+            //Count number of bounces a projectile has and if it is above the threashold destroy it
             if(worldObject->getBounced() == 0){
                 worldObject->setBounced(1);
                 worldObject->setHitCounter(worldObject->getHitCounter()+1);
-                if(worldObject->getHitCounter()>=3){
+                if(worldObject->getHitCounter() >= bounceB4Destruction){
                     worldObject->~WorldObject();
                     return;
                 }
@@ -301,8 +303,9 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             worldObject->jumpCounter = JumpFrameLimit;
         }
     }
+    /*
     //Change projectile transform point to the center if not changed
-    /*if(worldObject->getChar() == 'p'){
+    if(worldObject->getChar() == 'p'){
         if(worldObject->orientationChanged == false){
             worldObject->orientationChangeCount++;
             if(worldObject->orientationChangeCount >= 1){
