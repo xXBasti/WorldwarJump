@@ -83,6 +83,8 @@ public:
     QGraphicsPixmapItem *blueShipPicture;
     QGraphicsPixmapItem *blueTankPicture; //end new
 
+    QGraphicsPixmapItem *thumbnail;
+
     //!Buttons on settingsScene
     QGraphicsPixmapItem *muteBGMButton;
     QGraphicsPixmapItem *muteSEButton;

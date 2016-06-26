@@ -44,6 +44,9 @@
         <file>pics/TerrainAndBackgrounds/Halo_Background.png</file>
         <file>pics/TerrainAndBackgrounds/Halo_Front.png</file>
         <file>pics/0.png</file>
+        <file>pics/TerrainAndBackgrounds/earthThumbnail.png</file>
+        <file>pics/TerrainAndBackgrounds/spaceThumbnail.png</file>
+        <file>pics/MenusAndButtons/changestagebutton.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
