@@ -718,6 +718,7 @@ void GameMenu::playeronewon()
 
     this->setScene(endScene);
     delete reference;
+    gamealreadyexist = false;
 
     soundpointer->playMenuBGM();
 }
@@ -739,7 +740,7 @@ void GameMenu::playertwowon()
 
     this->setScene(endScene);
     delete reference;
-
+    gamealreadyexist = false;
     soundpointer->playMenuBGM();
 }
 
