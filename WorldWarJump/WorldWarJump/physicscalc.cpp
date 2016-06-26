@@ -513,9 +513,11 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
+            if(typeid(*obj) == typeid(BattleUnit))
             settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
+            if(typeid(*obj) == typeid(BattleUnit))
             settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
