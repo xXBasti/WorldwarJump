@@ -64,6 +64,9 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
 
         bool okToJump;
         int jumpCounter;
+
+        bool orientationChanged;
+        int orientationChangeCount;
     protected:
 
         Player p;
