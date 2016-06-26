@@ -17,6 +17,7 @@
 GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
+    gamealreadyexist = false;
     //sound = new QMediaPlayer;
     //playlist = new QMediaPlaylist;
 
@@ -293,7 +294,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setScene(beforeGameScene);
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
+            gamealreadyexist = true;
             GameWorld *gameScene = new GameWorld(soundpointer);
+            reference = gameScene;
             connect(gameScene,SIGNAL(playeronewinsSignal()),this,SLOT(playeronewon()));
             connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
 
@@ -626,6 +629,11 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->backButton)                             // Go back to main menu.
         {
             setScene(startScene);
+            if(gamealreadyexist)
+            {
+                delete reference;
+                gamealreadyexist = false;
+            }
 
         } else if((item == this->settingsButton)&&!(settings->getSettingsSceneAlreadyCreated()))                         // Open settings.
         {
@@ -709,6 +717,7 @@ void GameMenu::playeronewon()
     endScene->addItem(backButton);
 
     this->setScene(endScene);
+    delete reference;
 
     soundpointer->playMenuBGM();
 }
@@ -729,6 +738,7 @@ void GameMenu::playertwowon()
     endScene->addItem(backButton);
 
     this->setScene(endScene);
+    delete reference;
 
     soundpointer->playMenuBGM();
 }
