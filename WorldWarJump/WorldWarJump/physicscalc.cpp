@@ -297,6 +297,16 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             worldObject->jumpCounter = JumpFrameLimit;
         }
     }
+    //Change projectile transform point to the center if not changed
+    if(worldObject->getChar() == 'p'){
+        if(worldObject->orientationChanged == false){
+            worldObject->orientationChangeCount++;
+            if(worldObject->orientationChangeCount >= 4){
+                worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
+                worldObject->orientationChangeCount = 4;
+            }
+        }
+    }
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         //impuls(wO,worldObject);

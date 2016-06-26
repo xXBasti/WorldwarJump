@@ -19,6 +19,8 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     int y = static_cast<int>(shootingPoint[1]);
     this->shootingUnit=shootingUnit;
     this->pT=p;
+    this->orientationChanged = false;
+    this->orientationChangeCount = 0;
 //    qDebug() <<"launch";
 
     //Projectile angle
@@ -49,7 +51,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     switch(p){ //parameter
         case missile:
 
-            speedPol[0] = 20;
+            speedPol[0] = 5;
             this->setDamage(20);
             this->setWeight(20);
             break;
@@ -87,6 +89,8 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->setSpeed(speedEul);
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
+
+
 
     //qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
     //qDebug() << "Projectile orientation: " << speedPol[1]*(180/M_PI) ;
