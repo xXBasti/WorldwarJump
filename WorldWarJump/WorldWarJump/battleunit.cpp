@@ -113,14 +113,14 @@ void BattleUnit::setPicture()
                     setPixmap(QPixmap(":/images/redtank100.png"));
                 break;
                 case Ship:
-                    setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/redship100.png"));
                 break;
             }
         break;
         case player2:
             switch(u){
                 case Tank:
-                    setPixmap(QPixmap(":/images/redtank100.png"));
+                    setPixmap(QPixmap(":/images/bluetank100.png"));
                 break;
                 case Soldier:
                     setPixmap(QPixmap(":/images/redtank100.png"));

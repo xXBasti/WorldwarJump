@@ -87,6 +87,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     double newCenter[2];
     newCenter[0] = 12.5;
     newCenter[1] = 40;
+    this->setSpeed(speed);
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
     //Apparently is more efficient for calculations:

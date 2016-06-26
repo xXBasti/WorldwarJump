@@ -40,8 +40,11 @@
         <file>pics/TerrainAndBackgrounds/weltallterrain.png</file>
         <file>pics/TerrainAndBackgrounds/Battlefield_Background.png</file>
         <file>pics/TerrainAndBackgrounds/Battleground_Front.png</file>
+        <file>pics/bluerocked70.png</file>
+
         <file>pics/TerrainAndBackgrounds/Halo_Background.png</file>
         <file>pics/TerrainAndBackgrounds/Halo_Front.png</file>
+
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
