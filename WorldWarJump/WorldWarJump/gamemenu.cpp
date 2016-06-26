@@ -709,7 +709,7 @@ void GameMenu::playeronewon()
     endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playeronewinsPic = new QGraphicsPixmapItem;
-    playeronewinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerOneWins.png"));
+    playeronewinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerBlueWins.png"));
     playeronewinsPic->setPos(sideMargin,topMargin+settings->getGameWorldSize()/4);
 
     endScene->addItem(endSceneBackground);
@@ -731,7 +731,7 @@ void GameMenu::playertwowon()
     endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playertwowinsPic = new QGraphicsPixmapItem;
-    playertwowinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerTwoWins.png"));
+    playertwowinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerRedWins.png"));
     playertwowinsPic->setPos(sideMargin,topMargin+settings->getGameWorldSize()/4);
 
     endScene->addItem(endSceneBackground);
