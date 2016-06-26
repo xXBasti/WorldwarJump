@@ -87,10 +87,11 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     double newCenter[2];
     newCenter[0] = 12.5;
     newCenter[1] = 40;
+    this->setSpeed(speed);
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
     //Apparently is more efficient for calculations:
-    ///*this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+    this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
     //qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
     //*setFlag(QGraphicsItem::ItemIsFocusable);

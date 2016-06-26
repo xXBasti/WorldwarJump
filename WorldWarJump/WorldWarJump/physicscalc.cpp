@@ -273,7 +273,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
-        radialSpeed[0] = roundDown(0.85*radialSpeed[0],1);
+        radialSpeed[0] = roundDown(0.95*radialSpeed[0],1);
         //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
@@ -488,7 +488,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
         bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
-        if((worldObject->getHitCounter())>=4){
+        if((worldObject->getHitCounter())>=2){
             impuls(I,worldObject);
             ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
