@@ -53,7 +53,7 @@ public slots:
     void changeLevel();
     void playeronewins();
     void playertwowins();
-    void setBar(int value);
+    //void setBar(int value);
     void rotateBackground();
 signals:
     void playeronewinsSignal();

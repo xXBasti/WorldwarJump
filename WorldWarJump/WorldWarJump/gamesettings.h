@@ -54,7 +54,7 @@ public:
 
     static int getPlayerBlueShipCount();
     static void setPlayerBlueShipCount(int value);
-
+    static bool getUnitcollison();
     static int getPlayerBlueTankCount();
     static void setPlayerBlueTankCount(int value);
 
@@ -66,7 +66,7 @@ private:
     static int playerRedShipCount;
     static int playerBlueShipCount;
     static int playerBlueTankCount;
-
+    static bool unitCollision;
     static int maxUnitsPerPlayer;
     static int GameWorldSize;
     static double gravity;

@@ -162,10 +162,6 @@ void GameWorld::playertwowins()
     emit this->playertwowinsSignal();
 }
 
-void GameWorld::setBar(int value){
-
-
-}
 
 void GameWorld::rotateBackground()
 {
