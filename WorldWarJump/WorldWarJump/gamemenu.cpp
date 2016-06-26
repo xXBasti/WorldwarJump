@@ -65,6 +65,11 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     backButton->setPos(sideMargin,GameMenuSize-topMargin-buttonHeight);
     backButton->setZValue(1);
 
+    thumbnail = new QGraphicsPixmapItem;       //space is stage 1, earth is stage 2
+    thumbnail->setPos(sideMargin*5+unitWidth+buttonWidth*3,topMargin*5);
+    thumbnail->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/spaceThumbnail.png"));
+    thumbnail->setZValue(1);
+
     startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
     setScene(startScene);
     setFixedSize(GameMenuSize,GameMenuSize);
@@ -171,8 +176,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             removePlayer2UnitButton->setZValue(1);
 
             changeStageButton = new QGraphicsPixmapItem;
-            changeStageButton->setPixmap(QPixmap("ADD PATH"));
-            changeStageButton->setPos(GameMenuSize-sideMargin-buttonWidth,topMargin*4);
+            changeStageButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/changestagebutton.png"));
+            changeStageButton->setPos(sideMargin*5+unitWidth+buttonWidth*3,topMargin*6+170);
             changeStageButton->setZValue(1);
 
             startBattleButton = new QGraphicsPixmapItem;
@@ -274,6 +279,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(redTankPicture);
             beforeGameScene->addItem(blueShipPicture);
             beforeGameScene->addItem(blueTankPicture);
+            beforeGameScene->addItem(thumbnail);
             ////////////////////////
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -599,9 +605,23 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->changeStageButton)                      // Change game stage.
         {
             whichStage = settings->getWhichStage();
-            if(whichStage == 1) whichStage++;
-            if(whichStage == 2) whichStage--;
-            settings->setWhichStage(whichStage);
+
+            if(whichStage == 1)
+            {
+                whichStage++;
+                thumbnail->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/earthThumbnail.png"));
+                settings->setWhichStage(whichStage);
+                return;
+
+            } else
+            if(whichStage == 2)
+            {
+                whichStage--;
+                thumbnail->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/spaceThumbnail.png"));
+                settings->setWhichStage(whichStage);
+                return;
+            }
+
 
         } else if(item == this->backButton)                             // Go back to main menu.
         {

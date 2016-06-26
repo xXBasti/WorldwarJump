@@ -21,10 +21,11 @@ int GameSettings::maxUnitsPerPlayer = 4;
 int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
-int GameSettings::whichStage = 0;
+int GameSettings::whichStage = 1;
 bool GameSettings::frendlyfire=true;
 bool GameSettings::unitCollision=true;
 int GameSettings::meeleDmg=10;
+
 
 bool GameSettings::BGMMuted = true;
 bool GameSettings::SEMuted = false;
