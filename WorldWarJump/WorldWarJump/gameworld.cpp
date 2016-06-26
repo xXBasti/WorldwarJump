@@ -202,6 +202,7 @@ void GameWorld::changeLevel()
         background->setRotation(0);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battleground_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
+        scene->physicsCalulator->bounceB4Destruction = settings->getJumpCountForDestruction();
         break;
     case 1:
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000/2);
@@ -210,6 +211,7 @@ void GameWorld::changeLevel()
         backGroundRotationTimer->start(20);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
         scene->physicsCalulator->gravity = 0;
+        scene->physicsCalulator->bounceB4Destruction = 4;
         break;
         // Custom level
     case 2:
@@ -219,6 +221,7 @@ void GameWorld::changeLevel()
         background->setRotation(0);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
+        scene->physicsCalulator->bounceB4Destruction = settings->getJumpCountForDestruction();
         break;
         // Custom level
     default:

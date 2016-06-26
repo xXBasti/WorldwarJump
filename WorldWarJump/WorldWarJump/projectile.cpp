@@ -57,7 +57,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
             break;
         case balistic:
 
-            speedPol[0] = 5;
+            speedPol[0] = 28;
             this->setDamage(10);
             this->setWeight(10);
             break;
