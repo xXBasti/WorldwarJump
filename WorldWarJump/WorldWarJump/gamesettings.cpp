@@ -11,10 +11,10 @@ int GameSettings::secondsToChangeLevel = 5;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
 
-int GameSettings::playerBlueShipCount = 1;
-int GameSettings::playerBlueTankCount = 1;
-int GameSettings::playerRedShipCount = 1;
-int GameSettings::playerRedTankCount = 1;
+int GameSettings::playerBlueShipCount = 0;
+int GameSettings::playerBlueTankCount = 0;
+int GameSettings::playerRedShipCount = 0;
+int GameSettings::playerRedTankCount = 0;
 
 
 int GameSettings::maxUnitsPerPlayer = 4;
