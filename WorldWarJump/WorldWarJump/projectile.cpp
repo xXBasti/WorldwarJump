@@ -91,7 +91,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     }
 
 
-    polToEul(speedPol,speedEul,'v');
+
     //Projectile angle
 
     this->parentView = parentView;
@@ -119,7 +119,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
             speedPol[0] = speedPol[0] * 1;
             break;
     }
-
+    polToEul(speedPol,speedEul,'v');
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
     setTransformOriginPoint((this->pixmap().width())/2,(this->pixmap().height())/2);
