@@ -99,20 +99,20 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
         case missile:
 
             speedPol[0] = speedPol[0] * 2;
-            this->setDamage(10);
-            this->setWeight(10);
+            this->setDamage(20);
+            this->setWeight(20);
             break;
         case balistic:
 
-            speedPol[0] = speedPol[0] * 3;
-            this->setDamage(5);
-            this->setWeight(5);
+            speedPol[0] = speedPol[0] * 2.8;
+            this->setDamage(10);
+            this->setWeight(10);
             break;
         case ray:
 
-            speedPol[0] = speedPol[0] * 4;
-            this->setDamage(8);
-            this->setWeight(2);
+            speedPol[0] = speedPol[0] * 3.5;
+            this->setDamage(15);
+            this->setWeight(4);
             break;
         case scrap:
 
@@ -204,7 +204,7 @@ void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
     v1s[1]= v1[1];
 
     v1s[0]=(m1*v1[0]-m2*v2[0])/m1;
-    v1s[1]=(m1*v1[0]-m2*v2[0])/m1;
+    v1s[1]=(m1*v1[1]-m2*v2[1])/m1;
     obj1->setSpeed(v1s);
 }
 

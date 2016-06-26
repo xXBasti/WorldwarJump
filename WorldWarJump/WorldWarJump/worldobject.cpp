@@ -32,7 +32,7 @@ void WorldObject::jump()
     ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
     double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
 
-    if(distanceToCenter > 250 || ((GameplayInterface*)scene())->physicsCalulator->collideWithAny(this)){
+    if(distanceToCenter > 250 || this->okToJump || ((GameplayInterface*)scene())->physicsCalulator->collideWithAny(this)){
 
         soundpointer->playJump();
         double speedPol[2];
@@ -75,6 +75,8 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
 
     soundpointer=soundplayer;
 
+    jumpCounter = 20;
+    okToJump = false;
     ObjectType = 'o';
     this->parentView = parentView;
     this->p = p;
@@ -87,6 +89,7 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     double newCenter[2];
     newCenter[0] = 12.5;
     newCenter[1] = 40;
+    this->setSpeed(speed);
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
     //Apparently is more efficient for calculations:
@@ -230,6 +233,8 @@ void WorldObject::setDamage(int d)
 
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
+    if(healthpoints<0)
+        healthpoints=0;
     emit this->sendHealth(healthpoints);
 }
 

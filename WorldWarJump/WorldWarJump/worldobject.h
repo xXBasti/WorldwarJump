@@ -62,6 +62,8 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         bool getFirstcollide() const;
         void setFirstcollide(bool col);
 
+        bool okToJump;
+        int jumpCounter;
     protected:
 
         Player p;
@@ -87,6 +89,7 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         int projectilselector;
         bool bounced;
         bool firstcollide;
+
 
 public slots:
         void move();
