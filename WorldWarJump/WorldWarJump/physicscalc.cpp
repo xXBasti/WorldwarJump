@@ -19,6 +19,7 @@
 PhysicsCalc::PhysicsCalc()
 {
     counter = 0;
+    JumpFrameLimit = 10;
 }
 
 /**
@@ -260,6 +261,8 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
                 }
             }
         }
+        worldObject->jumpCounter = 0;
+        worldObject->okToJump = true;
 
         double * eulSpeed = worldObject->getSpeed();
         double eulPosition [2];
@@ -288,6 +291,11 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         worldObject->setRotVel(worldObject->getRotVel()*-0.7);
     }else{
         worldObject->setBounced(0);
+        worldObject->jumpCounter ++;
+        if(worldObject->jumpCounter >= JumpFrameLimit){
+            worldObject->okToJump = false;
+            worldObject->jumpCounter = JumpFrameLimit;
+        }
     }
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
