@@ -23,7 +23,7 @@ double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 1;
 bool GameSettings::frendlyfire=true;
-bool GameSettings::unitCollision=true;
+bool GameSettings::unitCollision=false;
 int GameSettings::meeleDmg=10;
 
 

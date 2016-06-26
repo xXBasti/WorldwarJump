@@ -2,7 +2,7 @@
 #define BATTLEUNIT_H
 #include "worldobject.h"
 #include <QObject>
-
+#include <QTimer>
 
 class BattleUnit :public WorldObject
 {
@@ -18,8 +18,11 @@ private:
     double firedirection;
     void setPicture();
     unitType ut;
+    bool ableToShoot;
+    QTimer* shootTimer;
 public slots:
     void shoot();
+    void setShootAble();
 };
 
 #endif // BATTLEUNIT_H
