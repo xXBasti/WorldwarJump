@@ -33,10 +33,10 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
 
     topMargin = 50;
     sideMargin = 50;
-    buttonHeight = 75;
-    buttonWidth = 75;
-    unitHeight = 75;
-    unitWidth = 75;
+    buttonHeight = 30;
+    buttonWidth = 30;
+    unitHeight = 30;
+    unitWidth = 100;
 
     setGameMenuSize(800);
 
@@ -120,42 +120,42 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             addRedShipButton = new QGraphicsPixmapItem;
             addRedShipButton->setPixmap(QPixmap(":/images/addbutton.png"));
             addRedShipButton->setZValue(1);
-            //addRedShipButton->setPos();
+            addRedShipButton->setPos(sideMargin*2+unitWidth,topMargin*8+buttonHeight*4);
 
             addRedTankButton = new QGraphicsPixmapItem;
             addRedTankButton->setPixmap(QPixmap(":/images/addbutton.png"));
             addRedTankButton->setZValue(1);
-            //addRedTankButton->setPos();
+            addRedTankButton->setPos(sideMargin*2+unitWidth,topMargin*7+buttonHeight*3);
 
             addBlueShipButton = new QGraphicsPixmapItem;
             addBlueShipButton->setPixmap(QPixmap(":/images/addbutton.png"));
             addBlueShipButton->setZValue(1);
-           // addBlueShipButton->setPos();
+            addBlueShipButton->setPos(sideMargin*2+unitWidth,topMargin*6+buttonHeight);
 
             addBlueTankButton = new QGraphicsPixmapItem;
             addBlueTankButton->setPixmap(QPixmap(":/images/addbutton.png"));
             addBlueTankButton->setZValue(1);
-            //addBlueTankButton->setPos();
+            addBlueTankButton->setPos(sideMargin*2+unitWidth,topMargin*5);
 
             removeRedShipButton = new QGraphicsPixmapItem;
             removeRedShipButton->setPixmap(QPixmap(":/images/removebutton.png"));
             removeRedShipButton->setZValue(1);
-            //removeRedShipButton->setPos();
+            removeRedShipButton->setPos(unitWidth+sideMargin*4+buttonWidth*2,topMargin*8+buttonHeight*4);
 
             removeRedTankButton = new QGraphicsPixmapItem;
             removeRedTankButton->setPixmap(QPixmap(":/images/removebutton.png"));
             removeRedTankButton->setZValue(1);
-          //  removeRedTankButton->setPos();
+            removeRedTankButton->setPos(unitWidth+sideMargin*4+buttonWidth*2,topMargin*7+buttonHeight*3);
 
             removeBlueShipButton = new QGraphicsPixmapItem;
             removeBlueShipButton->setPixmap(QPixmap(":/images/removebutton.png"));
             removeBlueShipButton->setZValue(1);
-            //removeBlueShipButton->setPos();
+            removeBlueShipButton->setPos(unitWidth+sideMargin*4+buttonWidth*2,topMargin*6+buttonHeight);
 
             removeBlueTankButton = new QGraphicsPixmapItem;
             removeBlueTankButton->setPixmap(QPixmap(":/images/removebutton.png"));
             removeBlueTankButton->setZValue(1);
-            //removeBlueTankButton->setPos();
+            removeBlueTankButton->setPos(unitWidth+sideMargin*4+buttonWidth*2,topMargin*5);
 
             ///////////////////////////////////////////////
 
@@ -207,35 +207,35 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             ////////////////
             playerRedShipCountPicture = new QGraphicsPixmapItem;
             playerRedShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
-            //playerRedShipCountPicture->setPos();
+            playerRedShipCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*8+unitHeight*4);
 
             playerRedTankCountPicture = new QGraphicsPixmapItem;
             playerRedTankCountPicture->setPixmap(QPixmap(":/images/1.png"));
-           // playerRedTankCountPicture->setPos();
+            playerRedTankCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*7+unitHeight*3);
 
             playerBlueShipCountPicture = new QGraphicsPixmapItem;
             playerBlueShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
-           // playerBlueShipCountPicture->setPos();
+            playerBlueShipCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*6+unitHeight);
 
             playerBlueTankCountPicture = new QGraphicsPixmapItem;
             playerBlueTankCountPicture->setPixmap(QPixmap(":/images/1.png"));
-           // playerBlueTankCountPicture->setPos();
+            playerBlueTankCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*5);
 
             redShipPicture = new QGraphicsPixmapItem;
             redShipPicture->setPixmap(QPixmap(":/images/redship100.png"));
-            //redShipPicture->setPos();
+            redShipPicture->setPos(sideMargin,topMargin*8+unitHeight*4);
 
             redTankPicture = new QGraphicsPixmapItem;
             redTankPicture->setPixmap(QPixmap(":/images/redtank100.png"));
-            //redShipPicture->setPos();
+            redTankPicture->setPos(sideMargin,topMargin*7+unitHeight*3);
 
             blueShipPicture = new QGraphicsPixmapItem;
             blueShipPicture->setPixmap(QPixmap(":/images/blueship100.png"));
-            //blueShipPicture->setPos();
+            blueShipPicture->setPos(sideMargin,topMargin*6+unitHeight);
 
             blueTankPicture = new QGraphicsPixmapItem;
             blueTankPicture->setPixmap(QPixmap(":/images/bluetank100.png"));
-            //blueTankPicture->setPos();
+            blueTankPicture->setPos(sideMargin,topMargin*5);
             //////////////////////////////////////////////
 
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
@@ -243,19 +243,19 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setFixedSize(GameMenuSize,GameMenuSize);
 
             beforeGameScene->addItem(beforeGameSceneBackground);
-            beforeGameScene->addItem(addPlayer1UnitButton);
-            beforeGameScene->addItem(addPlayer2UnitButton);
-            beforeGameScene->addItem(removePlayer1UnitButton);
-            beforeGameScene->addItem(removePlayer2UnitButton);
+           // beforeGameScene->addItem(addPlayer1UnitButton);
+           // beforeGameScene->addItem(addPlayer2UnitButton);
+           // beforeGameScene->addItem(removePlayer1UnitButton);
+            //beforeGameScene->addItem(removePlayer2UnitButton);
             beforeGameScene->addItem(changeStageButton);
             beforeGameScene->addItem(startBattleButton);
             beforeGameScene->addItem(stagePicture);
             beforeGameScene->addItem(titlePicture);
-            beforeGameScene->addItem(player1UnitPicture);
-            beforeGameScene->addItem(player2UnitPicture);
+           // beforeGameScene->addItem(player1UnitPicture);
+            //beforeGameScene->addItem(player2UnitPicture);
             beforeGameScene->addItem(backButton);
-            beforeGameScene->addItem(player1UnitCountPicture);
-            beforeGameScene->addItem(player2UnitCountPicture);
+          //  beforeGameScene->addItem(player1UnitCountPicture);
+          //  beforeGameScene->addItem(player2UnitCountPicture);
 
             ////////////////////////////////////
             beforeGameScene->addItem(addRedShipButton);
@@ -266,6 +266,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(removeRedTankButton);
             beforeGameScene->addItem(removeBlueShipButton);
             beforeGameScene->addItem(removeBlueTankButton);
+            beforeGameScene->addItem(playerRedShipCountPicture);
+            beforeGameScene->addItem(playerRedTankCountPicture);
+            beforeGameScene->addItem(playerBlueShipCountPicture);
+            beforeGameScene->addItem(playerBlueTankCountPicture);
+            beforeGameScene->addItem(redShipPicture);
+            beforeGameScene->addItem(redTankPicture);
+            beforeGameScene->addItem(blueShipPicture);
+            beforeGameScene->addItem(blueTankPicture);
             ////////////////////////
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -286,6 +294,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             this->setScene(gameScene->scene);
             gameScene->scene->addItem(backButton);
             soundpointer->playGameBGM();
+
 
 
         } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
@@ -313,7 +322,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->addRedShipButton)
         {
             playerRedShipCount = settings->getPlayerRedShipCount();
-            playerRedShipCount++;
+            if(playerRedShipCount<2) playerRedShipCount++;
             settings->setPlayerRedShipCount(playerRedShipCount);
             switch(playerRedShipCount)
             {
@@ -330,7 +339,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
          } else if(item == this->addRedTankButton)
         {
             playerRedTankCount = settings->getPlayerRedTankCount();
-            playerRedTankCount++;
+            if(playerRedTankCount<2) playerRedTankCount++;
             settings->setPlayerRedTankCount(playerRedTankCount);
             switch(playerRedTankCount)
             {
@@ -347,7 +356,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->addBlueShipButton)
         {
             playerBlueShipCount = settings->getPlayerBlueShipCount();
-            playerBlueShipCount++;
+            if(playerBlueShipCount<2) playerBlueShipCount++;
             settings->setPlayerBlueShipCount(playerBlueShipCount);
             switch(playerBlueShipCount)
             {
@@ -364,7 +373,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->addBlueTankButton)
         {
             playerBlueTankCount = settings->getPlayerBlueTankCount();
-            playerBlueTankCount++;
+            if(playerBlueTankCount<2)playerBlueTankCount++;
             settings->setPlayerBlueTankCount(playerBlueTankCount);
             switch(playerBlueTankCount)
             {
@@ -642,6 +651,8 @@ void GameMenu::playeronewon()
     endScene->addItem(backButton);
 
     this->setScene(endScene);
+
+    soundpointer->playMenuBGM();
 }
 
 void GameMenu::playertwowon()
@@ -660,5 +671,7 @@ void GameMenu::playertwowon()
     endScene->addItem(backButton);
 
     this->setScene(endScene);
+
+    soundpointer->playMenuBGM();
 }
 
