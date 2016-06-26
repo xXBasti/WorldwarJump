@@ -289,10 +289,11 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     }else{
         worldObject->setBounced(0);
     }
-    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) ){
+    if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit) && settings->getUnitcollison() ){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         //impuls(wO,worldObject);
-        inverseSpeed(worldObject,wO);
+        //inverseSpeed(worldObject,wO);
+        this->unitUnitCollisionFunc(worldObject,wO);
         meeleDamage(wO,worldObject);
     }
     // get object's speed and position
@@ -489,12 +490,12 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
         bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
         if((worldObject->getHitCounter())>=4){
             impuls(I,worldObject);
+            ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
                 checkHealth(I);
             }
-
             worldObject->~WorldObject();
         }
     }
@@ -573,8 +574,8 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
     v1[0]=v1[0]*-1;
     v1[1]=v1[1]*-1;
-    v2[0]=v2[0]*-1;
-    v2[1]=v2[1]*-1;
+    v2[0]=v2[0]*1;
+    v2[1]=v2[1]*1;
     colliding1->setSpeed(v1);
     colliding2->setSpeed(v2);
 }
@@ -584,7 +585,7 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v1=colliding1->getSpeed();
     double* v2=colliding2->getSpeed();
 
-    if( !( (!settings->getFrendlyFire()) && (colliding1->getPlayer()==colliding2->getPlayer()) ) ){
+    if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
         if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>10){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
            //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
@@ -606,4 +607,47 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
         return true;
     }
     return false;
+}
+
+void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
+    double c1[2];
+    bat1->getPosition(c1);
+    double c2[2];
+    bat2->getPosition(c2);
+    double* s1=bat1->getSpeed();
+    double* s2=bat2->getSpeed();
+    double shd1[2]; //Speed in hit direction;
+    double shd2[2];
+    double speed1pol[2];
+    double vec[2];
+    double vechd[2];
+    double dir[2];
+    double angle1,angle2;
+    vec[0]=c2[0]-c1[0];
+    vec[1]=c2[1]-c1[1];
+    qDebug() <<vec[0]<<vec[1];
+    dir[0]=vec[0]/vectorsAbsoluteValue(vec);
+    dir[1]=vec[1]/vectorsAbsoluteValue(vec);
+    angle1=atan(vec[0]/vec[1]);
+    eulToPol(vec,speed1pol,'v');
+    angle1=speed1pol[1];
+    qDebug() <<angle1;
+    vechd[0]=vec[0]*sin(angle1)+vec[1]*cos(angle1); //Sin und cos vertauschen?
+    vechd[1]=-vec[0]*cos(angle1)+vec[1]*sin(angle1);
+    shd1[0]=s1[0]*cos(angle1)+s1[1]*sin(angle1);
+    shd1[1]=-s1[0]*sin(angle1)+s1[1]*cos(angle1);
+    shd2[0]=s2[0]*cos(angle1)+s2[1]*sin(angle1);
+    shd2[1]=-s2[0]*sin(angle1)+s2[1]*cos(angle1);
+    if(vechd[0]!=0){
+        shd1[0]=sqrt(shd1[0]*shd1[0])*(-vechd[0]/(sqrt(vechd[0]*vechd[0])));
+        shd2[0]=sqrt(shd2[0]*shd2[0])*(vechd[0]/(sqrt(vechd[0]*vechd[0])));
+    }
+    s1[0]=cos(angle1)*shd1[0]+sin(angle1)*shd1[1];
+    s1[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
+    s2[0]=cos(angle1)*shd1[0]+sin(angle1)*shd1[1];
+    s2[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
+    bat1->setSpeed(s1);
+    bat2->setSpeed(s2);
+
+
 }

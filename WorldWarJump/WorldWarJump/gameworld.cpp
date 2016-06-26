@@ -45,6 +45,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
     connect(levelSwitchTimer, SIGNAL(timeout()), this, SLOT(changeLevel()));
     backGroundRotationTimer = new QTimer();
+    connect(backGroundRotationTimer, SIGNAL(timeout()), this, SLOT(rotateBackground()));
 
     QLabel* lOne=new QLabel();
     lOne->setGeometry(5,5,80,15);
@@ -206,20 +207,21 @@ void GameWorld::changeLevel()
         background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallBackground.png"));
         background->setTransformOriginPoint(gameWorldSize/2, gameWorldSize/2);
         backGroundRotationTimer->start(20);
-        connect(backGroundRotationTimer, SIGNAL(timeout()), this, SLOT(rotateBackground()));
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
         scene->physicsCalulator->gravity = 0;
         break;
     case 2:
+        backGroundRotationTimer->stop();
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
-        background->setPixmap(QPixmap(":/images/background.png"));
-        terrain->setPixmap(QPixmap(":/images/terrainbackground.png"));
+        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Background.png"));
+        background->setRotation(0);
+        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
         break;
     default:
         qDebug() << "stage number out of boundaries";
     }
-    settings->setWhichStage((stage + 1)%2);
+    settings->setWhichStage((stage + 1)%3);
     qDebug() << "Level changed!";
 }
 
@@ -233,10 +235,6 @@ void GameWorld::playertwowins()
     emit this->playertwowinsSignal();
 }
 
-void GameWorld::setBar(int value){
-
-
-}
 
 void GameWorld::rotateBackground()
 {

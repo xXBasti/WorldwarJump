@@ -23,6 +23,7 @@ double GameSettings::gravity = 0.15;
 double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 0;
 bool GameSettings::frendlyfire=true;
+bool GameSettings::unitCollision=true;
 int GameSettings::meeleDmg=10;
 
 bool GameSettings::BGMMuted = true;
@@ -180,6 +181,11 @@ int GameSettings::getPlayerBlueShipCount()
 void GameSettings::setPlayerBlueShipCount(int value)
 {
     playerBlueShipCount = value;
+}
+
+bool GameSettings::getUnitcollison()
+{
+    return unitCollision;
 }
 
 int GameSettings::getPlayerBlueTankCount()
