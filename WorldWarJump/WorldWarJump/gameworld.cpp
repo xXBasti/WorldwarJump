@@ -137,6 +137,7 @@ void GameWorld::changeLevel()
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
         scene->physicsCalulator->gravity = 0;
         break;
+        // Custom level
     case 2:
         backGroundRotationTimer->stop();
         levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
@@ -145,10 +146,11 @@ void GameWorld::changeLevel()
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
         break;
+        // Custom level
     default:
         qDebug() << "stage number out of boundaries";
     }
-    settings->setWhichStage((stage + 1)%3);
+    settings->setWhichStage((stage + 1)%2);
     qDebug() << "Level changed!";
 }
 
