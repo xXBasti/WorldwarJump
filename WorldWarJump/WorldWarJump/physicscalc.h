@@ -74,6 +74,7 @@ public:
 signals:
     void playeronewins();
     void playertwowins();
+    void meeleDmg();
 
 private:
     int playerone;

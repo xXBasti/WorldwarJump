@@ -14,6 +14,7 @@
 #include "terrain.h"
 #include <QLabel>
 #include "background.h"
+#include <QTimer>
 
 #define M_PI 3.14159
 
@@ -28,7 +29,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
 
     connect(scene->physicsCalulator,SIGNAL(playeronewins()),this,SLOT(playeronewins()));
     connect(scene->physicsCalulator,SIGNAL(playertwowins()),this,SLOT(playertwowins()));
-
+    connect(scene->physicsCalulator,SIGNAL(meeleDmg()),this,SLOT(displayMeele()));
     // Input-connection to World scene
     input = new Input();
     scene->addItem(input);
@@ -54,7 +55,18 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     scene->addWidget(lTwo);
     addUnits();
 
-
+    display=new QLabel();
+    display->setGeometry(700,700,100,50);
+    display->setAttribute(Qt::WA_TranslucentBackground);
+    display->setStyleSheet("QLabel {color: red; font-weight: bold}");
+    display->setText("MEELE");
+    QFont font =display->font();
+    font.setPointSize(20);
+    display->setFont(font);
+    scene->addWidget(display);
+    display->setVisible(false);
+    meeleTimer= new QTimer();
+    connect(meeleTimer,SIGNAL(timeout()),this,SLOT(hideMeele()));
     // Scrollbar disabling
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -239,3 +251,13 @@ void GameWorld::rotateBackground()
     background->setRotation(background->rotation()+0.2);
 }
 
+void GameWorld::displayMeele(){
+    qDebug() <<"wtd";
+    display->setVisible(true);
+    meeleTimer->start(3000);
+}
+
+void GameWorld::hideMeele(){
+    display->setVisible(false);
+    meeleTimer->stop();
+}

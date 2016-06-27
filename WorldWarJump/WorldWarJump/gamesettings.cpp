@@ -25,7 +25,7 @@ double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 1;
 bool GameSettings::frendlyfire=true;
 bool GameSettings::unitCollision=false;
-int GameSettings::meeleDmg=10;
+int GameSettings::meeleDmg=0;
 
 
 bool GameSettings::BGMMuted = false;

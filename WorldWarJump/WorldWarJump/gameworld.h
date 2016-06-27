@@ -11,6 +11,8 @@
 #include "gamesettings.h"
 #include "soundplayer.h"
 #include <QDebug>
+#include <QLabel>
+#include <QTimer>
 
 class Terrain;
 
@@ -51,6 +53,8 @@ private:
     int gameWorldSize;
     GameSettings * settings;
     void addUnits();
+    QLabel* display;
+    QTimer* meeleTimer;
 public slots:
     //void changeLevel();
     void playeronewins();
@@ -60,8 +64,11 @@ public slots:
 signals:
     void playeronewinsSignal();
     void playertwowinsSignal();
+public slots:
+    void displayMeele();
 
 
+    void hideMeele();
 };
 
 #endif // GAMEWORLD_H
