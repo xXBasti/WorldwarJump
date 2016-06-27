@@ -18,6 +18,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
     gamealreadyexist = false;
+
     //sound = new QMediaPlayer;
     //playlist = new QMediaPlaylist;
 
@@ -29,6 +30,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
         sound->setPlaylist(playlist);
         sound->play();
     }*/
+
     soundpointer = soundplayer;
     soundpointer->playMenuBGM();
 

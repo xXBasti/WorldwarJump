@@ -52,7 +52,7 @@ private:
     GameSettings * settings;
     void addUnits();
 public slots:
-    void changeLevel();
+    //void changeLevel();
     void playeronewins();
     void playertwowins();
     //void setBar(int value);

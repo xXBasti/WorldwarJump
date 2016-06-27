@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     projectile.cpp \
     battleunit.cpp \
     gamesettings.cpp \
-    soundplayer.cpp
+    soundplayer.cpp \
+    background.cpp
 
 HEADERS  += mainwindow.h \
     GameplayInterface.h \
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h \
     projectile.h \
     battleunit.h \
     gamesettings.h \
-    soundplayer.h
+    soundplayer.h \
+    background.h
 
 
 FORMS    += mainwindow.ui
