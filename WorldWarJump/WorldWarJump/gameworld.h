@@ -5,7 +5,7 @@
 #include <QTimer>
 #include "input.h"
 #include <QGraphicsScene>
-#include <QGraphicsEllipseItem>
+//#include <QGraphicsEllipseItem>
 #include <QGraphicsPixmapItem>
 #include "GameplayInterface.h"
 #include "gamesettings.h"
