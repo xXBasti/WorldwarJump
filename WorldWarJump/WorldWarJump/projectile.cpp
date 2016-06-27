@@ -113,10 +113,10 @@ void Projectile::setPicture(Player p)
     case balistic:
         switch(p){
             case player1:
-                setPixmap(QPixmap(":/images/redrocked70.png"));
+                setPixmap(QPixmap(":/images/pics/UnitsAndProjectiles/kugel20.png"));
                 break;
             case player2:
-                setPixmap(QPixmap(":/images/pics/bluerocked70.png"));
+                setPixmap(QPixmap(":/images/pics/UnitsAndProjectiles/kugel20.png"));
                 break;
         }
         break;
