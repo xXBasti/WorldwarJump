@@ -51,6 +51,9 @@
         <file>pics/MenusAndButtons/PlayerRedWins.png</file>
         <file>pics/UnitsAndProjectiles/kugel20.png</file>
         <file>pics/UnitsAndProjectiles/kugel25.png</file>
+        <file>pics/MenusAndButtons/friendlyfire.png</file>
+        <file>pics/MenusAndButtons/no.png</file>
+        <file>pics/MenusAndButtons/yes.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>

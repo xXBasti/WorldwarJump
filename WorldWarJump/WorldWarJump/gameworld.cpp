@@ -78,42 +78,6 @@ void GameWorld::resume()
 
 void GameWorld::addUnits()
 {
-    /*int player1Units = settings->getPlayer1UnitCount();
-    for(int i = 1; i <= player1Units; i++){
-        BattleUnit *player1Unit = new BattleUnit(this,player1,soundpointer, Tank);
-        player1Unit->setPos(gameWorldSize/3,(1+(double)i/2)*gameWorldSize/4);
-        scene->addItem(player1Unit);
-        QProgressBar* poh= new QProgressBar();
-        scene->addWidget(poh);
-        poh->setMaximumWidth(80);
-        poh->setMaximumHeight(10);
-        poh->setValue(100);
-        poh->setGeometry(5,25+(i-1)*20,100,15);
-        poh->setMaximum(100);
-        poh->setTextVisible(false);
-        poh->setVisible(true);
-        connect(player1Unit,SIGNAL(sendHealth(int)),poh,SLOT(setValue(int)));
-    }
-    int player2Unit = settings->getPlayer2UnitCount();
-    for(int i = 1; i <= player2Unit; i++){
-        BattleUnit *player2Unit = new BattleUnit(this,player2,soundpointer, Ship);
-        player2Unit->setPos(gameWorldSize*2/3,(1+(double)i/2)*gameWorldSize/4);
-        scene->addItem(player2Unit);
-        QProgressBar* pth= new QProgressBar();
-        scene->addWidget(pth);
-        pth->setMaximumWidth(80);
-        pth->setMaximumHeight(10);
-        pth->setMaximum(100);
-        pth->setValue(100);
-        pth->setGeometry(715,25+(i-1)*15,80,10);
-        pth->setTextVisible(false);
-        pth->setVisible(true);
-        connect(player2Unit,SIGNAL(sendHealth(int)),pth,SLOT(setValue(int)));
-    }
-    */
-
-    ///////////////////////////////////
-
     int playerRedTanks = settings->getPlayerRedTankCount();
     int playerRedShips = settings->getPlayerRedShipCount();
     int playerBlueTanks = settings->getPlayerBlueTankCount();
@@ -186,42 +150,6 @@ void GameWorld::addUnits()
 
 }
 
-/*
-void GameWorld::changeLevel()
-{
-    int stage = settings->getWhichStage();
-    switch(stage){
-    case 0:
-        backGroundRotationTimer->stop();
-        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battlefield_Background.png"));
-        background->setRotation(0);
-        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battleground_Front.png"));
-        scene->physicsCalulator->gravity = settings->getGravity();
-        scene->physicsCalulator->bounceB4Destruction = settings->getJumpCountForDestruction();
-        break;
-    case 1:
-        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallBackground.png"));
-        background->setTransformOriginPoint(gameWorldSize/2, gameWorldSize/2);
-        backGroundRotationTimer->start(20);
-        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
-        scene->physicsCalulator->gravity = 0;
-        scene->physicsCalulator->bounceB4Destruction = 4;
-        break;
-        // Custom level
-    case 2:
-        backGroundRotationTimer->stop();
-        background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Background.png"));
-        background->setRotation(0);
-        terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Front.png"));
-        scene->physicsCalulator->gravity = settings->getGravity();
-        scene->physicsCalulator->bounceB4Destruction = settings->getJumpCountForDestruction();
-        break;
-        // Custom level
-    }
-    //settings->setWhichStage((stage + 1)%2);
-}
-*/
-
 void GameWorld::playeronewins()
 {
     emit this->playeronewinsSignal();
@@ -239,3 +167,13 @@ void GameWorld::rotateBackground()
     background->setRotation(background->rotation()+0.2);
 }
 
+GameWorld::~GameWorld()
+{
+    //delete scene;
+    //delete input;
+    //delete backGroundRotationTimer;
+    //delete background;
+    //delete terrain;
+    qDebug()<<"and I'm out...";
+
+}
