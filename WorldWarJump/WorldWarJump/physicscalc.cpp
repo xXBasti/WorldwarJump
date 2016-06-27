@@ -517,7 +517,8 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
         bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
         if((worldObject->getHitCounter())>=2){
             impuls(I,worldObject);
-            ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
+            if(typeid(*I) == typeid(BattleUnit))
+                ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();

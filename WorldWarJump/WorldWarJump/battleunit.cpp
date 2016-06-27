@@ -140,8 +140,8 @@ void BattleUnit::shoot(){
         soundpointer->playShoot();
         double nozzle[2];
         calculateShootingPoint(nozzle);
-
-        switch(this->getProjectile()%2){
+        qDebug() <<getProjectile();
+        switch(this->getProjectile()%3){
         case 0:
             new Projectile(parentView, this, balistic, soundpointer, nozzle);
             break;
