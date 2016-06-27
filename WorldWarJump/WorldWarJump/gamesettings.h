@@ -60,7 +60,10 @@ public:
     static int getPlayerBlueTankCount();
     static void setPlayerBlueTankCount(int value);
 
-private:
+    static int getJumpCountForDestruction();
+    static void setJumpCountForDestruction(int value);
+
+    private:
     static int player1UnitCount;
     static int player2UnitCount;
 
@@ -79,6 +82,7 @@ private:
     bool settingsSceneAlreadyCreated;
     static bool frendlyfire;
     static int meeleDmg;
+    static int jumpCountForDestruction;
 
 };
 

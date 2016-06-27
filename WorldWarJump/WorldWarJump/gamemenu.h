@@ -11,6 +11,7 @@
 #include "mainwindow.h"
 #include "gamesettings.h"
 #include "soundplayer.h"
+#include "gameworld.h"
 
 //!The GameMenu class contains all necessary things for a functional game menu: Pages, buttons and images. It also has parameters which save custom options. - WANG
 class GameMenu : public QGraphicsView
@@ -22,6 +23,7 @@ public:
     //QMediaPlayer *sound;
     //QMediaPlaylist *playlist;
     SoundPlayer *soundpointer;
+    GameWorld *reference;
 
     //!Mainwindow of WorldWarJump
     MainWindow *w = new MainWindow;
@@ -125,6 +127,7 @@ private:
     int playerBlueShipCount; //end new
 
     int whichStage;
+    bool gamealreadyexist;
 
 public slots:
     //For the endscreen.

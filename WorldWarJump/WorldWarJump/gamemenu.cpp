@@ -17,6 +17,8 @@
 GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
+    gamealreadyexist = false;
+
     //sound = new QMediaPlayer;
     //playlist = new QMediaPlaylist;
 
@@ -28,6 +30,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
         sound->setPlaylist(playlist);
         sound->play();
     }*/
+
     soundpointer = soundplayer;
     soundpointer->playMenuBGM();
 
@@ -293,7 +296,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setScene(beforeGameScene);
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
+            gamealreadyexist = true;
             GameWorld *gameScene = new GameWorld(soundpointer);
+            reference = gameScene;
             connect(gameScene,SIGNAL(playeronewinsSignal()),this,SLOT(playeronewon()));
             connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
 
@@ -626,6 +631,11 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if(item == this->backButton)                             // Go back to main menu.
         {
             setScene(startScene);
+            if(gamealreadyexist)
+            {
+                delete reference;
+                gamealreadyexist = false;
+            }
 
         } else if((item == this->settingsButton)&&!(settings->getSettingsSceneAlreadyCreated()))                         // Open settings.
         {
@@ -701,7 +711,7 @@ void GameMenu::playeronewon()
     endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playeronewinsPic = new QGraphicsPixmapItem;
-    playeronewinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerOneWins.png"));
+    playeronewinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerBlueWins.png"));
     playeronewinsPic->setPos(sideMargin,topMargin+settings->getGameWorldSize()/4);
 
     endScene->addItem(endSceneBackground);
@@ -709,6 +719,8 @@ void GameMenu::playeronewon()
     endScene->addItem(backButton);
 
     this->setScene(endScene);
+    delete reference;
+    gamealreadyexist = false;
 
     soundpointer->playMenuBGM();
 }
@@ -721,7 +733,7 @@ void GameMenu::playertwowon()
     endSceneBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
     playertwowinsPic = new QGraphicsPixmapItem;
-    playertwowinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerTwoWins.png"));
+    playertwowinsPic->setPixmap(QPixmap(":/images/pics/MenusAndButtons/PlayerRedWins.png"));
     playertwowinsPic->setPos(sideMargin,topMargin+settings->getGameWorldSize()/4);
 
     endScene->addItem(endSceneBackground);
@@ -729,7 +741,8 @@ void GameMenu::playertwowon()
     endScene->addItem(backButton);
 
     this->setScene(endScene);
-
+    delete reference;
+    gamealreadyexist = false;
     soundpointer->playMenuBGM();
 }
 

@@ -35,6 +35,8 @@ public:
     double roundDown(double numberToRound, int digit);
     //Frame limit for jumping after collision
     int JumpFrameLimit;
+    //The number of collisions a projectile can do before destruction
+    int bounceB4Destruction = settings->getJumpCountForDestruction();
     //Can
 
     //Tomas

@@ -47,6 +47,10 @@
         <file>pics/TerrainAndBackgrounds/earthThumbnail.png</file>
         <file>pics/TerrainAndBackgrounds/spaceThumbnail.png</file>
         <file>pics/MenusAndButtons/changestagebutton.png</file>
+        <file>pics/MenusAndButtons/PlayerBlueWins.png</file>
+        <file>pics/MenusAndButtons/PlayerRedWins.png</file>
+        <file>pics/UnitsAndProjectiles/kugel20.png</file>
+        <file>pics/UnitsAndProjectiles/kugel25.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>

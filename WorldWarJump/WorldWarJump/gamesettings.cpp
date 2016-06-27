@@ -20,6 +20,7 @@ int GameSettings::playerRedTankCount = 0;
 int GameSettings::maxUnitsPerPlayer = 4;
 int GameSettings::GameWorldSize = 800;
 double GameSettings::gravity = 0.15;
+int GameSettings::jumpCountForDestruction = 3;
 double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 1;
 bool GameSettings::frendlyfire=true;
@@ -27,11 +28,10 @@ bool GameSettings::unitCollision=false;
 int GameSettings::meeleDmg=10;
 
 
-bool GameSettings::BGMMuted = true;
+bool GameSettings::BGMMuted = false;
 bool GameSettings::SEMuted = false;
 
 bool GameSettings::gameCreated = false;
-
 
 int GameSettings::getPlayer1UnitCount() const
 {
@@ -197,6 +197,16 @@ int GameSettings::getPlayerBlueTankCount()
 void GameSettings::setPlayerBlueTankCount(int value)
 {
     playerBlueTankCount = value;
+}
+
+int GameSettings::getJumpCountForDestruction()
+{
+    return jumpCountForDestruction;
+}
+
+void GameSettings::setJumpCountForDestruction(int value)
+{
+    jumpCountForDestruction = value;
 }
 
 int GameSettings::getMeeleDmg(){

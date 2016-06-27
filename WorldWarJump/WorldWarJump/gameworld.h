@@ -10,6 +10,7 @@
 #include "GameplayInterface.h"
 #include "gamesettings.h"
 #include "soundplayer.h"
+#include <QDebug>
 
 class Terrain;
 
@@ -26,6 +27,7 @@ public:
     // Member functions
     //! GameWorld Constructor
     GameWorld(SoundPlayer *soundplayer);
+    ~GameWorld() {qDebug()<<"im out";}
 
     // Member attributes
     Terrain * terrain;
@@ -50,7 +52,7 @@ private:
     GameSettings * settings;
     void addUnits();
 public slots:
-    void changeLevel();
+    //void changeLevel();
     void playeronewins();
     void playertwowins();
     //void setBar(int value);

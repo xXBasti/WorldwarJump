@@ -13,6 +13,7 @@
 #include "input.h"
 #include "terrain.h"
 #include <QLabel>
+#include "background.h"
 
 #define M_PI 3.14159
 
@@ -33,19 +34,14 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     scene->addItem(input);
 
     // terrain, background and level switch timer
-
-    background = new QGraphicsPixmapItem;
-    background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battlefield_Background.png"));
-    scene->addItem(background);
-
-    terrain = new Terrain;
-    scene->addItem(terrain);
-
-    levelSwitchTimer = new QTimer();
-    levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
-    connect(levelSwitchTimer, SIGNAL(timeout()), this, SLOT(changeLevel()));
     backGroundRotationTimer = new QTimer();
     connect(backGroundRotationTimer, SIGNAL(timeout()), this, SLOT(rotateBackground()));
+
+    background = new BackGround(settings,backGroundRotationTimer);
+    scene->addItem(background);
+
+    terrain = new Terrain(settings,scene);
+    scene->addItem(terrain);
 
     QLabel* lOne=new QLabel();
     lOne->setGeometry(5,5,80,15);
@@ -57,6 +53,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     lTwo->setText("Player Two");
     scene->addWidget(lTwo);
     addUnits();
+
 
     // Scrollbar disabling
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -72,13 +69,11 @@ void GameWorld::setGameWorldSize(int value)
 void GameWorld::pause()
 {
     input->refreshRateTimer->stop();
-    levelSwitchTimer->stop();
 }
 
 void GameWorld::resume()
 {
     input->refreshRateTimer->start(20);
-    levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
 }
 
 void GameWorld::addUnits()
@@ -191,42 +186,41 @@ void GameWorld::addUnits()
 
 }
 
+/*
 void GameWorld::changeLevel()
 {
     int stage = settings->getWhichStage();
     switch(stage){
     case 0:
         backGroundRotationTimer->stop();
-        levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
         background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battlefield_Background.png"));
         background->setRotation(0);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Battleground_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
+        scene->physicsCalulator->bounceB4Destruction = settings->getJumpCountForDestruction();
         break;
     case 1:
-        levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000/2);
         background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallBackground.png"));
         background->setTransformOriginPoint(gameWorldSize/2, gameWorldSize/2);
         backGroundRotationTimer->start(20);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/weltallterrain.png"));
         scene->physicsCalulator->gravity = 0;
+        scene->physicsCalulator->bounceB4Destruction = 4;
         break;
         // Custom level
     case 2:
         backGroundRotationTimer->stop();
-        levelSwitchTimer->start(settings->getSecondsToChangeLevel()*1000);
         background->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Background.png"));
         background->setRotation(0);
         terrain->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/Halo_Front.png"));
         scene->physicsCalulator->gravity = settings->getGravity();
+        scene->physicsCalulator->bounceB4Destruction = settings->getJumpCountForDestruction();
         break;
         // Custom level
-    default:
-        qDebug() << "stage number out of boundaries";
     }
-    settings->setWhichStage((stage + 1)%2);
-    qDebug() << "Level changed!";
+    //settings->setWhichStage((stage + 1)%2);
 }
+*/
 
 void GameWorld::playeronewins()
 {
