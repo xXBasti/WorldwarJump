@@ -69,9 +69,14 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     backButton->setZValue(1);
 
     thumbnail = new QGraphicsPixmapItem;       //space is stage 1, earth is stage 2
-    thumbnail->setPos(sideMargin*5+unitWidth+buttonWidth*3,topMargin*5);
+    thumbnail->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*5-50);
     thumbnail->setPixmap(QPixmap(":/images/pics/TerrainAndBackgrounds/spaceThumbnail.png"));
     thumbnail->setZValue(1);
+
+    yesorno = new QGraphicsPixmapItem;
+    yesorno->setPixmap(QPixmap(":/images/pics/MenusAndButtons/yes.png"));
+    yesorno->setZValue(1);
+    yesorno->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*8+180);
 
     startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
     setScene(startScene);
@@ -180,7 +185,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
             changeStageButton = new QGraphicsPixmapItem;
             changeStageButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/changestagebutton.png"));
-            changeStageButton->setPos(sideMargin*5+unitWidth+buttonWidth*3,topMargin*6+170);
+            changeStageButton->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*6+120);
             changeStageButton->setZValue(1);
 
             startBattleButton = new QGraphicsPixmapItem;
@@ -246,6 +251,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             blueTankPicture->setPos(sideMargin,topMargin*5);
             //////////////////////////////////////////////
 
+            friendlyFireButton = new QGraphicsPixmapItem;
+            friendlyFireButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/friendlyfire.png"));
+            friendlyFireButton->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*7+150);
+            friendlyFireButton->setZValue(1);
+
+
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(beforeGameScene);
             setFixedSize(GameMenuSize,GameMenuSize);
@@ -283,6 +294,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(blueShipPicture);
             beforeGameScene->addItem(blueTankPicture);
             beforeGameScene->addItem(thumbnail);
+            beforeGameScene->addItem(friendlyFireButton);
+            beforeGameScene->addItem(yesorno);
             ////////////////////////
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -683,6 +696,18 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if (item == this->muteSEButton)                          // Mute SE
         {
             settings->setSEMuted(!settings->getSEMuted());
+        } else if (item == this->friendlyFireButton)
+        {
+            settings->setFrendlyFire(!settings->getFrendlyFire());
+            switch(settings->getFrendlyFire())
+            {
+            case true:
+                yesorno->setPixmap(QPixmap(":/images/pics/MenusAndButtons/yes.png"));
+                break;
+            case false:
+                yesorno->setPixmap(QPixmap(":/images/pics/MenusAndButtons/no.png"));
+                break;
+            }
         }
     }
 }

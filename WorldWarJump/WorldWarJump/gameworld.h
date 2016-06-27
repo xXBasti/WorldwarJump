@@ -29,7 +29,7 @@ public:
     // Member functions
     //! GameWorld Constructor
     GameWorld(SoundPlayer *soundplayer);
-    ~GameWorld() {qDebug()<<"im out";}
+    ~GameWorld();
 
     // Member attributes
     Terrain * terrain;

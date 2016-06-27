@@ -67,6 +67,9 @@ public:
     QGraphicsPixmapItem *startBattleButton;
     QGraphicsPixmapItem *backButton;
 
+    QGraphicsPixmapItem *friendlyFireButton;
+    QGraphicsPixmapItem *yesorno;
+
     //!Pictures on beforeGameScene
     QGraphicsPixmapItem *player1UnitPicture;
     QGraphicsPixmapItem *player2UnitPicture;
