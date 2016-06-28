@@ -62,6 +62,7 @@ public:
 
     static int getJumpCountForDestruction();
     static void setJumpCountForDestruction(int value);
+    static void resetUnitCount();
 
     private:
     static int player1UnitCount;

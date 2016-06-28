@@ -209,6 +209,17 @@ void GameSettings::setJumpCountForDestruction(int value)
     jumpCountForDestruction = value;
 }
 
+void GameSettings::resetUnitCount()
+{
+    GameSettings * settings;
+    settings->setPlayer1UnitCount(0);
+    settings->setPlayer2UnitCount(0);
+    settings->setPlayerBlueShipCount(0);
+    settings->setPlayerBlueTankCount(0);
+    settings->setPlayerRedShipCount(0);
+    settings->setPlayerRedTankCount(0);
+}
+
 int GameSettings::getMeeleDmg(){
     return meeleDmg;
 }
