@@ -730,6 +730,7 @@ int GameMenu::getWhichStage() const
     return whichStage;
 }
 
+//! this function sets the parameter number on the parameter pixmap
 void GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap)
 {
     switch(number)
