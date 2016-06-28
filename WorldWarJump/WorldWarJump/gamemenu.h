@@ -131,6 +131,7 @@ private:
 
     int whichStage;
     bool gamealreadyexist;
+    void setNumberPictureOnPixmap(int number, QGraphicsPixmapItem * pixmap);
 
 public slots:
     //For the endscreen.

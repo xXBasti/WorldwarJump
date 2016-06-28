@@ -1,3 +1,8 @@
 BUG: Wenn man 1 einheit gegen 1 spielt dann fertig wird dann nochmal 1 einheit gegen 1 einheit spielt erscheint der Gegenspieler nicht
 BUG: Wenn man shoot gedrückt hält schubst Recoil den Tank nicht immer nach hinten und der Schiff wird nach unten gedrückt. 25/06
 BUG: Der Schiff shießt gegen den Boden und der missile bounced gegen ihn selbst. 25/06
+
+BUG: Beim zweiten Spiel und mehr: Ein Player gewinnt ohne die Einheiten des anderen zerstört zu haben. Problem: wenn zwei projektile auftreffen 
+und der destructor von WorldObject aufgerufen wird, wird auch checkWinCondition() in PhysicsCalc.cpp aufgerufen, der nach PlayerOneUnitCount bzw PlayerTwoUnitcount checkt.
+Diese Werte sind Null (oder was komisches), weil der Buttonclick um Einheiten hinzuzufügen(z.B gameMenu.cpp Zeilen 352 bis 372) nur zu PlayerRedShipCount
+hinzufügt und nicht zu playerOneUnitCount bzw playerTwoUnitCount(auf one/two red/blue Richtigkeit achten!).

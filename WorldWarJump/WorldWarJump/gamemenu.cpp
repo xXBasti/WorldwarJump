@@ -305,6 +305,11 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if((item == this->startButton) && (settings->getBeforeGameSceneAlreadyCreated()))
         {
+            settings->resetUnitCount();
+            setNumberPictureOnPixmap(settings->getPlayerBlueShipCount(), playerBlueShipCountPicture);
+            setNumberPictureOnPixmap(settings->getPlayerBlueTankCount(), playerBlueTankCountPicture);
+            setNumberPictureOnPixmap(settings->getPlayerRedShipCount(), playerRedShipCountPicture);
+            setNumberPictureOnPixmap(settings->getPlayerRedTankCount(), playerRedTankCountPicture);
             beforeGameScene->addItem(backButton);
             setScene(beforeGameScene);
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
@@ -341,8 +346,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
                 //beforeGameScene->addItem(player1UnitCountPicture);
                 break;
-
-
             }
 
         } else if(item == this->addRedShipButton)
@@ -712,7 +715,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
     }
 }
 
-
 int GameMenu::getPlayer1UnitCount() const
 {
     return player1UnitCount;
@@ -726,6 +728,29 @@ int GameMenu::getPlayer2UnitCount() const
 int GameMenu::getWhichStage() const
 {
     return whichStage;
+}
+
+//! this function sets the parameter number on the parameter pixmap
+void GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap)
+{
+    switch(number)
+    {
+    case 1:
+        pixmap->setPixmap(QPixmap(":/images/1.png"));
+        break;
+    case 2:
+        pixmap->setPixmap(QPixmap(":/images/2.png"));
+        break;
+    case 3:
+        pixmap->setPixmap(QPixmap(":/images/3.png"));
+        break;
+    case 4:
+        pixmap->setPixmap(QPixmap(":/images/4.png"));
+        break;
+    case 0:
+        pixmap->setPixmap(QPixmap(":/images/pics/0.png"));
+        break;
+    }
 }
 
 void GameMenu::playeronewon()
