@@ -526,7 +526,6 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
                 ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
-                soundpointer->Hitplayer;
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
                 qDebug() <<settings->getPlayer1UnitCount() <<settings->getPlayer2UnitCount();
                 checkHealth(I);

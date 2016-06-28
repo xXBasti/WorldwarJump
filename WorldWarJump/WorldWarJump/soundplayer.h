@@ -13,16 +13,22 @@ public:
     SoundPlayer();
     QMediaPlayer *BGMplayer;
     QMediaPlayer *Jumpplayer;
-    QMediaPlayer *Shootplayer;
+    QMediaPlayer *ShootProjectilePlayer;
+    QMediaPlaylist *Projectileplaylist;
+
+    QMediaPlayer *ShootTauntplayer;
     QMediaPlaylist *BGMplaylist;
     QMediaPlayer *Hitplayer;
+
     //QMediaPlaylist *SEplaylist;
 
+    void playProjectileTypeShoot(int type);
     void playMenuBGM();
     void playGameBGM();
     void playJump();
-    void playShoot();
     void playHit();
+
+    int randomIndex;
 
 };
 

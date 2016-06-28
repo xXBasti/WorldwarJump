@@ -137,19 +137,23 @@ void BattleUnit::setPicture()
 
 void BattleUnit::shoot(){
     if(ableToShoot){
-        soundpointer->playShoot();
         double nozzle[2];
         calculateShootingPoint(nozzle);
         qDebug() <<getProjectile();
         switch(this->getProjectile()%3){
         case 0:
             new Projectile(parentView, this, balistic, soundpointer, nozzle);
+            soundpointer->playProjectileTypeShoot(1);
+            //If you are confused by the indexes look for playProjectileTypeShoot function
+            //in soundplayer. The switch case numbers give you what to play, URL names are descriptive
             break;
         case 1:
             new Projectile(parentView, this, ray, soundpointer ,nozzle);
+            soundpointer->playProjectileTypeShoot(2);
             break;
         case 2:
             new Projectile(parentView, this, missile, soundpointer, nozzle);
+            soundpointer->playProjectileTypeShoot(0);
             break;
         }
         ableToShoot=false;
