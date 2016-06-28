@@ -63,5 +63,9 @@
         <file>sound/shoot1.mp3</file>
         <file>sound/BigExplosion_cut.mp3</file>
         <file>sound/ShootCannon_cut.mp3</file>
+        <file>sound/ShootScrap_cut.mp3</file>
+        <file>sound/ShootRay_cut.mp3</file>
+        <file>sound/ShootRocket1_cut.mp3</file>
+        <file>sound/ShootRocket2_cut.mp3</file>
     </qresource>
 </RCC>
