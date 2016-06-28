@@ -15,6 +15,7 @@ public:
     QMediaPlayer *Jumpplayer;
     QMediaPlayer *Shootplayer;
     QMediaPlaylist *BGMplaylist;
+    QMediaPlayer *Hitplayer;
     //QMediaPlaylist *SEplaylist;
 
     void playMenuBGM();

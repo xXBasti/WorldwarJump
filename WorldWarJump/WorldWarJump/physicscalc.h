@@ -13,7 +13,7 @@ class PhysicsCalc : public QObject
 {
 Q_OBJECT
 public:
-    PhysicsCalc();
+    PhysicsCalc(SoundPlayer * soundplayer);
 
     //Can
     //Orientation
@@ -37,6 +37,8 @@ public:
     int JumpFrameLimit;
     //The number of collisions a projectile can do before destruction
     int bounceB4Destruction = settings->getJumpCountForDestruction();
+    //For sound player
+    SoundPlayer * soundpointer;
     //Can
 
     //Tomas

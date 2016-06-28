@@ -61,5 +61,7 @@
         <file>sound/jump.wav</file>
         <file>sound/shoot.wav</file>
         <file>sound/shoot1.mp3</file>
+        <file>sound/BigExplosion_cut.mp3</file>
+        <file>sound/ShootCannon_cut.mp3</file>
     </qresource>
 </RCC>

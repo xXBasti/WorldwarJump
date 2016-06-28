@@ -24,7 +24,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     setGameWorldSize(settings->getGameWorldSize());
     setFixedSize(gameWorldSize,gameWorldSize);
 
-    scene = new GameplayInterface();
+    scene = new GameplayInterface(soundplayer);
     setScene(scene);
 
     connect(scene->physicsCalulator,SIGNAL(playeronewins()),this,SLOT(playeronewins()));

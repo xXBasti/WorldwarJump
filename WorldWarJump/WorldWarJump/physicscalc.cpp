@@ -16,10 +16,12 @@
 
 #define M_PI 3.14159
 
-PhysicsCalc::PhysicsCalc()
+PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 {
     counter = 0;
     JumpFrameLimit = 10;
+    soundpointer = soundplayer;
+
 }
 
 /**
@@ -521,6 +523,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
                 ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
+                soundpointer->Hitplayer;
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
                 checkHealth(I);
             }
