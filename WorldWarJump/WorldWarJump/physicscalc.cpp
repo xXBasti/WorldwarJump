@@ -21,6 +21,9 @@ PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
     counter = 0;
     JumpFrameLimit = 10;
     soundpointer = soundplayer;
+    //Merge the number of units
+    settings->setPlayer1UnitCount(settings->getPlayerRedShipCount()+settings->getPlayerRedTankCount());
+    settings->setPlayer2UnitCount(settings->getPlayerBlueShipCount()+settings->getPlayerBlueTankCount());
 
 }
 
@@ -525,6 +528,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
                 soundpointer->Hitplayer;
                 qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
+                qDebug() <<settings->getPlayer1UnitCount() <<settings->getPlayer2UnitCount();
                 checkHealth(I);
             }
             worldObject->~WorldObject();
@@ -537,11 +541,11 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
             if(typeid(*obj) == typeid(BattleUnit))
-            settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
+                settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
             if(typeid(*obj) == typeid(BattleUnit))
-            settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
+                settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
         obj->~WorldObject();
         checkWinCondition();
@@ -594,11 +598,11 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 void PhysicsCalc::checkWinCondition(){
     if(settings->getPlayer1UnitCount()<=0){
         emit this->playeronewins();
-        qDebug() <<"Player two wins";
+        qDebug() <<"Player two wins"; //Namen vertauscht?!
     }
     if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
-        emit this->playertwowins();
+        emit this->playertwowins();  //Namen vertauscht?!
     }
 }
 

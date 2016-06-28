@@ -67,10 +67,6 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
             this->setDamage(15);
             this->setWeight(4);
             break;
-        case scrap:
-
-            speedPol[0] = speedPol[0] * 1;
-            break;
     }
     polToEul(speedPol,speedEul,'v');
     setPicture(shootingUnit->getPlayer());
@@ -127,16 +123,6 @@ void Projectile::setPicture(Player p)
                 break;
             case player2:
                 setPixmap(QPixmap(":/images/ray_blue.png"));
-                break;
-        }
-        break;
-    case scrap:
-        switch(p){
-            case player1:
-                setPixmap(QPixmap(":/images/redrocked70.png"));
-                break;
-            case player2:
-                setPixmap(QPixmap(":/images/pics/bluerocked70.png"));
                 break;
         }
         break;

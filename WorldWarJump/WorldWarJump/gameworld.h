@@ -17,7 +17,7 @@
 class Terrain;
 
 enum Player {player1, player2};
-enum ProjectileType {missile, balistic, ray, scrap};
+enum ProjectileType {missile, balistic, ray};
 enum unitType{Tank,Soldier,Ship};
 
 

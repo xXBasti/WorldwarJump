@@ -46,12 +46,12 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
 
     QLabel* lOne=new QLabel();
     lOne->setGeometry(5,5,80,15);
-    lOne->setText("Player One");
+    lOne->setText("Player Red");
     //lOne->setAttribute(Qt::WA_TranslucentBackground); could be nice transparent?!
     scene->addWidget(lOne);
     QLabel* lTwo=new QLabel();
     lTwo->setGeometry(715,5,80,15);
-    lTwo->setText("Player Two");
+    lTwo->setText("Player Blue");
     scene->addWidget(lTwo);
     addUnits();
 
