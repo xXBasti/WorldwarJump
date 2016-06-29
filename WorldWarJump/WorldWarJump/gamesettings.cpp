@@ -27,6 +27,9 @@ bool GameSettings::frendlyfire=true;
 bool GameSettings::unitCollision=false;
 int GameSettings::meeleDmg=0;
 
+int GameSettings::BGMvolume=25;
+int GameSettings::SEvolume=35;
+
 
 bool GameSettings::BGMMuted = false;
 bool GameSettings::SEMuted = false;
@@ -218,6 +221,26 @@ void GameSettings::resetUnitCount()
     settings->setPlayerBlueTankCount(0);
     settings->setPlayerRedShipCount(0);
     settings->setPlayerRedTankCount(0);
+}
+
+int GameSettings::getBGMvolume()
+{
+    return BGMvolume;
+}
+
+void GameSettings::setBGMvolume(int value)
+{
+    BGMvolume = value;
+}
+
+int GameSettings::getSEvolume()
+{
+    return SEvolume;
+}
+
+void GameSettings::setSEvolume(int value)
+{
+    SEvolume = value;
 }
 
 int GameSettings::getMeeleDmg(){

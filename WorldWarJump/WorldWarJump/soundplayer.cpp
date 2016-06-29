@@ -51,7 +51,7 @@ void SoundPlayer::playProjectileTypeShoot(int type)
                 ShootProjectilePlayer->stop();
                 Projectileplaylist->setCurrentIndex(0);
                 ShootProjectilePlayer->setMedia(Projectileplaylist->currentMedia());
-                ShootProjectilePlayer->setVolume(50);//20 if rocket1 50 if rocket 2
+                ShootProjectilePlayer->setVolume(GameSettings::SEvolume+15);//20 if rocket1 50 if rocket 2
                 ShootProjectilePlayer->play();
                 break;
             // Balistic
@@ -59,7 +59,7 @@ void SoundPlayer::playProjectileTypeShoot(int type)
                 ShootProjectilePlayer->stop();
                 Projectileplaylist->setCurrentIndex(1);
                 ShootProjectilePlayer->setMedia(Projectileplaylist->currentMedia());
-                ShootProjectilePlayer->setVolume(35);
+                ShootProjectilePlayer->setVolume(GameSettings::SEvolume);
                 ShootProjectilePlayer->play();
                 break;
             // Ray
@@ -67,7 +67,7 @@ void SoundPlayer::playProjectileTypeShoot(int type)
                 ShootProjectilePlayer->stop();
                 Projectileplaylist->setCurrentIndex(2);
                 ShootProjectilePlayer->setMedia(Projectileplaylist->currentMedia());
-                ShootProjectilePlayer->setVolume(50);
+                ShootProjectilePlayer->setVolume(GameSettings::SEvolume+15);
                 ShootProjectilePlayer->play();
                 break;
             // Scrap
@@ -75,7 +75,7 @@ void SoundPlayer::playProjectileTypeShoot(int type)
                 ShootProjectilePlayer->stop();
                 Projectileplaylist->setCurrentIndex(3);
                 ShootProjectilePlayer->setMedia(Projectileplaylist->currentMedia());
-                ShootProjectilePlayer->setVolume(80);
+                ShootProjectilePlayer->setVolume(GameSettings::SEvolume+45);
                 ShootProjectilePlayer->play();
                 break;
             // Taunt
@@ -96,7 +96,7 @@ void SoundPlayer::playMenuBGM()
         BGMplaylist->setCurrentIndex(1);
         BGMplaylist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
         BGMplayer->setPlaylist(BGMplaylist);
-        BGMplayer->setVolume(20);
+        BGMplayer->setVolume(GameSettings::BGMvolume);
         BGMplayer->play();
 
     }
@@ -122,6 +122,7 @@ void SoundPlayer::playJump()
     if(!GameSettings::SEMuted){
 
         Jumpplayer->stop();
+        Jumpplayer->setVolume(GameSettings::SEvolume-15);
         Jumpplayer->play();
     }
 
@@ -133,6 +134,7 @@ void SoundPlayer::playHit()
 
     if(!GameSettings::SEMuted){
         Hitplayer->stop();
+        Hitplayer->setVolume(GameSettings::SEvolume);
         Hitplayer->play();
     }
 }

@@ -78,6 +78,32 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     yesorno->setZValue(1);
     yesorno->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*8+180);
 
+    muteBGMButton = new QGraphicsPixmapItem;
+    switch(settings->getBGMMuted())
+    {
+    case true:
+        break;
+        muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteBGM.png"));
+    case false:
+        muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteBGMnew.png"));
+        break;
+    }
+    muteBGMButton->setPos(GameMenuSize-sideMargin*3,topMargin*4);
+    muteBGMButton->setZValue(1);
+
+    muteSEButton = new QGraphicsPixmapItem;
+    switch(settings->getSEMuted())
+    {
+    case true:
+        muteSEButton->setPixmap(QPixmap("::/images/pics/MenusAndButtons/unmuteSE.png"));
+        break;
+    case false:
+        muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteSEnew.png"));
+        break;
+    }
+    muteSEButton->setPos(GameMenuSize-sideMargin*3,topMargin*5+unitHeight*2);
+    muteSEButton->setZValue(1);
+
     startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
     setScene(startScene);
     setFixedSize(GameMenuSize,GameMenuSize);
@@ -651,6 +677,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             {
                 delete reference;
                 gamealreadyexist = false;
+                soundpointer->playMenuBGM();
             }
 
         } else if((item == this->settingsButton)&&!(settings->getSettingsSceneAlreadyCreated()))                         // Open settings.
@@ -659,15 +686,35 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsBackground = new QGraphicsPixmapItem;
             settingsBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
-            muteBGMButton = new QGraphicsPixmapItem;
-            muteBGMButton->setPixmap(QPixmap(":/images/pics/muteBGM.png"));
-            muteBGMButton->setPos(GameMenuSize-sideMargin*2,topMargin*4);
-            muteBGMButton->setZValue(1);
+            BGMslider = new QSlider;
+            BGMslider->setOrientation(Qt::Horizontal);
+            BGMslider->setRange(0,100);
+            BGMslider->setGeometry(sideMargin*3+100,topMargin*4,300,75);
+            SEslider = new QSlider;
+            SEslider->setOrientation(Qt::Horizontal);
+            SEslider->setRange(0,100);
+            SEslider->setGeometry(sideMargin*3+100,topMargin*5+unitHeight*2,300,75);
 
-            muteSEButton = new QGraphicsPixmapItem;
-            muteSEButton->setPixmap(QPixmap(":/images/pics/muteSE.png"));
-            muteSEButton->setPos(GameMenuSize-sideMargin*2,topMargin*5+buttonHeight);
-            muteSEButton->setZValue(1);
+            BGMslider->setSliderPosition(settings->getBGMvolume());
+            SEslider->setSliderPosition(settings->getSEvolume());
+
+            bgmVolume = new QGraphicsPixmapItem;
+            bgmVolume->setPixmap(QPixmap(":/images/pics/MenusAndButtons/bgmvolume.png"));
+            bgmVolume->setZValue(1);
+            bgmVolume->setPos(sideMargin*2,topMargin*4);
+
+            seVolume = new QGraphicsPixmapItem;
+            seVolume->setPixmap(QPixmap(":/images/pics/MenusAndButtons/sevolume.png"));
+            seVolume->setZValue(1);
+            seVolume->setPos(sideMargin*2,topMargin*5+unitHeight*2);
+
+            volumeHint = new QGraphicsPixmapItem;
+            volumeHint->setPixmap(QPixmap(":/images/pics/MenusAndButtons/volumehint.png"));
+            volumeHint->setZValue(1);
+            volumeHint->setPos(170,topMargin*8+unitHeight*2);
+
+            connect(this->BGMslider,SIGNAL(sliderMoved(int)),this,SLOT(changeBGMvolume(int)));
+            connect(this->SEslider,SIGNAL(sliderMoved(int)),this,SLOT(changeSEvolume(int)));
 
             settingsScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(settingsScene);
@@ -677,6 +724,11 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsScene->addItem(muteBGMButton);
             settingsScene->addItem(muteSEButton);
             settingsScene->addItem(backButton);
+            settingsScene->addWidget(BGMslider);
+            settingsScene->addWidget(SEslider);
+            settingsScene->addItem(bgmVolume);
+            settingsScene->addItem(seVolume);
+            settingsScene->addItem(volumeHint);
 
             settings->setSettingsSceneAlreadyCreated(true);
 
@@ -694,11 +746,28 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if (item == this->muteBGMButton)                         // Mute BGM
         {
             settings->setBGMMuted(!settings->getBGMMuted());
-            if(settings->getBGMMuted()) soundpointer->BGMplayer->stop();
-            if(!settings->getBGMMuted()) soundpointer->BGMplayer->play();
+            if(settings->getBGMMuted())
+            {
+                soundpointer->BGMplayer->stop();
+                muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteBGM.png"));
+            }
+            if(!settings->getBGMMuted())
+            {
+                soundpointer->BGMplayer->play();
+                muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteBGMnew.png"));
+            }
         } else if (item == this->muteSEButton)                          // Mute SE
         {
             settings->setSEMuted(!settings->getSEMuted());
+            switch(settings->getSEMuted())
+            {
+            case true:
+                muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteSE.png"));
+                break;
+            case false:
+                muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteSEnew.png"));
+                break;
+            }
         } else if (item == this->friendlyFireButton)
         {
             settings->setFrendlyFire(!settings->getFrendlyFire());
@@ -794,5 +863,16 @@ void GameMenu::playertwowon()
     delete reference;
     gamealreadyexist = false;
     soundpointer->playMenuBGM();
+}
+
+void GameMenu::changeBGMvolume(int volume)
+{
+    settings->setBGMvolume(volume);
+    soundpointer->BGMplayer->setVolume(settings->getBGMvolume());
+}
+
+void GameMenu::changeSEvolume(int volume)
+{
+    settings->setSEvolume(volume);
 }
 
