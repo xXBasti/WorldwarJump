@@ -40,7 +40,7 @@ SoundPlayer::SoundPlayer()
 void SoundPlayer::playProjectileTypeShoot(int type)
 {
     if(!GameSettings::SEMuted){
-        //Random number between 0-9
+        //Random number between 0-19 and always growing , so we hear the taunt less and less
         int random_var = (rand()%(this->randomIndex));
         this->randomIndex += 5;
         if(randomIndex > 1000) randomIndex = 40;

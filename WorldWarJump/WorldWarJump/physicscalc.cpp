@@ -522,6 +522,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
         bool frendlyFireCheck= (typeid(*I) == typeid(BattleUnit)) && worldObject->getPlayer()==I->getPlayer() && !settings->getFrendlyFire();
         if((worldObject->getHitCounter())>=2){
             impuls(I,worldObject);
+            soundpointer->playHit();
             if(typeid(*I) == typeid(BattleUnit))
                 ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
