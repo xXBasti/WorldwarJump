@@ -58,6 +58,9 @@
         <file>pics/MenusAndButtons/unmuteSE.png</file>
         <file>pics/MenusAndButtons/unmuteBGM.png</file>
         <file>pics/MenusAndButtons/muteBGMnew.png</file>
+        <file>pics/MenusAndButtons/sevolume.png</file>
+        <file>pics/MenusAndButtons/bgmvolume.png</file>
+        <file>pics/MenusAndButtons/volumehint.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>

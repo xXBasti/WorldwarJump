@@ -686,6 +686,36 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsBackground = new QGraphicsPixmapItem;
             settingsBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
+            BGMslider = new QSlider;
+            BGMslider->setOrientation(Qt::Horizontal);
+            BGMslider->setRange(0,100);
+            BGMslider->setGeometry(sideMargin*3+100,topMargin*4,300,75);
+            SEslider = new QSlider;
+            SEslider->setOrientation(Qt::Horizontal);
+            SEslider->setRange(0,100);
+            SEslider->setGeometry(sideMargin*3+100,topMargin*5+unitHeight*2,300,75);
+
+            BGMslider->setSliderPosition(settings->getBGMvolume());
+            SEslider->setSliderPosition(settings->getSEvolume());
+
+            bgmVolume = new QGraphicsPixmapItem;
+            bgmVolume->setPixmap(QPixmap(":/images/pics/MenusAndButtons/bgmvolume.png"));
+            bgmVolume->setZValue(1);
+            bgmVolume->setPos(sideMargin*2,topMargin*4);
+
+            seVolume = new QGraphicsPixmapItem;
+            seVolume->setPixmap(QPixmap(":/images/pics/MenusAndButtons/sevolume.png"));
+            seVolume->setZValue(1);
+            seVolume->setPos(sideMargin*2,topMargin*5+unitHeight*2);
+
+            volumeHint = new QGraphicsPixmapItem;
+            volumeHint->setPixmap(QPixmap(":/images/pics/MenusAndButtons/volumehint.png"));
+            volumeHint->setZValue(1);
+            volumeHint->setPos(170,topMargin*8+unitHeight*2);
+
+            connect(this->BGMslider,SIGNAL(sliderMoved(int)),this,SLOT(changeBGMvolume(int)));
+            connect(this->SEslider,SIGNAL(sliderMoved(int)),this,SLOT(changeSEvolume(int)));
+
             settingsScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(settingsScene);
             setFixedSize(GameMenuSize,GameMenuSize);
@@ -694,6 +724,11 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsScene->addItem(muteBGMButton);
             settingsScene->addItem(muteSEButton);
             settingsScene->addItem(backButton);
+            settingsScene->addWidget(BGMslider);
+            settingsScene->addWidget(SEslider);
+            settingsScene->addItem(bgmVolume);
+            settingsScene->addItem(seVolume);
+            settingsScene->addItem(volumeHint);
 
             settings->setSettingsSceneAlreadyCreated(true);
 
@@ -828,5 +863,16 @@ void GameMenu::playertwowon()
     delete reference;
     gamealreadyexist = false;
     soundpointer->playMenuBGM();
+}
+
+void GameMenu::changeBGMvolume(int volume)
+{
+    settings->setBGMvolume(volume);
+    soundpointer->BGMplayer->setVolume(settings->getBGMvolume());
+}
+
+void GameMenu::changeSEvolume(int volume)
+{
+    settings->setSEvolume(volume);
 }
 

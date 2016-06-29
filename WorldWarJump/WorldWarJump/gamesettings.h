@@ -46,6 +46,9 @@ public:
     static bool BGMMuted;
     static bool SEMuted;
 
+    static int BGMvolume;
+    static int SEvolume;
+
     static bool gameCreated;
 
     static int getPlayerRedTankCount();
@@ -64,7 +67,13 @@ public:
     static void setJumpCountForDestruction(int value);
     static void resetUnitCount();
 
-    private:
+    static int getBGMvolume();
+    static void setBGMvolume(int value);
+
+    static int getSEvolume();
+    static void setSEvolume(int value);
+
+private:
     static int player1UnitCount;
     static int player2UnitCount;
 
@@ -84,6 +93,7 @@ public:
     static bool frendlyfire;
     static int meeleDmg;
     static int jumpCountForDestruction;
+
 
 };
 

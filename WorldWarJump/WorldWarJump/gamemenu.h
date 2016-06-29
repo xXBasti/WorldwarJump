@@ -6,7 +6,8 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QInputEvent>
-//#include <QMediaPlaylist>
+#include <QSlider>
+#include <QGraphicsProxyWidget>
 
 #include "mainwindow.h"
 #include "gamesettings.h"
@@ -93,6 +94,12 @@ public:
     //!Buttons on settingsScene
     QGraphicsPixmapItem *muteBGMButton;
     QGraphicsPixmapItem *muteSEButton;
+    QGraphicsPixmapItem *bgmVolume;
+    QGraphicsPixmapItem *seVolume;
+    QGraphicsPixmapItem *volumeHint;
+    QSlider *BGMslider;
+    QSlider *SEslider;
+
 
     //!Pictures on settingsScene
     QGraphicsPixmapItem *settingsBackground;
@@ -137,6 +144,9 @@ public slots:
     //For the endscreen.
     void playeronewon();
     void playertwowon();
+
+    void changeBGMvolume(int volume);
+    void changeSEvolume(int volume);
 
 };
 
