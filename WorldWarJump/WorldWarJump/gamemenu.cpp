@@ -651,6 +651,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             {
                 delete reference;
                 gamealreadyexist = false;
+                soundpointer->playMenuBGM();
             }
 
         } else if((item == this->settingsButton)&&!(settings->getSettingsSceneAlreadyCreated()))                         // Open settings.
