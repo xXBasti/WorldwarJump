@@ -78,6 +78,32 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     yesorno->setZValue(1);
     yesorno->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*8+180);
 
+    muteBGMButton = new QGraphicsPixmapItem;
+    switch(settings->getBGMMuted())
+    {
+    case true:
+        break;
+        muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteBGM.png"));
+    case false:
+        muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteBGMnew.png"));
+        break;
+    }
+    muteBGMButton->setPos(GameMenuSize-sideMargin*3,topMargin*4);
+    muteBGMButton->setZValue(1);
+
+    muteSEButton = new QGraphicsPixmapItem;
+    switch(settings->getSEMuted())
+    {
+    case true:
+        muteSEButton->setPixmap(QPixmap("::/images/pics/MenusAndButtons/unmuteSE.png"));
+        break;
+    case false:
+        muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteSEnew.png"));
+        break;
+    }
+    muteSEButton->setPos(GameMenuSize-sideMargin*3,topMargin*5+unitHeight*2);
+    muteSEButton->setZValue(1);
+
     startScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
     setScene(startScene);
     setFixedSize(GameMenuSize,GameMenuSize);
@@ -660,16 +686,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             settingsBackground = new QGraphicsPixmapItem;
             settingsBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/Menu.png"));
 
-            muteBGMButton = new QGraphicsPixmapItem;
-            muteBGMButton->setPixmap(QPixmap(":/images/pics/muteBGM.png"));
-            muteBGMButton->setPos(GameMenuSize-sideMargin*2,topMargin*4);
-            muteBGMButton->setZValue(1);
-
-            muteSEButton = new QGraphicsPixmapItem;
-            muteSEButton->setPixmap(QPixmap(":/images/pics/muteSE.png"));
-            muteSEButton->setPos(GameMenuSize-sideMargin*2,topMargin*5+buttonHeight);
-            muteSEButton->setZValue(1);
-
             settingsScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
             setScene(settingsScene);
             setFixedSize(GameMenuSize,GameMenuSize);
@@ -695,11 +711,28 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
         } else if (item == this->muteBGMButton)                         // Mute BGM
         {
             settings->setBGMMuted(!settings->getBGMMuted());
-            if(settings->getBGMMuted()) soundpointer->BGMplayer->stop();
-            if(!settings->getBGMMuted()) soundpointer->BGMplayer->play();
+            if(settings->getBGMMuted())
+            {
+                soundpointer->BGMplayer->stop();
+                muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteBGM.png"));
+            }
+            if(!settings->getBGMMuted())
+            {
+                soundpointer->BGMplayer->play();
+                muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteBGMnew.png"));
+            }
         } else if (item == this->muteSEButton)                          // Mute SE
         {
             settings->setSEMuted(!settings->getSEMuted());
+            switch(settings->getSEMuted())
+            {
+            case true:
+                muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteSE.png"));
+                break;
+            case false:
+                muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteSEnew.png"));
+                break;
+            }
         } else if (item == this->friendlyFireButton)
         {
             settings->setFrendlyFire(!settings->getFrendlyFire());

@@ -54,6 +54,10 @@
         <file>pics/MenusAndButtons/friendlyfire.png</file>
         <file>pics/MenusAndButtons/no.png</file>
         <file>pics/MenusAndButtons/yes.png</file>
+        <file>pics/MenusAndButtons/muteSEnew.png</file>
+        <file>pics/MenusAndButtons/unmuteSE.png</file>
+        <file>pics/MenusAndButtons/unmuteBGM.png</file>
+        <file>pics/MenusAndButtons/muteBGMnew.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>
