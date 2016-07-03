@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">BattleUnit Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> class is a subclass of <a class="el" href="class_world_object.html">WorldObject</a> and represents the player's fighting units on the field.  
+ <a href="class_battle_unit.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="battleunit_8h_source.html">battleunit.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BattleUnit:</div>
 <div class="dyncontent">
@@ -123,9 +128,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>hit</b> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a45f1f2b4b1104e2efeb6a25f285f7932"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45f1f2b4b1104e2efeb6a25f285f7932"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BattleUnit</b> (<a class="el" href="class_game_world.html">GameWorld</a> *parentView, Player p, <a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer, unitType unittype)</td></tr>
-<tr class="separator:a45f1f2b4b1104e2efeb6a25f285f7932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89fc2d2730cc059c34bb7cd3473d2f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_battle_unit.html#ab89fc2d2730cc059c34bb7cd3473d2f0">BattleUnit</a> (<a class="el" href="class_game_world.html">GameWorld</a> *parentView, Player player, <a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer, unitType unittype)</td></tr>
+<tr class="memdesc:ab89fc2d2730cc059c34bb7cd3473d2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_battle_unit.html#ab89fc2d2730cc059c34bb7cd3473d2f0" title="BattleUnit::BattleUnit constructor. ">BattleUnit::BattleUnit</a> constructor.  <a href="#ab89fc2d2730cc059c34bb7cd3473d2f0">More...</a><br /></td></tr>
+<tr class="separator:ab89fc2d2730cc059c34bb7cd3473d2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5a7ea370e2f789b51f5617b45822bdb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5a7ea370e2f789b51f5617b45822bdb"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getFiredirection</b> ()</td></tr>
 <tr class="separator:aa5a7ea370e2f789b51f5617b45822bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,6 +268,58 @@ Player&#160;</td><td class="memItemRight" valign="bottom"><b>p</b></td></tr>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectType</b></td></tr>
 <tr class="separator:a06b54b3198229f49b5ba5dcccc7710eb inherit pro_attribs_class_world_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> class is a subclass of <a class="el" href="class_world_object.html">WorldObject</a> and represents the player's fighting units on the field. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab89fc2d2730cc059c34bb7cd3473d2f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BattleUnit::BattleUnit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_game_world.html">GameWorld</a> *&#160;</td>
+          <td class="paramname"><em>parentView</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Player&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sound_player.html">SoundPlayer</a> *&#160;</td>
+          <td class="paramname"><em>soundplayer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unitType&#160;</td>
+          <td class="paramname"><em>unittype</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_battle_unit.html#ab89fc2d2730cc059c34bb7cd3473d2f0" title="BattleUnit::BattleUnit constructor. ">BattleUnit::BattleUnit</a> constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentView</td><td>pointer to connect() the <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> to the player's input and the game's refresh rate. </td></tr>
+    <tr><td class="paramname">player</td><td></td></tr>
+    <tr><td class="paramname">soundplayer</td><td></td></tr>
+    <tr><td class="paramname">unittype</td><td>The <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> is only allowed to shoot every certain milliseconds, set in <a class="el" href="class_game_settings.html" title="GameSettings saves the in-game setting... - WANG. ">GameSettings</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>WorldWarJump/WorldWarJump/<a class="el" href="battleunit_8h_source.html">battleunit.h</a></li>
 <li>WorldWarJump/WorldWarJump/battleunit.cpp</li>

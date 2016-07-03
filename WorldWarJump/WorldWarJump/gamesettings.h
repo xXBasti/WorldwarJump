@@ -73,6 +73,8 @@ public:
     static int getSEvolume();
     static void setSEvolume(int value);
 
+    static int getMilisecondsBetweenBattleUnitShots();
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
@@ -93,7 +95,7 @@ private:
     static bool frendlyfire;
     static int meeleDmg;
     static int jumpCountForDestruction;
-
+    static int milisecondsBetweenBattleUnitShots;
 
 };
 

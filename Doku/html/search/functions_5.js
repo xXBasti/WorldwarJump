@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['meeledamage',['meeleDamage',['../class_physics_calc.html#a10a603c3fb290521b301a19600c067c4',1,'PhysicsCalc']]],
-  ['move',['move',['../class_world_object.html#af0a581ca569f51047d53677e5d48cf30',1,'WorldObject']]]
+  ['impuls',['impuls',['../class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3',1,'PhysicsCalc']]],
+  ['inversespeed',['inverseSpeed',['../class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724',1,'PhysicsCalc']]]
 ];

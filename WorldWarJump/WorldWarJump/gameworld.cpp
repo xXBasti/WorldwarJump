@@ -8,7 +8,7 @@
 #include <QDebug>
 #include "gamesettings.h"
 #include <stdlib.h>
-#include <cmath>
+#include <QtMath>
 #include <QProgressBar>
 #include "input.h"
 #include "terrain.h"
@@ -16,7 +16,7 @@
 #include "background.h"
 #include <QTimer>
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 GameWorld::GameWorld(SoundPlayer *soundplayer)
 {

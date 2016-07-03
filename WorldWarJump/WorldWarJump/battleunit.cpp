@@ -4,9 +4,20 @@
 #include "battleunit.h"
 #include "projectile.h"
 #include <QDebug>
+#include "gamesettings.h"
 
-BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer, unitType unittype) : WorldObject(parentView, p,soundplayer)
+/**
+ * @brief BattleUnit::BattleUnit constructor
+ * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
+ * @param player
+ * @param soundplayer
+ * @param unittype
+ *
+ * The BattleUnit is only allowed to shoot every certain milliseconds, set in GameSettings.
+ */
+BattleUnit::BattleUnit(GameWorld * parentView, Player player,SoundPlayer *soundplayer, unitType unittype) : WorldObject(parentView, player, soundplayer)
 {
+    GameSettings * settings;
     soundpointer = soundplayer;
     ObjectType = 'b';
     this->parentView = parentView;
@@ -15,7 +26,7 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     this->setProjectile(0);
     double newCenter[2];
     shootTimer= new QTimer();
-    shootTimer->start(500);
+    shootTimer->start(settings->getMilisecondsBetweenBattleUnitShots());
     connect(shootTimer,SIGNAL(timeout()),this,SLOT(setShootAble()));
     switch(this->ut){
         case Tank:
@@ -35,12 +46,12 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
             break;
     }
 
-    qDebug() << "CenterX: " << newCenter[0] << "CenterY: " << newCenter[1] ;
+//    qDebug() << "CenterX: " << newCenter[0] << "CenterY: " << newCenter[1] ;
 
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);
 
-    switch(p){
+    switch(player){
         case player1:
             connect(parentView->input, SIGNAL(playerOneJump()), this, SLOT(jump()));
             connect(parentView->input, SIGNAL(playerOneShoot()), this, SLOT(shoot()));
@@ -53,7 +64,7 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer
     }
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
-    this->p=p;
+    this->p=player;
     this->setWeight(100);
     this->setDamage(5);
     this->setHealthpoints(100);
@@ -101,6 +112,9 @@ void BattleUnit::calculateShootingPoint(double * Point)
     Point[1] = qpoint.y();
 }
 
+/**
+ * @brief BattleUnit::setPicture is a switch statement on the player and unitType to select the correct QGraphicsPixmapItem to display.
+ */
 void BattleUnit::setPicture()
 {
     Player p = getPlayer();

@@ -11,8 +11,8 @@
 #include <QDebug>
 #include <QApplication>
 #include <QMediaPlayer>
-
-#define M_PI 3.14159
+#include <QtMath>
+//#define M_PI 3.14159
 
 GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    

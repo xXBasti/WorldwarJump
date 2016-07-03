@@ -1,6 +1,7 @@
 #include "worldobject.h"
 #include <QGraphicsScene>
 #include <QDebug>
+#include <QtMath>
 #include "GameplayInterface.h"
 
 #include "physicscalc.h"
@@ -9,7 +10,7 @@
 #include <cmath>
 #include "gamesettings.h"
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 
 

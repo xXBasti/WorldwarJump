@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['velocityeulertoradialcoordinates',['velocityEulerToRadialCoordinates',['../class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0',1,'PhysicsCalc']]]
+  ['updaterotvalues',['updateRotValues',['../class_physics_calc.html#afaa9837f796074797ea731066f09dfc3',1,'PhysicsCalc']]]
 ];

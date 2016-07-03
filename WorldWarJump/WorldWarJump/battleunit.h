@@ -4,11 +4,14 @@
 #include <QObject>
 #include <QTimer>
 
+/**
+ * @brief The BattleUnit class is a subclass of WorldObject and represents the player's fighting units on the field.
+ */
 class BattleUnit :public WorldObject
 {
     Q_OBJECT
 public:
-    BattleUnit(GameWorld * parentView, Player p,SoundPlayer *soundplayer, unitType unittype);
+    BattleUnit(GameWorld * parentView, Player player, SoundPlayer *soundplayer, unitType unittype);
     SoundPlayer *soundpointer;
     double getFiredirection();
     void setFiredirection(double direction);

@@ -2,6 +2,7 @@
 //#include <QtMath>
 #include <cmath>
 #include <QList>
+#include <QtMath>
 #include "gameworld.h"
 #include "terrain.h"
 #include "battleunit.h"
@@ -14,7 +15,7 @@
 #include <stdlib.h>
 #include <ctime>
 
-#define M_PI 3.14159
+//#define M_PI 3.14159
 
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 {

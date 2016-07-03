@@ -1,5 +1,14 @@
 \hypertarget{class_battle_unit}{}\section{Battle\+Unit Class Reference}
 \label{class_battle_unit}\index{Battle\+Unit@{Battle\+Unit}}
+
+
+The \hyperlink{class_battle_unit}{Battle\+Unit} class is a subclass of \hyperlink{class_world_object}{World\+Object} and represents the player\textquotesingle{}s fighting units on the field.  
+
+
+
+
+{\ttfamily \#include $<$battleunit.\+h$>$}
+
 Inheritance diagram for Battle\+Unit\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,9 +27,8 @@ void {\bfseries set\+Shoot\+Able} ()\hypertarget{class_battle_unit_a32aaaf8056f9
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Battle\+Unit} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, Player p, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer, unit\+Type unittype)\hypertarget{class_battle_unit_a45f1f2b4b1104e2efeb6a25f285f7932}{}\label{class_battle_unit_a45f1f2b4b1104e2efeb6a25f285f7932}
-
-\item 
+\hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, Player player, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer, unit\+Type unittype)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit\+::\+Battle\+Unit} constructor. \end{DoxyCompactList}\item 
 double {\bfseries get\+Firedirection} ()\hypertarget{class_battle_unit_aa5a7ea370e2f789b51f5617b45822bdb}{}\label{class_battle_unit_aa5a7ea370e2f789b51f5617b45822bdb}
 
 \item 
@@ -40,6 +48,37 @@ void {\bfseries calculate\+Shooting\+Point} (double $\ast$Point)\hypertarget{cla
 
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_battle_unit}{Battle\+Unit} class is a subclass of \hyperlink{class_world_object}{World\+Object} and represents the player\textquotesingle{}s fighting units on the field. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Battle\+Unit@{Battle\+Unit}!Battle\+Unit@{Battle\+Unit}}
+\index{Battle\+Unit@{Battle\+Unit}!Battle\+Unit@{Battle\+Unit}}
+\subsubsection[{\texorpdfstring{Battle\+Unit(\+Game\+World $\ast$parent\+View, Player player, Sound\+Player $\ast$soundplayer, unit\+Type unittype)}{BattleUnit(GameWorld *parentView, Player player, SoundPlayer *soundplayer, unitType unittype)}}]{\setlength{\rightskip}{0pt plus 5cm}Battle\+Unit\+::\+Battle\+Unit (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+World} $\ast$}]{parent\+View, }
+\item[{Player}]{player, }
+\item[{{\bf Sound\+Player} $\ast$}]{soundplayer, }
+\item[{unit\+Type}]{unittype}
+\end{DoxyParamCaption}
+)}\hypertarget{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{}\label{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}
+
+
+\hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit\+::\+Battle\+Unit} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\+View} & pointer to connect() the \hyperlink{class_battle_unit}{Battle\+Unit} to the player\textquotesingle{}s input and the game\textquotesingle{}s refresh rate. \\
+\hline
+{\em player} & \\
+\hline
+{\em soundplayer} & \\
+\hline
+{\em unittype} & The \hyperlink{class_battle_unit}{Battle\+Unit} is only allowed to shoot every certain milliseconds, set in \hyperlink{class_game_settings}{Game\+Settings}. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
