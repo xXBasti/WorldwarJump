@@ -1,0 +1,398 @@
+\hypertarget{class_physics_calc}{}\section{Physics\+Calc Class Reference}
+\label{class_physics_calc}\index{Physics\+Calc@{Physics\+Calc}}
+Inheritance diagram for Physics\+Calc\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_physics_calc}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries playeronewins} ()\hypertarget{class_physics_calc_a6790d05bf566005c0f8f4fb979eeabae}{}\label{class_physics_calc_a6790d05bf566005c0f8f4fb979eeabae}
+
+\item 
+void {\bfseries playertwowins} ()\hypertarget{class_physics_calc_aee47b83ee796e172207ef43885fe1e11}{}\label{class_physics_calc_aee47b83ee796e172207ef43885fe1e11}
+
+\item 
+void {\bfseries meele\+Dmg} ()\hypertarget{class_physics_calc_a869e988d2f13341a0e0fcd22a99963aa}{}\label{class_physics_calc_a869e988d2f13341a0e0fcd22a99963aa}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Physics\+Calc} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_physics_calc_a806b2675198437e8271ab82eda0e6746}{}\label{class_physics_calc_a806b2675198437e8271ab82eda0e6746}
+
+\item 
+void \hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{calculate\+New\+Rot\+Values} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{Physics\+Calc\+::calculate\+New\+Rot\+Values} calculates the next orientation of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{update\+Rot\+Values} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$angular)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{Physics\+Calc\+::update\+Rot\+Values} sets the objects new orientation and new angular velocity. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_ad1eaa72eeff1b031b08db33730d8decb}{grav\+Vec} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$gravity\+Vector)
+\begin{DoxyCompactList}\small\item\em Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects center of mass at a certain time. First element gives the x and the second gives the y coordinate. \end{DoxyCompactList}\item 
+void {\bfseries get\+Top\+Right} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$top\+Right)\hypertarget{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}{}\label{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}
+
+\item 
+void {\bfseries get\+Top\+Left} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$top\+Left)\hypertarget{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}{}\label{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}
+
+\item 
+void {\bfseries get\+Bottom\+Right} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$bottom\+Right)\hypertarget{class_physics_calc_af118ca721ecccebab2c88e53b7471320}{}\label{class_physics_calc_af118ca721ecccebab2c88e53b7471320}
+
+\item 
+void {\bfseries get\+Bottom\+Left} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$bottom\+Left)\hypertarget{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}{}\label{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}
+
+\item 
+void {\bfseries get\+Impact\+Point} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$impact\+Point)\hypertarget{class_physics_calc_a9bbfe3998836451d84697577c0e6195d}{}\label{class_physics_calc_a9bbfe3998836451d84697577c0e6195d}
+
+\item 
+double \hyperlink{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{gravity\+Angle\+Difference} (double rotation, double $\ast$gravity\+Vector)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{Physics\+Calc\+::gravity\+Angle\+Difference} calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise. \end{DoxyCompactList}\item 
+double {\bfseries round\+Down} (double number\+To\+Round, int digit)\hypertarget{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}{}\label{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}
+
+\item 
+void \hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{calculate\+New\+Values} (\hyperlink{class_world_object}{World\+Object} $\ast$)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{Physics\+Calc\+::calculate\+New\+Values} calculates the next position of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current position and its current speed. Then it sets the object\textquotesingle{}s new position and new speed When the \hyperlink{class_world_object}{World\+Object} moves below the ground (collision) the movement speed of the \hyperlink{class_world_object}{World\+Object} is inverted. \end{DoxyCompactList}\item 
+double {\bfseries vectors\+Absolute\+Value} (double $\ast$vector)\hypertarget{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}{}\label{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}
+
+\item 
+void \hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{velocity\+Euler\+To\+Radial\+Coordinates} (double $\ast$eul\+Input\+Position, double $\ast$input\+Vel\+Vector, double $\ast$output\+Vel\+Vector, bool euler\+To\+Radial)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates}. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_af038d3a5fe0160410456b14601a95581}{eul\+To\+Pol} (double $\ast$eul, double $\ast$pol, char type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_af038d3a5fe0160410456b14601a95581}{Physics\+Calc\+::eul\+To\+Pol} This function translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_a441c3e94fe0e6eed1d96531368f50d54}{pol\+To\+Eul} (double $\ast$pol, double $\ast$eul, char type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a441c3e94fe0e6eed1d96531368f50d54}{Physics\+Calc\+::pol\+To\+Eul}. \end{DoxyCompactList}\item 
+void {\bfseries radial\+Collison} (double col\+Pos\+Eul\mbox{[}2\mbox{]}, double col\+Speed\+RT\mbox{[}2\mbox{]})\hypertarget{class_physics_calc_a2eabcd0d018806138c1141feedb13589}{}\label{class_physics_calc_a2eabcd0d018806138c1141feedb13589}
+
+\item 
+Q\+Graphics\+Item $\ast$ \hyperlink{class_physics_calc_ad6d0e0e75ce2a00c15a883531f454233}{Collide\+With\+Unit} (\hyperlink{class_world_object}{World\+Object} $\ast$object)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_ad6d0e0e75ce2a00c15a883531f454233}{Physics\+Calc\+::\+Collide\+With\+Unit} This function checks, if an object collides with an other object of the type \hyperlink{class_battle_unit}{Battle\+Unit} or \hyperlink{class_projectile}{Projectile} and returns that object. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_a75c4cfbeb112120f4ffd4839182ca25c}{hit\+Unit} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a75c4cfbeb112120f4ffd4839182ca25c}{Physics\+Calc\+::hit\+Unit} This function calculates the damage, between two colliding objects and checks one of the \hyperlink{class_world_object}{World\+Object} get destroyed. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_ad30acc4f9a1111e1d611aa943aff53a3}{impuls} (\hyperlink{class_world_object}{World\+Object} $\ast$obj1, \hyperlink{class_world_object}{World\+Object} $\ast$obj2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_ad30acc4f9a1111e1d611aa943aff53a3}{Physics\+Calc\+::impuls} This function excecutes the conservation of the linear momentum for the two colliding objects obj1 and obj2. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_aac58c297992ee6fd388ff29c839c5693}{check\+Health} (\hyperlink{class_world_object}{World\+Object} $\ast$obj)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_aac58c297992ee6fd388ff29c839c5693}{Physics\+Calc\+::check\+Health} This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit. The unitcounter of the owining player will be decreased too. \end{DoxyCompactList}\item 
+int {\bfseries get\+Playerone} ()\hypertarget{class_physics_calc_a2e54d34a8efd8c14c356bdeb5308ad32}{}\label{class_physics_calc_a2e54d34a8efd8c14c356bdeb5308ad32}
+
+\item 
+int {\bfseries get\+Playertwo} ()\hypertarget{class_physics_calc_a8d963098593c28d7190ee446f4c50979}{}\label{class_physics_calc_a8d963098593c28d7190ee446f4c50979}
+
+\item 
+void {\bfseries set\+Playerone} (int po)\hypertarget{class_physics_calc_aa7d4402c26a08de3580466533eb27cdc}{}\label{class_physics_calc_aa7d4402c26a08de3580466533eb27cdc}
+
+\item 
+void {\bfseries set\+Playertwo} (int pt)\hypertarget{class_physics_calc_a4f152ef88ebf3fad24db71508ee54690}{}\label{class_physics_calc_a4f152ef88ebf3fad24db71508ee54690}
+
+\item 
+void \hyperlink{class_physics_calc_a611a891e2f01de112884cc09f25d1e33}{check\+Win\+Condition} ()\hypertarget{class_physics_calc_a611a891e2f01de112884cc09f25d1e33}{}\label{class_physics_calc_a611a891e2f01de112884cc09f25d1e33}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a611a891e2f01de112884cc09f25d1e33}{Physics\+Calc\+::check\+Win\+Condition} This function checks if one of the playes are out of units and than emit a winning signal. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}{inverse\+Speed} (\hyperlink{class_world_object}{World\+Object} $\ast$colliding1, \hyperlink{class_world_object}{World\+Object} $\ast$colliding2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}{Physics\+Calc\+::inverse\+Speed}. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{meele\+Damage} (\hyperlink{class_world_object}{World\+Object} $\ast$colliding1, \hyperlink{class_world_object}{World\+Object} $\ast$colliding2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{Physics\+Calc\+::meele\+Damage}. \end{DoxyCompactList}\item 
+bool {\bfseries collide\+With\+Any} (\hyperlink{class_world_object}{World\+Object} $\ast$object)\hypertarget{class_physics_calc_a8529b4af50316ef96a6bcbd029c39077}{}\label{class_physics_calc_a8529b4af50316ef96a6bcbd029c39077}
+
+\item 
+void {\bfseries unit\+Unit\+Collision\+Func} (\hyperlink{class_world_object}{World\+Object} $\ast$bat1, \hyperlink{class_world_object}{World\+Object} $\ast$bat2)\hypertarget{class_physics_calc_aacab28a38556f2a29e52068f09a3a4f0}{}\label{class_physics_calc_aacab28a38556f2a29e52068f09a3a4f0}
+
+\item 
+bool \hyperlink{class_physics_calc_a88dc6d26563c0a340cd5c4470801b419}{Collide\+With\+Terrain} (\hyperlink{class_world_object}{World\+Object} $\ast$object)\hypertarget{class_physics_calc_a88dc6d26563c0a340cd5c4470801b419}{}\label{class_physics_calc_a88dc6d26563c0a340cd5c4470801b419}
+
+\begin{DoxyCompactList}\small\item\em Collide\+With\+Terrain checks if one touches the ground and returns a boolean argument. -\/ W\+A\+NG. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries counter}\hypertarget{class_physics_calc_a9ca4a472be8ea235f506a2ef6d9de067}{}\label{class_physics_calc_a9ca4a472be8ea235f506a2ef6d9de067}
+
+\item 
+int {\bfseries Jump\+Frame\+Limit}\hypertarget{class_physics_calc_a72b7108e3e2f8cd8fb709849dbb2506c}{}\label{class_physics_calc_a72b7108e3e2f8cd8fb709849dbb2506c}
+
+\item 
+int {\bfseries bounce\+B4\+Destruction} = settings-\/$>$get\+Jump\+Count\+For\+Destruction()\hypertarget{class_physics_calc_a774c280f0c153e3a879d51f10091800a}{}\label{class_physics_calc_a774c280f0c153e3a879d51f10091800a}
+
+\item 
+\hyperlink{class_sound_player}{Sound\+Player} $\ast$ {\bfseries soundpointer}\hypertarget{class_physics_calc_aa292db7cbe605b0b7cb95a0548afcd29}{}\label{class_physics_calc_aa292db7cbe605b0b7cb95a0548afcd29}
+
+\item 
+\hyperlink{class_game_settings}{Game\+Settings} $\ast$ {\bfseries settings}\hypertarget{class_physics_calc_ace492cdc5b24e04044d0ed249917d93e}{}\label{class_physics_calc_ace492cdc5b24e04044d0ed249917d93e}
+
+\item 
+double {\bfseries gravity} = settings-\/$>$get\+Gravity()\hypertarget{class_physics_calc_ab941acb0b7803cb4dd1bc60fd3381043}{}\label{class_physics_calc_ab941acb0b7803cb4dd1bc60fd3381043}
+
+\item 
+double {\bfseries time\+Step} = settings-\/$>$get\+Time\+Step()\hypertarget{class_physics_calc_aeb23b46816202fed3cab9aa0d852f6a9}{}\label{class_physics_calc_aeb23b46816202fed3cab9aa0d852f6a9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Physics\+Calc@{Physics\+Calc}!calculate\+New\+Rot\+Values@{calculate\+New\+Rot\+Values}}
+\index{calculate\+New\+Rot\+Values@{calculate\+New\+Rot\+Values}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{calculate\+New\+Rot\+Values(\+World\+Object $\ast$world\+Object)}{calculateNewRotValues(WorldObject *worldObject)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::calculate\+New\+Rot\+Values (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{}\label{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}
+
+
+\hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{Physics\+Calc\+::calculate\+New\+Rot\+Values} calculates the next orientation of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & worldobject to be calculated \\
+\hline
+\end{DoxyParams}
+The stabilization module only activates when the object is close to the ground -\/\+Can \index{Physics\+Calc@{Physics\+Calc}!calculate\+New\+Values@{calculate\+New\+Values}}
+\index{calculate\+New\+Values@{calculate\+New\+Values}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{calculate\+New\+Values(\+World\+Object $\ast$)}{calculateNewValues(WorldObject *)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::calculate\+New\+Values (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{}\label{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}
+
+
+\hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{Physics\+Calc\+::calculate\+New\+Values} calculates the next position of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current position and its current speed. Then it sets the object\textquotesingle{}s new position and new speed When the \hyperlink{class_world_object}{World\+Object} moves below the ground (collision) the movement speed of the \hyperlink{class_world_object}{World\+Object} is inverted. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & the \hyperlink{class_world_object}{World\+Object} instance for which new position \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!check\+Health@{check\+Health}}
+\index{check\+Health@{check\+Health}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{check\+Health(\+World\+Object $\ast$obj)}{checkHealth(WorldObject *obj)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::check\+Health (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_aac58c297992ee6fd388ff29c839c5693}{}\label{class_physics_calc_aac58c297992ee6fd388ff29c839c5693}
+
+
+\hyperlink{class_physics_calc_aac58c297992ee6fd388ff29c839c5693}{Physics\+Calc\+::check\+Health} This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit. The unitcounter of the owining player will be decreased too. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj} & is the \hyperlink{class_world_object}{World\+Object} whicht should be checked \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!Collide\+With\+Unit@{Collide\+With\+Unit}}
+\index{Collide\+With\+Unit@{Collide\+With\+Unit}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{Collide\+With\+Unit(\+World\+Object $\ast$object)}{CollideWithUnit(WorldObject *object)}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Graphics\+Item $\ast$ Physics\+Calc\+::\+Collide\+With\+Unit (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_ad6d0e0e75ce2a00c15a883531f454233}{}\label{class_physics_calc_ad6d0e0e75ce2a00c15a883531f454233}
+
+
+\hyperlink{class_physics_calc_ad6d0e0e75ce2a00c15a883531f454233}{Physics\+Calc\+::\+Collide\+With\+Unit} This function checks, if an object collides with an other object of the type \hyperlink{class_battle_unit}{Battle\+Unit} or \hyperlink{class_projectile}{Projectile} and returns that object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & is the object, which will be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is a pointer to the object, the object collides with 
+\end{DoxyReturn}
+\index{Physics\+Calc@{Physics\+Calc}!eul\+To\+Pol@{eul\+To\+Pol}}
+\index{eul\+To\+Pol@{eul\+To\+Pol}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{eul\+To\+Pol(double $\ast$eul, double $\ast$pol, char type)}{eulToPol(double *eul, double *pol, char type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::eul\+To\+Pol (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{eul, }
+\item[{double $\ast$}]{pol, }
+\item[{char}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_af038d3a5fe0160410456b14601a95581}{}\label{class_physics_calc_af038d3a5fe0160410456b14601a95581}
+
+
+\hyperlink{class_physics_calc_af038d3a5fe0160410456b14601a95581}{Physics\+Calc\+::eul\+To\+Pol} This function translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eul} & inputpointer in cartesian coordinates \\
+\hline
+{\em pol} & outputpointer in polar coordinates \\
+\hline
+{\em type} & type of the translation, v -\/$>$ velocity, p -\/$>$ position \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!gravity\+Angle\+Difference@{gravity\+Angle\+Difference}}
+\index{gravity\+Angle\+Difference@{gravity\+Angle\+Difference}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{gravity\+Angle\+Difference(double rotation, double $\ast$gravity\+Vector)}{gravityAngleDifference(double rotation, double *gravityVector)}}]{\setlength{\rightskip}{0pt plus 5cm}double Physics\+Calc\+::gravity\+Angle\+Difference (
+\begin{DoxyParamCaption}
+\item[{double}]{rotation, }
+\item[{double $\ast$}]{gravity\+Vector}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{}\label{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}
+
+
+\hyperlink{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{Physics\+Calc\+::gravity\+Angle\+Difference} calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rotation} & \\
+\hline
+{\em gravity\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{Physics\+Calc@{Physics\+Calc}!grav\+Vec@{grav\+Vec}}
+\index{grav\+Vec@{grav\+Vec}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{grav\+Vec(\+World\+Object $\ast$world\+Object, double $\ast$gravity\+Vector)}{gravVec(WorldObject *worldObject, double *gravityVector)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::grav\+Vec (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object, }
+\item[{double $\ast$}]{gravity\+Vector}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_ad1eaa72eeff1b031b08db33730d8decb}{}\label{class_physics_calc_ad1eaa72eeff1b031b08db33730d8decb}
+
+
+Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects center of mass at a certain time. First element gives the x and the second gives the y coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!hit\+Unit@{hit\+Unit}}
+\index{hit\+Unit@{hit\+Unit}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{hit\+Unit(\+World\+Object $\ast$world\+Object)}{hitUnit(WorldObject *worldObject)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::hit\+Unit (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a75c4cfbeb112120f4ffd4839182ca25c}{}\label{class_physics_calc_a75c4cfbeb112120f4ffd4839182ca25c}
+
+
+\hyperlink{class_physics_calc_a75c4cfbeb112120f4ffd4839182ca25c}{Physics\+Calc\+::hit\+Unit} This function calculates the damage, between two colliding objects and checks one of the \hyperlink{class_world_object}{World\+Object} get destroyed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & is the \hyperlink{class_world_object}{World\+Object} for which the collision will be calculated. \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!impuls@{impuls}}
+\index{impuls@{impuls}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{impuls(\+World\+Object $\ast$obj1, World\+Object $\ast$obj2)}{impuls(WorldObject *obj1, WorldObject *obj2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::impuls (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{obj1, }
+\item[{{\bf World\+Object} $\ast$}]{obj2}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_ad30acc4f9a1111e1d611aa943aff53a3}{}\label{class_physics_calc_ad30acc4f9a1111e1d611aa943aff53a3}
+
+
+\hyperlink{class_physics_calc_ad30acc4f9a1111e1d611aa943aff53a3}{Physics\+Calc\+::impuls} This function excecutes the conservation of the linear momentum for the two colliding objects obj1 and obj2. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj1} & is the first object which collides. \\
+\hline
+{\em obj2} & is the secound object which collides. \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!inverse\+Speed@{inverse\+Speed}}
+\index{inverse\+Speed@{inverse\+Speed}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{inverse\+Speed(\+World\+Object $\ast$colliding1, World\+Object $\ast$colliding2)}{inverseSpeed(WorldObject *colliding1, WorldObject *colliding2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::inverse\+Speed (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{colliding1, }
+\item[{{\bf World\+Object} $\ast$}]{colliding2}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}{}\label{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}
+
+
+\hyperlink{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}{Physics\+Calc\+::inverse\+Speed}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colliding1} & \\
+\hline
+{\em colliding2} & \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!meele\+Damage@{meele\+Damage}}
+\index{meele\+Damage@{meele\+Damage}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{meele\+Damage(\+World\+Object $\ast$colliding1, World\+Object $\ast$colliding2)}{meeleDamage(WorldObject *colliding1, WorldObject *colliding2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::meele\+Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{colliding1, }
+\item[{{\bf World\+Object} $\ast$}]{colliding2}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{}\label{class_physics_calc_a10a603c3fb290521b301a19600c067c4}
+
+
+\hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{Physics\+Calc\+::meele\+Damage}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colliding1} & \\
+\hline
+{\em colliding2} & \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!pol\+To\+Eul@{pol\+To\+Eul}}
+\index{pol\+To\+Eul@{pol\+To\+Eul}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{pol\+To\+Eul(double $\ast$pol, double $\ast$eul, char type)}{polToEul(double *pol, double *eul, char type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::pol\+To\+Eul (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{pol, }
+\item[{double $\ast$}]{eul, }
+\item[{char}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a441c3e94fe0e6eed1d96531368f50d54}{}\label{class_physics_calc_a441c3e94fe0e6eed1d96531368f50d54}
+
+
+\hyperlink{class_physics_calc_a441c3e94fe0e6eed1d96531368f50d54}{Physics\+Calc\+::pol\+To\+Eul}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pol} & \\
+\hline
+{\em eul} & \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!update\+Rot\+Values@{update\+Rot\+Values}}
+\index{update\+Rot\+Values@{update\+Rot\+Values}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{update\+Rot\+Values(\+World\+Object $\ast$world\+Object, double $\ast$angular)}{updateRotValues(WorldObject *worldObject, double *angular)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::update\+Rot\+Values (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object, }
+\item[{double $\ast$}]{angular}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{}\label{class_physics_calc_afaa9837f796074797ea731066f09dfc3}
+
+
+\hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{Physics\+Calc\+::update\+Rot\+Values} sets the objects new orientation and new angular velocity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & Worldobject to be updated \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!velocity\+Euler\+To\+Radial\+Coordinates@{velocity\+Euler\+To\+Radial\+Coordinates}}
+\index{velocity\+Euler\+To\+Radial\+Coordinates@{velocity\+Euler\+To\+Radial\+Coordinates}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{velocity\+Euler\+To\+Radial\+Coordinates(double $\ast$eul\+Input\+Position, double $\ast$input\+Vel\+Vector, double $\ast$output\+Vel\+Vector, bool euler\+To\+Radial)}{velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{eul\+Input\+Position, }
+\item[{double $\ast$}]{input\+Vel\+Vector, }
+\item[{double $\ast$}]{output\+Vel\+Vector, }
+\item[{bool}]{euler\+To\+Radial}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{}\label{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}
+
+
+\hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eul\+Input\+Position} & objects position \\
+\hline
+{\em eul\+Input\+Velocity} & objects velocity \\
+\hline
+{\em radial\+Output} & first direction is radial, second directions is tangential \\
+\hline
+{\em euler\+To\+Radial} & true if transforming from euler to radial, or false if transforming from radial to euler \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+World\+War\+Jump/\+World\+War\+Jump/physicscalc.\+h\item 
+World\+War\+Jump/\+World\+War\+Jump/physicscalc.\+cpp\end{DoxyCompactItemize}

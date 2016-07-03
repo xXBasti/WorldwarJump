@@ -1,0 +1,92 @@
+\hypertarget{class_game_world}{}\section{Game\+World Class Reference}
+\label{class_game_world}\index{Game\+World@{Game\+World}}
+
+
+The world our game is based on. The fundamental stage. -\/ W\+A\+NG.  
+
+
+
+
+{\ttfamily \#include $<$gameworld.\+h$>$}
+
+Inheritance diagram for Game\+World\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_world}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries playeronewins} ()\hypertarget{class_game_world_ada24b43c2a2c6d8147f2054a1e4a71c0}{}\label{class_game_world_ada24b43c2a2c6d8147f2054a1e4a71c0}
+
+\item 
+void {\bfseries playertwowins} ()\hypertarget{class_game_world_a6a0c32cf4eea04374ea6c4ec75ed3737}{}\label{class_game_world_a6a0c32cf4eea04374ea6c4ec75ed3737}
+
+\item 
+void {\bfseries rotate\+Background} ()\hypertarget{class_game_world_a4b17ac101198095db71b34cfd87b97b2}{}\label{class_game_world_a4b17ac101198095db71b34cfd87b97b2}
+
+\item 
+void {\bfseries display\+Meele} ()\hypertarget{class_game_world_a0b7431a3b73fbbf9a82fa1dc4bf66044}{}\label{class_game_world_a0b7431a3b73fbbf9a82fa1dc4bf66044}
+
+\item 
+void {\bfseries hide\+Meele} ()\hypertarget{class_game_world_a4933e2019efbb8f0eaab67c207ed88ae}{}\label{class_game_world_a4933e2019efbb8f0eaab67c207ed88ae}
+
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries playeronewins\+Signal} ()\hypertarget{class_game_world_a0914e98a89dce739b88998a22e27b74d}{}\label{class_game_world_a0914e98a89dce739b88998a22e27b74d}
+
+\item 
+void {\bfseries playertwowins\+Signal} ()\hypertarget{class_game_world_aa0bed12706f43c5efceeaf81a08a5750}{}\label{class_game_world_aa0bed12706f43c5efceeaf81a08a5750}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_world_a4917d80cbe417b0dc1d9023499d83f72}{Game\+World} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_game_world_a4917d80cbe417b0dc1d9023499d83f72}{}\label{class_game_world_a4917d80cbe417b0dc1d9023499d83f72}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_world}{Game\+World} Constructor. \end{DoxyCompactList}\item 
+void {\bfseries set\+Game\+World\+Size} (int value)\hypertarget{class_game_world_a2a8abffdaba4eee013e9b9d90e33a1ab}{}\label{class_game_world_a2a8abffdaba4eee013e9b9d90e33a1ab}
+
+\item 
+void {\bfseries pause} ()\hypertarget{class_game_world_a16bb1b2b833157573cb2a5e7de7a9ea8}{}\label{class_game_world_a16bb1b2b833157573cb2a5e7de7a9ea8}
+
+\item 
+void {\bfseries resume} ()\hypertarget{class_game_world_abac3f51224b0a62f23312534d3c642e5}{}\label{class_game_world_abac3f51224b0a62f23312534d3c642e5}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_terrain}{Terrain} $\ast$ {\bfseries terrain}\hypertarget{class_game_world_a97a0e2bf2693f10e7ab7481ada618191}{}\label{class_game_world_a97a0e2bf2693f10e7ab7481ada618191}
+
+\item 
+\hyperlink{class_input}{Input} $\ast$ {\bfseries input}\hypertarget{class_game_world_af51a9a6f7f2f318a7f4842bc7ddddf67}{}\label{class_game_world_af51a9a6f7f2f318a7f4842bc7ddddf67}
+
+\item 
+\hyperlink{class_gameplay_interface}{Gameplay\+Interface} $\ast$ {\bfseries scene}\hypertarget{class_game_world_a470317d29e5b698b1e08dc983d78ff50}{}\label{class_game_world_a470317d29e5b698b1e08dc983d78ff50}
+
+\item 
+Q\+Timer $\ast$ {\bfseries level\+Switch\+Timer}\hypertarget{class_game_world_a9b1a0f386f286eb864c2a82a0b18e487}{}\label{class_game_world_a9b1a0f386f286eb864c2a82a0b18e487}
+
+\item 
+Q\+Timer $\ast$ {\bfseries back\+Ground\+Rotation\+Timer}\hypertarget{class_game_world_a12fff5decf2e34382c409923ec6f4668}{}\label{class_game_world_a12fff5decf2e34382c409923ec6f4668}
+
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries background}\hypertarget{class_game_world_a42c3f3a06320763c952771c93f49489d}{}\label{class_game_world_a42c3f3a06320763c952771c93f49489d}
+
+\item 
+\hyperlink{class_sound_player}{Sound\+Player} $\ast$ {\bfseries soundpointer}\hypertarget{class_game_world_a133678d6bc4754bff909f0e744923549}{}\label{class_game_world_a133678d6bc4754bff909f0e744923549}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The world our game is based on. The fundamental stage. -\/ W\+A\+NG. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+World\+War\+Jump/\+World\+War\+Jump/gameworld.\+h\item 
+World\+War\+Jump/\+World\+War\+Jump/gameworld.\+cpp\end{DoxyCompactItemize}
