@@ -19,18 +19,6 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     settings = new GameSettings;
     gamealreadyexist = false;
 
-    //sound = new QMediaPlayer;
-    //playlist = new QMediaPlaylist;
-
-    /*if(!GameSettings::getBGMMuted())
-    {
-        playlist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav"));
-        playlist->setCurrentIndex(1);
-        playlist->setPlaybackMode(QMediaPlaylist::Loop);
-        sound->setPlaylist(playlist);
-        sound->play();
-    }*/
-
     soundpointer = soundplayer;
     soundpointer->playMenuBGM();
 
@@ -123,16 +111,28 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     w->show();
 
 }
+/**
+ * @brief GameMenu::getGameMenuSize() returns the set resolution of the game menu.
+ * @return the set resolution of the menu
+ */
 
 int GameMenu::getGameMenuSize() const
 {
     return GameMenuSize;
 }
 
+/** @brief GameMenu::setGameMenuSize(int value) sets the resolution of the menu
+ * @param the wished resolutio
+ */
+
 void GameMenu::setGameMenuSize(int value)
 {
     GameMenuSize = value;
 }
+
+/** @brief GameMenu::mousePressEvent(QMouseEvent *event) secures the main functionality of the menu. It detects mouse clicks and compares the QGraphicsItem
+ * on which the mouse is currently positioned with buttons, which are inherited from QGraphicsPixmapItem, then acts correspondingly.
+ */
 
 
 void GameMenu::mousePressEvent(QMouseEvent *event)
@@ -155,7 +155,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             addPlayer2UnitButton->setPos(sideMargin*2+unitWidth,topMargin*5+buttonHeight);
             addPlayer2UnitButton->setZValue(1);
 
-            //////////////////////////////////////////
             addRedShipButton = new QGraphicsPixmapItem;
             addRedShipButton->setPixmap(QPixmap(":/images/addbutton.png"));
             addRedShipButton->setZValue(1);
@@ -195,9 +194,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             removeBlueTankButton->setPixmap(QPixmap(":/images/removebutton.png"));
             removeBlueTankButton->setZValue(1);
             removeBlueTankButton->setPos(unitWidth+sideMargin*4+buttonWidth*2,topMargin*5);
-
-            ///////////////////////////////////////////////
-
 
             removePlayer1UnitButton = new QGraphicsPixmapItem;
             removePlayer1UnitButton->setPixmap(QPixmap(":/images/removebutton.png"));
@@ -243,7 +239,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             player2UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
             player2UnitCountPicture->setPos(sideMargin*3+unitWidth+12.5,topMargin*5+unitHeight);
 
-            ////////////////
             playerRedShipCountPicture = new QGraphicsPixmapItem;
             playerRedShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
             playerRedShipCountPicture->setPos(unitWidth+sideMargin*3+buttonWidth,topMargin*8+unitHeight*4);
@@ -275,7 +270,6 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             blueTankPicture = new QGraphicsPixmapItem;
             blueTankPicture->setPixmap(QPixmap(":/images/bluetank100.png"));
             blueTankPicture->setPos(sideMargin,topMargin*5);
-            //////////////////////////////////////////////
 
             friendlyFireButton = new QGraphicsPixmapItem;
             friendlyFireButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/friendlyfire.png"));
@@ -288,21 +282,12 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setFixedSize(GameMenuSize,GameMenuSize);
 
             beforeGameScene->addItem(beforeGameSceneBackground);
-           // beforeGameScene->addItem(addPlayer1UnitButton);
-           // beforeGameScene->addItem(addPlayer2UnitButton);
-           // beforeGameScene->addItem(removePlayer1UnitButton);
-            //beforeGameScene->addItem(removePlayer2UnitButton);
             beforeGameScene->addItem(changeStageButton);
             beforeGameScene->addItem(startBattleButton);
             beforeGameScene->addItem(stagePicture);
             beforeGameScene->addItem(titlePicture);
-           // beforeGameScene->addItem(player1UnitPicture);
-            //beforeGameScene->addItem(player2UnitPicture);
             beforeGameScene->addItem(backButton);
-          //  beforeGameScene->addItem(player1UnitCountPicture);
-          //  beforeGameScene->addItem(player2UnitCountPicture);
 
-            ////////////////////////////////////
             beforeGameScene->addItem(addRedShipButton);
             beforeGameScene->addItem(addRedTankButton);
             beforeGameScene->addItem(addBlueShipButton);
@@ -322,10 +307,9 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             beforeGameScene->addItem(thumbnail);
             beforeGameScene->addItem(friendlyFireButton);
             beforeGameScene->addItem(yesorno);
-            ////////////////////////
 
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);\
+            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
             settings->setBeforeGameSceneAlreadyCreated(true);
 
@@ -338,6 +322,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             setNumberPictureOnPixmap(settings->getPlayerRedTankCount(), playerRedTankCountPicture);
             beforeGameScene->addItem(backButton);
             setScene(beforeGameScene);
+
         } else if(item == this->startBattleButton)                      //StartBattleButton Pressed, which means start the game.
         {
             gamealreadyexist = true;
@@ -352,29 +337,25 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
 
 
-        } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit.
+        } else if(item == this->addPlayer1UnitButton)                   // Add player1 unit (redundant).
         {
             player1UnitCount = settings->getPlayer1UnitCount();
-            //qDebug()<<player1UnitCount;
             player1UnitCount++;
             settings->setPlayer1UnitCount(player1UnitCount);
             switch(player1UnitCount)
             {
             case 2:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
-                //beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             case 3:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
-                //beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             case 4:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
-                //beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             }
 
-        } else if(item == this->addRedShipButton)
+        } else if(item == this->addRedShipButton)                   // Add ship for red player.
         {
             playerRedShipCount = settings->getPlayerRedShipCount();
             if(playerRedShipCount<2) playerRedShipCount++;
@@ -397,7 +378,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 playerRedShipCountPicture->setPixmap(QPixmap(":/images/1.png"));
                 break;
             }
-         } else if(item == this->addRedTankButton)
+         } else if(item == this->addRedTankButton)              // Add tank for red player.
         {
             playerRedTankCount = settings->getPlayerRedTankCount();
             if(playerRedTankCount<2) playerRedTankCount++;
@@ -420,7 +401,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 playerRedTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
-        } else if(item == this->addBlueShipButton)
+        } else if(item == this->addBlueShipButton)              // Add ship for blue player.
         {
             playerBlueShipCount = settings->getPlayerBlueShipCount();
             if(playerBlueShipCount<2) playerBlueShipCount++;
@@ -443,7 +424,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 playerBlueShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
-        } else if(item == this->addBlueTankButton)
+        } else if(item == this->addBlueTankButton)              // Add tank for blue player.
         {
             playerBlueTankCount = settings->getPlayerBlueTankCount();
             if(playerBlueTankCount<2)playerBlueTankCount++;
@@ -467,7 +448,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 break;
             }
 
-        } else if(item == this->addPlayer2UnitButton)                   // Add player2 unit.
+        } else if(item == this->addPlayer2UnitButton)                   // Add player2 unit (redundant).
         {
             player2UnitCount = settings->getPlayer2UnitCount();
             player2UnitCount++;
@@ -476,19 +457,16 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             {
             case 2:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
-               // beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             case 3:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
-               // beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             case 4:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
-               // beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             }
 
-        } else if(item == this->removePlayer1UnitButton)                // Remove player1 unit.
+        } else if(item == this->removePlayer1UnitButton)                // Remove player1 unit (redundant).
         {
             player1UnitCount = settings->getPlayer1UnitCount();
             if(player1UnitCount>1)
@@ -500,23 +478,19 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             {
             case 1:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
-              //  beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             case 2:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
-               // beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             case 3:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
-                //beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             case 4:
                 player1UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
-               // beforeGameScene->addItem(player1UnitCountPicture);
                 break;
             }
 
-        } else if(item == this->removePlayer2UnitButton)                // Remove player2 unit.
+        } else if(item == this->removePlayer2UnitButton)                // Remove player2 unit (redundant).
         {
             player2UnitCount = settings->getPlayer2UnitCount();
             if(player2UnitCount>0)
@@ -530,22 +504,18 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             {
             case 1:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/1.png"));
-               // beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             case 2:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/2.png"));
-                //beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             case 3:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/3.png"));
-                //beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             case 4:
                 player2UnitCountPicture->setPixmap(QPixmap(":/images/4.png"));
-               // beforeGameScene->addItem(player2UnitCountPicture);
                 break;
             }
-        } else if(item == this->removeRedShipButton)
+        } else if(item == this->removeRedShipButton)                    // Remove one ship from red player.
         {
             playerRedShipCount = settings->getPlayerRedShipCount();
             if(playerRedShipCount>0)
@@ -571,7 +541,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 playerRedShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
-        } else if(item == this->removeRedTankButton)
+        } else if(item == this->removeRedTankButton)                    // Remove one tank from red player.
         {
             playerRedTankCount = settings->getPlayerRedTankCount();
             if(playerRedTankCount>0)
@@ -597,7 +567,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 playerRedTankCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
-        } else if(item == this->removeBlueShipButton)
+        } else if(item == this->removeBlueShipButton)                   // Remove one ship from blue player.
         {
             playerBlueShipCount = settings->getPlayerBlueShipCount();
             if(playerBlueShipCount>0)
@@ -623,7 +593,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 playerBlueShipCountPicture->setPixmap(QPixmap(":/images/pics/0.png"));
                 break;
             }
-        } else if(item == this->removeBlueTankButton)
+        } else if(item == this->removeBlueTankButton)                   // Remove one tank from blue player.
         {
             playerBlueTankCount = settings->getPlayerBlueTankCount();
             if(playerBlueTankCount>0)
@@ -768,7 +738,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 muteSEButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteSEnew.png"));
                 break;
             }
-        } else if (item == this->friendlyFireButton)
+        } else if (item == this->friendlyFireButton)                    // Switch friendly fire.
         {
             settings->setFrendlyFire(!settings->getFrendlyFire());
             switch(settings->getFrendlyFire())
@@ -794,12 +764,20 @@ int GameMenu::getPlayer2UnitCount() const
     return player2UnitCount;
 }
 
+/** @brief GameMenu::getWhichStage() returns the index of the currently selected stage.
+ * @return index of the current stage.
+ */
+
 int GameMenu::getWhichStage() const
 {
     return whichStage;
 }
 
-//! this function sets the parameter number on the parameter pixmap
+/** @brief GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap) sets the number on number indicators.
+ * @param wished number
+ * @param wished number indicator
+ */
+
 void GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap)
 {
     switch(number)
@@ -822,6 +800,10 @@ void GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap)
     }
 }
 
+/** @brief GameMenu::playeronewon() triggers once the physics calculator says the game is over and player red has won. It shows the end-game scene, then deletes the game scene
+ * with it's children.
+ */
+
 void GameMenu::playeronewon()
 {
     endScene = new QGraphicsScene;
@@ -843,6 +825,9 @@ void GameMenu::playeronewon()
 
     soundpointer->playMenuBGM();
 }
+/** @brief GameMenu::playertwowon() triggers once the physics calculator says the game is over and player blue has won. It shows the end-game scene, then deletes the game scene
+ * with it's children.
+ */
 
 void GameMenu::playertwowon()
 {
@@ -865,11 +850,19 @@ void GameMenu::playertwowon()
     soundpointer->playMenuBGM();
 }
 
+/** @brief GameMenu::changeBGMvolume(int volume) sets the volume of the background music to the given number.
+ * @param wished volume.
+ */
+
 void GameMenu::changeBGMvolume(int volume)
 {
     settings->setBGMvolume(volume);
     soundpointer->BGMplayer->setVolume(settings->getBGMvolume());
 }
+
+/** @brief GameMenu::changeSEvolume(int volume) sets the volume of sound effects to the given number.
+ * @param wished volume
+ */
 
 void GameMenu::changeSEvolume(int volume)
 {
