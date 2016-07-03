@@ -2,7 +2,7 @@
 \label{class_gameplay_interface}\index{Gameplay\+Interface@{Gameplay\+Interface}}
 
 
-The \hyperlink{class_gameplay_interface}{Gameplay\+Interface} class displays the \hyperlink{class_terrain}{Terrain}, the Battle\+Units and the Projectiles.  
+The \hyperlink{class_gameplay_interface}{Gameplay\+Interface} class displays the \hyperlink{class_terrain}{Terrain}, and the players\textquotesingle{} multiple \hyperlink{class_battle_unit}{Battle\+Unit} and \hyperlink{class_projectile}{Projectile}.  
 
 
 
@@ -18,9 +18,8 @@ Inheritance diagram for Gameplay\+Interface\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Gameplay\+Interface} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}{}\label{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}
-
-\end{DoxyCompactItemize}
+\hyperlink{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}{Gameplay\+Interface} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}{Gameplay\+Interface\+::\+Gameplay\+Interface}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,9 +29,28 @@ Inheritance diagram for Gameplay\+Interface\+:\begin{figure}[H]
 
 
 \subsection{Detailed Description}
-The \hyperlink{class_gameplay_interface}{Gameplay\+Interface} class displays the \hyperlink{class_terrain}{Terrain}, the Battle\+Units and the Projectiles. 
+The \hyperlink{class_gameplay_interface}{Gameplay\+Interface} class displays the \hyperlink{class_terrain}{Terrain}, and the players\textquotesingle{} multiple \hyperlink{class_battle_unit}{Battle\+Unit} and \hyperlink{class_projectile}{Projectile}. 
 
 Furthermore, the \hyperlink{class_gameplay_interface}{Gameplay\+Interface} contains our physical engine \hyperlink{class_physics_calc}{Physics\+Calc}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Gameplay\+Interface@{Gameplay\+Interface}!Gameplay\+Interface@{Gameplay\+Interface}}
+\index{Gameplay\+Interface@{Gameplay\+Interface}!Gameplay\+Interface@{Gameplay\+Interface}}
+\subsubsection[{\texorpdfstring{Gameplay\+Interface(\+Sound\+Player $\ast$soundplayer)}{GameplayInterface(SoundPlayer *soundplayer)}}]{\setlength{\rightskip}{0pt plus 5cm}Gameplay\+Interface\+::\+Gameplay\+Interface (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound\+Player} $\ast$}]{soundplayer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}{}\label{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}
+
+
+\hyperlink{class_gameplay_interface_ab75b8894a36f5697edc87e0acc2d31ce}{Gameplay\+Interface\+::\+Gameplay\+Interface}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em soundplayer} & static values for the scene\textquotesingle{}s size are fetched from \hyperlink{class_game_settings}{Game\+Settings} \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

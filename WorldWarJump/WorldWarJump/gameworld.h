@@ -21,7 +21,14 @@ enum ProjectileType {missile, balistic, ray};
 enum unitType{Tank,Soldier,Ship};
 
 
-//! The world our game is based on. The fundamental stage. - WANG
+
+
+/**
+ * @brief container class for Terrain, Input and GameplayInterface.
+ *
+ * Details: GameWorld contains classes that need to communicate with each other and enables connect() functions between them.
+ * It also contains a QTimer to make the background rotate.
+ */
 class GameWorld: public QGraphicsView
 {
     Q_OBJECT
@@ -35,7 +42,6 @@ public:
     Terrain * terrain;
     Input * input;
     GameplayInterface * scene;
-    QTimer * levelSwitchTimer;
     QTimer * backGroundRotationTimer;
     QGraphicsPixmapItem *background;
 
@@ -49,7 +55,7 @@ public:
     SoundPlayer *soundpointer;
 
 private:
-    //! defines the resolution of GameplayInterface
+    //! fetches the resolution of GameplayInterface
     int gameWorldSize;
     GameSettings * settings;
     void addUnits();
@@ -62,8 +68,8 @@ public slots:
     //void setBar(int value);
     void rotateBackground();
 signals:
-    void playeronewinsSignal();
-    void playertwowinsSignal();
+    void playerOneWinsSignal();
+    void playerTwoWinsSignal();
 public slots:
     void displayMeele();
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['velocityeulertoradialcoordinates',['velocityEulerToRadialCoordinates',['../class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0',1,'PhysicsCalc']]]
+  ['setgamemenusize',['setGameMenuSize',['../class_game_menu.html#aeb35fbd4176b7069dd59395b39d1950c',1,'GameMenu']]]
 ];

@@ -164,12 +164,12 @@ void GameWorld::addUnits()
 
 void GameWorld::playeronewins()
 {
-    emit this->playeronewinsSignal();
+    emit this->playerOneWinsSignal();
 }
 
 void GameWorld::playertwowins()
 {
-    emit this->playertwowinsSignal();
+    emit this->playerTwoWinsSignal();
 }
 
 

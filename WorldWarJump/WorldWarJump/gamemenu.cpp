@@ -328,8 +328,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             gamealreadyexist = true;
             GameWorld *gameScene = new GameWorld(soundpointer);
             reference = gameScene;
-            connect(gameScene,SIGNAL(playeronewinsSignal()),this,SLOT(playeronewon()));
-            connect(gameScene,SIGNAL(playertwowinsSignal()),this,SLOT(playertwowon()));
+            connect(gameScene,SIGNAL(playerOneWinsSignal()),this,SLOT(playeronewon()));
+            connect(gameScene,SIGNAL(playerTwoWinsSignal()),this,SLOT(playertwowon()));
 
             this->setScene(gameScene->scene);
             gameScene->scene->addItem(backButton);

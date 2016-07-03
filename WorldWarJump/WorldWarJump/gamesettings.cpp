@@ -26,10 +26,10 @@ double GameSettings::timeStep= 2;
 int GameSettings::whichStage = 1;
 bool GameSettings::frendlyfire=true;
 bool GameSettings::unitCollision=false;
-int GameSettings::meeleDmg=0;
+int GameSettings::meeleDmg= 0;
 
-int GameSettings::BGMvolume=25;
-int GameSettings::SEvolume=35;
+int GameSettings::BGMvolume= 25;
+int GameSettings::SEvolume= 35;
 
 
 bool GameSettings::BGMMuted = false;
@@ -213,6 +213,9 @@ void GameSettings::setJumpCountForDestruction(int value)
     jumpCountForDestruction = value;
 }
 
+/**
+ * @brief GameSettings::resetUnitCount sets all units count to 0.
+ */
 void GameSettings::resetUnitCount()
 {
     GameSettings * settings;

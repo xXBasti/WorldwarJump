@@ -2,7 +2,7 @@
 \label{class_game_world}\index{Game\+World@{Game\+World}}
 
 
-The world our game is based on. The fundamental stage. -\/ W\+A\+NG.  
+container class for \hyperlink{class_terrain}{Terrain}, \hyperlink{class_input}{Input} and \hyperlink{class_gameplay_interface}{Gameplay\+Interface}.  
 
 
 
@@ -36,10 +36,10 @@ void {\bfseries hide\+Meele} ()\hypertarget{class_game_world_a4933e2019efbb8f0ea
 \subsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries playeronewins\+Signal} ()\hypertarget{class_game_world_a0914e98a89dce739b88998a22e27b74d}{}\label{class_game_world_a0914e98a89dce739b88998a22e27b74d}
+void {\bfseries player\+One\+Wins\+Signal} ()\hypertarget{class_game_world_a0fbfa50d5f60312808f9e274e0f920d5}{}\label{class_game_world_a0fbfa50d5f60312808f9e274e0f920d5}
 
 \item 
-void {\bfseries playertwowins\+Signal} ()\hypertarget{class_game_world_aa0bed12706f43c5efceeaf81a08a5750}{}\label{class_game_world_aa0bed12706f43c5efceeaf81a08a5750}
+void {\bfseries player\+Two\+Wins\+Signal} ()\hypertarget{class_game_world_a7b4e0c5e973e19449250249036c98b58}{}\label{class_game_world_a7b4e0c5e973e19449250249036c98b58}
 
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
@@ -69,9 +69,6 @@ void {\bfseries resume} ()\hypertarget{class_game_world_abac3f51224b0a62f2331253
 \hyperlink{class_gameplay_interface}{Gameplay\+Interface} $\ast$ {\bfseries scene}\hypertarget{class_game_world_a470317d29e5b698b1e08dc983d78ff50}{}\label{class_game_world_a470317d29e5b698b1e08dc983d78ff50}
 
 \item 
-Q\+Timer $\ast$ {\bfseries level\+Switch\+Timer}\hypertarget{class_game_world_a9b1a0f386f286eb864c2a82a0b18e487}{}\label{class_game_world_a9b1a0f386f286eb864c2a82a0b18e487}
-
-\item 
 Q\+Timer $\ast$ {\bfseries back\+Ground\+Rotation\+Timer}\hypertarget{class_game_world_a12fff5decf2e34382c409923ec6f4668}{}\label{class_game_world_a12fff5decf2e34382c409923ec6f4668}
 
 \item 
@@ -84,7 +81,9 @@ Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries background}\hypertarget{class_game_w
 
 
 \subsection{Detailed Description}
-The world our game is based on. The fundamental stage. -\/ W\+A\+NG. 
+container class for \hyperlink{class_terrain}{Terrain}, \hyperlink{class_input}{Input} and \hyperlink{class_gameplay_interface}{Gameplay\+Interface}. 
+
+Details\+: \hyperlink{class_game_world}{Game\+World} contains classes that need to communicate with each other and enables connect() functions between them. It also contains a Q\+Timer to make the background rotate. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

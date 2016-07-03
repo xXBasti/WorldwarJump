@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updaterotvalues',['updateRotValues',['../class_physics_calc.html#afaa9837f796074797ea731066f09dfc3',1,'PhysicsCalc']]]
+  ['resetunitcount',['resetUnitCount',['../class_game_settings.html#a9ad65a0b954336d45ffb816af6cb9884',1,'GameSettings']]]
 ];

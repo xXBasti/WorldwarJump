@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>The world our game is based on. The fundamental stage. - WANG.  
+<p>container class for <a class="el" href="class_terrain.html" title="Terrain, the playground for our battle units in form of an inner circle. - WANG. ">Terrain</a>, <a class="el" href="class_input.html">Input</a> and <a class="el" href="class_gameplay_interface.html" title="The GameplayInterface class displays the Terrain, and the players&#39; multiple BattleUnit and Projectile...">GameplayInterface</a>.  
  <a href="class_game_world.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gameworld_8h_source.html">gameworld.h</a>&gt;</code></p>
@@ -126,18 +126,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>hideMeele</b> ()</td>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a0914e98a89dce739b88998a22e27b74d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0914e98a89dce739b88998a22e27b74d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>playeronewinsSignal</b> ()</td></tr>
-<tr class="separator:a0914e98a89dce739b88998a22e27b74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0bed12706f43c5efceeaf81a08a5750"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0bed12706f43c5efceeaf81a08a5750"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>playertwowinsSignal</b> ()</td></tr>
-<tr class="separator:aa0bed12706f43c5efceeaf81a08a5750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fbfa50d5f60312808f9e274e0f920d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0fbfa50d5f60312808f9e274e0f920d5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>playerOneWinsSignal</b> ()</td></tr>
+<tr class="separator:a0fbfa50d5f60312808f9e274e0f920d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b4e0c5e973e19449250249036c98b58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b4e0c5e973e19449250249036c98b58"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>playerTwoWinsSignal</b> ()</td></tr>
+<tr class="separator:a7b4e0c5e973e19449250249036c98b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4917d80cbe417b0dc1d9023499d83f72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4917d80cbe417b0dc1d9023499d83f72"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_world.html#a4917d80cbe417b0dc1d9023499d83f72">GameWorld</a> (<a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer)</td></tr>
-<tr class="memdesc:a4917d80cbe417b0dc1d9023499d83f72"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_game_world.html" title="The world our game is based on. The fundamental stage. - WANG. ">GameWorld</a> Constructor. <br /></td></tr>
+<tr class="memdesc:a4917d80cbe417b0dc1d9023499d83f72"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_game_world.html" title="container class for Terrain, Input and GameplayInterface. ">GameWorld</a> Constructor. <br /></td></tr>
 <tr class="separator:a4917d80cbe417b0dc1d9023499d83f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a8abffdaba4eee013e9b9d90e33a1ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2a8abffdaba4eee013e9b9d90e33a1ab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setGameWorldSize</b> (int value)</td></tr>
@@ -160,9 +160,6 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a470317d29e5b698b1e08dc983d78ff50"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a470317d29e5b698b1e08dc983d78ff50"></a>
 <a class="el" href="class_gameplay_interface.html">GameplayInterface</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>scene</b></td></tr>
 <tr class="separator:a470317d29e5b698b1e08dc983d78ff50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b1a0f386f286eb864c2a82a0b18e487"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9b1a0f386f286eb864c2a82a0b18e487"></a>
-QTimer *&#160;</td><td class="memItemRight" valign="bottom"><b>levelSwitchTimer</b></td></tr>
-<tr class="separator:a9b1a0f386f286eb864c2a82a0b18e487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12fff5decf2e34382c409923ec6f4668"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12fff5decf2e34382c409923ec6f4668"></a>
 QTimer *&#160;</td><td class="memItemRight" valign="bottom"><b>backGroundRotationTimer</b></td></tr>
 <tr class="separator:a12fff5decf2e34382c409923ec6f4668"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,7 +171,8 @@ QGraphicsPixmapItem *&#160;</td><td class="memItemRight" valign="bottom"><b>back
 <tr class="separator:a133678d6bc4754bff909f0e744923549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The world our game is based on. The fundamental stage. - WANG. </p>
+<div class="textblock"><p>container class for <a class="el" href="class_terrain.html" title="Terrain, the playground for our battle units in form of an inner circle. - WANG. ">Terrain</a>, <a class="el" href="class_input.html">Input</a> and <a class="el" href="class_gameplay_interface.html" title="The GameplayInterface class displays the Terrain, and the players&#39; multiple BattleUnit and Projectile...">GameplayInterface</a>. </p>
+<p>Details: <a class="el" href="class_game_world.html" title="container class for Terrain, Input and GameplayInterface. ">GameWorld</a> contains classes that need to communicate with each other and enables connect() functions between them. It also contains a QTimer to make the background rotate. </p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>WorldWarJump/WorldWarJump/<a class="el" href="gameworld_8h_source.html">gameworld.h</a></li>
 <li>WorldWarJump/WorldWarJump/gameworld.cpp</li>

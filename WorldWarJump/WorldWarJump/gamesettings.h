@@ -1,7 +1,11 @@
 #ifndef GAMESETTINGS_H
 #define GAMESETTINGS_H
 
-//!GameSettings saves the in-game setting... - WANG
+/**
+ * @brief GameSettings saves the in-game setting... - WANG
+ *
+ * All the game's variables are accessible as static member for other classes that include GameSettings 's header.
+ **/
 class GameSettings
 {
 public:

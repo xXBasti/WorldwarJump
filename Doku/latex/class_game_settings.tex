@@ -123,9 +123,9 @@ static int {\bfseries get\+Jump\+Count\+For\+Destruction} ()\hypertarget{class_g
 static void {\bfseries set\+Jump\+Count\+For\+Destruction} (int value)\hypertarget{class_game_settings_a884cbe017c236889d509e36d2f6a4f8b}{}\label{class_game_settings_a884cbe017c236889d509e36d2f6a4f8b}
 
 \item 
-static void {\bfseries reset\+Unit\+Count} ()\hypertarget{class_game_settings_a9ad65a0b954336d45ffb816af6cb9884}{}\label{class_game_settings_a9ad65a0b954336d45ffb816af6cb9884}
+static void \hyperlink{class_game_settings_a9ad65a0b954336d45ffb816af6cb9884}{reset\+Unit\+Count} ()\hypertarget{class_game_settings_a9ad65a0b954336d45ffb816af6cb9884}{}\label{class_game_settings_a9ad65a0b954336d45ffb816af6cb9884}
 
-\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_settings_a9ad65a0b954336d45ffb816af6cb9884}{Game\+Settings\+::reset\+Unit\+Count} sets all units count to 0. \end{DoxyCompactList}\item 
 static int {\bfseries get\+B\+G\+Mvolume} ()\hypertarget{class_game_settings_a40fc00cb65266e231bd8fa17b42ef856}{}\label{class_game_settings_a40fc00cb65266e231bd8fa17b42ef856}
 
 \item 
@@ -150,10 +150,10 @@ static bool {\bfseries B\+G\+M\+Muted} = false\hypertarget{class_game_settings_a
 static bool {\bfseries S\+E\+Muted} = false\hypertarget{class_game_settings_a6945f286363960c2331bbcb4ec758e43}{}\label{class_game_settings_a6945f286363960c2331bbcb4ec758e43}
 
 \item 
-static int {\bfseries B\+G\+Mvolume} =25\hypertarget{class_game_settings_a5fc95f4ae14129aec1b0bd02996c22df}{}\label{class_game_settings_a5fc95f4ae14129aec1b0bd02996c22df}
+static int {\bfseries B\+G\+Mvolume} = 25\hypertarget{class_game_settings_a5fc95f4ae14129aec1b0bd02996c22df}{}\label{class_game_settings_a5fc95f4ae14129aec1b0bd02996c22df}
 
 \item 
-static int {\bfseries S\+Evolume} =35\hypertarget{class_game_settings_a4077fc804506698a19d5f1c4878c95ff}{}\label{class_game_settings_a4077fc804506698a19d5f1c4878c95ff}
+static int {\bfseries S\+Evolume} = 35\hypertarget{class_game_settings_a4077fc804506698a19d5f1c4878c95ff}{}\label{class_game_settings_a4077fc804506698a19d5f1c4878c95ff}
 
 \item 
 static bool {\bfseries game\+Created} = false\hypertarget{class_game_settings_a8e4eaa1eef1419e3d25660d57ee51b7c}{}\label{class_game_settings_a8e4eaa1eef1419e3d25660d57ee51b7c}
@@ -163,6 +163,8 @@ static bool {\bfseries game\+Created} = false\hypertarget{class_game_settings_a8
 
 \subsection{Detailed Description}
 \hyperlink{class_game_settings}{Game\+Settings} saves the in-\/game setting... -\/ W\+A\+NG. 
+
+All the game\textquotesingle{}s variables are accessible as static member for other classes that include \hyperlink{class_game_settings}{Game\+Settings} \textquotesingle{}s header. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

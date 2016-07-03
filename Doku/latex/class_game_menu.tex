@@ -18,42 +18,37 @@ Inheritance diagram for Game\+Menu\+:\begin{figure}[H]
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries playeronewon} ()\hypertarget{class_game_menu_a3e3677db66b2c65a9f0de92f41fe3698}{}\label{class_game_menu_a3e3677db66b2c65a9f0de92f41fe3698}
+void \hyperlink{class_game_menu_a3e3677db66b2c65a9f0de92f41fe3698}{playeronewon} ()\hypertarget{class_game_menu_a3e3677db66b2c65a9f0de92f41fe3698}{}\label{class_game_menu_a3e3677db66b2c65a9f0de92f41fe3698}
 
-\item 
-void {\bfseries playertwowon} ()\hypertarget{class_game_menu_a7cf2904dfdb06e5bd6423d80fda61739}{}\label{class_game_menu_a7cf2904dfdb06e5bd6423d80fda61739}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_a3e3677db66b2c65a9f0de92f41fe3698}{Game\+Menu\+::playeronewon()} triggers once the physics calculator says the game is over and player red has won. It shows the end-\/game scene, then deletes the game scene with it\textquotesingle{}s children. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_menu_a7cf2904dfdb06e5bd6423d80fda61739}{playertwowon} ()\hypertarget{class_game_menu_a7cf2904dfdb06e5bd6423d80fda61739}{}\label{class_game_menu_a7cf2904dfdb06e5bd6423d80fda61739}
 
-\item 
-void {\bfseries change\+B\+G\+Mvolume} (int volume)\hypertarget{class_game_menu_a41521364226c92bfdedc97b4445c8763}{}\label{class_game_menu_a41521364226c92bfdedc97b4445c8763}
-
-\item 
-void {\bfseries change\+S\+Evolume} (int volume)\hypertarget{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}{}\label{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}
-
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_a7cf2904dfdb06e5bd6423d80fda61739}{Game\+Menu\+::playertwowon()} triggers once the physics calculator says the game is over and player blue has won. It shows the end-\/game scene, then deletes the game scene with it\textquotesingle{}s children. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_menu_a41521364226c92bfdedc97b4445c8763}{change\+B\+G\+Mvolume} (int volume)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_a41521364226c92bfdedc97b4445c8763}{Game\+Menu\+::change\+B\+G\+Mvolume(int volume)} sets the volume of the background music to the given number. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}{change\+S\+Evolume} (int volume)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}{Game\+Menu\+::change\+S\+Evolume(int volume)} sets the volume of sound effects to the given number. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 {\bfseries Game\+Menu} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}{}\label{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}
 
 \item 
-int {\bfseries get\+Game\+Menu\+Size} () const \hypertarget{class_game_menu_adc24456c629b662425a461b7171da615}{}\label{class_game_menu_adc24456c629b662425a461b7171da615}
+int \hyperlink{class_game_menu_adc24456c629b662425a461b7171da615}{get\+Game\+Menu\+Size} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_adc24456c629b662425a461b7171da615}{Game\+Menu\+::get\+Game\+Menu\+Size()} returns the set resolution of the game menu. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{set\+Game\+Menu\+Size} (int value)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{Game\+Menu\+::set\+Game\+Menu\+Size(int value)} sets the resolution of the menu. \end{DoxyCompactList}\item 
+void \hyperlink{class_game_menu_ab043085d1280afd8f33c5e962a171373}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)\hypertarget{class_game_menu_ab043085d1280afd8f33c5e962a171373}{}\label{class_game_menu_ab043085d1280afd8f33c5e962a171373}
 
-\item 
-void {\bfseries set\+Game\+Menu\+Size} (int value)\hypertarget{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{}\label{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}
-
-\item 
-void {\bfseries mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)\hypertarget{class_game_menu_ab043085d1280afd8f33c5e962a171373}{}\label{class_game_menu_ab043085d1280afd8f33c5e962a171373}
-
-\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_ab043085d1280afd8f33c5e962a171373}{Game\+Menu\+::mouse\+Press\+Event(\+Q\+Mouse\+Event $\ast$event)} secures the main functionality of the menu. It detects mouse clicks and compares the Q\+Graphics\+Item on which the mouse is currently positioned with buttons, which are inherited from Q\+Graphics\+Pixmap\+Item, then acts correspondingly. \end{DoxyCompactList}\item 
 int {\bfseries get\+Player1\+Unit\+Count} () const \hypertarget{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}{}\label{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}
 
 \item 
 int {\bfseries get\+Player2\+Unit\+Count} () const \hypertarget{class_game_menu_a9fd03816511faec236d787298237b231}{}\label{class_game_menu_a9fd03816511faec236d787298237b231}
 
 \item 
-int {\bfseries get\+Which\+Stage} () const \hypertarget{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{}\label{class_game_menu_a45729234e7d5e250608217f0b24ac8da}
-
-\end{DoxyCompactItemize}
+int \hyperlink{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{get\+Which\+Stage} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{Game\+Menu\+::get\+Which\+Stage()} returns the index of the currently selected stage. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -235,6 +230,85 @@ Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries playertwowins\+Pic}\hypertarget{clas
 
 \subsection{Detailed Description}
 The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things for a functional game menu\+: Pages, buttons and images. It also has parameters which save custom options. -\/ W\+A\+NG. 
+
+\subsection{Member Function Documentation}
+\index{Game\+Menu@{Game\+Menu}!change\+B\+G\+Mvolume@{change\+B\+G\+Mvolume}}
+\index{change\+B\+G\+Mvolume@{change\+B\+G\+Mvolume}!Game\+Menu@{Game\+Menu}}
+\subsubsection[{\texorpdfstring{change\+B\+G\+Mvolume}{changeBGMvolume}}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Menu\+::change\+B\+G\+Mvolume (
+\begin{DoxyParamCaption}
+\item[{int}]{volume}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{class_game_menu_a41521364226c92bfdedc97b4445c8763}{}\label{class_game_menu_a41521364226c92bfdedc97b4445c8763}
+
+
+\hyperlink{class_game_menu_a41521364226c92bfdedc97b4445c8763}{Game\+Menu\+::change\+B\+G\+Mvolume(int volume)} sets the volume of the background music to the given number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wished} & volume. \\
+\hline
+\end{DoxyParams}
+\index{Game\+Menu@{Game\+Menu}!change\+S\+Evolume@{change\+S\+Evolume}}
+\index{change\+S\+Evolume@{change\+S\+Evolume}!Game\+Menu@{Game\+Menu}}
+\subsubsection[{\texorpdfstring{change\+S\+Evolume}{changeSEvolume}}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Menu\+::change\+S\+Evolume (
+\begin{DoxyParamCaption}
+\item[{int}]{volume}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}{}\label{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}
+
+
+\hyperlink{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}{Game\+Menu\+::change\+S\+Evolume(int volume)} sets the volume of sound effects to the given number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wished} & volume \\
+\hline
+\end{DoxyParams}
+\index{Game\+Menu@{Game\+Menu}!get\+Game\+Menu\+Size@{get\+Game\+Menu\+Size}}
+\index{get\+Game\+Menu\+Size@{get\+Game\+Menu\+Size}!Game\+Menu@{Game\+Menu}}
+\subsubsection[{\texorpdfstring{get\+Game\+Menu\+Size() const }{getGameMenuSize() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Menu\+::get\+Game\+Menu\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_game_menu_adc24456c629b662425a461b7171da615}{}\label{class_game_menu_adc24456c629b662425a461b7171da615}
+
+
+\hyperlink{class_game_menu_adc24456c629b662425a461b7171da615}{Game\+Menu\+::get\+Game\+Menu\+Size()} returns the set resolution of the game menu. 
+
+\begin{DoxyReturn}{Returns}
+the set resolution of the menu 
+\end{DoxyReturn}
+\index{Game\+Menu@{Game\+Menu}!get\+Which\+Stage@{get\+Which\+Stage}}
+\index{get\+Which\+Stage@{get\+Which\+Stage}!Game\+Menu@{Game\+Menu}}
+\subsubsection[{\texorpdfstring{get\+Which\+Stage() const }{getWhichStage() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Menu\+::get\+Which\+Stage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{}\label{class_game_menu_a45729234e7d5e250608217f0b24ac8da}
+
+
+\hyperlink{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{Game\+Menu\+::get\+Which\+Stage()} returns the index of the currently selected stage. 
+
+\begin{DoxyReturn}{Returns}
+index of the current stage. 
+\end{DoxyReturn}
+\index{Game\+Menu@{Game\+Menu}!set\+Game\+Menu\+Size@{set\+Game\+Menu\+Size}}
+\index{set\+Game\+Menu\+Size@{set\+Game\+Menu\+Size}!Game\+Menu@{Game\+Menu}}
+\subsubsection[{\texorpdfstring{set\+Game\+Menu\+Size(int value)}{setGameMenuSize(int value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Game\+Menu\+::set\+Game\+Menu\+Size (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{}\label{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}
+
+
+\hyperlink{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{Game\+Menu\+::set\+Game\+Menu\+Size(int value)} sets the resolution of the menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & wished resolutio \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
