@@ -8,8 +8,8 @@
 #include "physicscalc.h"
 #include "GameplayInterface.h"
 #include "battleunit.h"
-#include <QtMath>
-//#define M_PI 3.14159
+
+#define M_PI 3.14159
 
 
 Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <stdlib.h>
-#include <QtMath>
+#include <cmath>
 #include <QDebug>
 #include "input.h"
 #include "worldobject.h"

@@ -1,8 +1,8 @@
 #include "physicscalc.h"
-//#include <QtMath>
+
 #include <cmath>
 #include <QList>
-#include <QtMath>
+#include <cmath>
 #include "gameworld.h"
 #include "terrain.h"
 #include "battleunit.h"
@@ -15,8 +15,12 @@
 #include <stdlib.h>
 #include <ctime>
 
-//#define M_PI 3.14159
+#define M_PI 3.14159
 
+/**
+ * @brief PhysicsCalc::PhysicsCalc
+ * @param soundplayer the global soundplayer pointer
+ */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 {
     counter = 0;
@@ -31,8 +35,12 @@ PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 /**
 * @brief PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject
 * based on it's current orientation and its current angular velocity.
-* Angular array stores in the following order, the angle and angular velocity
-* @param the worldobject to be calculated
+* Angular array stores in the following order, the angle and angular velocity.
+* Different calculations on projectiles and battleunits.
+* The projectiles "head" is made to always point the speed vector.
+* The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module.
+* The closer they get to the center, the less they are stabilized.
+* @param worldObject the worldobject to be calculated
 */
 void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
 {
@@ -99,38 +107,13 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
         }
     }
-     counter = counter +1;
-     if(counter == 200){
-     //   qDebug() << "Angle difference: "<<gravAngleDiff ;
-     //   qDebug() << "Angle velocity: " << angular[1];
-        //double * point = {0};
-        //getBottomLeft(worldObject,point);
-        //qDebug() << "bottom left: " << QPointF(point[0],point[1]);
-        //getBottomRight(worldObject,point);
-        //qDebug() << "bottom right: " << QPointF(point[0],point[1]);
-        //qDebug() << "Top left: " << worldObject->scenePos();
-        //getTopLeft(worldObject,point);
-        //qDebug() << "Top left: " << QPointF(point[0],point[1]);
-        //getTopRight(worldObject, point);
-        //qDebug() << "Top right: " << QPointF(point[0],point[1]);
-/*        getImpactPoint(worldObject, point);
-        qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
-         if(worldObject->getChar() == 'p'){
-            // qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
-         }
 
-         counter = 0 ;
-
- }
-
-/*if(typeid(*worldObject) == typeid(Projectile)){
-    return;
-}*/
     updateRotValues(worldObject, angular);
 }
 /**
  * @brief PhysicsCalc::updateRotValues sets the objects new orientation and new angular velocity
- * @param the Worldobject to be updated
+ * @param worldObject the worldobject to be updated
+ * @param angular the angle and angular speed to be set
  */
 void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 {
