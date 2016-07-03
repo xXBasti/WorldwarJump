@@ -23,7 +23,6 @@
  */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 {
-    counter = 0;
     JumpFrameLimit = 10;
     soundpointer = soundplayer;
     //Merge the number of units
@@ -138,9 +137,9 @@ void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
  * @brief PhysicsCalc::gravityAngleDifference calculates the angle
  * from the gravity vector to the current orientation.
  * The positive direction is clockwise.
- * @param rotation
- * @param gravityVector
- * @return
+ * @param rotation the rotation of worldobject
+ * @param gravityVector the gravity vector of worldobject
+ * @return the angle difference between the units norm and gravity vector
  */
 double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVector)
 {
@@ -151,6 +150,12 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
 
 }
 
+/**
+ * @brief PhysicsCalc::roundDown floor of a number in respect to the digit
+ * @param numberToRound number to be rounded down
+ * @param digit the digit to round down the number
+ * @return the rounded down number
+ */
 double PhysicsCalc::roundDown(double numberToRound, int digit)
 {
     if(numberToRound >= 0){
@@ -270,13 +275,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
-        //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         radialSpeed[0] = roundDown(0.70*radialSpeed[0],1);
-        //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-         //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
@@ -292,17 +294,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             worldObject->jumpCounter = JumpFrameLimit;
         }
     }
-    /*
-    //Change projectile transform point to the center if not changed
-    if(worldObject->getChar() == 'p'){
-        if(worldObject->orientationChanged == false){
-            worldObject->orientationChangeCount++;
-            if(worldObject->orientationChangeCount >= 1){
-                worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
-                worldObject->orientationChangeCount = 4;
-            }
-        }
-    }*/
+
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit)){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         if( settings->getUnitcollison() ){
@@ -329,7 +321,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     speed[1] = 0.98*speed[1];
 
     // set new speed values
-    //*worldObject->setSpeed(speed);
+    worldObject->setSpeed(speed);
     return;
 }
 
