@@ -383,8 +383,11 @@ void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, dou
 
 /**
  * @brief PhysicsCalc::eulToPol
- * @param eul
- * @param pol
+ * This function translates the given cartesian coordinate system
+ * to a polar coordinate system and saves them into a given output pointer.
+ * @param eul inputpointer in cartesian coordinates
+ * @param pol outputpointer in polar coordinates
+ * @param type type of the translation, v -> velocity, p -> position
  */
 
 void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
@@ -470,7 +473,13 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
     return false;
 
 }
-
+/**
+ * @brief PhysicsCalc::CollideWithUnit
+ * This function checks, if an object collides with an other object of the type
+ * BattleUnit or Projectile and returns that object.
+ * @param object is the object, which will be checked.
+ * @return is a pointer to the object, the object collides with
+ */
 QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
 {
     QList<QGraphicsItem *> colliding_items = object->collidingItems();
@@ -514,8 +523,13 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     //qDebug() << colSpeed[0] << colSpeed[1];
 }
 
+/**
+ * @brief PhysicsCalc::hitUnit
+ * This function calculates the damage, between two colliding objects and
+ * checks one of the WorldObject get destroyed.
+ * @param worldObject is the WorldObject for which the collision will be calculated.
+ */
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
-    //QGraphicsItem* I=this->CollideWithUnit(worldObject);
     WorldObject* I=(WorldObject*)this->CollideWithUnit(worldObject);
     if(!(I==NULL)){
         worldObject->setHitCounter(worldObject->getHitCounter()+1);
@@ -527,8 +541,6 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
                 ((Projectile*)worldObject)->getshootingUnit()->setProjectile(((Projectile*)worldObject)->getshootingUnit()->getProjectile()+1);
             if(!frendlyFireCheck){
                 I->setHealthpoints(I->getHealthpoints()-worldObject->getDamage());
-                qDebug() <<worldObject->getDamage()<< "you have "<<I->getHealthpoints();
-                qDebug() <<settings->getPlayer1UnitCount() <<settings->getPlayer2UnitCount();
                 checkHealth(I);
             }
             worldObject->~WorldObject();
@@ -537,13 +549,21 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 
 }
 
+/**
+ * @brief PhysicsCalc::checkHealth
+ * This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit.
+ * The unitcounter of the owining player will be decreased too.
+ * @param obj is the WorldObject whicht should be checked
+ */
 void PhysicsCalc::checkHealth(WorldObject* obj){
     if (obj->getHealthpoints()<=0){
         if(obj->getPlayer()==player1){
+            // Only decrease if the WorldObject is a BattleUnit
             if(typeid(*obj) == typeid(BattleUnit))
                 settings->setPlayer1UnitCount(settings->getPlayer1UnitCount()-1);
         }
         else{
+            // Only decrease if the WorldObject is a BattleUnit
             if(typeid(*obj) == typeid(BattleUnit))
                 settings->setPlayer2UnitCount(settings->getPlayer2UnitCount()-1);
         }
@@ -573,7 +593,13 @@ void PhysicsCalc::setPlayertwo(int pt)
     this->playertwo=pt;
 }
 
-
+/**
+ * @brief PhysicsCalc::impuls
+ * This function excecutes the conservation of the linear momentum for
+ * the two colliding objects obj1 and obj2.
+ * @param obj1 is the first object which collides.
+ * @param obj2 is the secound object which collides.
+ */
 void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
     double* v1=obj1->getSpeed();
     double* v2=obj2->getSpeed();
@@ -594,7 +620,11 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
     obj2->setSpeed(v2s);
 }
 
-
+/**
+ * @brief PhysicsCalc::checkWinCondition
+ * This function checks if one of the playes are out of units
+ * and than emit a winning signal.
+ */
 void PhysicsCalc::checkWinCondition(){
     if(settings->getPlayer1UnitCount()<=0){
         emit this->playeronewins();
@@ -605,7 +635,11 @@ void PhysicsCalc::checkWinCondition(){
         emit this->playertwowins();  //Namen vertauscht?!
     }
 }
-
+/**
+ * @brief PhysicsCalc::inverseSpeed
+ * @param colliding1
+ * @param colliding2
+ */
 void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     double* v1=colliding1->getSpeed();
     double* v2=colliding2->getSpeed();
@@ -617,6 +651,11 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     colliding2->setSpeed(v2);
 }
 
+/**
+ * @brief PhysicsCalc::meeleDamage
+ * @param colliding1
+ * @param colliding2
+ */
 void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     //The slower Object gets the Damage
     double* v1=colliding1->getSpeed();
