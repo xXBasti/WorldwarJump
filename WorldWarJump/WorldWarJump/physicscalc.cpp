@@ -83,7 +83,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             stabilizationFactor = 80;
             timeDecay = 30;
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
-
+            maxRotVel = 7;
             if(angular[1] < - maxRotVel){
                 angular[1] = -maxRotVel;
             }else if(angular[1] > maxRotVel){
@@ -94,7 +94,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             stabilizationFactor = 70;
             timeDecay = 35;
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
-
+            maxRotVel = 5;
             if(angular[1] < - maxRotVel){
                 angular[1] = -maxRotVel;
             }else if(angular[1] > maxRotVel){
@@ -105,6 +105,12 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             stabilizationFactor = 200;
             timeDecay = 80;
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+            maxRotVel = 4;
+            if(angular[1] < - maxRotVel){
+                angular[1] = -maxRotVel;
+            }else if(angular[1] > maxRotVel){
+                angular[1] = maxRotVel;
+            }
         }
     }
 

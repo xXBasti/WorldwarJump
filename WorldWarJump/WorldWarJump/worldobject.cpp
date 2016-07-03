@@ -169,6 +169,12 @@ double WorldObject::getOrientation() const
 
 void WorldObject::setRotVel(double newRotVel)
 {
+    //Limit to max Rotational Velocity
+    double absRotVel = sqrt(newRotVel*newRotVel);
+    double rotVelLimit = 7;
+    if(absRotVel > rotVelLimit) {
+        newRotVel = newRotVel*(rotVelLimit/absRotVel);
+    }
     this->rotVel = newRotVel;
 }
 
