@@ -12,6 +12,7 @@
 #define M_PI 3.14159
 
 /**
+<<<<<<< HEAD
  * @brief Projectile::Projectile constructor. Initializes  the position, the initial angle ,
  * the initial speed ,the projectile type , the weight and the damage and connects the timer
  * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
@@ -19,6 +20,16 @@
  * @param p the enum that gives the projectile type
  * @param soundplayer the pointer to the global sound player
  * @param shootingPoint the point in scene coordinates where the projectile should spawn
+=======
+ * @brief Projectile::Projectile
+ * This function is the constructor of the Projectile class and creates an instance of this class.
+ * Moreover this class sets the picture and damage depending on the enum Player and ProjectileType.
+ * @param parentView is the window in which the projectile will be add
+ * @param shootingUnit is the Unit which has shoot the projectile
+ * @param p is the ProjectileType which will be spawned
+ * @param soundplayer is the player which play the shooting sound
+ * @param shootingPoint is the point where the projectile spawns.
+>>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
  */
 Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){
 
@@ -38,15 +49,12 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
 
     switch(Type){
         case Tank:
-
             speedPol[1] = ((shootingUnit->getOrientation()-30)/180)*M_PI;
             break;
         case Soldier:
-
             speedPol[1] = ((shootingUnit->getOrientation()-90)/180)*M_PI;
             break;
         case Ship:
-
             speedPol[1] = ((shootingUnit->getOrientation()-145)/180)*M_PI;
             break;
     }
@@ -56,7 +64,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     //Projectile angle
 
     this->parentView = parentView;
-    switch(p){ //parameter
+    switch(p){ //which ProjectileType?
         case missile:
 
             speedPol[0] = 20;
@@ -88,14 +96,22 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
 
     parentView->scene->addItem(this);
     this->setPos(x,y);
-
+    // Connect with move and hit
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(move()));
     this->setSpeed(speedEul);
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
 }
 
+/**
+ * @brief Projectile::setPicture
+ * This function sets the player depending on the given player and the ProjectileType
+ * @param p is the given player of the Projectile
+ */
 void Projectile::setPicture(Player p)
 {
     switch(this->pT){
@@ -133,11 +149,21 @@ void Projectile::setPicture(Player p)
 }
 
 
-
+/**
+ * @brief Projectile::~Projectile
+ * This function is the destructor of the Projectile class.
+ */
 Projectile::~Projectile(){
+
 }
 
-
+/**
+ * @brief Projectile::recoil
+ * This function, creates a recoil on the shooting BattleUnit by using the conservation of the
+ * linear momentum.
+ * @param obj1 is the Shooting BattleUnit
+ * @param obj2 is Projectile
+ */
 void Projectile::recoil(WorldObject* obj1, WorldObject* obj2){
     double* v1=obj1->getSpeed();
     double* v2=obj2->getSpeed();
@@ -169,6 +195,11 @@ void Projectile::polToEul(double * pol, double* eul,char type){
     }
 }
 
+/**
+ * @brief Projectile::getshootingUnit
+ * This function returns the shootingUnit.
+ * @return the shooting Unit
+ */
 WorldObject *Projectile::getshootingUnit()
 {
     return this->shootingUnit;

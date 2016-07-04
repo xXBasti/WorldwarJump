@@ -57,10 +57,6 @@ public:
     void hitUnit(WorldObject *worldObject);
     void impuls(WorldObject *obj1, WorldObject *obj2);
     void checkHealth(WorldObject *obj);
-    int getPlayerone();
-    int getPlayertwo();
-    void setPlayerone(int po);
-    void setPlayertwo(int pt);
     void checkWinCondition();
     void inverseSpeed(WorldObject *colliding1, WorldObject *colliding2);
     void meeleDamage(WorldObject *colliding1, WorldObject *colliding2);
@@ -76,10 +72,6 @@ signals:
     void playeronewins();
     void playertwowins();
     void meeleDmg();
-
-private:
-    int playerone;
-    int playertwo;
 
 };
 

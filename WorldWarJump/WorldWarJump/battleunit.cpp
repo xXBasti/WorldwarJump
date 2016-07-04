@@ -122,7 +122,8 @@ void BattleUnit::calculateShootingPoint(double * Point)
 }
 
 /**
- * @brief BattleUnit::setPicture is a switch statement on the player and unitType to select the correct QGraphicsPixmapItem to display.
+ * @brief BattleUnit::setPicture
+ * is a switch statement on the player and unitType to select the correct QGraphicsPixmapItem to display.
  */
 void BattleUnit::setPicture()
 {
@@ -157,6 +158,7 @@ void BattleUnit::setPicture()
         break;
     }
 }
+
 /**
  * @brief BattleUnit::shoot spawns projectile when the connected button is pressed.
  * The unit chooses the projectile to choose based on how many times it has been shot
@@ -186,6 +188,7 @@ void BattleUnit::shoot(){
         ableToShoot=false;
     }
 }
+
 
 void BattleUnit::setShootAble(){
     this->ableToShoot=true;
