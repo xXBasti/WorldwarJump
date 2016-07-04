@@ -18,7 +18,8 @@
 #define M_PI 3.14159
 
 /**
- * @brief PhysicsCalc::PhysicsCalc
+ * @brief PhysicsCalc::PhysicsCalc. JumpFrameLimit determines how many timesteps the unit
+ * is allowed to not collide with the ground before it is able to jump again.
  * @param soundplayer the global soundplayer pointer
  */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
@@ -285,11 +286,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-         //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
-        //*worldObject->setSpeed(eulSpeed);
+
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(roundDown(worldObject->getRotVel()*-0.7,0));

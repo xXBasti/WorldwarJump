@@ -100,7 +100,9 @@ void SoundPlayer::playProjectileTypeShoot(int type)
     }
 
 }
-
+/**
+ * @brief SoundPlayer::playMenuBGM play menu music.
+ */
 void SoundPlayer::playMenuBGM()
 {
     if(!GameSettings::BGMMuted)
@@ -113,7 +115,9 @@ void SoundPlayer::playMenuBGM()
 
     }
 }
-
+/**
+ * @brief SoundPlayer::playGameBGM play game music.
+ */
 void SoundPlayer::playGameBGM()
 {
     if(!GameSettings::BGMMuted)
@@ -128,6 +132,9 @@ void SoundPlayer::playGameBGM()
     }
 }
 
+/**
+ * @brief SoundPlayer::playJump plays the jump sound when a unit jumps.
+ */
 void SoundPlayer::playJump()
 {
 
@@ -140,7 +147,9 @@ void SoundPlayer::playJump()
 
 }
 
-
+/**
+ * @brief SoundPlayer::playHit plays the hit sound when a unit gets hit.
+ */
 void SoundPlayer::playHit()
 {
 
