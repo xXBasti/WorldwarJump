@@ -1,7 +1,6 @@
 #include "worldobject.h"
 #include <QGraphicsScene>
 #include <QDebug>
-#include <QtMath>
 #include "GameplayInterface.h"
 
 #include "physicscalc.h"
@@ -10,25 +9,35 @@
 #include <cmath>
 #include "gamesettings.h"
 
-//#define M_PI 3.14159
+#define M_PI 3.14159
 
 
 
 /**
  * @brief WorldObject::move
- *
+ * This function is called every timestep and gets the new position and speed values for the WorldObject from the physicscalc.
  */
 void WorldObject::move()
 {
     getNewValuesFromPhysicsCalc();
 }
+
+/**
+ * @brief WorldObject::hit
+ * This function is called every timestep by ervery Projectile subclass to check if itself hit any WorldObject.
+ */
 void WorldObject::hit(){
     ((GameplayInterface*)scene())->physicsCalulator->hitUnit(this);
 }
 
+/**
+ * @brief WorldObject::jump
+ * This function exceutes a jump if the right key is pressed and the Input class sends a signal.
+ * The jump will be only excuted if the unit is on the ground or collides with an other WorldObject.
+ *
+ */
 void WorldObject::jump()
 {
-
     double centerToObject[2] = {0};
     ((GameplayInterface*)scene())->physicsCalulator->gravVec(this,centerToObject);
     double distanceToCenter = ((GameplayInterface*)scene())->physicsCalulator->vectorsAbsoluteValue(centerToObject);
@@ -105,6 +114,10 @@ double * WorldObject::getSpeed(){
     return speed;
 }
 
+/**
+ * @brief WorldObject::getNewValuesFromPhysicsCalc
+ * This function start the update of the old values by the physicsCalc class.
+ */
 void WorldObject::getNewValuesFromPhysicsCalc()
 {
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewRotValues(this);
@@ -137,6 +150,11 @@ Player WorldObject::getPlayer() const
     return p;
 }
 
+/**
+ * @brief WorldObject::setSpeed
+ * This function sets the speed to the new values, if the speed maximum is not reached.
+ * @param newSpeed
+ */
 void WorldObject::setSpeed(double *newSpeed){
     //Limit to max Speed
     double objectspeed = sqrt(newSpeed[0]*newSpeed[0] + newSpeed[1]*newSpeed[1]);
@@ -168,8 +186,19 @@ double WorldObject::getOrientation() const
     return(orientation);
 }
 
+/**
+ * @brief WorldObject::setRotVel
+ * This function sets the rotationvalue, if the limit is not reached.
+ * @param newRotVel
+ */
 void WorldObject::setRotVel(double newRotVel)
 {
+    //Limit to max Rotational Velocity
+    double absRotVel = sqrt(newRotVel*newRotVel);
+    double rotVelLimit = 7;
+    if(absRotVel > rotVelLimit) {
+        newRotVel = newRotVel*(rotVelLimit/absRotVel);
+    }
     this->rotVel = newRotVel;
 }
 
@@ -232,6 +261,11 @@ void WorldObject::setDamage(int d)
     this->damage=d;
 }
 
+/**
+ * @brief WorldObject::setHealthpoints
+ * This function sets the Healthpoints and emit a signal with the healthpoints to the healthpointsbar.
+ * @param points are the lifepoints
+ */
 void WorldObject::setHealthpoints(int points){
     this->healthpoints=points;
     if(healthpoints<0)

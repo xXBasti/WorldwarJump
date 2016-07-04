@@ -1,8 +1,8 @@
 #include "physicscalc.h"
-//#include <QtMath>
+
 #include <cmath>
 #include <QList>
-#include <QtMath>
+#include <cmath>
 #include "gameworld.h"
 #include "terrain.h"
 #include "battleunit.h"
@@ -15,11 +15,14 @@
 #include <stdlib.h>
 #include <ctime>
 
-//#define M_PI 3.14159
+#define M_PI 3.14159
 
+/**
+ * @brief PhysicsCalc::PhysicsCalc
+ * @param soundplayer the global soundplayer pointer
+ */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 {
-    counter = 0;
     JumpFrameLimit = 10;
     soundpointer = soundplayer;
     //Merge the number of units
@@ -31,8 +34,12 @@ PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
 /**
 * @brief PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject
 * based on it's current orientation and its current angular velocity.
-* Angular array stores in the following order, the angle and angular velocity
-* @param the worldobject to be calculated
+* Angular array stores in the following order, the angle and angular velocity.
+* Different calculations on projectiles and battleunits.
+* The projectiles "head" is made to always point the speed vector.
+* The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module.
+* The closer they get to the center, the less they are stabilized.
+* @param worldObject the worldobject to be calculated
 */
 void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
 {
@@ -75,7 +82,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             stabilizationFactor = 80;
             timeDecay = 30;
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
-
+            maxRotVel = 7;
             if(angular[1] < - maxRotVel){
                 angular[1] = -maxRotVel;
             }else if(angular[1] > maxRotVel){
@@ -86,7 +93,7 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             stabilizationFactor = 70;
             timeDecay = 35;
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
-
+            maxRotVel = 5;
             if(angular[1] < - maxRotVel){
                 angular[1] = -maxRotVel;
             }else if(angular[1] > maxRotVel){
@@ -97,40 +104,21 @@ void PhysicsCalc::calculateNewRotValues(WorldObject * worldObject)
             stabilizationFactor = 200;
             timeDecay = 80;
             angular[1] =  exp(-(timeStep/timeDecay))*(angular[1] - (gravAngleDiff/stabilizationFactor));
+            maxRotVel = 4;
+            if(angular[1] < - maxRotVel){
+                angular[1] = -maxRotVel;
+            }else if(angular[1] > maxRotVel){
+                angular[1] = maxRotVel;
+            }
         }
     }
-     counter = counter +1;
-     if(counter == 200){
-     //   qDebug() << "Angle difference: "<<gravAngleDiff ;
-     //   qDebug() << "Angle velocity: " << angular[1];
-        //double * point = {0};
-        //getBottomLeft(worldObject,point);
-        //qDebug() << "bottom left: " << QPointF(point[0],point[1]);
-        //getBottomRight(worldObject,point);
-        //qDebug() << "bottom right: " << QPointF(point[0],point[1]);
-        //qDebug() << "Top left: " << worldObject->scenePos();
-        //getTopLeft(worldObject,point);
-        //qDebug() << "Top left: " << QPointF(point[0],point[1]);
-        //getTopRight(worldObject, point);
-        //qDebug() << "Top right: " << QPointF(point[0],point[1]);
-/*        getImpactPoint(worldObject, point);
-        qDebug() << "Furthest Point:" << QPointF(point[0],point[1]);*/
-         if(worldObject->getChar() == 'p'){
-            // qDebug() << "Projectile:" << angular[0] << " : " << angular[1];
-         }
 
-         counter = 0 ;
-
- }
-
-/*if(typeid(*worldObject) == typeid(Projectile)){
-    return;
-}*/
     updateRotValues(worldObject, angular);
 }
 /**
  * @brief PhysicsCalc::updateRotValues sets the objects new orientation and new angular velocity
- * @param the Worldobject to be updated
+ * @param worldObject the worldobject to be updated
+ * @param angular the angle and angular speed to be set
  */
 void PhysicsCalc::updateRotValues(WorldObject * worldObject, double *angular)
 {
@@ -155,9 +143,9 @@ void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
  * @brief PhysicsCalc::gravityAngleDifference calculates the angle
  * from the gravity vector to the current orientation.
  * The positive direction is clockwise.
- * @param rotation
- * @param gravityVector
- * @return
+ * @param rotation the rotation of worldobject
+ * @param gravityVector the gravity vector of worldobject
+ * @return the angle difference between the units norm and gravity vector
  */
 double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVector)
 {
@@ -168,6 +156,12 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
 
 }
 
+/**
+ * @brief PhysicsCalc::roundDown floor of a number in respect to the digit
+ * @param numberToRound number to be rounded down
+ * @param digit the digit to round down the number
+ * @return the rounded down number
+ */
 double PhysicsCalc::roundDown(double numberToRound, int digit)
 {
     if(numberToRound >= 0){
@@ -287,13 +281,10 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
         velocityEulerToRadialCoordinates(eulPosition, eulSpeed, radialSpeed, true);
         // radial speed points to the center at collision
         radialSpeed[0] = -abs(radialSpeed[0]) -abs(0.15*radialSpeed[1]);
-        //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         radialSpeed[0] = roundDown(0.70*radialSpeed[0],1);
-        //qDebug() << "radialSpeed: " << QString::number(radialSpeed[0]);
         // tangetial speed decreases at collision
         radialSpeed[1] = 0.85*radialSpeed[1];
         // increase rotation at collision
-         //worldObject->setRotVel(worldObject->getRotVel()-1*radialSpeed[1]); // Parameter: 1
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
@@ -309,17 +300,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
             worldObject->jumpCounter = JumpFrameLimit;
         }
     }
-    /*
-    //Change projectile transform point to the center if not changed
-    if(worldObject->getChar() == 'p'){
-        if(worldObject->orientationChanged == false){
-            worldObject->orientationChangeCount++;
-            if(worldObject->orientationChangeCount >= 1){
-                worldObject->setTransformOriginPoint((worldObject->pixmap().width())/2,(worldObject->pixmap().height())/2);
-                worldObject->orientationChangeCount = 4;
-            }
-        }
-    }*/
+
     if(CollideWithUnit(worldObject)!=NULL && typeid(*CollideWithUnit(worldObject))== typeid(BattleUnit) && typeid(*worldObject)== typeid(BattleUnit)){
         WorldObject* wO=(WorldObject*)CollideWithUnit(worldObject);
         if( settings->getUnitcollison() ){
@@ -346,7 +327,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     speed[1] = 0.98*speed[1];
 
     // set new speed values
-    //*worldObject->setSpeed(speed);
+    worldObject->setSpeed(speed);
     return;
 }
 

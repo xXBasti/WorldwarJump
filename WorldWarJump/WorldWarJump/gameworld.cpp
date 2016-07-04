@@ -8,7 +8,7 @@
 #include <QDebug>
 #include "gamesettings.h"
 #include <stdlib.h>
-#include <QtMath>
+#include <cmath>
 #include <QProgressBar>
 #include "input.h"
 #include "terrain.h"

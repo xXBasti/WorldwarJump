@@ -73,11 +73,18 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player player,SoundPlayer *soundp
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
-
+/**
+ * @brief BattleUnit::getFiredirection returns the fire direction of a battleunit
+ * @return return the fire direction in angles
+ */
 double BattleUnit::getFiredirection(){
     return this->firedirection;
 }
 
+/**
+ * @brief BattleUnit::setFiredirection sets the fire direction of a battleunit
+ * @param direction the fire direction in angles
+ */
 void BattleUnit::setFiredirection(double direction){
     this->firedirection=direction;
 }
@@ -86,7 +93,11 @@ unitType BattleUnit::getUnittype()
 {
     return this->ut;
 }
-
+/**
+ * @brief BattleUnit::calculateShootingPoint calculate the point where
+ *  the projectile spawns in scene coordinates
+ * @param Point the array to be changed into shooting point
+ */
 void BattleUnit::calculateShootingPoint(double * Point)
 {
 
@@ -95,7 +106,6 @@ void BattleUnit::calculateShootingPoint(double * Point)
     switch(u){
         case Tank:
 
-            //qpoint = this->sceneTransform().map(QPointF(this->pixmap().width(),this->pixmap().height()));
             qpoint = this->sceneTransform().map(QPointF(95,-7));
             break;
         case Soldier:
@@ -113,7 +123,8 @@ void BattleUnit::calculateShootingPoint(double * Point)
 }
 
 /**
- * @brief BattleUnit::setPicture is a switch statement on the player and unitType to select the correct QGraphicsPixmapItem to display.
+ * @brief BattleUnit::setPicture
+ * is a switch statement on the player and unitType to select the correct QGraphicsPixmapItem to display.
  */
 void BattleUnit::setPicture()
 {
@@ -150,8 +161,9 @@ void BattleUnit::setPicture()
 }
 
 /**
- * @brief BattleUnit::shoot
- * This
+ * @brief BattleUnit::shoot spawns projectile when the connected button is pressed.
+ * The unit chooses the projectile to choose based on how many times it has been shot
+ * before and plays corresponding sound.
  */
 void BattleUnit::shoot(){
     if(ableToShoot){
@@ -177,6 +189,7 @@ void BattleUnit::shoot(){
         ableToShoot=false;
     }
 }
+
 
 void BattleUnit::setShootAble(){
     this->ableToShoot=true;
