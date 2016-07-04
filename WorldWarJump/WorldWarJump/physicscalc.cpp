@@ -18,7 +18,8 @@
 #define M_PI 3.14159
 
 /**
- * @brief PhysicsCalc::PhysicsCalc
+ * @brief PhysicsCalc::PhysicsCalc. JumpFrameLimit determines how many timesteps the unit
+ * is allowed to not collide with the ground before it is able to jump again.
  * @param soundplayer the global soundplayer pointer
  */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
@@ -142,9 +143,9 @@ void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
  * @brief PhysicsCalc::gravityAngleDifference calculates the angle
  * from the gravity vector to the current orientation.
  * The positive direction is clockwise.
- * @param rotation the rotation of worldobject
- * @param gravityVector the gravity vector of worldobject
- * @return the angle difference between the units norm and gravity vector
+ * @param rotation the rotation of the unit
+ * @param gravityVector the gravity vector of the unit
+ * @return the difference between the units bottom and the gravity vector
  */
 double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVector)
 {
@@ -156,10 +157,10 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
 }
 
 /**
- * @brief PhysicsCalc::roundDown floor of a number in respect to the digit
- * @param numberToRound number to be rounded down
- * @param digit the digit to round down the number
- * @return the rounded down number
+ * @brief PhysicsCalc::roundDown calculates the floor of a number from the given digit
+ * @param numberToRound the number to be rounded down
+ * @param digit the digit after which will be set to zero
+ * @return the rounded number
  */
 double PhysicsCalc::roundDown(double numberToRound, int digit)
 {
@@ -291,7 +292,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
-        //*worldObject->setSpeed(eulSpeed);
+
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(roundDown(worldObject->getRotVel()*-0.7,0));
@@ -335,7 +336,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 }
 
 /**
- * @brief PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². -Tomas
+ * @brief PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R².
  * @param vector
  * @return absolute value of a vector in R².
  */
@@ -566,26 +567,6 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
 
 }
 
-int PhysicsCalc::getPlayerone()
-{
-    return playerone;
-}
-
-int PhysicsCalc::getPlayertwo()
-{
-    return playertwo;
-}
-
-void PhysicsCalc::setPlayerone(int po)
-{
-    this->playerone=po;
-}
-
-void PhysicsCalc::setPlayertwo(int pt)
-{
-    this->playertwo=pt;
-}
-
 /**
  * @brief PhysicsCalc::impuls
  * This function excecutes the conservation of the linear momentum for
@@ -630,8 +611,9 @@ void PhysicsCalc::checkWinCondition(){
 }
 /**
  * @brief PhysicsCalc::inverseSpeed
- * @param colliding1
- * @param colliding2
+ * This function invertes the speed of the first given Worldobject
+ * @param colliding1 is the first WorldObject which speed gets inverted.
+ * @param colliding2 is the secound WorldObject, which speed remains unchanged.
  */
 void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     double* v1=colliding1->getSpeed();
@@ -646,8 +628,10 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
 
 /**
  * @brief PhysicsCalc::meeleDamage
- * @param colliding1
- * @param colliding2
+ * This function calculates the Meele Damage between two Objects.
+ * The unit which has a 10 values higher speed than the other deals the damage.
+ * @param colliding1 is the first colliding object.
+ * @param colliding2 is the secound colliding object.
  */
 void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     //The slower Object gets the Damage
@@ -671,6 +655,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     }
 }
 
+/**
+ * @brief PhysicsCalc::collideWithAny
+ * This function checks it the given object collides with either an unit or the terrain.
+ * @param object is the object, which will checked.
+ * @return true if it collides, false if it do not.
+ */
 bool PhysicsCalc::collideWithAny(WorldObject* object){
     if(CollideWithTerrain(object)){
         return true;
@@ -681,6 +671,13 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
     return false;
 }
 
+/**
+ * @brief PhysicsCalc::unitUnitCollisionFunc
+ * This function calculates the collision between two objects and
+ * chanches the speed of the units. This function is called with BattleUnits.
+ * @param bat1 is the first WorldObject which collides.
+ * @param bat2 is the secound WorldObject which collides.
+ */
 void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
     double c1[2];
     bat1->getPosition(c1);
