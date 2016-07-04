@@ -18,7 +18,8 @@
 #define M_PI 3.14159
 
 /**
- * @brief PhysicsCalc::PhysicsCalc
+ * @brief PhysicsCalc::PhysicsCalc. JumpFrameLimit determines how many timesteps the unit
+ * is allowed to not collide with the ground before it is able to jump again.
  * @param soundplayer the global soundplayer pointer
  */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
@@ -143,9 +144,9 @@ void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
  * @brief PhysicsCalc::gravityAngleDifference calculates the angle
  * from the gravity vector to the current orientation.
  * The positive direction is clockwise.
- * @param rotation the rotation of worldobject
- * @param gravityVector the gravity vector of worldobject
- * @return the angle difference between the units norm and gravity vector
+ * @param rotation the rotation of the unit
+ * @param gravityVector the gravity vector of the unit
+ * @return the difference between the units bottom and the gravity vector
  */
 double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVector)
 {
@@ -157,10 +158,10 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
 }
 
 /**
- * @brief PhysicsCalc::roundDown floor of a number in respect to the digit
- * @param numberToRound number to be rounded down
- * @param digit the digit to round down the number
- * @return the rounded down number
+ * @brief PhysicsCalc::roundDown calculates the floor of a number from the given digit
+ * @param numberToRound the number to be rounded down
+ * @param digit the digit after which will be set to zero
+ * @return the rounded number
  */
 double PhysicsCalc::roundDown(double numberToRound, int digit)
 {
@@ -288,7 +289,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
-        //*worldObject->setSpeed(eulSpeed);
+
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(roundDown(worldObject->getRotVel()*-0.7,0));
@@ -331,7 +332,11 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     return;
 }
 
-
+/**
+ * @brief PhysicsCalc::vectorsAbsoluteValue calculate the absolute value of a 2 dimensional vector
+ * @param vector the  2 dimensional vector
+ * @return the absolute value
+ */
 double PhysicsCalc::vectorsAbsoluteValue(double *vector)
 {
     return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);

@@ -5,6 +5,12 @@
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 
+#include <cstdlib>
+#include <ctime>
+
+/**
+ * @brief SoundPlayer::SoundPlayer initializes the sound players and playlists.
+ */
 SoundPlayer::SoundPlayer()
 {
     BGMplayer = new QMediaPlayer;
@@ -33,17 +39,23 @@ SoundPlayer::SoundPlayer()
     BGMplaylist->addMedia(QUrl("qrc:/sound/sound/gameBGM.wav")); //Add menuBGM at pos 1.
     BGMplaylist->addMedia(QUrl("qrc:/sound/sound/gameBGM1.mp3")); //Add gameBGM at pos 2.
 
-    this->randomIndex = 20;
+    this->randomIndex = 5;
 
 }
-
+/**
+ * @brief SoundPlayer::playProjectileTypeShoot plays the correct shooting sound queue to the
+ * corresponding projectile type. The projectile sounds cut each other if there is one previously playing.
+ * It also plays a taunt voice randomly, with diminishing possibiliy each time. The taunt line is not cut.
+ * @param type
+ */
 void SoundPlayer::playProjectileTypeShoot(int type)
 {
     if(!GameSettings::SEMuted){
         //Random number between 0-19 and always growing , so we hear the taunt less and less
+        std::srand(std::time(0));
         int random_var = (rand()%(this->randomIndex));
-        this->randomIndex += 5;
-        if(randomIndex > 1000) randomIndex = 40;
+        this->randomIndex += 2;
+        if(randomIndex > 50) randomIndex = 40;
         if(random_var == 4) type = 4;
         switch(type){
             // Missile
@@ -88,7 +100,9 @@ void SoundPlayer::playProjectileTypeShoot(int type)
     }
 
 }
-
+/**
+ * @brief SoundPlayer::playMenuBGM play menu music.
+ */
 void SoundPlayer::playMenuBGM()
 {
     if(!GameSettings::BGMMuted)
@@ -101,7 +115,9 @@ void SoundPlayer::playMenuBGM()
 
     }
 }
-
+/**
+ * @brief SoundPlayer::playGameBGM play game music.
+ */
 void SoundPlayer::playGameBGM()
 {
     if(!GameSettings::BGMMuted)
@@ -116,6 +132,9 @@ void SoundPlayer::playGameBGM()
     }
 }
 
+/**
+ * @brief SoundPlayer::playJump plays the jump sound when a unit jumps.
+ */
 void SoundPlayer::playJump()
 {
 
@@ -128,7 +147,9 @@ void SoundPlayer::playJump()
 
 }
 
-
+/**
+ * @brief SoundPlayer::playHit plays the hit sound when a unit gets hit.
+ */
 void SoundPlayer::playHit()
 {
 
