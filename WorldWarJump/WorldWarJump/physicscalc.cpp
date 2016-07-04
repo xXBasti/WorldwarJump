@@ -574,26 +574,6 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
 
 }
 
-int PhysicsCalc::getPlayerone()
-{
-    return playerone;
-}
-
-int PhysicsCalc::getPlayertwo()
-{
-    return playertwo;
-}
-
-void PhysicsCalc::setPlayerone(int po)
-{
-    this->playerone=po;
-}
-
-void PhysicsCalc::setPlayertwo(int pt)
-{
-    this->playertwo=pt;
-}
-
 /**
  * @brief PhysicsCalc::impuls
  * This function excecutes the conservation of the linear momentum for
@@ -638,8 +618,9 @@ void PhysicsCalc::checkWinCondition(){
 }
 /**
  * @brief PhysicsCalc::inverseSpeed
- * @param colliding1
- * @param colliding2
+ * This function invertes the speed of the first given Worldobject
+ * @param colliding1 is the first WorldObject which speed gets inverted.
+ * @param colliding2 is the secound WorldObject, which speed remains unchanged.
  */
 void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
     double* v1=colliding1->getSpeed();
@@ -654,8 +635,10 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
 
 /**
  * @brief PhysicsCalc::meeleDamage
- * @param colliding1
- * @param colliding2
+ * This function calculates the Meele Damage between two Objects.
+ * The unit which has a 10 values higher speed than the other deals the damage.
+ * @param colliding1 is the first colliding object.
+ * @param colliding2 is the secound colliding object.
  */
 void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     //The slower Object gets the Damage
@@ -679,6 +662,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     }
 }
 
+/**
+ * @brief PhysicsCalc::collideWithAny
+ * This function checks it the given object collides with either an unit or the terrain.
+ * @param object is the object, which will checked.
+ * @return true if it collides, false if it do not.
+ */
 bool PhysicsCalc::collideWithAny(WorldObject* object){
     if(CollideWithTerrain(object)){
         return true;
@@ -689,6 +678,13 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
     return false;
 }
 
+/**
+ * @brief PhysicsCalc::unitUnitCollisionFunc
+ * This function calculates the collision between two objects and
+ * chanches the speed of the units. This function is called with BattleUnits.
+ * @param bat1 is the first WorldObject which collides.
+ * @param bat2 is the secound WorldObject which collides.
+ */
 void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
     double c1[2];
     bat1->getPosition(c1);

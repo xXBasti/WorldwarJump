@@ -149,6 +149,10 @@ void BattleUnit::setPicture()
     }
 }
 
+/**
+ * @brief BattleUnit::shoot
+ * This
+ */
 void BattleUnit::shoot(){
     if(ableToShoot){
         double nozzle[2];
