@@ -28,7 +28,6 @@ PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
     //Merge the number of units
     settings->setPlayer1UnitCount(settings->getPlayerRedShipCount()+settings->getPlayerRedTankCount());
     settings->setPlayer2UnitCount(settings->getPlayerBlueShipCount()+settings->getPlayerBlueTankCount());
-
 }
 
 /**
@@ -244,9 +243,13 @@ void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject
 * based on it's current position and its current speed.
-* Then it sets the object's new position and new speed
-* When the WorldObject moves below the ground (collision) the movement speed of the WorldObject is inverted
-* @param worldObject the WorldObject instance for which new position
+*
+* When the WorldObject moves below the ground (collision) the movement speed of the WorldObject
+* in radial direction is set in the direction of the center.
+* Then it sets the object's new position and new speed. -Tomas
+*
+* @param worldObject the WorldObject instance for which new position is to be calculated and set. If it is a WorldObject of the type Projectile
+* ,then the Projectile bounce counter is increased.
 */
 void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
@@ -331,18 +334,26 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     return;
 }
 
-
+/**
+ * @brief PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². -Tomas
+ * @param vector
+ * @return absolute value of a vector in R².
+ */
 double PhysicsCalc::vectorsAbsoluteValue(double *vector)
 {
     return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);
 }
 
 /**
- * @brief PhysicsCalc::velocityEulerToRadialCoordinates
- * @param eulInputPosition objects position
- * @param eulInputVelocity objects velocity
- * @param radialOutput first direction is radial, second directions is tangential
- * @param eulerToRadial true if transforming from euler to radial, or false if transforming from radial to euler
+ * @brief PhysicsCalc::velocityEulerToRadialCoordinates transforms the velocity of a WorldObject. -Tomas
+ *
+ * Detailed: the new velocity vector is in a coordinate system which always points with the first coordinate from the center
+ * of the world through the position of the unit outwards radially. The second coordinate points facing int the same direction to the left.
+ *
+ * @param eulInputPosition objects position to determine what direction is outward.
+ * @param eulInputVelocity objects velocity to transform
+ * @param radialOutput first coordinate radial, second coordinate is tangential to the Terrain 's circle.
+ * @param eulerToRadial true if transforming from Euler coordinates, or false if transforming back to Euler coordinates.
  */
 void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)
 {

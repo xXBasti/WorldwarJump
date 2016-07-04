@@ -4,13 +4,16 @@
 #include <QKeyEvent>
 #include "gamesettings.h"
 
+/**
+ * @brief Input::Input constructor
+ */
 Input::Input(){
     GameSettings * settings;
     int gameWorldSize = settings->getGameWorldSize();
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
     refreshRateTimer = new QTimer();
-    refreshRateTimer->start(20);
+    refreshRateTimer->start(settings->getRefreshRate());
     setRect(0,0,gameWorldSize,gameWorldSize);
 }
 

@@ -9,6 +9,7 @@ GameSettings::GameSettings()
 // static members are not defined in the constructor
 int GameSettings::secondsToChangeLevel = 5;
 int GameSettings::milisecondsBetweenBattleUnitShots = 1000;
+int GameSettings::refreshRate = 20;
 int GameSettings::player1UnitCount = 1;
 int GameSettings::player2UnitCount = 1;
 
@@ -250,6 +251,16 @@ void GameSettings::setSEvolume(int value)
 int GameSettings::getMilisecondsBetweenBattleUnitShots()
 {
     return milisecondsBetweenBattleUnitShots;
+}
+
+int GameSettings::getRefreshRate()
+{
+    return refreshRate;
+}
+
+void GameSettings::setRefreshRate(int value)
+{
+    refreshRate = value;
 }
 
 int GameSettings::getMeeleDmg(){
