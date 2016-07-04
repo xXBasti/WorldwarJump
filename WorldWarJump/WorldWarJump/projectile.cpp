@@ -11,7 +11,15 @@
 
 #define M_PI 3.14159
 
-
+/**
+ * @brief Projectile::Projectile constructor. Initializes  the position, the initial angle ,
+ * the initial speed ,the projectile type , the weight and the damage and connects the timer
+ * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
+ * @param shootingUnit the battle unit shooting the projectile
+ * @param p the enum that gives the projectile type
+ * @param soundplayer the pointer to the global sound player
+ * @param shootingPoint the point in scene coordinates where the projectile should spawn
+ */
 Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){
 
     ObjectType = 'p';
@@ -22,7 +30,6 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->pT=p;
     this->orientationChanged = false;
     this->orientationChangeCount = 0;
-//    qDebug() <<"launch";
 
     //Projectile angle
     double speedPol[2] = {0};
@@ -72,7 +79,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     polToEul(speedPol,speedEul,'v');
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
-    setTransformOriginPoint(0,0/*(this->pixmap().width())/2,(this->pixmap().height())/2*/);
+    setTransformOriginPoint(0,0);
     this->setRotVel(0);
     this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);
@@ -87,11 +94,6 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
 
-
-
-    //qDebug() << "Shooting unit orientation: " << shootingUnit->getOrientation() ;
-    //qDebug() << "Projectile orientation: " << speedPol[1]*(180/M_PI) ;
-    //qDebug() << shootingUnit->getUnittype() << "  X: " << x << "Y: " << y;
 }
 
 void Projectile::setPicture(Player p)
