@@ -639,13 +639,13 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
 
     if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
-        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>2){
+        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>10){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
            impuls(colliding1,colliding2);
            checkHealth(colliding1);
            emit meeleDmg();
         }
-        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>2){
+        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>10){
             colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
             impuls(colliding1,colliding2);
             checkHealth(colliding2);
