@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['impuls',['impuls',['../class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3',1,'PhysicsCalc']]],
-  ['input',['Input',['../class_input.html#abae3f379d3f157cf42dc857309832dba',1,'Input']]],
-  ['inversespeed',['inverseSpeed',['../class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724',1,'PhysicsCalc']]]
+  ['hidemelee',['hideMelee',['../class_game_world.html#ad8dd31d4ac368bda6d54b3d5398ed3ea',1,'GameWorld']]],
+  ['hit',['hit',['../class_world_object.html#a5630a513886f232da0174fc992a13ad7',1,'WorldObject']]],
+  ['hitunit',['hitUnit',['../class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c',1,'PhysicsCalc']]]
 ];

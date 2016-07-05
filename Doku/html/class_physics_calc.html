@@ -24,7 +24,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">World War Jump
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Main project of group 8</div>
   </td>
  </tr>
  </tbody>
@@ -120,7 +122,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>meeleDmg</b> ()</td><
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a806b2675198437e8271ab82eda0e6746"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746">PhysicsCalc</a> (<a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer)</td></tr>
-<tr class="memdesc:a806b2675198437e8271ab82eda0e6746"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746" title="PhysicsCalc::PhysicsCalc. ">PhysicsCalc::PhysicsCalc</a>.  <a href="#a806b2675198437e8271ab82eda0e6746">More...</a><br /></td></tr>
+<tr class="memdesc:a806b2675198437e8271ab82eda0e6746"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746" title="PhysicsCalc::PhysicsCalc. JumpFrameLimit determines how many timesteps the unit is allowed to not col...">PhysicsCalc::PhysicsCalc</a>. JumpFrameLimit determines how many timesteps the unit is allowed to not collide with the ground before it is able to jump again.  <a href="#a806b2675198437e8271ab82eda0e6746">More...</a><br /></td></tr>
 <tr class="separator:a806b2675198437e8271ab82eda0e6746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef2a6c520d3d0a815c333c1a08cb4df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df">calculateNewRotValues</a> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject)</td></tr>
 <tr class="memdesc:a7ef2a6c520d3d0a815c333c1a08cb4df"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df" title="PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject based on ...">PhysicsCalc::calculateNewRotValues</a> calculates the next orientation of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. Different calculations on projectiles and battleunits. The projectiles "head" is made to always point the speed vector. The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module. The closer they get to the center, the less they are stabilized.  <a href="#a7ef2a6c520d3d0a815c333c1a08cb4df">More...</a><br /></td></tr>
@@ -143,76 +145,60 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getBottomRight</b> (<
 <tr class="memitem:a9a74039e739a8649547c6d2f8aaf7fab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a74039e739a8649547c6d2f8aaf7fab"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>getBottomLeft</b> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject, double *bottomLeft)</td></tr>
 <tr class="separator:a9a74039e739a8649547c6d2f8aaf7fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bbfe3998836451d84697577c0e6195d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bbfe3998836451d84697577c0e6195d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getImpactPoint</b> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject, double *impactPoint)</td></tr>
+<tr class="memitem:a9bbfe3998836451d84697577c0e6195d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a9bbfe3998836451d84697577c0e6195d">getImpactPoint</a> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject, double *impactPoint)</td></tr>
+<tr class="memdesc:a9bbfe3998836451d84697577c0e6195d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a9bbfe3998836451d84697577c0e6195d" title="PhysicsCalc::getImpactPoint calculates the impact point with the cornerpoints of the given WorldObjec...">PhysicsCalc::getImpactPoint</a> calculates the impact point with the cornerpoints of the given <a class="el" href="class_world_object.html">WorldObject</a>.  <a href="#a9bbfe3998836451d84697577c0e6195d">More...</a><br /></td></tr>
 <tr class="separator:a9bbfe3998836451d84697577c0e6195d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a515dcab8395108cb37b7526adbab6ed0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0">gravityAngleDifference</a> (double rotation, double *gravityVector)</td></tr>
 <tr class="memdesc:a515dcab8395108cb37b7526adbab6ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0" title="PhysicsCalc::gravityAngleDifference calculates the angle from the gravity vector to the current orien...">PhysicsCalc::gravityAngleDifference</a> calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise.  <a href="#a515dcab8395108cb37b7526adbab6ed0">More...</a><br /></td></tr>
 <tr class="separator:a515dcab8395108cb37b7526adbab6ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e24e0769598a509705a71a0c4e8ab5d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d">roundDown</a> (double numberToRound, int digit)</td></tr>
-<tr class="memdesc:a7e24e0769598a509705a71a0c4e8ab5d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d" title="PhysicsCalc::roundDown floor of a number in respect to the digit. ">PhysicsCalc::roundDown</a> floor of a number in respect to the digit.  <a href="#a7e24e0769598a509705a71a0c4e8ab5d">More...</a><br /></td></tr>
+<tr class="memdesc:a7e24e0769598a509705a71a0c4e8ab5d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d" title="PhysicsCalc::roundDown calculates the floor of a number from the given digit. ">PhysicsCalc::roundDown</a> calculates the floor of a number from the given digit.  <a href="#a7e24e0769598a509705a71a0c4e8ab5d">More...</a><br /></td></tr>
 <tr class="separator:a7e24e0769598a509705a71a0c4e8ab5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2">calculateNewValues</a> (<a class="el" href="class_world_object.html">WorldObject</a> *)</td></tr>
 <tr class="memdesc:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2" title="PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject based on it&#39;s c...">PhysicsCalc::calculateNewValues</a> calculates the next position of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current position and its current speed.  <a href="#a8d6de304c47a3b6be6fdfd7bacd3dcd2">More...</a><br /></td></tr>
 <tr class="separator:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5">vectorsAbsoluteValue</a> (double *vector)</td></tr>
-<tr class="memdesc:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5" title="PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². -Tomas. ">PhysicsCalc::vectorsAbsoluteValue</a> calculates the absolute value for a vector in R². -Tomas.  <a href="#a5915904f1743c3a6cca6cf2b72a8d6f5">More...</a><br /></td></tr>
+<tr class="memdesc:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5" title="PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². ">PhysicsCalc::vectorsAbsoluteValue</a> calculates the absolute value for a vector in R².  <a href="#a5915904f1743c3a6cca6cf2b72a8d6f5">More...</a><br /></td></tr>
 <tr class="separator:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae5264bd415c1cccac4bd4628cb015a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0">velocityEulerToRadialCoordinates</a> (double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)</td></tr>
 <tr class="memdesc:aae5264bd415c1cccac4bd4628cb015a0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0" title="PhysicsCalc::velocityEulerToRadialCoordinates transforms the velocity of a WorldObject. -Tomas. ">PhysicsCalc::velocityEulerToRadialCoordinates</a> transforms the velocity of a <a class="el" href="class_world_object.html">WorldObject</a>. -Tomas.  <a href="#aae5264bd415c1cccac4bd4628cb015a0">More...</a><br /></td></tr>
 <tr class="separator:aae5264bd415c1cccac4bd4628cb015a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af038d3a5fe0160410456b14601a95581"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581">eulToPol</a> (double *eul, double *pol, char type)</td></tr>
-<tr class="memdesc:af038d3a5fe0160410456b14601a95581"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581" title="PhysicsCalc::eulToPol This function translates the given cartesian coordinate system to a polar coord...">PhysicsCalc::eulToPol</a> This function translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer.  <a href="#af038d3a5fe0160410456b14601a95581">More...</a><br /></td></tr>
+<tr class="memdesc:af038d3a5fe0160410456b14601a95581"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581" title="PhysicsCalc::eulToPol translates the given cartesian coordinate system to a polar coordinate system a...">PhysicsCalc::eulToPol</a> translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer.  <a href="#af038d3a5fe0160410456b14601a95581">More...</a><br /></td></tr>
 <tr class="separator:af038d3a5fe0160410456b14601a95581"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a441c3e94fe0e6eed1d96531368f50d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a441c3e94fe0e6eed1d96531368f50d54">polToEul</a> (double *pol, double *eul, char type)</td></tr>
-<tr class="memdesc:a441c3e94fe0e6eed1d96531368f50d54"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a441c3e94fe0e6eed1d96531368f50d54" title="PhysicsCalc::polToEul. ">PhysicsCalc::polToEul</a>.  <a href="#a441c3e94fe0e6eed1d96531368f50d54">More...</a><br /></td></tr>
+<tr class="memdesc:a441c3e94fe0e6eed1d96531368f50d54"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a441c3e94fe0e6eed1d96531368f50d54" title="PhysicsCalc::polToEul This function transforms polar coordinates into cartesian coordinates. ">PhysicsCalc::polToEul</a> This function transforms polar coordinates into cartesian coordinates.  <a href="#a441c3e94fe0e6eed1d96531368f50d54">More...</a><br /></td></tr>
 <tr class="separator:a441c3e94fe0e6eed1d96531368f50d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eabcd0d018806138c1141feedb13589"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2eabcd0d018806138c1141feedb13589"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>radialCollison</b> (double colPosEul[2], double colSpeedRT[2])</td></tr>
-<tr class="separator:a2eabcd0d018806138c1141feedb13589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6d0e0e75ce2a00c15a883531f454233"><td class="memItemLeft" align="right" valign="top">QGraphicsItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#ad6d0e0e75ce2a00c15a883531f454233">CollideWithUnit</a> (<a class="el" href="class_world_object.html">WorldObject</a> *object)</td></tr>
-<tr class="memdesc:ad6d0e0e75ce2a00c15a883531f454233"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#ad6d0e0e75ce2a00c15a883531f454233" title="PhysicsCalc::CollideWithUnit This function checks, if an object collides with an other object of the ...">PhysicsCalc::CollideWithUnit</a> This function checks, if an object collides with an other object of the type <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> or <a class="el" href="class_projectile.html">Projectile</a> and returns that object.  <a href="#ad6d0e0e75ce2a00c15a883531f454233">More...</a><br /></td></tr>
+<tr class="memdesc:ad6d0e0e75ce2a00c15a883531f454233"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#ad6d0e0e75ce2a00c15a883531f454233" title="PhysicsCalc::CollideWithUnit checks, if an object collides with an other object of the type BattleUni...">PhysicsCalc::CollideWithUnit</a> checks, if an object collides with an other object of the type <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> or <a class="el" href="class_projectile.html">Projectile</a> and returns that object.  <a href="#ad6d0e0e75ce2a00c15a883531f454233">More...</a><br /></td></tr>
 <tr class="separator:ad6d0e0e75ce2a00c15a883531f454233"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75c4cfbeb112120f4ffd4839182ca25c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c">hitUnit</a> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject)</td></tr>
-<tr class="memdesc:a75c4cfbeb112120f4ffd4839182ca25c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c" title="PhysicsCalc::hitUnit This function calculates the damage, between two colliding objects and checks on...">PhysicsCalc::hitUnit</a> This function calculates the damage, between two colliding objects and checks one of the <a class="el" href="class_world_object.html">WorldObject</a> get destroyed.  <a href="#a75c4cfbeb112120f4ffd4839182ca25c">More...</a><br /></td></tr>
+<tr class="memdesc:a75c4cfbeb112120f4ffd4839182ca25c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c" title="PhysicsCalc::hitUnit calculates the damage, between two colliding objects and checks one of the World...">PhysicsCalc::hitUnit</a> calculates the damage, between two colliding objects and checks one of the <a class="el" href="class_world_object.html">WorldObject</a> gets destroyed.  <a href="#a75c4cfbeb112120f4ffd4839182ca25c">More...</a><br /></td></tr>
 <tr class="separator:a75c4cfbeb112120f4ffd4839182ca25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad30acc4f9a1111e1d611aa943aff53a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3">impuls</a> (<a class="el" href="class_world_object.html">WorldObject</a> *obj1, <a class="el" href="class_world_object.html">WorldObject</a> *obj2)</td></tr>
-<tr class="memdesc:ad30acc4f9a1111e1d611aa943aff53a3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3" title="PhysicsCalc::impuls This function excecutes the conservation of the linear momentum for the two colli...">PhysicsCalc::impuls</a> This function excecutes the conservation of the linear momentum for the two colliding objects obj1 and obj2.  <a href="#ad30acc4f9a1111e1d611aa943aff53a3">More...</a><br /></td></tr>
+<tr class="memdesc:ad30acc4f9a1111e1d611aa943aff53a3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3" title="PhysicsCalc::impuls excecutes the conservation of the linear momentum for the two colliding objects o...">PhysicsCalc::impuls</a> excecutes the conservation of the linear momentum for the two colliding objects obj1 and obj2.  <a href="#ad30acc4f9a1111e1d611aa943aff53a3">More...</a><br /></td></tr>
 <tr class="separator:ad30acc4f9a1111e1d611aa943aff53a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac58c297992ee6fd388ff29c839c5693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#aac58c297992ee6fd388ff29c839c5693">checkHealth</a> (<a class="el" href="class_world_object.html">WorldObject</a> *obj)</td></tr>
-<tr class="memdesc:aac58c297992ee6fd388ff29c839c5693"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#aac58c297992ee6fd388ff29c839c5693" title="PhysicsCalc::checkHealth This function checks if the given object has healtpoint lower or eqaul to ze...">PhysicsCalc::checkHealth</a> This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit. The unitcounter of the owining player will be decreased too.  <a href="#aac58c297992ee6fd388ff29c839c5693">More...</a><br /></td></tr>
+<tr class="memdesc:aac58c297992ee6fd388ff29c839c5693"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#aac58c297992ee6fd388ff29c839c5693" title="PhysicsCalc::checkHealth checks if the given object has healtpoint lower or eqaul to zero and destroy...">PhysicsCalc::checkHealth</a> checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit. The unitcounter of the owining player will be decreased too.  <a href="#aac58c297992ee6fd388ff29c839c5693">More...</a><br /></td></tr>
 <tr class="separator:aac58c297992ee6fd388ff29c839c5693"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e54d34a8efd8c14c356bdeb5308ad32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e54d34a8efd8c14c356bdeb5308ad32"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPlayerone</b> ()</td></tr>
-<tr class="separator:a2e54d34a8efd8c14c356bdeb5308ad32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d963098593c28d7190ee446f4c50979"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d963098593c28d7190ee446f4c50979"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getPlayertwo</b> ()</td></tr>
-<tr class="separator:a8d963098593c28d7190ee446f4c50979"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7d4402c26a08de3580466533eb27cdc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7d4402c26a08de3580466533eb27cdc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPlayerone</b> (int po)</td></tr>
-<tr class="separator:aa7d4402c26a08de3580466533eb27cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f152ef88ebf3fad24db71508ee54690"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f152ef88ebf3fad24db71508ee54690"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPlayertwo</b> (int pt)</td></tr>
-<tr class="separator:a4f152ef88ebf3fad24db71508ee54690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a611a891e2f01de112884cc09f25d1e33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a611a891e2f01de112884cc09f25d1e33"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a611a891e2f01de112884cc09f25d1e33">checkWinCondition</a> ()</td></tr>
-<tr class="memdesc:a611a891e2f01de112884cc09f25d1e33"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a611a891e2f01de112884cc09f25d1e33" title="PhysicsCalc::checkWinCondition This function checks if one of the playes are out of units and than em...">PhysicsCalc::checkWinCondition</a> This function checks if one of the playes are out of units and than emit a winning signal. <br /></td></tr>
+<tr class="memdesc:a611a891e2f01de112884cc09f25d1e33"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a611a891e2f01de112884cc09f25d1e33" title="PhysicsCalc::checkWinCondition checks if one of the playes are out of units and than emit a winning s...">PhysicsCalc::checkWinCondition</a> checks if one of the playes are out of units and than emit a winning signal. <br /></td></tr>
 <tr class="separator:a611a891e2f01de112884cc09f25d1e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22379e7ef119411e03fc8c4ba211c724"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724">inverseSpeed</a> (<a class="el" href="class_world_object.html">WorldObject</a> *colliding1, <a class="el" href="class_world_object.html">WorldObject</a> *colliding2)</td></tr>
-<tr class="memdesc:a22379e7ef119411e03fc8c4ba211c724"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724" title="PhysicsCalc::inverseSpeed. ">PhysicsCalc::inverseSpeed</a>.  <a href="#a22379e7ef119411e03fc8c4ba211c724">More...</a><br /></td></tr>
+<tr class="memdesc:a22379e7ef119411e03fc8c4ba211c724"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724" title="PhysicsCalc::inverseSpeed invertes the speed of the first given Worldobject. ">PhysicsCalc::inverseSpeed</a> invertes the speed of the first given Worldobject.  <a href="#a22379e7ef119411e03fc8c4ba211c724">More...</a><br /></td></tr>
 <tr class="separator:a22379e7ef119411e03fc8c4ba211c724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10a603c3fb290521b301a19600c067c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a10a603c3fb290521b301a19600c067c4">meeleDamage</a> (<a class="el" href="class_world_object.html">WorldObject</a> *colliding1, <a class="el" href="class_world_object.html">WorldObject</a> *colliding2)</td></tr>
-<tr class="memdesc:a10a603c3fb290521b301a19600c067c4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a10a603c3fb290521b301a19600c067c4" title="PhysicsCalc::meeleDamage. ">PhysicsCalc::meeleDamage</a>.  <a href="#a10a603c3fb290521b301a19600c067c4">More...</a><br /></td></tr>
+<tr class="memdesc:a10a603c3fb290521b301a19600c067c4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a10a603c3fb290521b301a19600c067c4" title="PhysicsCalc::meeleDamage calculates the Meele Damage between two Objects. The unit which has a 10 val...">PhysicsCalc::meeleDamage</a> calculates the Meele Damage between two Objects. The unit which has a 10 values higher speed than the other deals the damage.  <a href="#a10a603c3fb290521b301a19600c067c4">More...</a><br /></td></tr>
 <tr class="separator:a10a603c3fb290521b301a19600c067c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8529b4af50316ef96a6bcbd029c39077"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8529b4af50316ef96a6bcbd029c39077"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>collideWithAny</b> (<a class="el" href="class_world_object.html">WorldObject</a> *object)</td></tr>
+<tr class="memitem:a8529b4af50316ef96a6bcbd029c39077"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a8529b4af50316ef96a6bcbd029c39077">collideWithAny</a> (<a class="el" href="class_world_object.html">WorldObject</a> *object)</td></tr>
+<tr class="memdesc:a8529b4af50316ef96a6bcbd029c39077"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a8529b4af50316ef96a6bcbd029c39077" title="PhysicsCalc::collideWithAny checks it the given object collides with either an unit or the terrain...">PhysicsCalc::collideWithAny</a> checks it the given object collides with either an unit or the terrain.  <a href="#a8529b4af50316ef96a6bcbd029c39077">More...</a><br /></td></tr>
 <tr class="separator:a8529b4af50316ef96a6bcbd029c39077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacab28a38556f2a29e52068f09a3a4f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacab28a38556f2a29e52068f09a3a4f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unitUnitCollisionFunc</b> (<a class="el" href="class_world_object.html">WorldObject</a> *bat1, <a class="el" href="class_world_object.html">WorldObject</a> *bat2)</td></tr>
+<tr class="memitem:aacab28a38556f2a29e52068f09a3a4f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#aacab28a38556f2a29e52068f09a3a4f0">unitUnitCollisionFunc</a> (<a class="el" href="class_world_object.html">WorldObject</a> *bat1, <a class="el" href="class_world_object.html">WorldObject</a> *bat2)</td></tr>
+<tr class="memdesc:aacab28a38556f2a29e52068f09a3a4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#aacab28a38556f2a29e52068f09a3a4f0" title="PhysicsCalc::unitUnitCollisionFunc calculates the collision between two objects and chanches the spee...">PhysicsCalc::unitUnitCollisionFunc</a> calculates the collision between two objects and chanches the speed of the units. This function is called with BattleUnits.  <a href="#aacab28a38556f2a29e52068f09a3a4f0">More...</a><br /></td></tr>
 <tr class="separator:aacab28a38556f2a29e52068f09a3a4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88dc6d26563c0a340cd5c4470801b419"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88dc6d26563c0a340cd5c4470801b419"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a88dc6d26563c0a340cd5c4470801b419">CollideWithTerrain</a> (<a class="el" href="class_world_object.html">WorldObject</a> *object)</td></tr>
-<tr class="memdesc:a88dc6d26563c0a340cd5c4470801b419"><td class="mdescLeft">&#160;</td><td class="mdescRight">CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG. <br /></td></tr>
+<tr class="memitem:a88dc6d26563c0a340cd5c4470801b419"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a88dc6d26563c0a340cd5c4470801b419">CollideWithTerrain</a> (<a class="el" href="class_world_object.html">WorldObject</a> *object)</td></tr>
+<tr class="memdesc:a88dc6d26563c0a340cd5c4470801b419"><td class="mdescLeft">&#160;</td><td class="mdescRight">CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG.  <a href="#a88dc6d26563c0a340cd5c4470801b419">More...</a><br /></td></tr>
 <tr class="separator:a88dc6d26563c0a340cd5c4470801b419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -260,7 +246,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746" title="PhysicsCalc::PhysicsCalc. ">PhysicsCalc::PhysicsCalc</a>. </p>
+<p><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746" title="PhysicsCalc::PhysicsCalc. JumpFrameLimit determines how many timesteps the unit is allowed to not col...">PhysicsCalc::PhysicsCalc</a>. JumpFrameLimit determines how many timesteps the unit is allowed to not collide with the ground before it is able to jump again. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">soundplayer</td><td>the global soundplayer pointer </td></tr>
@@ -335,13 +321,64 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#aac58c297992ee6fd388ff29c839c5693" title="PhysicsCalc::checkHealth This function checks if the given object has healtpoint lower or eqaul to ze...">PhysicsCalc::checkHealth</a> This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit. The unitcounter of the owining player will be decreased too. </p>
+<p><a class="el" href="class_physics_calc.html#aac58c297992ee6fd388ff29c839c5693" title="PhysicsCalc::checkHealth checks if the given object has healtpoint lower or eqaul to zero and destroy...">PhysicsCalc::checkHealth</a> checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit. The unitcounter of the owining player will be decreased too. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">obj</td><td>is the <a class="el" href="class_world_object.html">WorldObject</a> whicht should be checked </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a8529b4af50316ef96a6bcbd029c39077"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PhysicsCalc::collideWithAny </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_world_object.html">WorldObject</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_physics_calc.html#a8529b4af50316ef96a6bcbd029c39077" title="PhysicsCalc::collideWithAny checks it the given object collides with either an unit or the terrain...">PhysicsCalc::collideWithAny</a> checks it the given object collides with either an unit or the terrain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>is the object, which will checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it collides, false if it do not. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a88dc6d26563c0a340cd5c4470801b419"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PhysicsCalc::CollideWithTerrain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_world_object.html">WorldObject</a> *&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG. </p>
+<p><a class="el" href="class_physics_calc.html#a88dc6d26563c0a340cd5c4470801b419" title="CollideWithTerrain checks if one touches the ground and returns a boolean argument. - WANG. ">PhysicsCalc::CollideWithTerrain</a> checks if the given object collides with the terrain and returns true or false.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object</td><td>is the <a class="el" href="class_world_object.html">WorldObject</a>, which will be checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if it collides, false if it does not. </dd></dl>
 
 </div>
 </div>
@@ -359,7 +396,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#ad6d0e0e75ce2a00c15a883531f454233" title="PhysicsCalc::CollideWithUnit This function checks, if an object collides with an other object of the ...">PhysicsCalc::CollideWithUnit</a> This function checks, if an object collides with an other object of the type <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> or <a class="el" href="class_projectile.html">Projectile</a> and returns that object. </p>
+<p><a class="el" href="class_physics_calc.html#ad6d0e0e75ce2a00c15a883531f454233" title="PhysicsCalc::CollideWithUnit checks, if an object collides with an other object of the type BattleUni...">PhysicsCalc::CollideWithUnit</a> checks, if an object collides with an other object of the type <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> or <a class="el" href="class_projectile.html">Projectile</a> and returns that object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">object</td><td>is the object, which will be checked. </td></tr>
@@ -400,12 +437,47 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581" title="PhysicsCalc::eulToPol This function translates the given cartesian coordinate system to a polar coord...">PhysicsCalc::eulToPol</a> This function translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer. </p>
+<p><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581" title="PhysicsCalc::eulToPol translates the given cartesian coordinate system to a polar coordinate system a...">PhysicsCalc::eulToPol</a> translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eul</td><td>inputpointer in cartesian coordinates </td></tr>
-    <tr><td class="paramname">pol</td><td>outputpointer in polar coordinates </td></tr>
+    <tr><td class="paramname">eul</td><td>inputpointer in cartesian coordinates, [0] -&gt; x, [1] -&gt; y. </td></tr>
+    <tr><td class="paramname">pol</td><td>outputpointer in polar coordinates, [0] -&gt; r, [1] -&gt; phi. </td></tr>
     <tr><td class="paramname">type</td><td>type of the translation, v -&gt; velocity, p -&gt; position </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a9bbfe3998836451d84697577c0e6195d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PhysicsCalc::getImpactPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_world_object.html">WorldObject</a> *&#160;</td>
+          <td class="paramname"><em>worldObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>impactPoint</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_physics_calc.html#a9bbfe3998836451d84697577c0e6195d" title="PhysicsCalc::getImpactPoint calculates the impact point with the cornerpoints of the given WorldObjec...">PhysicsCalc::getImpactPoint</a> calculates the impact point with the cornerpoints of the given <a class="el" href="class_world_object.html">WorldObject</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">worldObject</td><td>the object, which impact point should be calculated. </td></tr>
+    <tr><td class="paramname">impactPoint</td><td>is pointer to the array where the point will be saved. </td></tr>
   </table>
   </dd>
 </dl>
@@ -439,12 +511,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
 <p><a class="el" href="class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0" title="PhysicsCalc::gravityAngleDifference calculates the angle from the gravity vector to the current orien...">PhysicsCalc::gravityAngleDifference</a> calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rotation</td><td>the rotation of worldobject </td></tr>
-    <tr><td class="paramname">gravityVector</td><td>the gravity vector of worldobject </td></tr>
+    <tr><td class="paramname">rotation</td><td>the rotation of the unit </td></tr>
+    <tr><td class="paramname">gravityVector</td><td>the gravity vector of the unit </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the angle difference between the units norm and gravity vector </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the difference between the units bottom and the gravity vector </dd></dl>
 
 </div>
 </div>
@@ -496,7 +568,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c" title="PhysicsCalc::hitUnit This function calculates the damage, between two colliding objects and checks on...">PhysicsCalc::hitUnit</a> This function calculates the damage, between two colliding objects and checks one of the <a class="el" href="class_world_object.html">WorldObject</a> get destroyed. </p>
+<p><a class="el" href="class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c" title="PhysicsCalc::hitUnit calculates the damage, between two colliding objects and checks one of the World...">PhysicsCalc::hitUnit</a> calculates the damage, between two colliding objects and checks one of the <a class="el" href="class_world_object.html">WorldObject</a> gets destroyed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">worldObject</td><td>is the <a class="el" href="class_world_object.html">WorldObject</a> for which the collision will be calculated. </td></tr>
@@ -530,7 +602,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3" title="PhysicsCalc::impuls This function excecutes the conservation of the linear momentum for the two colli...">PhysicsCalc::impuls</a> This function excecutes the conservation of the linear momentum for the two colliding objects obj1 and obj2. </p>
+<p><a class="el" href="class_physics_calc.html#ad30acc4f9a1111e1d611aa943aff53a3" title="PhysicsCalc::impuls excecutes the conservation of the linear momentum for the two colliding objects o...">PhysicsCalc::impuls</a> excecutes the conservation of the linear momentum for the two colliding objects obj1 and obj2. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">obj1</td><td>is the first object which collides. </td></tr>
@@ -565,11 +637,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724" title="PhysicsCalc::inverseSpeed. ">PhysicsCalc::inverseSpeed</a>. </p>
+<p><a class="el" href="class_physics_calc.html#a22379e7ef119411e03fc8c4ba211c724" title="PhysicsCalc::inverseSpeed invertes the speed of the first given Worldobject. ">PhysicsCalc::inverseSpeed</a> invertes the speed of the first given Worldobject. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">colliding1</td><td></td></tr>
-    <tr><td class="paramname">colliding2</td><td></td></tr>
+    <tr><td class="paramname">colliding1</td><td>is the first <a class="el" href="class_world_object.html">WorldObject</a> which speed gets inverted. </td></tr>
+    <tr><td class="paramname">colliding2</td><td>is the secound <a class="el" href="class_world_object.html">WorldObject</a>, which speed remains unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -600,11 +672,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a10a603c3fb290521b301a19600c067c4" title="PhysicsCalc::meeleDamage. ">PhysicsCalc::meeleDamage</a>. </p>
+<p><a class="el" href="class_physics_calc.html#a10a603c3fb290521b301a19600c067c4" title="PhysicsCalc::meeleDamage calculates the Meele Damage between two Objects. The unit which has a 10 val...">PhysicsCalc::meeleDamage</a> calculates the Meele Damage between two Objects. The unit which has a 10 values higher speed than the other deals the damage. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">colliding1</td><td></td></tr>
-    <tr><td class="paramname">colliding2</td><td></td></tr>
+    <tr><td class="paramname">colliding1</td><td>is the first colliding object. </td></tr>
+    <tr><td class="paramname">colliding2</td><td>is the secound colliding object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -641,11 +713,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a441c3e94fe0e6eed1d96531368f50d54" title="PhysicsCalc::polToEul. ">PhysicsCalc::polToEul</a>. </p>
+<p><a class="el" href="class_physics_calc.html#a441c3e94fe0e6eed1d96531368f50d54" title="PhysicsCalc::polToEul This function transforms polar coordinates into cartesian coordinates. ">PhysicsCalc::polToEul</a> This function transforms polar coordinates into cartesian coordinates. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pol</td><td></td></tr>
-    <tr><td class="paramname">eul</td><td></td></tr>
+    <tr><td class="paramname">pol</td><td>is the inputpointer for polar coordinates, [0] -&gt; x, [1] -&gt; y. </td></tr>
+    <tr><td class="paramname">eul</td><td>is the outputpointer for the cartesian coordinates, [0] -&gt; r, [1] -&gt; phi. </td></tr>
+    <tr><td class="paramname">type</td><td>type of the translation, v -&gt; velocity, p -&gt; position. </td></tr>
   </table>
   </dd>
 </dl>
@@ -676,15 +749,50 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d" title="PhysicsCalc::roundDown floor of a number in respect to the digit. ">PhysicsCalc::roundDown</a> floor of a number in respect to the digit. </p>
+<p><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d" title="PhysicsCalc::roundDown calculates the floor of a number from the given digit. ">PhysicsCalc::roundDown</a> calculates the floor of a number from the given digit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">numberToRound</td><td>number to be rounded down </td></tr>
-    <tr><td class="paramname">digit</td><td>the digit to round down the number </td></tr>
+    <tr><td class="paramname">numberToRound</td><td>the number to be rounded down </td></tr>
+    <tr><td class="paramname">digit</td><td>the digit after which will be set to zero </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the rounded down number </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the rounded number </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aacab28a38556f2a29e52068f09a3a4f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PhysicsCalc::unitUnitCollisionFunc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_world_object.html">WorldObject</a> *&#160;</td>
+          <td class="paramname"><em>bat1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_world_object.html">WorldObject</a> *&#160;</td>
+          <td class="paramname"><em>bat2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_physics_calc.html#aacab28a38556f2a29e52068f09a3a4f0" title="PhysicsCalc::unitUnitCollisionFunc calculates the collision between two objects and chanches the spee...">PhysicsCalc::unitUnitCollisionFunc</a> calculates the collision between two objects and chanches the speed of the units. This function is called with BattleUnits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bat1</td><td>is the first <a class="el" href="class_world_object.html">WorldObject</a> which collides. </td></tr>
+    <tr><td class="paramname">bat2</td><td>is the secound <a class="el" href="class_world_object.html">WorldObject</a> which collides. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -737,7 +845,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5" title="PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². -Tomas. ">PhysicsCalc::vectorsAbsoluteValue</a> calculates the absolute value for a vector in R². -Tomas. </p>
+<p><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5" title="PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². ">PhysicsCalc::vectorsAbsoluteValue</a> calculates the absolute value for a vector in R². </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vector</td><td></td></tr>
