@@ -101,6 +101,7 @@ public:
     QSlider *SEslider;
 
     QGraphicsPixmapItem *settingsBackground;
+    QGraphicsPixmapItem *aboutBackground;
 
     QGraphicsPixmapItem *playeronewinsPic;
     QGraphicsPixmapItem *playertwowinsPic;
@@ -135,6 +136,7 @@ private:
     int whichStage;
     bool gamealreadyexist;
     void setNumberPictureOnPixmap(int number, QGraphicsPixmapItem * pixmap);
+    bool aboutalreadyexist;
 
 public slots:
     void playeronewon();

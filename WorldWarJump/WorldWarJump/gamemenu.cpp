@@ -23,6 +23,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
     gamealreadyexist = false;
+    aboutalreadyexist = false;
 
     soundpointer = soundplayer;
     soundpointer->playMenuBGM();
@@ -51,6 +52,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     aboutButton = new QGraphicsPixmapItem;
     aboutButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/AboutButton.png"));
     aboutButton->setPos(sideMargin,topMargin*4+300);
+    aboutButton->setZValue(1);
 
     exitButton = new QGraphicsPixmapItem;
     exitButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/ExitButton.png"));
@@ -75,8 +77,9 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     switch(settings->getBGMMuted())
     {
     case true:
-        break;
+
         muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteBGM.png"));
+        break;
     case false:
         muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteBGMnew.png"));
         break;
@@ -278,6 +281,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             friendlyFireButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/friendlyfire.png"));
             friendlyFireButton->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*7+150);
             friendlyFireButton->setZValue(1);
+
 
 
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
@@ -707,12 +711,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if((item == this->settingsButton)&&(settings->getSettingsSceneAlreadyCreated()))
         {
-
             settingsScene->addItem(backButton);
             setScene(settingsScene);
-        } else if(item == this->aboutButton)                            // Open about.
-        {
-
         } else if (item == this->exitButton)                            // Exit the game.
         {
             QApplication::quit();
@@ -751,6 +751,29 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 break;
             case false:
                 yesorno->setPixmap(QPixmap(":/images/pics/MenusAndButtons/no.png"));
+                break;
+            }
+        } else if (item == this->aboutButton)                            // Open about scene.
+        {
+            switch(aboutalreadyexist)
+            {
+            case true:
+                aboutScene->addItem(backButton);
+                setScene(aboutScene);
+                break;
+            case false:
+                aboutScene = new QGraphicsScene;
+                aboutScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
+
+                aboutBackground = new QGraphicsPixmapItem;
+                aboutBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/aboutbackground.png"));
+                aboutBackground->setZValue(0);
+
+                aboutScene->addItem(aboutBackground);
+                aboutScene->addItem(backButton);
+
+                setScene(aboutScene);
+                aboutalreadyexist = true;
                 break;
             }
         }
