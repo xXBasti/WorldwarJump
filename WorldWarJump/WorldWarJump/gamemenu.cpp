@@ -14,6 +14,11 @@
 #include <cmath>
 //#define M_PI 3.14159
 
+/** @brief GameMenu::GameMenu(SoundPlayer *soundplayer) constructor instantiates the setting of the game, startScene, which
+ * is the main menu, and several buttons and pictures.
+ * @param Because the soundplayer is instantiated already in main.cpp, we need to pass it from main to GameMenu.
+ */
+
 GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
@@ -754,10 +759,15 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
     }
 }
 
+/** GameMenu::getPlayer1UnitCount() returns the unit count of player red (redundant).
+ */
+
 int GameMenu::getPlayer1UnitCount() const
 {
     return player1UnitCount;
 }
+/** GameMenu::getPlayer2UnitCount() returns the unit cound of blue player (redundant).
+ */
 
 int GameMenu::getPlayer2UnitCount() const
 {

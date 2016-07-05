@@ -1,12 +1,13 @@
 #include "gamesettings.h"
 
+
 GameSettings::GameSettings()
 {
     settingsSceneAlreadyCreated = false;
     beforeGameSceneAlreadyCreated = false;
 }
 
-// static members are not defined in the constructor
+//static members are not defined in the constructor
 int GameSettings::secondsToChangeLevel = 5;
 int GameSettings::milisecondsBetweenBattleUnitShots = 1000;
 int GameSettings::refreshRate = 20;
