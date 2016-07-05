@@ -65,7 +65,7 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player player,SoundPlayer *soundp
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
     this->p=player;
     this->setWeight(100);
-    this->setDamage(5);
+    this->setDamage(settings->getMeeleDmg());
     this->setHealthpoints(100);
     this->setRotVel(0);
     //Better use world timer, do we need input timer at all?

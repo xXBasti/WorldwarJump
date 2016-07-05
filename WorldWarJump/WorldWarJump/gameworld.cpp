@@ -29,7 +29,7 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
 
     connect(scene->physicsCalulator,SIGNAL(playeronewins()),this,SLOT(playeronewins()));
     connect(scene->physicsCalulator,SIGNAL(playertwowins()),this,SLOT(playertwowins()));
-    connect(scene->physicsCalulator,SIGNAL(meeleDmg()),this,SLOT(displayMeele()));
+    connect(scene->physicsCalulator,SIGNAL(meeleDmg()),this,SLOT(displayMelee()));
     // Input-connection to World scene
     input = new Input();
     scene->addItem(input);
@@ -56,17 +56,17 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     addUnits();
 
     display=new QLabel();
-    display->setGeometry(700,700,100,50);
+    display->setGeometry(650,700,150,100);
     display->setAttribute(Qt::WA_TranslucentBackground);
     display->setStyleSheet("QLabel {color: red; font-weight: bold}");
-    display->setText("MEELE");
+    display->setText("MELEE");
     QFont font =display->font();
     font.setPointSize(20);
     display->setFont(font);
     scene->addWidget(display);
     display->setVisible(false);
     meeleTimer= new QTimer();
-    connect(meeleTimer,SIGNAL(timeout()),this,SLOT(hideMeele()));
+    connect(meeleTimer,SIGNAL(timeout()),this,SLOT(hideMelee()));
     // Scrollbar disabling
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -179,12 +179,20 @@ void GameWorld::rotateBackground()
     background->setRotation(background->rotation()+0.2);
 }
 
-void GameWorld::displayMeele(){
+/**
+ * @brief GameWorld::displayMelee
+ * This function sets the Meleelabel to visible.
+ */
+void GameWorld::displayMelee(){
     display->setVisible(true);
-    meeleTimer->start(3000);
+    meeleTimer->start(2000);
 }
 
-void GameWorld::hideMeele(){
+/**
+ * @brief GameWorld::hideMelee
+ * This sets the Meleelabel to invisible.
+ */
+void GameWorld::hideMelee(){
     display->setVisible(false);
     meeleTimer->stop();
 }

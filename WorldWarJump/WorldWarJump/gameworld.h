@@ -71,10 +71,10 @@ signals:
     void playerOneWinsSignal();
     void playerTwoWinsSignal();
 public slots:
-    void displayMeele();
+    void displayMelee();
 
 
-    void hideMeele();
+    void hideMelee();
 };
 
 #endif // GAMEWORLD_H
