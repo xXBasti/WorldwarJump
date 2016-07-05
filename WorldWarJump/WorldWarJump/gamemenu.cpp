@@ -15,7 +15,7 @@
 //#define M_PI 3.14159
 
 /** @brief GameMenu::GameMenu(SoundPlayer *soundplayer) constructor instantiates the setting of the game, startScene, which
- * is the main menu, and several buttons and pictures.
+ * is the main menu, and several buttons and pictures. - Wang
  * @param Because the soundplayer is instantiated already in main.cpp, we need to pass it from main to GameMenu.
  */
 
@@ -117,7 +117,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
 
 }
 /**
- * @brief GameMenu::getGameMenuSize() returns the set resolution of the game menu.
+ * @brief GameMenu::getGameMenuSize() returns the set resolution of the game menu. - Wang
  * @return the set resolution of the menu
  */
 
@@ -126,7 +126,7 @@ int GameMenu::getGameMenuSize() const
     return GameMenuSize;
 }
 
-/** @brief GameMenu::setGameMenuSize(int value) sets the resolution of the menu
+/** @brief GameMenu::setGameMenuSize(int value) sets the resolution of the menu - Wang
  * @param the wished resolutio
  */
 
@@ -136,7 +136,7 @@ void GameMenu::setGameMenuSize(int value)
 }
 
 /** @brief GameMenu::mousePressEvent(QMouseEvent *event) secures the main functionality of the menu. It detects mouse clicks and compares the QGraphicsItem
- * on which the mouse is currently positioned with buttons, which are inherited from QGraphicsPixmapItem, then acts correspondingly.
+ * on which the mouse is currently positioned with buttons, which are inherited from QGraphicsPixmapItem, then acts correspondingly. - Wang
  */
 
 
@@ -759,14 +759,14 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
     }
 }
 
-/** GameMenu::getPlayer1UnitCount() returns the unit count of player red (redundant).
+/** GameMenu::getPlayer1UnitCount() returns the unit count of player red (redundant). - Wang
  */
 
 int GameMenu::getPlayer1UnitCount() const
 {
     return player1UnitCount;
 }
-/** GameMenu::getPlayer2UnitCount() returns the unit cound of blue player (redundant).
+/** GameMenu::getPlayer2UnitCount() returns the unit cound of blue player (redundant). - Wang
  */
 
 int GameMenu::getPlayer2UnitCount() const
@@ -774,7 +774,7 @@ int GameMenu::getPlayer2UnitCount() const
     return player2UnitCount;
 }
 
-/** @brief GameMenu::getWhichStage() returns the index of the currently selected stage.
+/** @brief GameMenu::getWhichStage() returns the index of the currently selected stage. - Wang
  * @return index of the current stage.
  */
 
@@ -783,7 +783,7 @@ int GameMenu::getWhichStage() const
     return whichStage;
 }
 
-/** @brief GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap) sets the number on number indicators.
+/** @brief GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap) sets the number on number indicators. - Wang
  * @param wished number
  * @param wished number indicator
  */
@@ -811,7 +811,7 @@ void GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap)
 }
 
 /** @brief GameMenu::playeronewon() triggers once the physics calculator says the game is over and player red has won. It shows the end-game scene, then deletes the game scene
- * with it's children.
+ * with it's children. - Wang
  */
 
 void GameMenu::playeronewon()
@@ -836,7 +836,7 @@ void GameMenu::playeronewon()
     soundpointer->playMenuBGM();
 }
 /** @brief GameMenu::playertwowon() triggers once the physics calculator says the game is over and player blue has won. It shows the end-game scene, then deletes the game scene
- * with it's children.
+ * with it's children. - Wang
  */
 
 void GameMenu::playertwowon()
@@ -861,7 +861,7 @@ void GameMenu::playertwowon()
 }
 
 /** @brief GameMenu::changeBGMvolume(int volume) sets the volume of the background music to the given number.
- * @param wished volume.
+ * @param wished volume. - Wang
  */
 
 void GameMenu::changeBGMvolume(int volume)
@@ -871,7 +871,7 @@ void GameMenu::changeBGMvolume(int volume)
 }
 
 /** @brief GameMenu::changeSEvolume(int volume) sets the volume of sound effects to the given number.
- * @param wished volume
+ * @param wished volume - Wang
  */
 
 void GameMenu::changeSEvolume(int volume)
