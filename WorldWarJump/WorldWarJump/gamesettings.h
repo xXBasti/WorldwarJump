@@ -79,6 +79,9 @@ public:
 
     static int getMilisecondsBetweenBattleUnitShots();
 
+    static int getRefreshRate();
+    static void setRefreshRate(int value);
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
@@ -100,7 +103,7 @@ private:
     static int meeleDmg;
     static int jumpCountForDestruction;
     static int milisecondsBetweenBattleUnitShots;
-
+    static int refreshRate;
 };
 
 #endif // GAMESETTINGS_H

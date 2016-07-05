@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">PhysicsCalc Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Our own physics calculator engine and the core of the game. -Can, Tomas, Sebastian.  
+ <a href="class_physics_calc.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="physicscalc_8h_source.html">physicscalc.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PhysicsCalc:</div>
 <div class="dyncontent">
@@ -114,11 +119,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>meeleDmg</b> ()</td><
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a806b2675198437e8271ab82eda0e6746"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a806b2675198437e8271ab82eda0e6746"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PhysicsCalc</b> (<a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer)</td></tr>
+<tr class="memitem:a806b2675198437e8271ab82eda0e6746"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746">PhysicsCalc</a> (<a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer)</td></tr>
+<tr class="memdesc:a806b2675198437e8271ab82eda0e6746"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746" title="PhysicsCalc::PhysicsCalc. ">PhysicsCalc::PhysicsCalc</a>.  <a href="#a806b2675198437e8271ab82eda0e6746">More...</a><br /></td></tr>
 <tr class="separator:a806b2675198437e8271ab82eda0e6746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef2a6c520d3d0a815c333c1a08cb4df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df">calculateNewRotValues</a> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject)</td></tr>
-<tr class="memdesc:a7ef2a6c520d3d0a815c333c1a08cb4df"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df" title="PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject based on ...">PhysicsCalc::calculateNewRotValues</a> calculates the next orientation of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity.  <a href="#a7ef2a6c520d3d0a815c333c1a08cb4df">More...</a><br /></td></tr>
+<tr class="memdesc:a7ef2a6c520d3d0a815c333c1a08cb4df"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df" title="PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject based on ...">PhysicsCalc::calculateNewRotValues</a> calculates the next orientation of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. Different calculations on projectiles and battleunits. The projectiles "head" is made to always point the speed vector. The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module. The closer they get to the center, the less they are stabilized.  <a href="#a7ef2a6c520d3d0a815c333c1a08cb4df">More...</a><br /></td></tr>
 <tr class="separator:a7ef2a6c520d3d0a815c333c1a08cb4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaa9837f796074797ea731066f09dfc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#afaa9837f796074797ea731066f09dfc3">updateRotValues</a> (<a class="el" href="class_world_object.html">WorldObject</a> *worldObject, double *angular)</td></tr>
 <tr class="memdesc:afaa9837f796074797ea731066f09dfc3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#afaa9837f796074797ea731066f09dfc3" title="PhysicsCalc::updateRotValues sets the objects new orientation and new angular velocity. ">PhysicsCalc::updateRotValues</a> sets the objects new orientation and new angular velocity.  <a href="#afaa9837f796074797ea731066f09dfc3">More...</a><br /></td></tr>
@@ -144,17 +149,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>getImpactPoint</b> (<
 <tr class="memitem:a515dcab8395108cb37b7526adbab6ed0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0">gravityAngleDifference</a> (double rotation, double *gravityVector)</td></tr>
 <tr class="memdesc:a515dcab8395108cb37b7526adbab6ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0" title="PhysicsCalc::gravityAngleDifference calculates the angle from the gravity vector to the current orien...">PhysicsCalc::gravityAngleDifference</a> calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise.  <a href="#a515dcab8395108cb37b7526adbab6ed0">More...</a><br /></td></tr>
 <tr class="separator:a515dcab8395108cb37b7526adbab6ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e24e0769598a509705a71a0c4e8ab5d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e24e0769598a509705a71a0c4e8ab5d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>roundDown</b> (double numberToRound, int digit)</td></tr>
+<tr class="memitem:a7e24e0769598a509705a71a0c4e8ab5d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d">roundDown</a> (double numberToRound, int digit)</td></tr>
+<tr class="memdesc:a7e24e0769598a509705a71a0c4e8ab5d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d" title="PhysicsCalc::roundDown floor of a number in respect to the digit. ">PhysicsCalc::roundDown</a> floor of a number in respect to the digit.  <a href="#a7e24e0769598a509705a71a0c4e8ab5d">More...</a><br /></td></tr>
 <tr class="separator:a7e24e0769598a509705a71a0c4e8ab5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2">calculateNewValues</a> (<a class="el" href="class_world_object.html">WorldObject</a> *)</td></tr>
-<tr class="memdesc:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2" title="PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject based on it&#39;s c...">PhysicsCalc::calculateNewValues</a> calculates the next position of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current position and its current speed. Then it sets the object's new position and new speed When the <a class="el" href="class_world_object.html">WorldObject</a> moves below the ground (collision) the movement speed of the <a class="el" href="class_world_object.html">WorldObject</a> is inverted.  <a href="#a8d6de304c47a3b6be6fdfd7bacd3dcd2">More...</a><br /></td></tr>
+<tr class="memdesc:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2" title="PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject based on it&#39;s c...">PhysicsCalc::calculateNewValues</a> calculates the next position of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current position and its current speed.  <a href="#a8d6de304c47a3b6be6fdfd7bacd3dcd2">More...</a><br /></td></tr>
 <tr class="separator:a8d6de304c47a3b6be6fdfd7bacd3dcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5915904f1743c3a6cca6cf2b72a8d6f5"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>vectorsAbsoluteValue</b> (double *vector)</td></tr>
+<tr class="memitem:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5">vectorsAbsoluteValue</a> (double *vector)</td></tr>
+<tr class="memdesc:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5" title="PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². -Tomas. ">PhysicsCalc::vectorsAbsoluteValue</a> calculates the absolute value for a vector in R². -Tomas.  <a href="#a5915904f1743c3a6cca6cf2b72a8d6f5">More...</a><br /></td></tr>
 <tr class="separator:a5915904f1743c3a6cca6cf2b72a8d6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae5264bd415c1cccac4bd4628cb015a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0">velocityEulerToRadialCoordinates</a> (double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)</td></tr>
-<tr class="memdesc:aae5264bd415c1cccac4bd4628cb015a0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0" title="PhysicsCalc::velocityEulerToRadialCoordinates. ">PhysicsCalc::velocityEulerToRadialCoordinates</a>.  <a href="#aae5264bd415c1cccac4bd4628cb015a0">More...</a><br /></td></tr>
+<tr class="memdesc:aae5264bd415c1cccac4bd4628cb015a0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0" title="PhysicsCalc::velocityEulerToRadialCoordinates transforms the velocity of a WorldObject. -Tomas. ">PhysicsCalc::velocityEulerToRadialCoordinates</a> transforms the velocity of a <a class="el" href="class_world_object.html">WorldObject</a>. -Tomas.  <a href="#aae5264bd415c1cccac4bd4628cb015a0">More...</a><br /></td></tr>
 <tr class="separator:aae5264bd415c1cccac4bd4628cb015a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af038d3a5fe0160410456b14601a95581"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581">eulToPol</a> (double *eul, double *pol, char type)</td></tr>
 <tr class="memdesc:af038d3a5fe0160410456b14601a95581"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581" title="PhysicsCalc::eulToPol This function translates the given cartesian coordinate system to a polar coord...">PhysicsCalc::eulToPol</a> This function translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer.  <a href="#af038d3a5fe0160410456b14601a95581">More...</a><br /></td></tr>
@@ -212,9 +217,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9ca4a472be8ea235f506a2ef6d9de067"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ca4a472be8ea235f506a2ef6d9de067"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>counter</b></td></tr>
-<tr class="separator:a9ca4a472be8ea235f506a2ef6d9de067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72b7108e3e2f8cd8fb709849dbb2506c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72b7108e3e2f8cd8fb709849dbb2506c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>JumpFrameLimit</b></td></tr>
 <tr class="separator:a72b7108e3e2f8cd8fb709849dbb2506c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,6 +236,40 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>gravity</b> = setti
 double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = settings-&gt;getTimeStep()</td></tr>
 <tr class="separator:aeb23b46816202fed3cab9aa0d852f6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Our own physics calculator engine and the core of the game. -Can, Tomas, Sebastian. </p>
+<p>Detailed: It checks for collisions between units and follows a collision protocol. it checks if any player has won and emits according SIGNALs. Furthermore it calculates and triggers sounds accordingly for:</p><ol type="1">
+<li>Rotation of <a class="el" href="class_world_object.html">WorldObject</a> s</li>
+<li>Translation of <a class="el" href="class_world_object.html">WorldObject</a> s</li>
+<li>Gravity effects</li>
+<li>Momentum conservation at collision</li>
+<li>Recoil triggering at <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> shoot() </li>
+</ol>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a806b2675198437e8271ab82eda0e6746"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PhysicsCalc::PhysicsCalc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_sound_player.html">SoundPlayer</a> *&#160;</td>
+          <td class="paramname"><em>soundplayer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746" title="PhysicsCalc::PhysicsCalc. ">PhysicsCalc::PhysicsCalc</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">soundplayer</td><td>the global soundplayer pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a7ef2a6c520d3d0a815c333c1a08cb4df"></a>
 <div class="memitem">
@@ -249,10 +285,10 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df" title="PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject based on ...">PhysicsCalc::calculateNewRotValues</a> calculates the next orientation of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. </p>
+<p><a class="el" href="class_physics_calc.html#a7ef2a6c520d3d0a815c333c1a08cb4df" title="PhysicsCalc::calculateNewRotValues calculates the next orientation of the given WorldObject based on ...">PhysicsCalc::calculateNewRotValues</a> calculates the next orientation of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. Different calculations on projectiles and battleunits. The projectiles "head" is made to always point the speed vector. The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module. The closer they get to the center, the less they are stabilized. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">the</td><td>worldobject to be calculated </td></tr>
+    <tr><td class="paramname">worldObject</td><td>the worldobject to be calculated </td></tr>
   </table>
   </dd>
 </dl>
@@ -274,10 +310,11 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2" title="PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject based on it&#39;s c...">PhysicsCalc::calculateNewValues</a> calculates the next position of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current position and its current speed. Then it sets the object's new position and new speed When the <a class="el" href="class_world_object.html">WorldObject</a> moves below the ground (collision) the movement speed of the <a class="el" href="class_world_object.html">WorldObject</a> is inverted. </p>
+<p><a class="el" href="class_physics_calc.html#a8d6de304c47a3b6be6fdfd7bacd3dcd2" title="PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject based on it&#39;s c...">PhysicsCalc::calculateNewValues</a> calculates the next position of the given <a class="el" href="class_world_object.html">WorldObject</a> based on it's current position and its current speed. </p>
+<p>When the <a class="el" href="class_world_object.html">WorldObject</a> moves below the ground (collision) the movement speed of the <a class="el" href="class_world_object.html">WorldObject</a> in radial direction is set in the direction of the center. Then it sets the object's new position and new speed. -Tomas</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">worldObject</td><td>the <a class="el" href="class_world_object.html">WorldObject</a> instance for which new position </td></tr>
+    <tr><td class="paramname">worldObject</td><td>the <a class="el" href="class_world_object.html">WorldObject</a> instance for which new position is to be calculated and set. If it is a <a class="el" href="class_world_object.html">WorldObject</a> of the type <a class="el" href="class_projectile.html">Projectile</a> ,then the <a class="el" href="class_projectile.html">Projectile</a> bounce counter is increased. </td></tr>
   </table>
   </dd>
 </dl>
@@ -402,12 +439,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
 <p><a class="el" href="class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0" title="PhysicsCalc::gravityAngleDifference calculates the angle from the gravity vector to the current orien...">PhysicsCalc::gravityAngleDifference</a> calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rotation</td><td></td></tr>
-    <tr><td class="paramname">gravityVector</td><td></td></tr>
+    <tr><td class="paramname">rotation</td><td>the rotation of worldobject </td></tr>
+    <tr><td class="paramname">gravityVector</td><td>the gravity vector of worldobject </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the angle difference between the units norm and gravity vector </dd></dl>
 
 </div>
 </div>
@@ -615,6 +652,42 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
 
 </div>
 </div>
+<a class="anchor" id="a7e24e0769598a509705a71a0c4e8ab5d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PhysicsCalc::roundDown </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>numberToRound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>digit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d" title="PhysicsCalc::roundDown floor of a number in respect to the digit. ">PhysicsCalc::roundDown</a> floor of a number in respect to the digit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numberToRound</td><td>number to be rounded down </td></tr>
+    <tr><td class="paramname">digit</td><td>the digit to round down the number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the rounded down number </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="afaa9837f796074797ea731066f09dfc3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -642,10 +715,36 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
 <p><a class="el" href="class_physics_calc.html#afaa9837f796074797ea731066f09dfc3" title="PhysicsCalc::updateRotValues sets the objects new orientation and new angular velocity. ">PhysicsCalc::updateRotValues</a> sets the objects new orientation and new angular velocity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">the</td><td>Worldobject to be updated </td></tr>
+    <tr><td class="paramname">worldObject</td><td>the worldobject to be updated </td></tr>
+    <tr><td class="paramname">angular</td><td>the angle and angular speed to be set </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a5915904f1743c3a6cca6cf2b72a8d6f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double PhysicsCalc::vectorsAbsoluteValue </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_physics_calc.html#a5915904f1743c3a6cca6cf2b72a8d6f5" title="PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R². -Tomas. ">PhysicsCalc::vectorsAbsoluteValue</a> calculates the absolute value for a vector in R². -Tomas. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>absolute value of a vector in R². </dd></dl>
 
 </div>
 </div>
@@ -685,13 +784,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>timeStep</b> = sett
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0" title="PhysicsCalc::velocityEulerToRadialCoordinates. ">PhysicsCalc::velocityEulerToRadialCoordinates</a>. </p>
+<p><a class="el" href="class_physics_calc.html#aae5264bd415c1cccac4bd4628cb015a0" title="PhysicsCalc::velocityEulerToRadialCoordinates transforms the velocity of a WorldObject. -Tomas. ">PhysicsCalc::velocityEulerToRadialCoordinates</a> transforms the velocity of a <a class="el" href="class_world_object.html">WorldObject</a>. -Tomas. </p>
+<p>Detailed: the new velocity vector is in a coordinate system which always points with the first coordinate from the center of the world through the position of the unit outwards radially. The second coordinate points facing int the same direction to the left.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eulInputPosition</td><td>objects position </td></tr>
-    <tr><td class="paramname">eulInputVelocity</td><td>objects velocity </td></tr>
-    <tr><td class="paramname">radialOutput</td><td>first direction is radial, second directions is tangential </td></tr>
-    <tr><td class="paramname">eulerToRadial</td><td>true if transforming from euler to radial, or false if transforming from radial to euler </td></tr>
+    <tr><td class="paramname">eulInputPosition</td><td>objects position to determine what direction is outward. </td></tr>
+    <tr><td class="paramname">eulInputVelocity</td><td>objects velocity to transform </td></tr>
+    <tr><td class="paramname">radialOutput</td><td>first coordinate radial, second coordinate is tangential to the <a class="el" href="class_terrain.html" title="Terrain, the playground for our battle units in form of an inner circle. - WANG. ">Terrain</a> 's circle. </td></tr>
+    <tr><td class="paramname">eulerToRadial</td><td>true if transforming from Euler coordinates, or false if transforming back to Euler coordinates. </td></tr>
   </table>
   </dd>
 </dl>

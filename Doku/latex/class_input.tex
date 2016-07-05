@@ -1,5 +1,14 @@
 \hypertarget{class_input}{}\section{Input Class Reference}
 \label{class_input}\index{Input@{Input}}
+
+
+The \hyperlink{class_input}{Input} class receives the players\textquotesingle{} key hits.  
+
+
+
+
+{\ttfamily \#include $<$input.\+h$>$}
+
 Inheritance diagram for Input\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,6 +33,9 @@ void {\bfseries player\+Two\+Shoot} ()\hypertarget{class_input_af8eba659f268b7cb
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input} ()\hypertarget{class_input_abae3f379d3f157cf42dc857309832dba}{}\label{class_input_abae3f379d3f157cf42dc857309832dba}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input\+::\+Input} constructor. \end{DoxyCompactList}\item 
 void {\bfseries key\+Press\+Event} (Q\+Key\+Event $\ast$k)\hypertarget{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}{}\label{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}
 
 \end{DoxyCompactItemize}
@@ -34,6 +46,13 @@ Q\+Timer $\ast$ \hyperlink{class_input_a3196d6cd66f0491bc90fd7a48e2d9c9c}{refres
 
 \begin{DoxyCompactList}\small\item\em Gameplay refresh rate. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+The \hyperlink{class_input}{Input} class receives the players\textquotesingle{} key hits. 
+
+Detailed\+: it is the focused Q\+Graphics\+Pixmap\+Item in our \hyperlink{class_gameplay_interface}{Gameplay\+Interface} scene, and therefore able to receive keyboard input. It receives the input for both players and sends according S\+I\+G\+N\+A\+Ls.
+
+Also because of early architecture decisions, it has the Q\+Timer refresh\+Rate\+Timer which is connected() with every unit and projectile in our game. This Q\+Timer triggers the move() function in \hyperlink{class_world_object}{World\+Object} every certain amount of milliseconds set in \hyperlink{class_game_settings}{Game\+Settings}. -\/\+Tomas 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

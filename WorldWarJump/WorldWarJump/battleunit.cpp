@@ -7,11 +7,12 @@
 #include "gamesettings.h"
 
 /**
- * @brief BattleUnit::BattleUnit constructor
+ * @brief BattleUnit::BattleUnit constructor. Initializes the center of mass dependent on unit type,
+ * initializes the unit parameters and connects the jump and shoot signals with respective slots
  * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
- * @param player
- * @param soundplayer
- * @param unittype
+ * @param player the player controlling the unit
+ * @param soundplayer the pointer to the global sound player
+ * @param unittype the enum that gives the battle unit type
  *
  * The BattleUnit is only allowed to shoot every certain milliseconds, set in GameSettings.
  */
@@ -45,8 +46,6 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player player,SoundPlayer *soundp
             newCenter[1] = static_cast<int>(this->pixmap().height()*(20.0/62.0));
             break;
     }
-
-//    qDebug() << "CenterX: " << newCenter[0] << "CenterY: " << newCenter[1] ;
 
     setCenterOfMass(newCenter);
     setTransformOriginPoint(getCenterOfMass()[0], getCenterOfMass()[1]);

@@ -12,15 +12,15 @@
 #define M_PI 3.14159
 
 /**
- * @brief Projectile::Projectile
- * This function is the constructor of the Projectile class and creates an instance of this class.
- * Moreover this class sets the picture and damage depending on the enum Player and ProjectileType.
- * @param parentView is the window in which the projectile will be add
- * @param shootingUnit is the Unit which has shoot the projectile
- * @param p is the ProjectileType which will be spawned
- * @param soundplayer is the player which play the shooting sound
- * @param shootingPoint is the point where the projectile spawns.
- */
+ * @brief Projectile::Projectile constructor. Initializes  the position, the initial angle ,
+ * the initial speed ,the projectile type , the weight and the damage and connects the timer
+ * It sets the picture and damage depending on the enum Player and ProjectileType.
+ * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
+ * @param shootingUnit the battle unit shooting the projectile
+ * @param p the enum that gives the projectile type
+ * @param soundplayer the pointer to the global sound player
+ * @param shootingPoint the point in scene coordinates where the projectile should spawn
+ **/
 Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){
 
     ObjectType = 'p';
@@ -31,7 +31,6 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->pT=p;
     this->orientationChanged = false;
     this->orientationChangeCount = 0;
-//    qDebug() <<"launch";
 
     //Projectile angle
     double speedPol[2] = {0};
@@ -78,7 +77,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     polToEul(speedPol,speedEul,'v');
     setPicture(shootingUnit->getPlayer());
     this->p=shootingUnit->getPlayer();
-    setTransformOriginPoint(0,0/*(this->pixmap().width())/2,(this->pixmap().height())/2*/);
+    setTransformOriginPoint(0,0);
     this->setRotVel(0);
     this->setRotation(speedPol[1]*(180/M_PI));
     this->setHealthpoints(1);

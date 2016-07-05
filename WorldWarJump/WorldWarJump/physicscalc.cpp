@@ -18,7 +18,8 @@
 #define M_PI 3.14159
 
 /**
- * @brief PhysicsCalc::PhysicsCalc
+ * @brief PhysicsCalc::PhysicsCalc. JumpFrameLimit determines how many timesteps the unit
+ * is allowed to not collide with the ground before it is able to jump again.
  * @param soundplayer the global soundplayer pointer
  */
 PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
@@ -28,7 +29,6 @@ PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
     //Merge the number of units
     settings->setPlayer1UnitCount(settings->getPlayerRedShipCount()+settings->getPlayerRedTankCount());
     settings->setPlayer2UnitCount(settings->getPlayerBlueShipCount()+settings->getPlayerBlueTankCount());
-
 }
 
 /**
@@ -143,9 +143,9 @@ void PhysicsCalc::gravVec(WorldObject *worldObject, double *gravityVector)
  * @brief PhysicsCalc::gravityAngleDifference calculates the angle
  * from the gravity vector to the current orientation.
  * The positive direction is clockwise.
- * @param rotation the rotation of worldobject
- * @param gravityVector the gravity vector of worldobject
- * @return the angle difference between the units norm and gravity vector
+ * @param rotation the rotation of the unit
+ * @param gravityVector the gravity vector of the unit
+ * @return the difference between the units bottom and the gravity vector
  */
 double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVector)
 {
@@ -157,10 +157,10 @@ double PhysicsCalc::gravityAngleDifference(double rotation, double *gravityVecto
 }
 
 /**
- * @brief PhysicsCalc::roundDown floor of a number in respect to the digit
- * @param numberToRound number to be rounded down
- * @param digit the digit to round down the number
- * @return the rounded down number
+ * @brief PhysicsCalc::roundDown calculates the floor of a number from the given digit
+ * @param numberToRound the number to be rounded down
+ * @param digit the digit after which will be set to zero
+ * @return the rounded number
  */
 double PhysicsCalc::roundDown(double numberToRound, int digit)
 {
@@ -244,9 +244,13 @@ void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject
 * based on it's current position and its current speed.
-* Then it sets the object's new position and new speed
-* When the WorldObject moves below the ground (collision) the movement speed of the WorldObject is inverted
-* @param worldObject the WorldObject instance for which new position
+*
+* When the WorldObject moves below the ground (collision) the movement speed of the WorldObject
+* in radial direction is set in the direction of the center.
+* Then it sets the object's new position and new speed. -Tomas
+*
+* @param worldObject the WorldObject instance for which new position is to be calculated and set. If it is a WorldObject of the type Projectile
+* ,then the Projectile bounce counter is increased.
 */
 void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
@@ -288,7 +292,7 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 
         // transform from radialSpeed to eulSpeed
         velocityEulerToRadialCoordinates(eulPosition, radialSpeed, eulSpeed, false);
-        //*worldObject->setSpeed(eulSpeed);
+
 
         // make object's rotation inverse and dampened at collision
         worldObject->setRotVel(roundDown(worldObject->getRotVel()*-0.7,0));
@@ -331,18 +335,26 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     return;
 }
 
-
+/**
+ * @brief PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R².
+ * @param vector
+ * @return absolute value of a vector in R².
+ */
 double PhysicsCalc::vectorsAbsoluteValue(double *vector)
 {
     return sqrt(vector[0]*vector[0] + vector[1]*vector[1]);
 }
 
 /**
- * @brief PhysicsCalc::velocityEulerToRadialCoordinates
- * @param eulInputPosition objects position
- * @param eulInputVelocity objects velocity
- * @param radialOutput first direction is radial, second directions is tangential
- * @param eulerToRadial true if transforming from euler to radial, or false if transforming from radial to euler
+ * @brief PhysicsCalc::velocityEulerToRadialCoordinates transforms the velocity of a WorldObject. -Tomas
+ *
+ * Detailed: the new velocity vector is in a coordinate system which always points with the first coordinate from the center
+ * of the world through the position of the unit outwards radially. The second coordinate points facing int the same direction to the left.
+ *
+ * @param eulInputPosition objects position to determine what direction is outward.
+ * @param eulInputVelocity objects velocity to transform
+ * @param radialOutput first coordinate radial, second coordinate is tangential to the Terrain 's circle.
+ * @param eulerToRadial true if transforming from Euler coordinates, or false if transforming back to Euler coordinates.
  */
 void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)
 {

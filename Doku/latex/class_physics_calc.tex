@@ -1,5 +1,14 @@
 \hypertarget{class_physics_calc}{}\section{Physics\+Calc Class Reference}
 \label{class_physics_calc}\index{Physics\+Calc@{Physics\+Calc}}
+
+
+Our own physics calculator engine and the core of the game. -\/\+Can, Tomas, Sebastian.  
+
+
+
+
+{\ttfamily \#include $<$physicscalc.\+h$>$}
+
 Inheritance diagram for Physics\+Calc\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,11 +30,10 @@ void {\bfseries meele\+Dmg} ()\hypertarget{class_physics_calc_a869e988d2f13341a0
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Physics\+Calc} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_physics_calc_a806b2675198437e8271ab82eda0e6746}{}\label{class_physics_calc_a806b2675198437e8271ab82eda0e6746}
-
-\item 
+\hyperlink{class_physics_calc_a806b2675198437e8271ab82eda0e6746}{Physics\+Calc} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a806b2675198437e8271ab82eda0e6746}{Physics\+Calc\+::\+Physics\+Calc}. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{calculate\+New\+Rot\+Values} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{Physics\+Calc\+::calculate\+New\+Rot\+Values} calculates the next orientation of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{Physics\+Calc\+::calculate\+New\+Rot\+Values} calculates the next orientation of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. Different calculations on projectiles and battleunits. The projectiles \char`\"{}head\char`\"{} is made to always point the speed vector. The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module. The closer they get to the center, the less they are stabilized. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{update\+Rot\+Values} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$angular)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{Physics\+Calc\+::update\+Rot\+Values} sets the objects new orientation and new angular velocity. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_ad1eaa72eeff1b031b08db33730d8decb}{grav\+Vec} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$gravity\+Vector)
@@ -47,16 +55,14 @@ void {\bfseries get\+Impact\+Point} (\hyperlink{class_world_object}{World\+Objec
 \item 
 double \hyperlink{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{gravity\+Angle\+Difference} (double rotation, double $\ast$gravity\+Vector)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{Physics\+Calc\+::gravity\+Angle\+Difference} calculates the angle from the gravity vector to the current orientation. The positive direction is clockwise. \end{DoxyCompactList}\item 
-double {\bfseries round\+Down} (double number\+To\+Round, int digit)\hypertarget{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}{}\label{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}
-
-\item 
+double \hyperlink{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}{round\+Down} (double number\+To\+Round, int digit)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}{Physics\+Calc\+::round\+Down} floor of a number in respect to the digit. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{calculate\+New\+Values} (\hyperlink{class_world_object}{World\+Object} $\ast$)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{Physics\+Calc\+::calculate\+New\+Values} calculates the next position of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current position and its current speed. Then it sets the object\textquotesingle{}s new position and new speed When the \hyperlink{class_world_object}{World\+Object} moves below the ground (collision) the movement speed of the \hyperlink{class_world_object}{World\+Object} is inverted. \end{DoxyCompactList}\item 
-double {\bfseries vectors\+Absolute\+Value} (double $\ast$vector)\hypertarget{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}{}\label{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}
-
-\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{Physics\+Calc\+::calculate\+New\+Values} calculates the next position of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current position and its current speed. \end{DoxyCompactList}\item 
+double \hyperlink{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}{vectors\+Absolute\+Value} (double $\ast$vector)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}{Physics\+Calc\+::vectors\+Absolute\+Value} calculates the absolute value for a vector in R². -\/\+Tomas. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{velocity\+Euler\+To\+Radial\+Coordinates} (double $\ast$eul\+Input\+Position, double $\ast$input\+Vel\+Vector, double $\ast$output\+Vel\+Vector, bool euler\+To\+Radial)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates} transforms the velocity of a \hyperlink{class_world_object}{World\+Object}. -\/\+Tomas. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_af038d3a5fe0160410456b14601a95581}{eul\+To\+Pol} (double $\ast$eul, double $\ast$pol, char type)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_af038d3a5fe0160410456b14601a95581}{Physics\+Calc\+::eul\+To\+Pol} This function translates the given cartesian coordinate system to a polar coordinate system and saves them into a given output pointer. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_a441c3e94fe0e6eed1d96531368f50d54}{pol\+To\+Eul} (double $\ast$pol, double $\ast$eul, char type)
@@ -103,9 +109,6 @@ bool \hyperlink{class_physics_calc_a88dc6d26563c0a340cd5c4470801b419}{Collide\+W
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int {\bfseries counter}\hypertarget{class_physics_calc_a9ca4a472be8ea235f506a2ef6d9de067}{}\label{class_physics_calc_a9ca4a472be8ea235f506a2ef6d9de067}
-
-\item 
 int {\bfseries Jump\+Frame\+Limit}\hypertarget{class_physics_calc_a72b7108e3e2f8cd8fb709849dbb2506c}{}\label{class_physics_calc_a72b7108e3e2f8cd8fb709849dbb2506c}
 
 \item 
@@ -126,6 +129,37 @@ double {\bfseries time\+Step} = settings-\/$>$get\+Time\+Step()\hypertarget{clas
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Our own physics calculator engine and the core of the game. -\/\+Can, Tomas, Sebastian. 
+
+Detailed\+: It checks for collisions between units and follows a collision protocol. it checks if any player has won and emits according S\+I\+G\+N\+A\+Ls. Furthermore it calculates and triggers sounds accordingly for\+:
+\begin{DoxyEnumerate}
+\item Rotation of \hyperlink{class_world_object}{World\+Object} s
+\item Translation of \hyperlink{class_world_object}{World\+Object} s
+\item Gravity effects
+\item Momentum conservation at collision
+\item Recoil triggering at \hyperlink{class_battle_unit}{Battle\+Unit} shoot() 
+\end{DoxyEnumerate}
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Physics\+Calc@{Physics\+Calc}!Physics\+Calc@{Physics\+Calc}}
+\index{Physics\+Calc@{Physics\+Calc}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{Physics\+Calc(\+Sound\+Player $\ast$soundplayer)}{PhysicsCalc(SoundPlayer *soundplayer)}}]{\setlength{\rightskip}{0pt plus 5cm}Physics\+Calc\+::\+Physics\+Calc (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound\+Player} $\ast$}]{soundplayer}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a806b2675198437e8271ab82eda0e6746}{}\label{class_physics_calc_a806b2675198437e8271ab82eda0e6746}
+
+
+\hyperlink{class_physics_calc_a806b2675198437e8271ab82eda0e6746}{Physics\+Calc\+::\+Physics\+Calc}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em soundplayer} & the global soundplayer pointer \\
+\hline
+\end{DoxyParams}
+
+
 \subsection{Member Function Documentation}
 \index{Physics\+Calc@{Physics\+Calc}!calculate\+New\+Rot\+Values@{calculate\+New\+Rot\+Values}}
 \index{calculate\+New\+Rot\+Values@{calculate\+New\+Rot\+Values}!Physics\+Calc@{Physics\+Calc}}
@@ -136,11 +170,11 @@ double {\bfseries time\+Step} = settings-\/$>$get\+Time\+Step()\hypertarget{clas
 )}\hypertarget{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{}\label{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}
 
 
-\hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{Physics\+Calc\+::calculate\+New\+Rot\+Values} calculates the next orientation of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. 
+\hyperlink{class_physics_calc_a7ef2a6c520d3d0a815c333c1a08cb4df}{Physics\+Calc\+::calculate\+New\+Rot\+Values} calculates the next orientation of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current orientation and its current angular velocity. Angular array stores in the following order, the angle and angular velocity. Different calculations on projectiles and battleunits. The projectiles \char`\"{}head\char`\"{} is made to always point the speed vector. The Battleunits are made to slowly stand perpendicular to the gravity vector in stabilization module. The closer they get to the center, the less they are stabilized. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em the} & worldobject to be calculated \\
+{\em world\+Object} & the worldobject to be calculated \\
 \hline
 \end{DoxyParams}
 The stabilization module only activates when the object is close to the ground -\/\+Can \index{Physics\+Calc@{Physics\+Calc}!calculate\+New\+Values@{calculate\+New\+Values}}
@@ -152,11 +186,13 @@ The stabilization module only activates when the object is close to the ground -
 )}\hypertarget{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{}\label{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}
 
 
-\hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{Physics\+Calc\+::calculate\+New\+Values} calculates the next position of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current position and its current speed. Then it sets the object\textquotesingle{}s new position and new speed When the \hyperlink{class_world_object}{World\+Object} moves below the ground (collision) the movement speed of the \hyperlink{class_world_object}{World\+Object} is inverted. 
+\hyperlink{class_physics_calc_a8d6de304c47a3b6be6fdfd7bacd3dcd2}{Physics\+Calc\+::calculate\+New\+Values} calculates the next position of the given \hyperlink{class_world_object}{World\+Object} based on it\textquotesingle{}s current position and its current speed. 
+
+When the \hyperlink{class_world_object}{World\+Object} moves below the ground (collision) the movement speed of the \hyperlink{class_world_object}{World\+Object} in radial direction is set in the direction of the center. Then it sets the object\textquotesingle{}s new position and new speed. -\/\+Tomas
 
 
 \begin{DoxyParams}{Parameters}
-{\em world\+Object} & the \hyperlink{class_world_object}{World\+Object} instance for which new position \\
+{\em world\+Object} & the \hyperlink{class_world_object}{World\+Object} instance for which new position is to be calculated and set. If it is a \hyperlink{class_world_object}{World\+Object} of the type \hyperlink{class_projectile}{Projectile} ,then the \hyperlink{class_projectile}{Projectile} bounce counter is increased. \\
 \hline
 \end{DoxyParams}
 \index{Physics\+Calc@{Physics\+Calc}!check\+Health@{check\+Health}}
@@ -230,13 +266,13 @@ is a pointer to the object, the object collides with
 
 
 \begin{DoxyParams}{Parameters}
-{\em rotation} & \\
+{\em rotation} & the rotation of worldobject \\
 \hline
-{\em gravity\+Vector} & \\
+{\em gravity\+Vector} & the gravity vector of worldobject \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-
+the angle difference between the units norm and gravity vector 
 \end{DoxyReturn}
 \index{Physics\+Calc@{Physics\+Calc}!grav\+Vec@{grav\+Vec}}
 \index{grav\+Vec@{grav\+Vec}!Physics\+Calc@{Physics\+Calc}}
@@ -348,6 +384,28 @@ Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects c
 {\em eul} & \\
 \hline
 \end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!round\+Down@{round\+Down}}
+\index{round\+Down@{round\+Down}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{round\+Down(double number\+To\+Round, int digit)}{roundDown(double numberToRound, int digit)}}]{\setlength{\rightskip}{0pt plus 5cm}double Physics\+Calc\+::round\+Down (
+\begin{DoxyParamCaption}
+\item[{double}]{number\+To\+Round, }
+\item[{int}]{digit}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}{}\label{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}
+
+
+\hyperlink{class_physics_calc_a7e24e0769598a509705a71a0c4e8ab5d}{Physics\+Calc\+::round\+Down} floor of a number in respect to the digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+To\+Round} & number to be rounded down \\
+\hline
+{\em digit} & the digit to round down the number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the rounded down number 
+\end{DoxyReturn}
 \index{Physics\+Calc@{Physics\+Calc}!update\+Rot\+Values@{update\+Rot\+Values}}
 \index{update\+Rot\+Values@{update\+Rot\+Values}!Physics\+Calc@{Physics\+Calc}}
 \subsubsection[{\texorpdfstring{update\+Rot\+Values(\+World\+Object $\ast$world\+Object, double $\ast$angular)}{updateRotValues(WorldObject *worldObject, double *angular)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::update\+Rot\+Values (
@@ -362,9 +420,30 @@ Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects c
 
 
 \begin{DoxyParams}{Parameters}
-{\em the} & Worldobject to be updated \\
+{\em world\+Object} & the worldobject to be updated \\
+\hline
+{\em angular} & the angle and angular speed to be set \\
 \hline
 \end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!vectors\+Absolute\+Value@{vectors\+Absolute\+Value}}
+\index{vectors\+Absolute\+Value@{vectors\+Absolute\+Value}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{vectors\+Absolute\+Value(double $\ast$vector)}{vectorsAbsoluteValue(double *vector)}}]{\setlength{\rightskip}{0pt plus 5cm}double Physics\+Calc\+::vectors\+Absolute\+Value (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{vector}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}{}\label{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}
+
+
+\hyperlink{class_physics_calc_a5915904f1743c3a6cca6cf2b72a8d6f5}{Physics\+Calc\+::vectors\+Absolute\+Value} calculates the absolute value for a vector in R². -\/\+Tomas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+absolute value of a vector in R². 
+\end{DoxyReturn}
 \index{Physics\+Calc@{Physics\+Calc}!velocity\+Euler\+To\+Radial\+Coordinates@{velocity\+Euler\+To\+Radial\+Coordinates}}
 \index{velocity\+Euler\+To\+Radial\+Coordinates@{velocity\+Euler\+To\+Radial\+Coordinates}!Physics\+Calc@{Physics\+Calc}}
 \subsubsection[{\texorpdfstring{velocity\+Euler\+To\+Radial\+Coordinates(double $\ast$eul\+Input\+Position, double $\ast$input\+Vel\+Vector, double $\ast$output\+Vel\+Vector, bool euler\+To\+Radial)}{velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates (
@@ -377,17 +456,19 @@ Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects c
 )}\hypertarget{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{}\label{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}
 
 
-\hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates}. 
+\hyperlink{class_physics_calc_aae5264bd415c1cccac4bd4628cb015a0}{Physics\+Calc\+::velocity\+Euler\+To\+Radial\+Coordinates} transforms the velocity of a \hyperlink{class_world_object}{World\+Object}. -\/\+Tomas. 
+
+Detailed\+: the new velocity vector is in a coordinate system which always points with the first coordinate from the center of the world through the position of the unit outwards radially. The second coordinate points facing int the same direction to the left.
 
 
 \begin{DoxyParams}{Parameters}
-{\em eul\+Input\+Position} & objects position \\
+{\em eul\+Input\+Position} & objects position to determine what direction is outward. \\
 \hline
-{\em eul\+Input\+Velocity} & objects velocity \\
+{\em eul\+Input\+Velocity} & objects velocity to transform \\
 \hline
-{\em radial\+Output} & first direction is radial, second directions is tangential \\
+{\em radial\+Output} & first coordinate radial, second coordinate is tangential to the \hyperlink{class_terrain}{Terrain} \textquotesingle{}s circle. \\
 \hline
-{\em euler\+To\+Radial} & true if transforming from euler to radial, or false if transforming from radial to euler \\
+{\em euler\+To\+Radial} & true if transforming from Euler coordinates, or false if transforming back to Euler coordinates. \\
 \hline
 \end{DoxyParams}
 

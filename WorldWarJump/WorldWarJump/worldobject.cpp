@@ -31,10 +31,9 @@ void WorldObject::hit(){
 }
 
 /**
- * @brief WorldObject::jump
- * This function exceutes a jump if the right key is pressed and the Input class sends a signal.
- * The jump will be only excuted if the unit is on the ground or collides with an other WorldObject.
- *
+ * @brief WorldObject::jump makes the unit jump in the direction of its head and introduces random rotation.
+ * The unit is able to jump in certain proximity to the ground, or when it is colliding with an other unit.
+ * The rotation has constant magnitude, but the direction is random.
  */
 void WorldObject::jump()
 {
@@ -59,28 +58,19 @@ void WorldObject::jump()
         //Create a randm variable that gives -1 or 1
         std::srand(std::time(0));
         int random_var = static_cast<int>(((rand()%2) -0.5)*2);
-        //qDebug() << "Random Variable: " <<random_var;
         //Introduce chance in rotation
         setRotVel(random_var *5 + getRotVel());
 
 
     }
-    /*qDebug() << "Distance to Center:" << distanceToCenter;
-    QPointF point(this->getCenterOfMass()[0],this->getCenterOfMass()[1]);
-    qDebug() << "Center: " << this->sceneTransform().map(point);
-    qDebug() << "Orientation" << orientation;*/
-    /*qDebug() << "bottom left: " << this->sceneTransform().map(this->boundingRect().bottomLeft());
-    qDebug() << "bottom right: " << this->sceneTransform().map(this->boundingRect().bottomRight());
-    qDebug() << "Top left: " << this->scenePos();
-    qDebug() << "Top left: " << this->sceneTransform().map(QPointF(0, 0));
-    qDebug() << "Top right: " << this->sceneTransform().map(this->boundingRect().topRight());*/
-    /*double * impactPoint = {0};
-    getTopRight(impactPoint);
-    qDebug() << "Furthest:" << QPointF(impactPoint[0],impactPoint[1]);*/
-
  }
 
-
+/**
+ * @brief WorldObject::WorldObject constructor.
+ * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
+ * @param p the player controlling the unit
+ * @param soundplayer the pointer to the global sound player
+ */
 WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplayer) {
 
     soundpointer=soundplayer;
@@ -105,11 +95,12 @@ WorldObject::WorldObject(GameWorld * parentView, Player p,SoundPlayer *soundplay
     //Apparently is more efficient for calculations:
     this->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
-    //qDebug() << "Center of Mass: "<< centerOfMass[0] << " ; " << centerOfMass[1];
-    //*setFlag(QGraphicsItem::ItemIsFocusable);
 
 }
-
+/**
+ * @brief WorldObject::getSpeed returns the speed of the unit
+ * @return the pointer to the speed array
+ */
 double * WorldObject::getSpeed(){
     return speed;
 }
@@ -135,25 +126,35 @@ void WorldObject::setFirstcollide(bool col)
     firstcollide = col;
 }
 
+/**
+ * @brief WorldObject::getBounced returns if the object has bounced before
+ * @return if the object has bounced before
+ */
 bool WorldObject::getBounced() const
 {
     return bounced;
 }
-
+/**
+ * @brief WorldObject::setBounced sets if the object has bounced before
+ * @param value the bool value indicating if the object has bounced before or not
+ */
 void WorldObject::setBounced(bool value)
 {
     bounced = value;
 }
 
+/**
+ * @brief WorldObject::getPlayer returns the player controlling the unit
+ * @return the player controlling the unit
+ */
 Player WorldObject::getPlayer() const
 {
     return p;
 }
 
 /**
- * @brief WorldObject::setSpeed
- * This function sets the speed to the new values, if the speed maximum is not reached.
- * @param newSpeed
+ * @brief WorldObject::setSpeed set the speed of the unit and limit to a max speed
+ * @param newSpeed the pointer to the new speed array
  */
 void WorldObject::setSpeed(double *newSpeed){
     //Limit to max Speed
@@ -167,6 +168,7 @@ void WorldObject::setSpeed(double *newSpeed){
     speed[1] = newSpeed[1];
 }
 
+
 void WorldObject::getPosition(double *outputPointer)
 {
     outputPointer[0] = x();
@@ -175,21 +177,28 @@ void WorldObject::getPosition(double *outputPointer)
 
 
 //For Orientation
+
+/**
+ * @brief WorldObject::setOrientation set the turning angle of the unit in degrees
+ * @param newOrientation the new angle in degrees
+ */
 void WorldObject::setOrientation(double newOrientation)
 {
     this->orientation = newOrientation;
 
 }
-
+/**
+ * @brief WorldObject::getOrientation get the turning angle of the unit in degrees
+ * @return the turning angle in degrees
+ */
 double WorldObject::getOrientation() const
 {
     return(orientation);
 }
 
 /**
- * @brief WorldObject::setRotVel
- * This function sets the rotationvalue, if the limit is not reached.
- * @param newRotVel
+ * @brief WorldObject::setRotVel set the rotational velocity in degrees and limit it
+ * @param newRotVel the new rotational velocity in degrees
  */
 void WorldObject::setRotVel(double newRotVel)
 {
@@ -201,47 +210,63 @@ void WorldObject::setRotVel(double newRotVel)
     }
     this->rotVel = newRotVel;
 }
-
+/**
+ * @brief WorldObject::getRotVel returns the rotational velocity in degrees
+ * @return the rotational velocity in degrees
+ */
 double WorldObject::getRotVel() const
 {
     return(rotVel);
 }
 
-void WorldObject::getTopRight(double *topRight)
-{
-    QPointF point = this->sceneTransform().map(this->boundingRect().topRight());
-    topRight[0] = point.x();
-    topRight[1] = point.y();
-}
-
+/**
+ * @brief WorldObject::setHitCounter set how many times the unit has hit the ground
+ * @param hit the number of collisions with ground
+ */
 void WorldObject::setHitCounter(int hit)
 {
     this->hitcounter=hit;
 }
-
+/**
+ * @brief WorldObject::getHitCounter get how many times the unit has hit the ground
+ * @return the number of collisions with ground
+ */
 int WorldObject::getHitCounter()
 {
     return this->hitcounter;
 }
 //For Orientation
 
+/**
+ * @brief WorldObject::setCenterOfMass sets the position of units center of mass in scene coordinates
+ * @param newCenterOfMass the new center of mass position
+ */
 void WorldObject::setCenterOfMass(double *newCenterOfMass)
 {
     centerOfMass[0] = newCenterOfMass[0];
     centerOfMass[1] = newCenterOfMass[1];
 }
-
+/**
+ * @brief WorldObject::getCenterOfMass gets the position of units center of mass in scene coordinates
+ * @return the center of mass position
+ */
 double *WorldObject::getCenterOfMass()
 {
     return centerOfMass;
 
 }
-
+/**
+ * @brief WorldObject::getWeight returns the weight value of the unit
+ * @return the weight
+ */
 int WorldObject::getWeight()
 {
     return this->weigth;
 }
-
+/**
+ * @brief WorldObject::setWeight sets the weight value of the unit
+ * @param w the new weight value
+ */
 void WorldObject::setWeight(int w)
 {
     this->weigth=w;
@@ -282,7 +307,13 @@ int WorldObject::getProjectile()
 {
     return projectilselector;
 }
-
+/**
+ * @brief WorldObject::getChar returns the character indicating the unit type.
+ * If it is a battle unit, the character is 'b'
+ * If it is a projectile, the character is 'p'
+ * If it is neither, the character is 'o'
+ * @return the units type
+ */
 char WorldObject::getChar()
 {
     return ObjectType;
@@ -290,7 +321,6 @@ char WorldObject::getChar()
 
 
 WorldObject::~WorldObject() {
-//    qDebug() <<"Terminated!";
 }
 
 
