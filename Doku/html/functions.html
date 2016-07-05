@@ -24,7 +24,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">World War Jump
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Main project of group 8</div>
   </td>
  </tr>
  </tbody>
@@ -78,17 +80,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_a"><span>a</span></a></li>
       <li><a href="#index_b"><span>b</span></a></li>
       <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_j"><span>j</span></a></li>
+      <li><a href="#index_k"><span>k</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_u"><span>u</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
-      <li class="current"><a href="#index_w"><span>w</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
+      <li class="current"><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -110,8 +116,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
-<li>addPlayer1UnitButton
-: <a class="el" href="class_game_menu.html#aedcd8869665d66f9489ab41f0c038df8">GameMenu</a>
+<li>aboutScene
+: <a class="el" href="class_game_menu.html#a347306846ed65b9ed5ed3d457e46c5ac">GameMenu</a>
 </li>
 </ul>
 
@@ -119,6 +125,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
 <li>BattleUnit()
 : <a class="el" href="class_battle_unit.html#ab89fc2d2730cc059c34bb7cd3473d2f0">BattleUnit</a>
+</li>
+<li>beforeGameScene
+: <a class="el" href="class_game_menu.html#a96efe4b74ad120a5920e141cec544f94">GameMenu</a>
+</li>
+<li>beforeGameSceneBackground
+: <a class="el" href="class_game_menu.html#a59aa0e84b5d4db53a62bb52480856c25">GameMenu</a>
 </li>
 </ul>
 
@@ -145,6 +157,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>checkWinCondition()
 : <a class="el" href="class_physics_calc.html#a611a891e2f01de112884cc09f25d1e33">PhysicsCalc</a>
 </li>
+<li>collideWithAny()
+: <a class="el" href="class_physics_calc.html#a8529b4af50316ef96a6bcbd029c39077">PhysicsCalc</a>
+</li>
 <li>CollideWithTerrain()
 : <a class="el" href="class_physics_calc.html#a88dc6d26563c0a340cd5c4470801b419">PhysicsCalc</a>
 </li>
@@ -154,7 +169,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 
 
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>displayMelee()
+: <a class="el" href="class_game_world.html#a5c708aa7aed621ce59bf8040422d6bf0">GameWorld</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>endScene
+: <a class="el" href="class_game_menu.html#a235b359eff5bab01a8ca9d2b75466af1">GameMenu</a>
+</li>
+<li>endSceneBackground
+: <a class="el" href="class_game_menu.html#a32c0e1b35559b840ffc5628cb59c8639">GameMenu</a>
+</li>
 <li>eulToPol()
 : <a class="el" href="class_physics_calc.html#af038d3a5fe0160410456b14601a95581">PhysicsCalc</a>
 </li>
@@ -162,17 +190,59 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GameMenu()
+: <a class="el" href="class_game_menu.html#acc7215518fa676e7985aa3f34ca55ef7">GameMenu</a>
+</li>
 <li>GameplayInterface()
 : <a class="el" href="class_gameplay_interface.html#ab75b8894a36f5697edc87e0acc2d31ce">GameplayInterface</a>
 </li>
 <li>GameWorld()
 : <a class="el" href="class_game_world.html#a4917d80cbe417b0dc1d9023499d83f72">GameWorld</a>
 </li>
+<li>getBounced()
+: <a class="el" href="class_world_object.html#ae31450bcd5b77c1dbed862cb55ea6694">WorldObject</a>
+</li>
+<li>getCenterOfMass()
+: <a class="el" href="class_world_object.html#adec5084311ea0477db37e9bbeddeb401">WorldObject</a>
+</li>
+<li>getChar()
+: <a class="el" href="class_world_object.html#a4899b4a491e10707af9df49c6e6b4323">WorldObject</a>
+</li>
 <li>getFiredirection()
 : <a class="el" href="class_battle_unit.html#aa5a7ea370e2f789b51f5617b45822bdb">BattleUnit</a>
 </li>
 <li>getGameMenuSize()
 : <a class="el" href="class_game_menu.html#adc24456c629b662425a461b7171da615">GameMenu</a>
+</li>
+<li>getHitCounter()
+: <a class="el" href="class_world_object.html#a22888de0c352adf646e4c87584efe39c">WorldObject</a>
+</li>
+<li>getImpactPoint()
+: <a class="el" href="class_physics_calc.html#a9bbfe3998836451d84697577c0e6195d">PhysicsCalc</a>
+</li>
+<li>getOrientation()
+: <a class="el" href="class_world_object.html#a19516f1bc3450350c42cfe467dabf4f8">WorldObject</a>
+</li>
+<li>getPlayer()
+: <a class="el" href="class_world_object.html#ac3ff724096106165c68e3e9600032233">WorldObject</a>
+</li>
+<li>getPlayer1UnitCount()
+: <a class="el" href="class_game_menu.html#ac37e4932a0aa396be6ffb04cad2061b2">GameMenu</a>
+</li>
+<li>getPlayer2UnitCount()
+: <a class="el" href="class_game_menu.html#a9fd03816511faec236d787298237b231">GameMenu</a>
+</li>
+<li>getRotVel()
+: <a class="el" href="class_world_object.html#a92c64315b40802ee97bf3cd5f16a3538">WorldObject</a>
+</li>
+<li>getshootingUnit()
+: <a class="el" href="class_projectile.html#aa8868e4a292212337b3d6de12e9da63a">Projectile</a>
+</li>
+<li>getSpeed()
+: <a class="el" href="class_world_object.html#a4a9c0e80e36b49cd7d4f574ca6351249">WorldObject</a>
+</li>
+<li>getWeight()
+: <a class="el" href="class_world_object.html#a8061ac1f99f6ed3f78d42a39cb82d0c2">WorldObject</a>
 </li>
 <li>getWhichStage()
 : <a class="el" href="class_game_menu.html#a45729234e7d5e250608217f0b24ac8da">GameMenu</a>
@@ -187,6 +257,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>hideMelee()
+: <a class="el" href="class_game_world.html#ad8dd31d4ac368bda6d54b3d5398ed3ea">GameWorld</a>
+</li>
+<li>hit()
+: <a class="el" href="class_world_object.html#a5630a513886f232da0174fc992a13ad7">WorldObject</a>
+</li>
 <li>hitUnit()
 : <a class="el" href="class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c">PhysicsCalc</a>
 </li>
@@ -206,6 +282,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </ul>
 
 
+<h3><a class="anchor" id="index_j"></a>- j -</h3><ul>
+<li>jump()
+: <a class="el" href="class_world_object.html#a923e9f81e48251574f1b69f09ebc1c12">WorldObject</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
+<li>keyPressEvent()
+: <a class="el" href="class_input.html#af33a8e4ba483419bd40b1c20ccc1cd7f">Input</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>meeleDamage()
 : <a class="el" href="class_physics_calc.html#a10a603c3fb290521b301a19600c067c4">PhysicsCalc</a>
@@ -216,9 +306,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>move()
 : <a class="el" href="class_world_object.html#af0a581ca569f51047d53677e5d48cf30">WorldObject</a>
 </li>
-<li>muteBGMButton
-: <a class="el" href="class_game_menu.html#aaf654b46140ebb546578a3fefd72934c">GameMenu</a>
-</li>
 </ul>
 
 
@@ -226,30 +313,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>PhysicsCalc()
 : <a class="el" href="class_physics_calc.html#a806b2675198437e8271ab82eda0e6746">PhysicsCalc</a>
 </li>
-<li>player1UnitPicture
-: <a class="el" href="class_game_menu.html#a7b6ec049efa3d2edb073b0c6f8d4410c">GameMenu</a>
-</li>
-<li>playeronewinsPic
-: <a class="el" href="class_game_menu.html#a607f26f22eabdc52789ec0fcb9ae1fd8">GameMenu</a>
-</li>
 <li>playeronewon()
 : <a class="el" href="class_game_menu.html#a3e3677db66b2c65a9f0de92f41fe3698">GameMenu</a>
 </li>
 <li>playertwowon()
 : <a class="el" href="class_game_menu.html#a7cf2904dfdb06e5bd6423d80fda61739">GameMenu</a>
 </li>
+<li>playGameBGM()
+: <a class="el" href="class_sound_player.html#a896f537cc0518edc7a724554ec35cf27">SoundPlayer</a>
+</li>
+<li>playHit()
+: <a class="el" href="class_sound_player.html#a620011ab815ca67880615766518e3157">SoundPlayer</a>
+</li>
+<li>playJump()
+: <a class="el" href="class_sound_player.html#a854749ef29c5620f8b3b6355b7015d01">SoundPlayer</a>
+</li>
+<li>playMenuBGM()
+: <a class="el" href="class_sound_player.html#afcffc7d0a0437906496aff6ea1669193">SoundPlayer</a>
+</li>
+<li>playProjectileTypeShoot()
+: <a class="el" href="class_sound_player.html#a22e1a489bbbb6cfcab3662c41f8168bc">SoundPlayer</a>
+</li>
 <li>polToEul()
 : <a class="el" href="class_physics_calc.html#a441c3e94fe0e6eed1d96531368f50d54">PhysicsCalc</a>
+</li>
+<li>Projectile()
+: <a class="el" href="class_projectile.html#a78d923a25fe271ac68edc1f1de95e3e8">Projectile</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>recoil()
+: <a class="el" href="class_projectile.html#a0c2d868fd9e05d3055b8f625399d7909">Projectile</a>
+</li>
+<li>reference
+: <a class="el" href="class_game_menu.html#acd0a5b94ff397f9247088d5942c27341">GameMenu</a>
+</li>
 <li>refreshRateTimer
 : <a class="el" href="class_input.html#a3196d6cd66f0491bc90fd7a48e2d9c9c">Input</a>
 </li>
 <li>resetUnitCount()
 : <a class="el" href="class_game_settings.html#a9ad65a0b954336d45ffb816af6cb9884">GameSettings</a>
+</li>
+<li>rotateBackground()
+: <a class="el" href="class_game_world.html#a4b17ac101198095db71b34cfd87b97b2">GameWorld</a>
 </li>
 <li>roundDown()
 : <a class="el" href="class_physics_calc.html#a7e24e0769598a509705a71a0c4e8ab5d">PhysicsCalc</a>
@@ -258,20 +366,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>setBounced()
+: <a class="el" href="class_world_object.html#a10f95129b8b184c880412181552f2208">WorldObject</a>
+</li>
+<li>setCenterOfMass()
+: <a class="el" href="class_world_object.html#a14befa1bd922a8c9f7134352103de942">WorldObject</a>
+</li>
 <li>setFiredirection()
 : <a class="el" href="class_battle_unit.html#ab038bbc9e82cea88af5a9228c0559463">BattleUnit</a>
 </li>
 <li>setGameMenuSize()
 : <a class="el" href="class_game_menu.html#aeb35fbd4176b7069dd59395b39d1950c">GameMenu</a>
 </li>
-<li>settingsBackground
-: <a class="el" href="class_game_menu.html#a1883be9e761bc6ddf651d076792a6536">GameMenu</a>
+<li>setHealthpoints()
+: <a class="el" href="class_world_object.html#a2ad8e7e458a573830f1609f4d9d3eacf">WorldObject</a>
+</li>
+<li>setHitCounter()
+: <a class="el" href="class_world_object.html#aae9c6fd3df711b5e0df44ad1e6fcabab">WorldObject</a>
+</li>
+<li>setOrientation()
+: <a class="el" href="class_world_object.html#a0dbc4225453661d4578c7fd9eb00ab73">WorldObject</a>
+</li>
+<li>setRotVel()
+: <a class="el" href="class_world_object.html#a4fc971089870ff9db55c767694056f2f">WorldObject</a>
+</li>
+<li>setSpeed()
+: <a class="el" href="class_world_object.html#a0a4c93b5c06696aa664aae256d5378d9">WorldObject</a>
+</li>
+<li>settingsScene
+: <a class="el" href="class_game_menu.html#a034da5f5a381412e92d1764f5af32883">GameMenu</a>
+</li>
+<li>setWeight()
+: <a class="el" href="class_world_object.html#a39b88d87246ad4d526d6b7c54aeb7e82">WorldObject</a>
 </li>
 <li>shoot()
 : <a class="el" href="class_battle_unit.html#ad483aca2f0e52cb79c5b0444f6fbd1da">BattleUnit</a>
 </li>
-<li>startButton
-: <a class="el" href="class_game_menu.html#a22c3e73fc24f9699e6a9f4bc1d6fbd52">GameMenu</a>
+<li>SoundPlayer()
+: <a class="el" href="class_sound_player.html#ac7107aecd54bdcfac29486487768ebc6">SoundPlayer</a>
+</li>
+<li>soundpointer
+: <a class="el" href="class_game_menu.html#a9dfd20cecbc58d41918f85f08942065d">GameMenu</a>
 </li>
 <li>startScene
 : <a class="el" href="class_game_menu.html#ab72c5ce17a0f06580b74c495cb9694ce">GameMenu</a>
@@ -283,6 +418,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>unitUnitCollisionFunc()
+: <a class="el" href="class_physics_calc.html#aacab28a38556f2a29e52068f09a3a4f0">PhysicsCalc</a>
+</li>
 <li>updateRotValues()
 : <a class="el" href="class_physics_calc.html#afaa9837f796074797ea731066f09dfc3">PhysicsCalc</a>
 </li>
@@ -300,8 +438,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
-<li>w
-: <a class="el" href="class_game_menu.html#ab2cbc2fb13a1e67c958efe22a58c5ec2">GameMenu</a>
+<li>WorldObject()
+: <a class="el" href="class_world_object.html#a064fcf6f95ab0bcef4eaacaad35d1aee">WorldObject</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~Input()
+: <a class="el" href="class_input.html#af2db35ba67c8a8ccd23bef6a482fc291">Input</a>
+</li>
+<li>~Projectile()
+: <a class="el" href="class_projectile.html#a94903e021fa2edab60ba3836ca0b937d">Projectile</a>
 </li>
 </ul>
 </div><!-- contents -->

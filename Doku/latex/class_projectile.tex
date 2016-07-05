@@ -9,19 +9,86 @@ Inheritance diagram for Projectile\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Projectile} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, \hyperlink{class_battle_unit}{Battle\+Unit} $\ast$shooting\+Unit, Projectile\+Type p, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer, double $\ast$shooting\+Point)\hypertarget{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}{}\label{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}
+\hyperlink{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}{Projectile} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, \hyperlink{class_battle_unit}{Battle\+Unit} $\ast$shooting\+Unit, Projectile\+Type p, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer, double $\ast$shooting\+Point)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}{Projectile\+::\+Projectile} constructor. Initializes the position, the initial angle , the initial speed ,the projectile type , the weight and the damage and connects the timer It sets the picture and damage depending on the enum Player and Projectile\+Type. \end{DoxyCompactList}\item 
+\hyperlink{class_projectile_a94903e021fa2edab60ba3836ca0b937d}{$\sim$\+Projectile} ()\hypertarget{class_projectile_a94903e021fa2edab60ba3836ca0b937d}{}\label{class_projectile_a94903e021fa2edab60ba3836ca0b937d}
 
-\item 
-void {\bfseries recoil} (\hyperlink{class_world_object}{World\+Object} $\ast$obj1, \hyperlink{class_world_object}{World\+Object} $\ast$obj2)\hypertarget{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}{}\label{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}
-
-\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_projectile_a94903e021fa2edab60ba3836ca0b937d}{Projectile\+::$\sim$\+Projectile} This function is the destructor of the \hyperlink{class_projectile}{Projectile} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}{recoil} (\hyperlink{class_world_object}{World\+Object} $\ast$obj1, \hyperlink{class_world_object}{World\+Object} $\ast$obj2)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}{Projectile\+::recoil} This function, creates a recoil on the shooting \hyperlink{class_battle_unit}{Battle\+Unit} by using the conservation of the linear momentum. \end{DoxyCompactList}\item 
 void {\bfseries pol\+To\+Eul} (double $\ast$pol, double $\ast$eul, char type)\hypertarget{class_projectile_ae66148108698335706f51a19aaec764c}{}\label{class_projectile_ae66148108698335706f51a19aaec764c}
 
 \item 
-\hyperlink{class_world_object}{World\+Object} $\ast$ {\bfseries getshooting\+Unit} ()\hypertarget{class_projectile_aa8868e4a292212337b3d6de12e9da63a}{}\label{class_projectile_aa8868e4a292212337b3d6de12e9da63a}
-
-\end{DoxyCompactItemize}
+\hyperlink{class_world_object}{World\+Object} $\ast$ \hyperlink{class_projectile_aa8868e4a292212337b3d6de12e9da63a}{getshooting\+Unit} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_projectile_aa8868e4a292212337b3d6de12e9da63a}{Projectile\+::getshooting\+Unit} This function returns the shooting\+Unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\index{Projectile@{Projectile}!Projectile@{Projectile}}
+\subsubsection[{\texorpdfstring{Projectile(\+Game\+World $\ast$parent\+View, Battle\+Unit $\ast$shooting\+Unit, Projectile\+Type p, Sound\+Player $\ast$soundplayer, double $\ast$shooting\+Point)}{Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer, double *shootingPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}Projectile\+::\+Projectile (
+\begin{DoxyParamCaption}
+\item[{{\bf Game\+World} $\ast$}]{parent\+View, }
+\item[{{\bf Battle\+Unit} $\ast$}]{shooting\+Unit, }
+\item[{Projectile\+Type}]{p, }
+\item[{{\bf Sound\+Player} $\ast$}]{soundplayer, }
+\item[{double $\ast$}]{shooting\+Point}
+\end{DoxyParamCaption}
+)}\hypertarget{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}{}\label{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}
+
+
+\hyperlink{class_projectile_a78d923a25fe271ac68edc1f1de95e3e8}{Projectile\+::\+Projectile} constructor. Initializes the position, the initial angle , the initial speed ,the projectile type , the weight and the damage and connects the timer It sets the picture and damage depending on the enum Player and Projectile\+Type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent\+View} & pointer to connect() the \hyperlink{class_battle_unit}{Battle\+Unit} to the player\textquotesingle{}s input and the game\textquotesingle{}s refresh rate. \\
+\hline
+{\em shooting\+Unit} & the battle unit shooting the projectile \\
+\hline
+{\em p} & the enum that gives the projectile type \\
+\hline
+{\em soundplayer} & the pointer to the global sound player \\
+\hline
+{\em shooting\+Point} & the point in scene coordinates where the projectile should spawn \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Projectile@{Projectile}!getshooting\+Unit@{getshooting\+Unit}}
+\index{getshooting\+Unit@{getshooting\+Unit}!Projectile@{Projectile}}
+\subsubsection[{\texorpdfstring{getshooting\+Unit()}{getshootingUnit()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf World\+Object} $\ast$ Projectile\+::getshooting\+Unit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_projectile_aa8868e4a292212337b3d6de12e9da63a}{}\label{class_projectile_aa8868e4a292212337b3d6de12e9da63a}
+
+
+\hyperlink{class_projectile_aa8868e4a292212337b3d6de12e9da63a}{Projectile\+::getshooting\+Unit} This function returns the shooting\+Unit. 
+
+\begin{DoxyReturn}{Returns}
+the shooting Unit 
+\end{DoxyReturn}
+\index{Projectile@{Projectile}!recoil@{recoil}}
+\index{recoil@{recoil}!Projectile@{Projectile}}
+\subsubsection[{\texorpdfstring{recoil(\+World\+Object $\ast$obj1, World\+Object $\ast$obj2)}{recoil(WorldObject *obj1, WorldObject *obj2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Projectile\+::recoil (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{obj1, }
+\item[{{\bf World\+Object} $\ast$}]{obj2}
+\end{DoxyParamCaption}
+)}\hypertarget{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}{}\label{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}
+
+
+\hyperlink{class_projectile_a0c2d868fd9e05d3055b8f625399d7909}{Projectile\+::recoil} This function, creates a recoil on the shooting \hyperlink{class_battle_unit}{Battle\+Unit} by using the conservation of the linear momentum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj1} & is the Shooting \hyperlink{class_battle_unit}{Battle\+Unit} \\
+\hline
+{\em obj2} & is \hyperlink{class_projectile}{Projectile} \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -20,7 +20,7 @@ Inheritance diagram for Battle\+Unit\+:\begin{figure}[H]
 \item 
 void \hyperlink{class_battle_unit_ad483aca2f0e52cb79c5b0444f6fbd1da}{shoot} ()\hypertarget{class_battle_unit_ad483aca2f0e52cb79c5b0444f6fbd1da}{}\label{class_battle_unit_ad483aca2f0e52cb79c5b0444f6fbd1da}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_battle_unit_ad483aca2f0e52cb79c5b0444f6fbd1da}{Battle\+Unit\+::shoot} spawns projectile when the connected button is pressed. The unit chooses the projectile to choose based on how many times it has been shot before and plays corresponding sound. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_battle_unit_ad483aca2f0e52cb79c5b0444f6fbd1da}{Battle\+Unit\+::shoot} spawns projectile when the connected button is pressed. The unit chooses the projectile to choose based on how many times it has been shot before and plays corresponding sound. The Projectile\+Type is cycled and will changed if the instance of the \hyperlink{class_battle_unit}{Battle\+Unit} has hit an enemy. \end{DoxyCompactList}\item 
 void {\bfseries set\+Shoot\+Able} ()\hypertarget{class_battle_unit_a32aaaf8056f9545f231a9bdc368aef8f}{}\label{class_battle_unit_a32aaaf8056f9545f231a9bdc368aef8f}
 
 \end{DoxyCompactItemize}
@@ -28,7 +28,7 @@ void {\bfseries set\+Shoot\+Able} ()\hypertarget{class_battle_unit_a32aaaf8056f9
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, Player player, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer, unit\+Type unittype)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit\+::\+Battle\+Unit} constructor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit\+::\+Battle\+Unit} constructor. Initializes the center of mass dependent on unit type, initializes the unit parameters and connects the jump and shoot signals with respective slots. \end{DoxyCompactList}\item 
 double \hyperlink{class_battle_unit_aa5a7ea370e2f789b51f5617b45822bdb}{get\+Firedirection} ()
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_battle_unit_aa5a7ea370e2f789b51f5617b45822bdb}{Battle\+Unit\+::get\+Firedirection} returns the fire direction of a battleunit. \end{DoxyCompactList}\item 
 void \hyperlink{class_battle_unit_ab038bbc9e82cea88af5a9228c0559463}{set\+Firedirection} (double direction)
@@ -63,20 +63,20 @@ The \hyperlink{class_battle_unit}{Battle\+Unit} class is a subclass of \hyperlin
 )}\hypertarget{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{}\label{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}
 
 
-\hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit\+::\+Battle\+Unit} constructor. 
+\hyperlink{class_battle_unit_ab89fc2d2730cc059c34bb7cd3473d2f0}{Battle\+Unit\+::\+Battle\+Unit} constructor. Initializes the center of mass dependent on unit type, initializes the unit parameters and connects the jump and shoot signals with respective slots. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em parent\+View} & pointer to connect() the \hyperlink{class_battle_unit}{Battle\+Unit} to the player\textquotesingle{}s input and the game\textquotesingle{}s refresh rate. \\
 \hline
-{\em player} & \\
+{\em player} & the player controlling the unit \\
 \hline
-{\em soundplayer} & \\
+{\em soundplayer} & the pointer to the global sound player \\
 \hline
-{\em unittype} & The \hyperlink{class_battle_unit}{Battle\+Unit} is only allowed to shoot every certain milliseconds, set in \hyperlink{class_game_settings}{Game\+Settings}. \\
+{\em unittype} & the enum that gives the battle unit type\\
 \hline
 \end{DoxyParams}
-
+The \hyperlink{class_battle_unit}{Battle\+Unit} is only allowed to shoot every certain milliseconds, set in \hyperlink{class_game_settings}{Game\+Settings}. 
 
 \subsection{Member Function Documentation}
 \index{Battle\+Unit@{Battle\+Unit}!calculate\+Shooting\+Point@{calculate\+Shooting\+Point}}

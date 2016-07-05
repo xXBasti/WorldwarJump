@@ -24,7 +24,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">World War Jump
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Main project of group 8</div>
   </td>
  </tr>
  </tbody>
@@ -108,13 +110,15 @@ Inheritance diagram for WorldObject:</div>
 Public Slots</h2></td></tr>
 <tr class="memitem:af0a581ca569f51047d53677e5d48cf30"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0a581ca569f51047d53677e5d48cf30"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#af0a581ca569f51047d53677e5d48cf30">move</a> ()</td></tr>
-<tr class="memdesc:af0a581ca569f51047d53677e5d48cf30"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#af0a581ca569f51047d53677e5d48cf30" title="WorldObject::move. ">WorldObject::move</a>. <br /></td></tr>
+<tr class="memdesc:af0a581ca569f51047d53677e5d48cf30"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#af0a581ca569f51047d53677e5d48cf30" title="WorldObject::move This function is called every timestep and gets the new position and speed values f...">WorldObject::move</a> This function is called every timestep and gets the new position and speed values for the <a class="el" href="class_world_object.html">WorldObject</a> from the physicscalc. <br /></td></tr>
 <tr class="separator:af0a581ca569f51047d53677e5d48cf30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a923e9f81e48251574f1b69f09ebc1c12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a923e9f81e48251574f1b69f09ebc1c12"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>jump</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a923e9f81e48251574f1b69f09ebc1c12">jump</a> ()</td></tr>
+<tr class="memdesc:a923e9f81e48251574f1b69f09ebc1c12"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a923e9f81e48251574f1b69f09ebc1c12" title="WorldObject::jump makes the unit jump in the direction of its head and introduces random rotation...">WorldObject::jump</a> makes the unit jump in the direction of its head and introduces random rotation. The unit is able to jump in certain proximity to the ground, or when it is colliding with an other unit. The rotation has constant magnitude, but the direction is random. <br /></td></tr>
 <tr class="separator:a923e9f81e48251574f1b69f09ebc1c12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5630a513886f232da0174fc992a13ad7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5630a513886f232da0174fc992a13ad7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>hit</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a5630a513886f232da0174fc992a13ad7">hit</a> ()</td></tr>
+<tr class="memdesc:a5630a513886f232da0174fc992a13ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a5630a513886f232da0174fc992a13ad7" title="WorldObject::hit This function is called every timestep by ervery Projectile subclass to check if its...">WorldObject::hit</a> This function is called every timestep by ervery <a class="el" href="class_projectile.html">Projectile</a> subclass to check if itself hit any <a class="el" href="class_world_object.html">WorldObject</a>. <br /></td></tr>
 <tr class="separator:a5630a513886f232da0174fc992a13ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
@@ -125,53 +129,50 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sendHealth</b> (int h
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a064fcf6f95ab0bcef4eaacaad35d1aee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a064fcf6f95ab0bcef4eaacaad35d1aee"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WorldObject</b> (<a class="el" href="class_game_world.html">GameWorld</a> *parentView, Player p, <a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer)</td></tr>
+<tr class="memitem:a064fcf6f95ab0bcef4eaacaad35d1aee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a064fcf6f95ab0bcef4eaacaad35d1aee">WorldObject</a> (<a class="el" href="class_game_world.html">GameWorld</a> *parentView, Player p, <a class="el" href="class_sound_player.html">SoundPlayer</a> *soundplayer)</td></tr>
+<tr class="memdesc:a064fcf6f95ab0bcef4eaacaad35d1aee"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a064fcf6f95ab0bcef4eaacaad35d1aee" title="WorldObject::WorldObject constructor. ">WorldObject::WorldObject</a> constructor.  <a href="#a064fcf6f95ab0bcef4eaacaad35d1aee">More...</a><br /></td></tr>
 <tr class="separator:a064fcf6f95ab0bcef4eaacaad35d1aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a4c93b5c06696aa664aae256d5378d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a4c93b5c06696aa664aae256d5378d9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSpeed</b> (double *newSpeed)</td></tr>
+<tr class="memitem:a0a4c93b5c06696aa664aae256d5378d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a0a4c93b5c06696aa664aae256d5378d9">setSpeed</a> (double *newSpeed)</td></tr>
+<tr class="memdesc:a0a4c93b5c06696aa664aae256d5378d9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a0a4c93b5c06696aa664aae256d5378d9" title="WorldObject::setSpeed set the speed of the unit and limit to a max speed. ">WorldObject::setSpeed</a> set the speed of the unit and limit to a max speed.  <a href="#a0a4c93b5c06696aa664aae256d5378d9">More...</a><br /></td></tr>
 <tr class="separator:a0a4c93b5c06696aa664aae256d5378d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e4d104947f9068c4d84669aad29c792"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e4d104947f9068c4d84669aad29c792"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>getPosition</b> (double *outputPointer)</td></tr>
 <tr class="separator:a5e4d104947f9068c4d84669aad29c792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a9c0e80e36b49cd7d4f574ca6351249"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4a9c0e80e36b49cd7d4f574ca6351249"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>getSpeed</b> ()</td></tr>
+<tr class="memitem:a4a9c0e80e36b49cd7d4f574ca6351249"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a4a9c0e80e36b49cd7d4f574ca6351249">getSpeed</a> ()</td></tr>
+<tr class="memdesc:a4a9c0e80e36b49cd7d4f574ca6351249"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a4a9c0e80e36b49cd7d4f574ca6351249" title="WorldObject::getSpeed returns the speed of the unit. ">WorldObject::getSpeed</a> returns the speed of the unit.  <a href="#a4a9c0e80e36b49cd7d4f574ca6351249">More...</a><br /></td></tr>
 <tr class="separator:a4a9c0e80e36b49cd7d4f574ca6351249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dbc4225453661d4578c7fd9eb00ab73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dbc4225453661d4578c7fd9eb00ab73"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOrientation</b> (double newOrientation)</td></tr>
+<tr class="memitem:a0dbc4225453661d4578c7fd9eb00ab73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a0dbc4225453661d4578c7fd9eb00ab73">setOrientation</a> (double newOrientation)</td></tr>
+<tr class="memdesc:a0dbc4225453661d4578c7fd9eb00ab73"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a0dbc4225453661d4578c7fd9eb00ab73" title="WorldObject::setOrientation set the turning angle of the unit in degrees. ">WorldObject::setOrientation</a> set the turning angle of the unit in degrees.  <a href="#a0dbc4225453661d4578c7fd9eb00ab73">More...</a><br /></td></tr>
 <tr class="separator:a0dbc4225453661d4578c7fd9eb00ab73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19516f1bc3450350c42cfe467dabf4f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19516f1bc3450350c42cfe467dabf4f8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getOrientation</b> () const </td></tr>
+<tr class="memitem:a19516f1bc3450350c42cfe467dabf4f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a19516f1bc3450350c42cfe467dabf4f8">getOrientation</a> () const </td></tr>
+<tr class="memdesc:a19516f1bc3450350c42cfe467dabf4f8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a19516f1bc3450350c42cfe467dabf4f8" title="WorldObject::getOrientation get the turning angle of the unit in degrees. ">WorldObject::getOrientation</a> get the turning angle of the unit in degrees.  <a href="#a19516f1bc3450350c42cfe467dabf4f8">More...</a><br /></td></tr>
 <tr class="separator:a19516f1bc3450350c42cfe467dabf4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fc971089870ff9db55c767694056f2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4fc971089870ff9db55c767694056f2f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setRotVel</b> (double newRotVel)</td></tr>
+<tr class="memitem:a4fc971089870ff9db55c767694056f2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a4fc971089870ff9db55c767694056f2f">setRotVel</a> (double newRotVel)</td></tr>
+<tr class="memdesc:a4fc971089870ff9db55c767694056f2f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a4fc971089870ff9db55c767694056f2f" title="WorldObject::setRotVel set the rotational velocity in degrees and limit it. ">WorldObject::setRotVel</a> set the rotational velocity in degrees and limit it.  <a href="#a4fc971089870ff9db55c767694056f2f">More...</a><br /></td></tr>
 <tr class="separator:a4fc971089870ff9db55c767694056f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92c64315b40802ee97bf3cd5f16a3538"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92c64315b40802ee97bf3cd5f16a3538"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getRotVel</b> () const </td></tr>
+<tr class="memitem:a92c64315b40802ee97bf3cd5f16a3538"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a92c64315b40802ee97bf3cd5f16a3538">getRotVel</a> () const </td></tr>
+<tr class="memdesc:a92c64315b40802ee97bf3cd5f16a3538"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a92c64315b40802ee97bf3cd5f16a3538" title="WorldObject::getRotVel returns the rotational velocity in degrees. ">WorldObject::getRotVel</a> returns the rotational velocity in degrees.  <a href="#a92c64315b40802ee97bf3cd5f16a3538">More...</a><br /></td></tr>
 <tr class="separator:a92c64315b40802ee97bf3cd5f16a3538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9ecc19617703dcb35ccf6fd8cd1c5b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e9ecc19617703dcb35ccf6fd8cd1c5b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getTopRight</b> (double *topRight)</td></tr>
-<tr class="separator:a4e9ecc19617703dcb35ccf6fd8cd1c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14befa1bd922a8c9f7134352103de942"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a14befa1bd922a8c9f7134352103de942"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCenterOfMass</b> (double *newCenterOfMass)</td></tr>
+<tr class="memitem:a14befa1bd922a8c9f7134352103de942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a14befa1bd922a8c9f7134352103de942">setCenterOfMass</a> (double *newCenterOfMass)</td></tr>
+<tr class="memdesc:a14befa1bd922a8c9f7134352103de942"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a14befa1bd922a8c9f7134352103de942" title="WorldObject::setCenterOfMass sets the position of units center of mass in scene coordinates. ">WorldObject::setCenterOfMass</a> sets the position of units center of mass in scene coordinates.  <a href="#a14befa1bd922a8c9f7134352103de942">More...</a><br /></td></tr>
 <tr class="separator:a14befa1bd922a8c9f7134352103de942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adec5084311ea0477db37e9bbeddeb401"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adec5084311ea0477db37e9bbeddeb401"></a>
-double *&#160;</td><td class="memItemRight" valign="bottom"><b>getCenterOfMass</b> ()</td></tr>
+<tr class="memitem:adec5084311ea0477db37e9bbeddeb401"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#adec5084311ea0477db37e9bbeddeb401">getCenterOfMass</a> ()</td></tr>
+<tr class="memdesc:adec5084311ea0477db37e9bbeddeb401"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#adec5084311ea0477db37e9bbeddeb401" title="WorldObject::getCenterOfMass gets the position of units center of mass in scene coordinates. ">WorldObject::getCenterOfMass</a> gets the position of units center of mass in scene coordinates.  <a href="#adec5084311ea0477db37e9bbeddeb401">More...</a><br /></td></tr>
 <tr class="separator:adec5084311ea0477db37e9bbeddeb401"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae9c6fd3df711b5e0df44ad1e6fcabab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae9c6fd3df711b5e0df44ad1e6fcabab"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHitCounter</b> (int hit)</td></tr>
+<tr class="memitem:aae9c6fd3df711b5e0df44ad1e6fcabab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#aae9c6fd3df711b5e0df44ad1e6fcabab">setHitCounter</a> (int <a class="el" href="class_world_object.html#a5630a513886f232da0174fc992a13ad7">hit</a>)</td></tr>
+<tr class="memdesc:aae9c6fd3df711b5e0df44ad1e6fcabab"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#aae9c6fd3df711b5e0df44ad1e6fcabab" title="WorldObject::setHitCounter set how many times the unit has hit the ground. ">WorldObject::setHitCounter</a> set how many times the unit has hit the ground.  <a href="#aae9c6fd3df711b5e0df44ad1e6fcabab">More...</a><br /></td></tr>
 <tr class="separator:aae9c6fd3df711b5e0df44ad1e6fcabab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22888de0c352adf646e4c87584efe39c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22888de0c352adf646e4c87584efe39c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getHitCounter</b> ()</td></tr>
+<tr class="memitem:a22888de0c352adf646e4c87584efe39c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a22888de0c352adf646e4c87584efe39c">getHitCounter</a> ()</td></tr>
+<tr class="memdesc:a22888de0c352adf646e4c87584efe39c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a22888de0c352adf646e4c87584efe39c" title="WorldObject::getHitCounter get how many times the unit has hit the ground. ">WorldObject::getHitCounter</a> get how many times the unit has hit the ground.  <a href="#a22888de0c352adf646e4c87584efe39c">More...</a><br /></td></tr>
 <tr class="separator:a22888de0c352adf646e4c87584efe39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3ff724096106165c68e3e9600032233"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3ff724096106165c68e3e9600032233"></a>
-Player&#160;</td><td class="memItemRight" valign="bottom"><b>getPlayer</b> () const </td></tr>
+<tr class="memitem:ac3ff724096106165c68e3e9600032233"><td class="memItemLeft" align="right" valign="top">Player&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#ac3ff724096106165c68e3e9600032233">getPlayer</a> () const </td></tr>
+<tr class="memdesc:ac3ff724096106165c68e3e9600032233"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#ac3ff724096106165c68e3e9600032233" title="WorldObject::getPlayer returns the player controlling the unit. ">WorldObject::getPlayer</a> returns the player controlling the unit.  <a href="#ac3ff724096106165c68e3e9600032233">More...</a><br /></td></tr>
 <tr class="separator:ac3ff724096106165c68e3e9600032233"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8061ac1f99f6ed3f78d42a39cb82d0c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8061ac1f99f6ed3f78d42a39cb82d0c2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getWeight</b> ()</td></tr>
+<tr class="memitem:a8061ac1f99f6ed3f78d42a39cb82d0c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a8061ac1f99f6ed3f78d42a39cb82d0c2">getWeight</a> ()</td></tr>
+<tr class="memdesc:a8061ac1f99f6ed3f78d42a39cb82d0c2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a8061ac1f99f6ed3f78d42a39cb82d0c2" title="WorldObject::getWeight returns the weight value of the unit. ">WorldObject::getWeight</a> returns the weight value of the unit.  <a href="#a8061ac1f99f6ed3f78d42a39cb82d0c2">More...</a><br /></td></tr>
 <tr class="separator:a8061ac1f99f6ed3f78d42a39cb82d0c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39b88d87246ad4d526d6b7c54aeb7e82"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39b88d87246ad4d526d6b7c54aeb7e82"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setWeight</b> (int w)</td></tr>
+<tr class="memitem:a39b88d87246ad4d526d6b7c54aeb7e82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a39b88d87246ad4d526d6b7c54aeb7e82">setWeight</a> (int w)</td></tr>
+<tr class="memdesc:a39b88d87246ad4d526d6b7c54aeb7e82"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a39b88d87246ad4d526d6b7c54aeb7e82" title="WorldObject::setWeight sets the weight value of the unit. ">WorldObject::setWeight</a> sets the weight value of the unit.  <a href="#a39b88d87246ad4d526d6b7c54aeb7e82">More...</a><br /></td></tr>
 <tr class="separator:a39b88d87246ad4d526d6b7c54aeb7e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6f9accf985f4f67f1219ad0196a5096"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6f9accf985f4f67f1219ad0196a5096"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getHealthpoints</b> ()</td></tr>
@@ -182,8 +183,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getDamage</b> ()</td><
 <tr class="memitem:a62cc2d1b031251c40343d2b453acbd3a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a62cc2d1b031251c40343d2b453acbd3a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDamage</b> (int d)</td></tr>
 <tr class="separator:a62cc2d1b031251c40343d2b453acbd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ad8e7e458a573830f1609f4d9d3eacf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2ad8e7e458a573830f1609f4d9d3eacf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHealthpoints</b> (int points)</td></tr>
+<tr class="memitem:a2ad8e7e458a573830f1609f4d9d3eacf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a2ad8e7e458a573830f1609f4d9d3eacf">setHealthpoints</a> (int points)</td></tr>
+<tr class="memdesc:a2ad8e7e458a573830f1609f4d9d3eacf"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a2ad8e7e458a573830f1609f4d9d3eacf" title="WorldObject::setHealthpoints This function sets the Healthpoints and emit a signal with the healthpoi...">WorldObject::setHealthpoints</a> This function sets the Healthpoints and emit a signal with the healthpoints to the healthpointsbar.  <a href="#a2ad8e7e458a573830f1609f4d9d3eacf">More...</a><br /></td></tr>
 <tr class="separator:a2ad8e7e458a573830f1609f4d9d3eacf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58f877e00d7a0a05af52939e5e07c441"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a58f877e00d7a0a05af52939e5e07c441"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setProjectile</b> (int proj)</td></tr>
@@ -191,14 +192,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setProjectile</b> (in
 <tr class="memitem:ae5736660e64943d305f1a400bd8f0173"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5736660e64943d305f1a400bd8f0173"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getProjectile</b> ()</td></tr>
 <tr class="separator:ae5736660e64943d305f1a400bd8f0173"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4899b4a491e10707af9df49c6e6b4323"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4899b4a491e10707af9df49c6e6b4323"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>getChar</b> ()</td></tr>
+<tr class="memitem:a4899b4a491e10707af9df49c6e6b4323"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a4899b4a491e10707af9df49c6e6b4323">getChar</a> ()</td></tr>
+<tr class="memdesc:a4899b4a491e10707af9df49c6e6b4323"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a4899b4a491e10707af9df49c6e6b4323" title="WorldObject::getChar returns the character indicating the unit type. If it is a battle unit...">WorldObject::getChar</a> returns the character indicating the unit type. If it is a battle unit, the character is 'b' If it is a projectile, the character is 'p' If it is neither, the character is 'o'.  <a href="#a4899b4a491e10707af9df49c6e6b4323">More...</a><br /></td></tr>
 <tr class="separator:a4899b4a491e10707af9df49c6e6b4323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae31450bcd5b77c1dbed862cb55ea6694"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae31450bcd5b77c1dbed862cb55ea6694"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getBounced</b> () const </td></tr>
+<tr class="memitem:ae31450bcd5b77c1dbed862cb55ea6694"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#ae31450bcd5b77c1dbed862cb55ea6694">getBounced</a> () const </td></tr>
+<tr class="memdesc:ae31450bcd5b77c1dbed862cb55ea6694"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#ae31450bcd5b77c1dbed862cb55ea6694" title="WorldObject::getBounced returns if the object has bounced before. ">WorldObject::getBounced</a> returns if the object has bounced before.  <a href="#ae31450bcd5b77c1dbed862cb55ea6694">More...</a><br /></td></tr>
 <tr class="separator:ae31450bcd5b77c1dbed862cb55ea6694"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10f95129b8b184c880412181552f2208"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10f95129b8b184c880412181552f2208"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBounced</b> (bool value)</td></tr>
+<tr class="memitem:a10f95129b8b184c880412181552f2208"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world_object.html#a10f95129b8b184c880412181552f2208">setBounced</a> (bool value)</td></tr>
+<tr class="memdesc:a10f95129b8b184c880412181552f2208"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_world_object.html#a10f95129b8b184c880412181552f2208" title="WorldObject::setBounced sets if the object has bounced before. ">WorldObject::setBounced</a> sets if the object has bounced before.  <a href="#a10f95129b8b184c880412181552f2208">More...</a><br /></td></tr>
 <tr class="separator:a10f95129b8b184c880412181552f2208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34d76ee6f6856829c59793491cab8d45"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34d76ee6f6856829c59793491cab8d45"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>getFirstcollide</b> () const </td></tr>
@@ -240,6 +241,404 @@ Player&#160;</td><td class="memItemRight" valign="bottom"><b>p</b></td></tr>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>ObjectType</b></td></tr>
 <tr class="separator:a06b54b3198229f49b5ba5dcccc7710eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a064fcf6f95ab0bcef4eaacaad35d1aee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WorldObject::WorldObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_game_world.html">GameWorld</a> *&#160;</td>
+          <td class="paramname"><em>parentView</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Player&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_sound_player.html">SoundPlayer</a> *&#160;</td>
+          <td class="paramname"><em>soundplayer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a064fcf6f95ab0bcef4eaacaad35d1aee" title="WorldObject::WorldObject constructor. ">WorldObject::WorldObject</a> constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentView</td><td>pointer to connect() the <a class="el" href="class_battle_unit.html" title="The BattleUnit class is a subclass of WorldObject and represents the player&#39;s fighting units on the f...">BattleUnit</a> to the player's input and the game's refresh rate. </td></tr>
+    <tr><td class="paramname">p</td><td>the player controlling the unit </td></tr>
+    <tr><td class="paramname">soundplayer</td><td>the pointer to the global sound player </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae31450bcd5b77c1dbed862cb55ea6694"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WorldObject::getBounced </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#ae31450bcd5b77c1dbed862cb55ea6694" title="WorldObject::getBounced returns if the object has bounced before. ">WorldObject::getBounced</a> returns if the object has bounced before. </p>
+<dl class="section return"><dt>Returns</dt><dd>if the object has bounced before </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="adec5084311ea0477db37e9bbeddeb401"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * WorldObject::getCenterOfMass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#adec5084311ea0477db37e9bbeddeb401" title="WorldObject::getCenterOfMass gets the position of units center of mass in scene coordinates. ">WorldObject::getCenterOfMass</a> gets the position of units center of mass in scene coordinates. </p>
+<dl class="section return"><dt>Returns</dt><dd>the center of mass position </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4899b4a491e10707af9df49c6e6b4323"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char WorldObject::getChar </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a4899b4a491e10707af9df49c6e6b4323" title="WorldObject::getChar returns the character indicating the unit type. If it is a battle unit...">WorldObject::getChar</a> returns the character indicating the unit type. If it is a battle unit, the character is 'b' If it is a projectile, the character is 'p' If it is neither, the character is 'o'. </p>
+<dl class="section return"><dt>Returns</dt><dd>the units type </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a22888de0c352adf646e4c87584efe39c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WorldObject::getHitCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a22888de0c352adf646e4c87584efe39c" title="WorldObject::getHitCounter get how many times the unit has hit the ground. ">WorldObject::getHitCounter</a> get how many times the unit has hit the ground. </p>
+<dl class="section return"><dt>Returns</dt><dd>the number of collisions with ground </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a19516f1bc3450350c42cfe467dabf4f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WorldObject::getOrientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a19516f1bc3450350c42cfe467dabf4f8" title="WorldObject::getOrientation get the turning angle of the unit in degrees. ">WorldObject::getOrientation</a> get the turning angle of the unit in degrees. </p>
+<dl class="section return"><dt>Returns</dt><dd>the turning angle in degrees </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac3ff724096106165c68e3e9600032233"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Player WorldObject::getPlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#ac3ff724096106165c68e3e9600032233" title="WorldObject::getPlayer returns the player controlling the unit. ">WorldObject::getPlayer</a> returns the player controlling the unit. </p>
+<dl class="section return"><dt>Returns</dt><dd>the player controlling the unit </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a92c64315b40802ee97bf3cd5f16a3538"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double WorldObject::getRotVel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a92c64315b40802ee97bf3cd5f16a3538" title="WorldObject::getRotVel returns the rotational velocity in degrees. ">WorldObject::getRotVel</a> returns the rotational velocity in degrees. </p>
+<dl class="section return"><dt>Returns</dt><dd>the rotational velocity in degrees </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4a9c0e80e36b49cd7d4f574ca6351249"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * WorldObject::getSpeed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a4a9c0e80e36b49cd7d4f574ca6351249" title="WorldObject::getSpeed returns the speed of the unit. ">WorldObject::getSpeed</a> returns the speed of the unit. </p>
+<dl class="section return"><dt>Returns</dt><dd>the pointer to the speed array </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8061ac1f99f6ed3f78d42a39cb82d0c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WorldObject::getWeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a8061ac1f99f6ed3f78d42a39cb82d0c2" title="WorldObject::getWeight returns the weight value of the unit. ">WorldObject::getWeight</a> returns the weight value of the unit. </p>
+<dl class="section return"><dt>Returns</dt><dd>the weight </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a10f95129b8b184c880412181552f2208"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setBounced </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a10f95129b8b184c880412181552f2208" title="WorldObject::setBounced sets if the object has bounced before. ">WorldObject::setBounced</a> sets if the object has bounced before. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>the bool value indicating if the object has bounced before or not </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a14befa1bd922a8c9f7134352103de942"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setCenterOfMass </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>newCenterOfMass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a14befa1bd922a8c9f7134352103de942" title="WorldObject::setCenterOfMass sets the position of units center of mass in scene coordinates. ">WorldObject::setCenterOfMass</a> sets the position of units center of mass in scene coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newCenterOfMass</td><td>the new center of mass position </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2ad8e7e458a573830f1609f4d9d3eacf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setHealthpoints </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a2ad8e7e458a573830f1609f4d9d3eacf" title="WorldObject::setHealthpoints This function sets the Healthpoints and emit a signal with the healthpoi...">WorldObject::setHealthpoints</a> This function sets the Healthpoints and emit a signal with the healthpoints to the healthpointsbar. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>are the lifepoints </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aae9c6fd3df711b5e0df44ad1e6fcabab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setHitCounter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>hit</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#aae9c6fd3df711b5e0df44ad1e6fcabab" title="WorldObject::setHitCounter set how many times the unit has hit the ground. ">WorldObject::setHitCounter</a> set how many times the unit has hit the ground. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hit</td><td>the number of collisions with ground </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0dbc4225453661d4578c7fd9eb00ab73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setOrientation </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>newOrientation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a0dbc4225453661d4578c7fd9eb00ab73" title="WorldObject::setOrientation set the turning angle of the unit in degrees. ">WorldObject::setOrientation</a> set the turning angle of the unit in degrees. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newOrientation</td><td>the new angle in degrees </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4fc971089870ff9db55c767694056f2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setRotVel </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>newRotVel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a4fc971089870ff9db55c767694056f2f" title="WorldObject::setRotVel set the rotational velocity in degrees and limit it. ">WorldObject::setRotVel</a> set the rotational velocity in degrees and limit it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newRotVel</td><td>the new rotational velocity in degrees </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0a4c93b5c06696aa664aae256d5378d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setSpeed </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>newSpeed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a0a4c93b5c06696aa664aae256d5378d9" title="WorldObject::setSpeed set the speed of the unit and limit to a max speed. ">WorldObject::setSpeed</a> set the speed of the unit and limit to a max speed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newSpeed</td><td>the pointer to the new speed array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a39b88d87246ad4d526d6b7c54aeb7e82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorldObject::setWeight </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_world_object.html#a39b88d87246ad4d526d6b7c54aeb7e82" title="WorldObject::setWeight sets the weight value of the unit. ">WorldObject::setWeight</a> sets the weight value of the unit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>the new weight value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>WorldWarJump/WorldWarJump/<a class="el" href="worldobject_8h_source.html">worldobject.h</a></li>
 <li>WorldWarJump/WorldWarJump/worldobject.cpp</li>

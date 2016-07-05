@@ -24,7 +24,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">World War Jump
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Main project of group 8</div>
   </td>
  </tr>
  </tbody>
@@ -124,11 +126,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>playerTwoShoot</b> ()
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abae3f379d3f157cf42dc857309832dba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abae3f379d3f157cf42dc857309832dba"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba">Input</a> ()</td></tr>
-<tr class="memdesc:abae3f379d3f157cf42dc857309832dba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba" title="Input::Input constructor. ">Input::Input</a> constructor. <br /></td></tr>
+<tr class="memdesc:abae3f379d3f157cf42dc857309832dba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba" title="Input::Input This function is the constructor of the Input class. ">Input::Input</a> This function is the constructor of the <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class. <br /></td></tr>
 <tr class="separator:abae3f379d3f157cf42dc857309832dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af33a8e4ba483419bd40b1c20ccc1cd7f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>keyPressEvent</b> (QKeyEvent *k)</td></tr>
+<tr class="memitem:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#af33a8e4ba483419bd40b1c20ccc1cd7f">keyPressEvent</a> (QKeyEvent *k)</td></tr>
+<tr class="memdesc:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#af33a8e4ba483419bd40b1c20ccc1cd7f" title="Input::keyPressEvent This function reacts on any keyboard input and emit a signal if the control butt...">Input::keyPressEvent</a> This function reacts on any keyboard input and emit a signal if the control buttons for player one or player two had been pressed.  <a href="#af33a8e4ba483419bd40b1c20ccc1cd7f">More...</a><br /></td></tr>
 <tr class="separator:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2db35ba67c8a8ccd23bef6a482fc291"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2db35ba67c8a8ccd23bef6a482fc291"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#af2db35ba67c8a8ccd23bef6a482fc291">~Input</a> ()</td></tr>
+<tr class="memdesc:af2db35ba67c8a8ccd23bef6a482fc291"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#af2db35ba67c8a8ccd23bef6a482fc291" title="Input::~Input Destructor of the Input class. ">Input::~Input</a> Destructor of the <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class. <br /></td></tr>
+<tr class="separator:af2db35ba67c8a8ccd23bef6a482fc291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -140,8 +146,33 @@ QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class receives the players' key hits. </p>
 <p>Detailed: it is the focused QGraphicsPixmapItem in our <a class="el" href="class_gameplay_interface.html" title="The GameplayInterface class displays the Terrain, and the players&#39; multiple BattleUnit and Projectile...">GameplayInterface</a> scene, and therefore able to receive keyboard input. It receives the input for both players and sends according SIGNALs.</p>
-<p>Also because of early architecture decisions, it has the QTimer refreshRateTimer which is connected() with every unit and projectile in our game. This QTimer triggers the move() function in <a class="el" href="class_world_object.html">WorldObject</a> every certain amount of milliseconds set in <a class="el" href="class_game_settings.html" title="GameSettings saves the in-game setting... - WANG. ">GameSettings</a>. -Tomas </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+<p>Also because of early architecture decisions, it has the QTimer refreshRateTimer which is connected() with every unit and projectile in our game. This QTimer triggers the move() function in <a class="el" href="class_world_object.html">WorldObject</a> every certain amount of milliseconds set in <a class="el" href="class_game_settings.html" title="GameSettings saves the in-game setting... - Tomas and Wang. ">GameSettings</a>. -Tomas </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af33a8e4ba483419bd40b1c20ccc1cd7f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Input::keyPressEvent </td>
+          <td>(</td>
+          <td class="paramtype">QKeyEvent *&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_input.html#af33a8e4ba483419bd40b1c20ccc1cd7f" title="Input::keyPressEvent This function reacts on any keyboard input and emit a signal if the control butt...">Input::keyPressEvent</a> This function reacts on any keyboard input and emit a signal if the control buttons for player one or player two had been pressed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>is the keyboard button which has been pressed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>WorldWarJump/WorldWarJump/<a class="el" href="input_8h_source.html">input.h</a></li>
 <li>WorldWarJump/WorldWarJump/input.cpp</li>
 </ul>
