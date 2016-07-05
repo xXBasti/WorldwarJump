@@ -384,8 +384,8 @@ void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, dou
  * @brief PhysicsCalc::eulToPol
  * translates the given cartesian coordinate system
  * to a polar coordinate system and saves them into a given output pointer.
- * @param eul inputpointer in cartesian coordinates
- * @param pol outputpointer in polar coordinates
+ * @param eul inputpointer in cartesian coordinates, [0] -> x, [1] -> y.
+ * @param pol outputpointer in polar coordinates, [0] -> r, [1] -> phi.
  * @param type type of the translation, v -> velocity, p -> position
  */
 
@@ -394,8 +394,8 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
     double e2;
     switch(type){
     case 'p':
-        e1=eul[0]-400; //350 später gamesize/2
-        e2=(eul[1]-400); // damit polar kosi in der Mitte des Bildschirms ist.
+        e1=eul[0]-400;
+        e2=(eul[1]-400);
         break;
     case 'v':
         e1=eul[0];
@@ -439,8 +439,8 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
 /**
  * @brief PhysicsCalc::polToEul
  * This function transforms polar coordinates into cartesian coordinates.
- * @param pol is the inputpointer for polar coordinates.
- * @param eul is the outputpointer for the cartesian coordinates.
+ * @param pol is the inputpointer for polar coordinates, [0] -> x, [1] -> y.
+ * @param eul is the outputpointer for the cartesian coordinates, [0] -> r, [1] -> phi.
  * @param type type of the translation, v -> velocity, p -> position.
  */
 void PhysicsCalc::polToEul(double * pol, double* eul,char type){
@@ -500,39 +500,6 @@ QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
     return NULL;
 }
 
-
-/**
- * @brief PhysicsCalc::radialCollison
- * @param colPosEul
- * @param colSpeed
- */
-void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
-    double colPosPol[2]={0};
-    colPosEul[0]=colPosEul[0]+25;
-    colPosEul[1]=colPosEul[1]+50;
-    double colSpeedRT[2]={0};
-    this->eulToPol(colPosEul,colPosPol,'p');
-    double fi=colPosPol[1];
-    //qDebug() << fi;
-    if (fi<=(M_PI/2)){
-        colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
-    }
-    if (fi<=(M_PI) && fi>(M_PI/2)){
-        colSpeedRT[0]=abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
-    }
-    if (fi<=(M_PI*1.5) && fi>M_PI){
-        colSpeedRT[0]=abs(colSpeed[0]*sin(fi))-abs(colSpeed[1]*cos(fi));
-    }
-    if (fi<=(2*M_PI) && fi>(M_PI*1.5)){
-        colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))-abs(colSpeed[1]*cos(fi));
-    }
-    colSpeedRT[1]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
-
-    //qDebug() << colSpeedRT[0] << colSpeedRT[1];
-    colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
-    colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
-    //qDebug() << colSpeed[0] << colSpeed[1];
-}
 
 /**
  * @brief PhysicsCalc::hitUnit
@@ -645,7 +612,7 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
 
 /**
  * @brief PhysicsCalc::meeleDamage
- * This function calculates the Meele Damage between two Objects.
+ * calculates the Meele Damage between two Objects.
  * The unit which has a 10 values higher speed than the other deals the damage.
  * @param colliding1 is the first colliding object.
  * @param colliding2 is the secound colliding object.
@@ -674,7 +641,7 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
 
 /**
  * @brief PhysicsCalc::collideWithAny
- * This function checks it the given object collides with either an unit or the terrain.
+ * checks it the given object collides with either an unit or the terrain.
  * @param object is the object, which will checked.
  * @return true if it collides, false if it do not.
  */
@@ -690,7 +657,7 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
 
 /**
  * @brief PhysicsCalc::unitUnitCollisionFunc
- * This function calculates the collision between two objects and
+ * calculates the collision between two objects and
  * chanches the speed of the units. This function is called with BattleUnits.
  * @param bat1 is the first WorldObject which collides.
  * @param bat2 is the secound WorldObject which collides.

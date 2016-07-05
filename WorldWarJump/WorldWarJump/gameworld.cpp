@@ -91,7 +91,8 @@ void GameWorld::resume()
 
 /**
  * @brief GameWorld::addUnits
- * This function add the units depending on the given settings in the gamemenu class.
+ * This function add the units depending on the given settings in the gamemenu class and
+ * add a healthbar for every unit.
  */
 void GameWorld::addUnits()
 {

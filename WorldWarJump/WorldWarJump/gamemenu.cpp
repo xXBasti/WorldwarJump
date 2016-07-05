@@ -138,8 +138,6 @@ void GameMenu::setGameMenuSize(int value)
 /** @brief GameMenu::mousePressEvent(QMouseEvent *event) secures the main functionality of the menu. It detects mouse clicks and compares the QGraphicsItem
  * on which the mouse is currently positioned with buttons, which are inherited from QGraphicsPixmapItem, then acts correspondingly.
  */
-
-
 void GameMenu::mousePressEvent(QMouseEvent *event)
 {
     if(QGraphicsItem *item = itemAt(event->pos()))

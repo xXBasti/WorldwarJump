@@ -65,7 +65,6 @@ public:
     //Basti
     void eulToPol(double * eul, double* pol,char type);
     void polToEul(double * pol, double* eul,char type);
-    void radialCollison(double colPosEul[2],double colSpeedRT[2]);
     QGraphicsItem *CollideWithUnit(WorldObject *object);
     void hitUnit(WorldObject *worldObject);
     void impuls(WorldObject *obj1, WorldObject *obj2);

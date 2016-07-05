@@ -44,7 +44,6 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         ~WorldObject();
 
         Player getPlayer() const;
-
         int getWeight();
         void setWeight(int w);
         int getHealthpoints();
@@ -53,6 +52,7 @@ class WorldObject : public QObject, public QGraphicsPixmapItem {
         void setHealthpoints(int points);
         void setProjectile(int proj);
         int getProjectile();
+
         char getChar();
 
         bool getBounced() const;
