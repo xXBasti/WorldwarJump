@@ -61,6 +61,7 @@
         <file>pics/MenusAndButtons/sevolume.png</file>
         <file>pics/MenusAndButtons/bgmvolume.png</file>
         <file>pics/MenusAndButtons/volumehint.png</file>
+        <file>pics/MenusAndButtons/aboutbackground.png</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sound/gameBGM.wav</file>

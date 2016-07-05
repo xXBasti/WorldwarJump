@@ -2,7 +2,7 @@
 #define GAMESETTINGS_H
 
 /**
- * @brief GameSettings saves the in-game setting... - WANG
+ * @brief GameSettings saves the in-game setting... - Tomas and Wang
  *
  * All the game's variables are accessible as static member for other classes that include GameSettings 's header.
  **/
@@ -79,6 +79,9 @@ public:
 
     static int getMilisecondsBetweenBattleUnitShots();
 
+    static int getRefreshRate();
+    static void setRefreshRate(int value);
+
 private:
     static int player1UnitCount;
     static int player2UnitCount;
@@ -100,7 +103,7 @@ private:
     static int meeleDmg;
     static int jumpCountForDestruction;
     static int milisecondsBetweenBattleUnitShots;
-
+    static int refreshRate;
 };
 
 #endif // GAMESETTINGS_H

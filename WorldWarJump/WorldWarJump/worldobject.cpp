@@ -14,15 +14,23 @@
 
 
 /**
+<<<<<<< HEAD
  * @brief WorldObject::move updates the unit position and orientation every timestep
  *
+=======
+ * @brief WorldObject::move
+ * This function is called every timestep and gets the new position and speed values for the WorldObject from the physicscalc.
+>>>>>>> 9561ac961f5dd584cf42389c542274c3c4e51a16
  */
 void WorldObject::move()
 {
     getNewValuesFromPhysicsCalc();
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9561ac961f5dd584cf42389c542274c3c4e51a16
 /**
  * @brief WorldObject::hit
  * This function is called every timestep by ervery Projectile subclass to check if itself hit any WorldObject.
@@ -106,7 +114,10 @@ double * WorldObject::getSpeed(){
     return speed;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9561ac961f5dd584cf42389c542274c3c4e51a16
 /**
  * @brief WorldObject::getNewValuesFromPhysicsCalc
  * This function start the update of the old values by the physicsCalc class.
@@ -153,6 +164,10 @@ Player WorldObject::getPlayer() const
 {
     return p;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9561ac961f5dd584cf42389c542274c3c4e51a16
 /**
  * @brief WorldObject::setSpeed set the speed of the unit and limit to a max speed
  * @param newSpeed the pointer to the new speed array

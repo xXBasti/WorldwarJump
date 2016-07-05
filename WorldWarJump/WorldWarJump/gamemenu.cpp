@@ -14,10 +14,16 @@
 #include <cmath>
 //#define M_PI 3.14159
 
+/** @brief GameMenu::GameMenu(SoundPlayer *soundplayer) constructor instantiates the setting of the game, startScene, which
+ * is the main menu, and several buttons and pictures.
+ * @param soundplayer Because the soundplayer is instantiated already in main.cpp, we need to pass it from main to GameMenu.
+ */
+
 GameMenu::GameMenu(SoundPlayer *soundplayer)
 {    
     settings = new GameSettings;
     gamealreadyexist = false;
+    aboutalreadyexist = false;
 
     soundpointer = soundplayer;
     soundpointer->playMenuBGM();
@@ -46,6 +52,7 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     aboutButton = new QGraphicsPixmapItem;
     aboutButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/AboutButton.png"));
     aboutButton->setPos(sideMargin,topMargin*4+300);
+    aboutButton->setZValue(1);
 
     exitButton = new QGraphicsPixmapItem;
     exitButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/ExitButton.png"));
@@ -70,8 +77,9 @@ GameMenu::GameMenu(SoundPlayer *soundplayer)
     switch(settings->getBGMMuted())
     {
     case true:
-        break;
+
         muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/unmuteBGM.png"));
+        break;
     case false:
         muteBGMButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/muteBGMnew.png"));
         break;
@@ -121,8 +129,8 @@ int GameMenu::getGameMenuSize() const
     return GameMenuSize;
 }
 
-/** @brief GameMenu::setGameMenuSize(int value) sets the resolution of the menu
- * @param the wished resolutio
+/** @brief GameMenu::setGameMenuSize(int value) sets the resolution of the menu.
+ * @param value is the wished resolution
  */
 
 void GameMenu::setGameMenuSize(int value)
@@ -133,8 +141,6 @@ void GameMenu::setGameMenuSize(int value)
 /** @brief GameMenu::mousePressEvent(QMouseEvent *event) secures the main functionality of the menu. It detects mouse clicks and compares the QGraphicsItem
  * on which the mouse is currently positioned with buttons, which are inherited from QGraphicsPixmapItem, then acts correspondingly.
  */
-
-
 void GameMenu::mousePressEvent(QMouseEvent *event)
 {
     if(QGraphicsItem *item = itemAt(event->pos()))
@@ -275,6 +281,7 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
             friendlyFireButton->setPixmap(QPixmap(":/images/pics/MenusAndButtons/friendlyfire.png"));
             friendlyFireButton->setPos(sideMargin*5+unitWidth+buttonWidth*3+30,topMargin*7+150);
             friendlyFireButton->setZValue(1);
+
 
 
             beforeGameScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
@@ -704,12 +711,8 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
 
         } else if((item == this->settingsButton)&&(settings->getSettingsSceneAlreadyCreated()))
         {
-
             settingsScene->addItem(backButton);
             setScene(settingsScene);
-        } else if(item == this->aboutButton)                            // Open about.
-        {
-
         } else if (item == this->exitButton)                            // Exit the game.
         {
             QApplication::quit();
@@ -750,14 +753,42 @@ void GameMenu::mousePressEvent(QMouseEvent *event)
                 yesorno->setPixmap(QPixmap(":/images/pics/MenusAndButtons/no.png"));
                 break;
             }
+        } else if (item == this->aboutButton)                            // Open about scene.
+        {
+            switch(aboutalreadyexist)
+            {
+            case true:
+                aboutScene->addItem(backButton);
+                setScene(aboutScene);
+                break;
+            case false:
+                aboutScene = new QGraphicsScene;
+                aboutScene->setSceneRect(0,0,GameMenuSize,GameMenuSize);
+
+                aboutBackground = new QGraphicsPixmapItem;
+                aboutBackground->setPixmap(QPixmap(":/images/pics/MenusAndButtons/aboutbackground.png"));
+                aboutBackground->setZValue(0);
+
+                aboutScene->addItem(aboutBackground);
+                aboutScene->addItem(backButton);
+
+                setScene(aboutScene);
+                aboutalreadyexist = true;
+                break;
+            }
         }
     }
 }
+
+/** GameMenu::getPlayer1UnitCount() returns the unit count of player red (redundant).
+ */
 
 int GameMenu::getPlayer1UnitCount() const
 {
     return player1UnitCount;
 }
+/** GameMenu::getPlayer2UnitCount() returns the unit cound of blue player (redundant).
+ */
 
 int GameMenu::getPlayer2UnitCount() const
 {
@@ -774,8 +805,8 @@ int GameMenu::getWhichStage() const
 }
 
 /** @brief GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap) sets the number on number indicators.
- * @param wished number
- * @param wished number indicator
+ * @param number wished number
+ * @param pixmap wished number indicator
  */
 
 void GameMenu::setNumberPictureOnPixmap(int number, QGraphicsPixmapItem *pixmap)
@@ -851,7 +882,7 @@ void GameMenu::playertwowon()
 }
 
 /** @brief GameMenu::changeBGMvolume(int volume) sets the volume of the background music to the given number.
- * @param wished volume.
+ * @param volume wished volume.
  */
 
 void GameMenu::changeBGMvolume(int volume)
@@ -861,7 +892,7 @@ void GameMenu::changeBGMvolume(int volume)
 }
 
 /** @brief GameMenu::changeSEvolume(int volume) sets the volume of sound effects to the given number.
- * @param wished volume
+ * @param volume wished volume
  */
 
 void GameMenu::changeSEvolume(int volume)

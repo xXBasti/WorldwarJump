@@ -5,6 +5,8 @@
 #include <QMediaPlaylist>
 #include <QMediaPlayer>
 
+/** @brief This is our sound system. - Wang and Can
+ */
 
 class SoundPlayer : public QObject
 {

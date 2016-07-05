@@ -65,7 +65,7 @@ BattleUnit::BattleUnit(GameWorld * parentView, Player player,SoundPlayer *soundp
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()), this, SLOT(move()));
     this->p=player;
     this->setWeight(100);
-    this->setDamage(5);
+    this->setDamage(settings->getMeeleDmg());
     this->setHealthpoints(100);
     this->setRotVel(0);
     //Better use world timer, do we need input timer at all?
@@ -163,12 +163,12 @@ void BattleUnit::setPicture()
  * @brief BattleUnit::shoot spawns projectile when the connected button is pressed.
  * The unit chooses the projectile to choose based on how many times it has been shot
  * before and plays corresponding sound.
+ * The ProjectileType is cycled and will changed if the instance of the BattleUnit has hit an enemy
  */
 void BattleUnit::shoot(){
     if(ableToShoot){
         double nozzle[2];
         calculateShootingPoint(nozzle);
-        qDebug() <<getProjectile();
         switch(this->getProjectile()%3){
         case 0:
             new Projectile(parentView, this, balistic, soundpointer, nozzle);

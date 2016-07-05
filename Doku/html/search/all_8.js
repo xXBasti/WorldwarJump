@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['physicscalc',['PhysicsCalc',['../class_physics_calc.html',1,'']]],
+  ['physicscalc',['PhysicsCalc',['../class_physics_calc.html',1,'PhysicsCalc'],['../class_physics_calc.html#a806b2675198437e8271ab82eda0e6746',1,'PhysicsCalc::PhysicsCalc()']]],
   ['player1unitpicture',['player1UnitPicture',['../class_game_menu.html#a7b6ec049efa3d2edb073b0c6f8d4410c',1,'GameMenu']]],
   ['playeronewinspic',['playeronewinsPic',['../class_game_menu.html#a607f26f22eabdc52789ec0fcb9ae1fd8',1,'GameMenu']]],
   ['playeronewon',['playeronewon',['../class_game_menu.html#a3e3677db66b2c65a9f0de92f41fe3698',1,'GameMenu']]],

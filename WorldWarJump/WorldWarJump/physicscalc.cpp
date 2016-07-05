@@ -29,7 +29,6 @@ PhysicsCalc::PhysicsCalc(SoundPlayer *soundplayer)
     //Merge the number of units
     settings->setPlayer1UnitCount(settings->getPlayerRedShipCount()+settings->getPlayerRedTankCount());
     settings->setPlayer2UnitCount(settings->getPlayerBlueShipCount()+settings->getPlayerBlueTankCount());
-
 }
 
 /**
@@ -202,6 +201,12 @@ void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
     bottomLeft[1] = point.y();;
 }
 
+/**
+ * @brief PhysicsCalc::getImpactPoint
+ * calculates the impact point with the cornerpoints of the given WorldObject.
+ * @param worldObject the object, which impact point should be calculated.
+ * @param impactPoint is pointer to the array where the point will be saved.
+ */
 void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 {
     double ** cornerpoint;
@@ -239,15 +244,18 @@ void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 
     impactPoint[0] = cornerpoint[biggest][0];
     impactPoint[1] = cornerpoint[biggest][1];
-
 }
 
 /**
 * @brief PhysicsCalc::calculateNewValues calculates the next position of the given WorldObject
 * based on it's current position and its current speed.
-* Then it sets the object's new position and new speed
-* When the WorldObject moves below the ground (collision) the movement speed of the WorldObject is inverted
-* @param worldObject the WorldObject instance for which new position
+*
+* When the WorldObject moves below the ground (collision) the movement speed of the WorldObject
+* in radial direction is set in the direction of the center.
+* Then it sets the object's new position and new speed. -Tomas
+*
+* @param worldObject the WorldObject instance for which new position is to be calculated and set. If it is a WorldObject of the type Projectile
+* ,then the Projectile bounce counter is increased.
 */
 void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
     if (CollideWithTerrain(worldObject)){
@@ -333,9 +341,9 @@ void PhysicsCalc::calculateNewValues(WorldObject* worldObject) {
 }
 
 /**
- * @brief PhysicsCalc::vectorsAbsoluteValue calculate the absolute value of a 2 dimensional vector
- * @param vector the  2 dimensional vector
- * @return the absolute value
+ * @brief PhysicsCalc::vectorsAbsoluteValue calculates the absolute value for a vector in R².
+ * @param vector
+ * @return absolute value of a vector in R².
  */
 double PhysicsCalc::vectorsAbsoluteValue(double *vector)
 {
@@ -343,11 +351,15 @@ double PhysicsCalc::vectorsAbsoluteValue(double *vector)
 }
 
 /**
- * @brief PhysicsCalc::velocityEulerToRadialCoordinates
- * @param eulInputPosition objects position
- * @param eulInputVelocity objects velocity
- * @param radialOutput first direction is radial, second directions is tangential
- * @param eulerToRadial true if transforming from euler to radial, or false if transforming from radial to euler
+ * @brief PhysicsCalc::velocityEulerToRadialCoordinates transforms the velocity of a WorldObject. -Tomas
+ *
+ * Detailed: the new velocity vector is in a coordinate system which always points with the first coordinate from the center
+ * of the world through the position of the unit outwards radially. The second coordinate points facing int the same direction to the left.
+ *
+ * @param eulInputPosition objects position to determine what direction is outward.
+ * @param eulInputVelocity objects velocity to transform
+ * @param radialOutput first coordinate radial, second coordinate is tangential to the Terrain 's circle.
+ * @param eulerToRadial true if transforming from Euler coordinates, or false if transforming back to Euler coordinates.
  */
 void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, double *inputVelVector, double *outputVelVector, bool eulerToRadial)
 {
@@ -370,10 +382,10 @@ void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, dou
 
 /**
  * @brief PhysicsCalc::eulToPol
- * This function translates the given cartesian coordinate system
+ * translates the given cartesian coordinate system
  * to a polar coordinate system and saves them into a given output pointer.
- * @param eul inputpointer in cartesian coordinates
- * @param pol outputpointer in polar coordinates
+ * @param eul inputpointer in cartesian coordinates, [0] -> x, [1] -> y.
+ * @param pol outputpointer in polar coordinates, [0] -> r, [1] -> phi.
  * @param type type of the translation, v -> velocity, p -> position
  */
 
@@ -382,8 +394,8 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
     double e2;
     switch(type){
     case 'p':
-        e1=eul[0]-400; //350 später gamesize/2
-        e2=(eul[1]-400); // damit polar kosi in der Mitte des Bildschirms ist.
+        e1=eul[0]-400;
+        e2=(eul[1]-400);
         break;
     case 'v':
         e1=eul[0];
@@ -426,8 +438,10 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
 
 /**
  * @brief PhysicsCalc::polToEul
- * @param pol
- * @param eul
+ * This function transforms polar coordinates into cartesian coordinates.
+ * @param pol is the inputpointer for polar coordinates, [0] -> x, [1] -> y.
+ * @param eul is the outputpointer for the cartesian coordinates, [0] -> r, [1] -> phi.
+ * @param type type of the translation, v -> velocity, p -> position.
  */
 void PhysicsCalc::polToEul(double * pol, double* eul,char type){
     switch(type){
@@ -446,6 +460,12 @@ void PhysicsCalc::polToEul(double * pol, double* eul,char type){
     }
 }
 
+/**
+ * @brief PhysicsCalc::CollideWithTerrain
+ * checks if the given object collides with the terrain and returns true or false.
+ * @param object is the WorldObject, which will be checked.
+ * @return true if it collides, false if it does not.
+ */
 bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
 {
     QList<QGraphicsItem *> colliding_items = object->collidingItems();
@@ -462,7 +482,7 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
 }
 /**
  * @brief PhysicsCalc::CollideWithUnit
- * This function checks, if an object collides with an other object of the type
+ * checks, if an object collides with an other object of the type
  * BattleUnit or Projectile and returns that object.
  * @param object is the object, which will be checked.
  * @return is a pointer to the object, the object collides with
@@ -481,39 +501,10 @@ QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
 }
 
 
-
-void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
-    double colPosPol[2]={0};
-    colPosEul[0]=colPosEul[0]+25;
-    colPosEul[1]=colPosEul[1]+50;
-    double colSpeedRT[2]={0};
-    this->eulToPol(colPosEul,colPosPol,'p');
-    double fi=colPosPol[1];
-    //qDebug() << fi;
-    if (fi<=(M_PI/2)){
-        colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
-    }
-    if (fi<=(M_PI) && fi>(M_PI/2)){
-        colSpeedRT[0]=abs(colSpeed[0]*sin(fi))+abs(colSpeed[1]*cos(fi));
-    }
-    if (fi<=(M_PI*1.5) && fi>M_PI){
-        colSpeedRT[0]=abs(colSpeed[0]*sin(fi))-abs(colSpeed[1]*cos(fi));
-    }
-    if (fi<=(2*M_PI) && fi>(M_PI*1.5)){
-        colSpeedRT[0]=-abs(colSpeed[0]*sin(fi))-abs(colSpeed[1]*cos(fi));
-    }
-    colSpeedRT[1]=-colSpeed[0]*cos(fi)-colSpeed[1]*sin(fi);
-
-    //qDebug() << colSpeedRT[0] << colSpeedRT[1];
-    colSpeed[0]=-(colSpeedRT[0]*cos(fi))+(colSpeedRT[1]*sin(fi));
-    colSpeed[1]=(colSpeedRT[0]*sin(fi))+(colSpeedRT[1]*cos(fi));
-    //qDebug() << colSpeed[0] << colSpeed[1];
-}
-
 /**
  * @brief PhysicsCalc::hitUnit
- * This function calculates the damage, between two colliding objects and
- * checks one of the WorldObject get destroyed.
+ * calculates the damage, between two colliding objects and
+ * checks one of the WorldObject gets destroyed.
  * @param worldObject is the WorldObject for which the collision will be calculated.
  */
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
@@ -538,7 +529,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 
 /**
  * @brief PhysicsCalc::checkHealth
- * This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit.
+ * checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit.
  * The unitcounter of the owining player will be decreased too.
  * @param obj is the WorldObject whicht should be checked
  */
@@ -562,7 +553,7 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
 
 /**
  * @brief PhysicsCalc::impuls
- * This function excecutes the conservation of the linear momentum for
+ * excecutes the conservation of the linear momentum for
  * the two colliding objects obj1 and obj2.
  * @param obj1 is the first object which collides.
  * @param obj2 is the secound object which collides.
@@ -589,22 +580,22 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 
 /**
  * @brief PhysicsCalc::checkWinCondition
- * This function checks if one of the playes are out of units
+ * checks if one of the playes are out of units
  * and than emit a winning signal.
  */
 void PhysicsCalc::checkWinCondition(){
     if(settings->getPlayer1UnitCount()<=0){
         emit this->playeronewins();
-        qDebug() <<"Player two wins"; //Namen vertauscht?!
+        qDebug() <<"Player two wins";
     }
     if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
-        emit this->playertwowins();  //Namen vertauscht?!
+        emit this->playertwowins();
     }
 }
 /**
  * @brief PhysicsCalc::inverseSpeed
- * This function invertes the speed of the first given Worldobject
+ * invertes the speed of the first given Worldobject.
  * @param colliding1 is the first WorldObject which speed gets inverted.
  * @param colliding2 is the secound WorldObject, which speed remains unchanged.
  */
@@ -621,7 +612,7 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
 
 /**
  * @brief PhysicsCalc::meeleDamage
- * This function calculates the Meele Damage between two Objects.
+ * calculates the Meele Damage between two Objects.
  * The unit which has a 10 values higher speed than the other deals the damage.
  * @param colliding1 is the first colliding object.
  * @param colliding2 is the secound colliding object.
@@ -632,15 +623,15 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
 
     if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
-        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>12){
+        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>2){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
-           //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
+           impuls(colliding1,colliding2);
            checkHealth(colliding1);
            emit meeleDmg();
         }
-        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>12){
+        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>2){
             colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
-            //qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
+            impuls(colliding1,colliding2);
             checkHealth(colliding2);
             emit meeleDmg();
         }
@@ -650,7 +641,7 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
 
 /**
  * @brief PhysicsCalc::collideWithAny
- * This function checks it the given object collides with either an unit or the terrain.
+ * checks it the given object collides with either an unit or the terrain.
  * @param object is the object, which will checked.
  * @return true if it collides, false if it do not.
  */
@@ -666,7 +657,7 @@ bool PhysicsCalc::collideWithAny(WorldObject* object){
 
 /**
  * @brief PhysicsCalc::unitUnitCollisionFunc
- * This function calculates the collision between two objects and
+ * calculates the collision between two objects and
  * chanches the speed of the units. This function is called with BattleUnits.
  * @param bat1 is the first WorldObject which collides.
  * @param bat2 is the secound WorldObject which collides.
@@ -710,6 +701,4 @@ void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
     s2[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
     bat1->setSpeed(s1);
     bat2->setSpeed(s2);
-
-
 }

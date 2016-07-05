@@ -15,7 +15,7 @@ Input::Input(){
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
     refreshRateTimer = new QTimer();
-    refreshRateTimer->start(20);
+    refreshRateTimer->start(settings->getRefreshRate());
     setRect(0,0,gameWorldSize,gameWorldSize);
 }
 

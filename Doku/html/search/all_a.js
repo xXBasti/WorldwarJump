@@ -1,7 +1,9 @@
 var searchData=
 [
+  ['setfiredirection',['setFiredirection',['../class_battle_unit.html#ab038bbc9e82cea88af5a9228c0559463',1,'BattleUnit']]],
   ['setgamemenusize',['setGameMenuSize',['../class_game_menu.html#aeb35fbd4176b7069dd59395b39d1950c',1,'GameMenu']]],
   ['settingsbackground',['settingsBackground',['../class_game_menu.html#a1883be9e761bc6ddf651d076792a6536',1,'GameMenu']]],
+  ['shoot',['shoot',['../class_battle_unit.html#ad483aca2f0e52cb79c5b0444f6fbd1da',1,'BattleUnit']]],
   ['soundplayer',['SoundPlayer',['../class_sound_player.html',1,'']]],
   ['startbutton',['startButton',['../class_game_menu.html#a22c3e73fc24f9699e6a9f4bc1d6fbd52',1,'GameMenu']]],
   ['startscene',['startScene',['../class_game_menu.html#ab72c5ce17a0f06580b74c495cb9694ce',1,'GameMenu']]],

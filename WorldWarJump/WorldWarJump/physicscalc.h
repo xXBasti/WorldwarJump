@@ -9,6 +9,19 @@
 #include "gamesettings.h"
 #include "battleunit.h"
 
+/**
+ * @brief Our own physics calculator engine and the core of the game. -Can, Tomas, Sebastian
+ *
+ * Detailed:
+ * It checks for collisions between units and follows a collision protocol.
+ * it checks if any player has won and emits according SIGNALs.
+ * Furthermore it calculates and triggers sounds accordingly for:
+ * 1. Rotation of WorldObject s
+ * 2. Translation of WorldObject s
+ * 3. Gravity effects
+ * 4. Momentum conservation at collision
+ * 5. Recoil triggering at BattleUnit shoot()
+ */
 class PhysicsCalc : public QObject
 {
 Q_OBJECT
@@ -52,7 +65,6 @@ public:
     //Basti
     void eulToPol(double * eul, double* pol,char type);
     void polToEul(double * pol, double* eul,char type);
-    void radialCollison(double colPosEul[2],double colSpeedRT[2]);
     QGraphicsItem *CollideWithUnit(WorldObject *object);
     void hitUnit(WorldObject *worldObject);
     void impuls(WorldObject *obj1, WorldObject *obj2);

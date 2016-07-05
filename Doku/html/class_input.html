@@ -91,6 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Input Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class receives the players' key hits.  
+ <a href="class_input.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="input_8h_source.html">input.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Input:</div>
 <div class="dyncontent">
@@ -117,6 +122,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>playerTwoShoot</b> ()
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:abae3f379d3f157cf42dc857309832dba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abae3f379d3f157cf42dc857309832dba"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba">Input</a> ()</td></tr>
+<tr class="memdesc:abae3f379d3f157cf42dc857309832dba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba" title="Input::Input constructor. ">Input::Input</a> constructor. <br /></td></tr>
+<tr class="separator:abae3f379d3f157cf42dc857309832dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af33a8e4ba483419bd40b1c20ccc1cd7f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>keyPressEvent</b> (QKeyEvent *k)</td></tr>
 <tr class="separator:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,7 +137,11 @@ QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="memdesc:a3196d6cd66f0491bc90fd7a48e2d9c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gameplay refresh rate. <br /></td></tr>
 <tr class="separator:a3196d6cd66f0491bc90fd7a48e2d9c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class receives the players' key hits. </p>
+<p>Detailed: it is the focused QGraphicsPixmapItem in our <a class="el" href="class_gameplay_interface.html" title="The GameplayInterface class displays the Terrain, and the players&#39; multiple BattleUnit and Projectile...">GameplayInterface</a> scene, and therefore able to receive keyboard input. It receives the input for both players and sends according SIGNALs.</p>
+<p>Also because of early architecture decisions, it has the QTimer refreshRateTimer which is connected() with every unit and projectile in our game. This QTimer triggers the move() function in <a class="el" href="class_world_object.html">WorldObject</a> every certain amount of milliseconds set in <a class="el" href="class_game_settings.html" title="GameSettings saves the in-game setting... - WANG. ">GameSettings</a>. -Tomas </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>WorldWarJump/WorldWarJump/<a class="el" href="input_8h_source.html">input.h</a></li>
 <li>WorldWarJump/WorldWarJump/input.cpp</li>
 </ul>

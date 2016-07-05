@@ -1,6 +1,7 @@
 #ifndef BATTLEUNIT_H
 #define BATTLEUNIT_H
 #include "worldobject.h"
+#include "gamesettings.h"
 #include <QObject>
 #include <QTimer>
 
