@@ -14,7 +14,9 @@ public:
     Projectile(GameWorld *parentView, BattleUnit *shootingUnit, ProjectileType p, SoundPlayer *soundplayer, double *shootingPoint);
 
     ~Projectile();
+    //Basti
     void recoil(WorldObject* obj1,WorldObject* obj2);
+    //Basti
     //I needed to transport this //Wtf?
     void polToEul(double * pol, double* eul,char type);
     WorldObject *getshootingUnit();
