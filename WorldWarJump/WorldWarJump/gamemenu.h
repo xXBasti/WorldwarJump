@@ -14,42 +14,44 @@
 #include "soundplayer.h"
 #include "gameworld.h"
 
-//!The GameMenu class contains all necessary things for a functional game menu: Pages, buttons and images. It also has parameters which save custom options. - WANG
+//!The GameMenu class contains all necessary things for a functional game menu: Pages, buttons and images. It also has parameters which save custom options. - Wang
 class GameMenu : public QGraphicsView
 {
     Q_OBJECT
 public:
+
     GameMenu(SoundPlayer *soundplayer);
     GameSettings *settings;
-    //QMediaPlayer *sound;
-    //QMediaPlaylist *playlist;
+    //! because soundplayer is instantiated in main, we need this as a reference to gain access on it.
     SoundPlayer *soundpointer;
+    //! used to gain access on created game.
     GameWorld *reference;
 
-    //!Mainwindow of WorldWarJump
     MainWindow *w = new MainWindow;
 
-    //!Different Scenes of GameMenu
+    //! is the main menu.
     QGraphicsScene *startScene;
+    //! is the scene between main menu and game scene.
     QGraphicsScene *beforeGameScene;
+    //! is the setting menu for sound.
     QGraphicsScene *settingsScene;
+    //! is the about page.
     QGraphicsScene *aboutScene;
+    //! is the scene after someone has won.
     QGraphicsScene *endScene;
 
-    //!Background pictures
+    //! is the background picture for main menu.
     QGraphicsPixmapItem *startSceneBackground;
+    //! is the background picture for pregame settings.
     QGraphicsPixmapItem *beforeGameSceneBackground;
+    //! is the background picture for winning scene.
     QGraphicsPixmapItem *endSceneBackground;
 
-    //ALL FOLLOWING ICONS (EXCEPT TITLEPIC) ARE SUPPOSED TO BE 50x50
-
-    //!Buttons on startScene
     QGraphicsPixmapItem *startButton;
     QGraphicsPixmapItem *settingsButton;
     QGraphicsPixmapItem *aboutButton;
     QGraphicsPixmapItem *exitButton;
 
-    //!Buttons on beforeGameScene
     QGraphicsPixmapItem *addPlayer1UnitButton;
     QGraphicsPixmapItem *addPlayer2UnitButton;
 
@@ -71,7 +73,6 @@ public:
     QGraphicsPixmapItem *friendlyFireButton;
     QGraphicsPixmapItem *yesorno;
 
-    //!Pictures on beforeGameScene
     QGraphicsPixmapItem *player1UnitPicture;
     QGraphicsPixmapItem *player2UnitPicture;
     QGraphicsPixmapItem *stagePicture;
@@ -91,7 +92,6 @@ public:
 
     QGraphicsPixmapItem *thumbnail;
 
-    //!Buttons on settingsScene
     QGraphicsPixmapItem *muteBGMButton;
     QGraphicsPixmapItem *muteSEButton;
     QGraphicsPixmapItem *bgmVolume;
@@ -100,11 +100,8 @@ public:
     QSlider *BGMslider;
     QSlider *SEslider;
 
-
-    //!Pictures on settingsScene
     QGraphicsPixmapItem *settingsBackground;
 
-    //!Pictures on endScene
     QGraphicsPixmapItem *playeronewinsPic;
     QGraphicsPixmapItem *playertwowinsPic;
 
@@ -119,7 +116,6 @@ public:
     int getWhichStage() const;
 
 private:
-    //!Layout sizes
     int GameMenuSize;
     int sideMargin;
     int topMargin;
@@ -141,7 +137,6 @@ private:
     void setNumberPictureOnPixmap(int number, QGraphicsPixmapItem * pixmap);
 
 public slots:
-    //For the endscreen.
     void playeronewon();
     void playertwowon();
 

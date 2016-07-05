@@ -9,7 +9,7 @@
 #include <ctime>
 
 /**
- * @brief SoundPlayer::SoundPlayer initializes the sound players and playlists.  - Wang and Can
+ * @brief SoundPlayer::SoundPlayer initializes the sound players and playlists.
  */
 SoundPlayer::SoundPlayer()
 {
@@ -45,7 +45,7 @@ SoundPlayer::SoundPlayer()
 /**
  * @brief SoundPlayer::playProjectileTypeShoot plays the correct shooting sound queue to the
  * corresponding projectile type. The projectile sounds cut each other if there is one previously playing.
- * It also plays a taunt voice randomly, with diminishing possibiliy each time. The taunt line is not cut.  - Can and Wang
+ * It also plays a taunt voice randomly, with diminishing possibiliy each time. The taunt line is not cut.
  * @param type
  */
 void SoundPlayer::playProjectileTypeShoot(int type)
@@ -101,7 +101,7 @@ void SoundPlayer::playProjectileTypeShoot(int type)
 
 }
 /**
- * @brief SoundPlayer::playMenuBGM play menu music. - Wang
+ * @brief SoundPlayer::playMenuBGM play menu music.
  */
 void SoundPlayer::playMenuBGM()
 {
@@ -116,7 +116,7 @@ void SoundPlayer::playMenuBGM()
     }
 }
 /**
- * @brief SoundPlayer::playGameBGM play game music. - Wang
+ * @brief SoundPlayer::playGameBGM play game music.
  */
 void SoundPlayer::playGameBGM()
 {
@@ -133,7 +133,7 @@ void SoundPlayer::playGameBGM()
 }
 
 /**
- * @brief SoundPlayer::playJump plays the jump sound when a unit jumps. - Can and Wang
+ * @brief SoundPlayer::playJump plays the jump sound when a unit jumps.
  */
 void SoundPlayer::playJump()
 {
@@ -148,7 +148,7 @@ void SoundPlayer::playJump()
 }
 
 /**
- * @brief SoundPlayer::playHit plays the hit sound when a unit gets hit. - Can and Wang
+ * @brief SoundPlayer::playHit plays the hit sound when a unit gets hit.
  */
 void SoundPlayer::playHit()
 {
