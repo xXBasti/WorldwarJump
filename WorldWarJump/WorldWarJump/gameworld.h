@@ -24,7 +24,7 @@ enum unitType{Tank,Soldier,Ship};
 
 
 /**
- * @brief container class for Terrain, Input and GameplayInterface. - Wang and ... who else?
+ * @brief container class for Terrain, Input and GameplayInterface. - Wang, Tomas
  *
  * Details: GameWorld contains classes that need to communicate with each other and enables connect() functions between them.
  * It also contains a QTimer to make the background rotate.

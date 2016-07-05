@@ -6,6 +6,11 @@
 #include "battleunit.h"
 #include <QObject>
 
+/**
+ * @brief are shot by BattleUnit and have different types.
+ *
+ * Detailed: types include missile, ballistic and ray, and their QGraphicPixmapItem, velocity and damage is dependant on this.
+ */
 class Projectile : public WorldObject
 {
     Q_OBJECT

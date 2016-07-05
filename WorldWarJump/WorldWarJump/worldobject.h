@@ -8,7 +8,11 @@
 
 
 
-
+/**
+ * @brief Basic implementation of a physical object for other classes to inheriting from. -Tomas
+ *
+ * Detailed: functions like move(), jump() + basic physical attributes like speed, rot, orientation and more.
+ */
 class WorldObject : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 
