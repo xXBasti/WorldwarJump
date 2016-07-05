@@ -88,6 +88,10 @@ void GameWorld::resume()
     input->refreshRateTimer->start(20);
 }
 
+/**
+ * @brief GameWorld::addUnits
+ * This function add the units depending on the given settings in the gamemenu class.
+ */
 void GameWorld::addUnits()
 {
     int playerRedTanks = settings->getPlayerRedTankCount();
@@ -172,7 +176,10 @@ void GameWorld::playertwowins()
     emit this->playerTwoWinsSignal();
 }
 
-
+/**
+ * @brief GameWorld::rotateBackground
+ * This function rotates the Background.
+ */
 void GameWorld::rotateBackground()
 {
     //qDebug() << background->rotation();

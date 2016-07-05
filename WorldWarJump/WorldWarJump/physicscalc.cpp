@@ -201,6 +201,12 @@ void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
     bottomLeft[1] = point.y();;
 }
 
+/**
+ * @brief PhysicsCalc::getImpactPoint
+ * calculates the impact point with the cornerpoints of the given WorldObject.
+ * @param worldObject the object, which impact point should be calculated.
+ * @param impactPoint is pointer to the array where the point will be saved.
+ */
 void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 {
     double ** cornerpoint;
@@ -238,7 +244,6 @@ void PhysicsCalc::getImpactPoint(WorldObject *worldObject, double *impactPoint)
 
     impactPoint[0] = cornerpoint[biggest][0];
     impactPoint[1] = cornerpoint[biggest][1];
-
 }
 
 /**
@@ -377,7 +382,7 @@ void PhysicsCalc::velocityEulerToRadialCoordinates(double *eulInputPosition, dou
 
 /**
  * @brief PhysicsCalc::eulToPol
- * This function translates the given cartesian coordinate system
+ * translates the given cartesian coordinate system
  * to a polar coordinate system and saves them into a given output pointer.
  * @param eul inputpointer in cartesian coordinates
  * @param pol outputpointer in polar coordinates
@@ -433,8 +438,10 @@ void PhysicsCalc::eulToPol(double * eul, double* pol,char type){
 
 /**
  * @brief PhysicsCalc::polToEul
- * @param pol
- * @param eul
+ * This function transforms polar coordinates into cartesian coordinates.
+ * @param pol is the inputpointer for polar coordinates.
+ * @param eul is the outputpointer for the cartesian coordinates.
+ * @param type type of the translation, v -> velocity, p -> position.
  */
 void PhysicsCalc::polToEul(double * pol, double* eul,char type){
     switch(type){
@@ -453,6 +460,12 @@ void PhysicsCalc::polToEul(double * pol, double* eul,char type){
     }
 }
 
+/**
+ * @brief PhysicsCalc::CollideWithTerrain
+ * checks if the given object collides with the terrain and returns true or false.
+ * @param object is the WorldObject, which will be checked.
+ * @return true if it collides, false if it does not.
+ */
 bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
 {
     QList<QGraphicsItem *> colliding_items = object->collidingItems();
@@ -469,7 +482,7 @@ bool PhysicsCalc::CollideWithTerrain(WorldObject* object)
 }
 /**
  * @brief PhysicsCalc::CollideWithUnit
- * This function checks, if an object collides with an other object of the type
+ * checks, if an object collides with an other object of the type
  * BattleUnit or Projectile and returns that object.
  * @param object is the object, which will be checked.
  * @return is a pointer to the object, the object collides with
@@ -488,7 +501,11 @@ QGraphicsItem* PhysicsCalc::CollideWithUnit(WorldObject* object)
 }
 
 
-
+/**
+ * @brief PhysicsCalc::radialCollison
+ * @param colPosEul
+ * @param colSpeed
+ */
 void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
     double colPosPol[2]={0};
     colPosEul[0]=colPosEul[0]+25;
@@ -519,8 +536,8 @@ void PhysicsCalc::radialCollison(double colPosEul[2],double colSpeed[2]){
 
 /**
  * @brief PhysicsCalc::hitUnit
- * This function calculates the damage, between two colliding objects and
- * checks one of the WorldObject get destroyed.
+ * calculates the damage, between two colliding objects and
+ * checks one of the WorldObject gets destroyed.
  * @param worldObject is the WorldObject for which the collision will be calculated.
  */
 void PhysicsCalc::hitUnit(WorldObject * worldObject) {
@@ -545,7 +562,7 @@ void PhysicsCalc::hitUnit(WorldObject * worldObject) {
 
 /**
  * @brief PhysicsCalc::checkHealth
- * This function checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit.
+ * checks if the given object has healtpoint lower or eqaul to zero and destroyes that unit.
  * The unitcounter of the owining player will be decreased too.
  * @param obj is the WorldObject whicht should be checked
  */
@@ -569,7 +586,7 @@ void PhysicsCalc::checkHealth(WorldObject* obj){
 
 /**
  * @brief PhysicsCalc::impuls
- * This function excecutes the conservation of the linear momentum for
+ * excecutes the conservation of the linear momentum for
  * the two colliding objects obj1 and obj2.
  * @param obj1 is the first object which collides.
  * @param obj2 is the secound object which collides.
@@ -596,22 +613,22 @@ void PhysicsCalc::impuls(WorldObject* obj1,WorldObject* obj2){
 
 /**
  * @brief PhysicsCalc::checkWinCondition
- * This function checks if one of the playes are out of units
+ * checks if one of the playes are out of units
  * and than emit a winning signal.
  */
 void PhysicsCalc::checkWinCondition(){
     if(settings->getPlayer1UnitCount()<=0){
         emit this->playeronewins();
-        qDebug() <<"Player two wins"; //Namen vertauscht?!
+        qDebug() <<"Player two wins";
     }
     if(settings->getPlayer2UnitCount()<=0){
         qDebug() <<"Player one wins";
-        emit this->playertwowins();  //Namen vertauscht?!
+        emit this->playertwowins();
     }
 }
 /**
  * @brief PhysicsCalc::inverseSpeed
- * This function invertes the speed of the first given Worldobject
+ * invertes the speed of the first given Worldobject.
  * @param colliding1 is the first WorldObject which speed gets inverted.
  * @param colliding2 is the secound WorldObject, which speed remains unchanged.
  */
@@ -641,14 +658,12 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
         if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>2){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
-           //qDebug() << "meele!"<<colliding2->getDamage()<< "you have "<<colliding1->getHealthpoints();
            impuls(colliding1,colliding2);
            checkHealth(colliding1);
            emit meeleDmg();
         }
         if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>2){
             colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
-            //qDebug() <<"meele!"<<colliding1->getDamage()<< "you have "<<colliding2->getHealthpoints();
             impuls(colliding1,colliding2);
             checkHealth(colliding2);
             emit meeleDmg();
@@ -719,6 +734,4 @@ void PhysicsCalc::unitUnitCollisionFunc(WorldObject* bat1,WorldObject* bat2){
     s2[1]=sin(angle1)*shd1[0]-cos(angle1)*shd1[1];
     bat1->setSpeed(s1);
     bat2->setSpeed(s2);
-
-
 }
