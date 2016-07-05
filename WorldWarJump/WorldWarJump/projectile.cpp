@@ -20,11 +20,7 @@
  * @param p the enum that gives the projectile type
  * @param soundplayer the pointer to the global sound player
  * @param shootingPoint the point in scene coordinates where the projectile should spawn
-<<<<<<< HEAD
  */
-=======
- **/
->>>>>>> 9561ac961f5dd584cf42389c542274c3c4e51a16
 Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){
 
     ObjectType = 'p';
@@ -95,10 +91,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->setSpeed(speedEul);
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
-<<<<<<< HEAD
 
-=======
->>>>>>> 9561ac961f5dd584cf42389c542274c3c4e51a16
 }
 
 /**

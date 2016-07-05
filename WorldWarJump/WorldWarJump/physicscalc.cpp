@@ -174,26 +174,42 @@ double PhysicsCalc::roundDown(double numberToRound, int digit)
     }
 
 }
-
+/**
+ * @brief PhysicsCalc::getTopRight calculates the top right point of the objects bounding rectangle in scene coordinates
+ * @param worldObject
+ * @param topRight the point position
+ */
 void PhysicsCalc::getTopRight(WorldObject *worldObject, double * topRight)
 {
     topRight[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().topRight())).x();
     topRight[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().topRight())).y();
 }
-
+/**
+ * @brief PhysicsCalc::getTopLeft calculates the top left point of the objects bounding rectangle in scene coordinates
+ * @param worldObject
+ * @param topLeft the point position
+ */
 void PhysicsCalc::getTopLeft(WorldObject *worldObject, double *topLeft)
 {
     topLeft[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().topLeft())).x();
     topLeft[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().topLeft())).y();
 }
-
+/**
+ * @brief PhysicsCalc::getBottomRight calculates the bottom right point of the objects bounding rectangle in scene coordinates
+ * @param worldObject
+ * @param bottomRight the point position
+ */
 void PhysicsCalc::getBottomRight(WorldObject *worldObject, double *bottomRight)
 {
 
     bottomRight[0] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomRight())).x();
     bottomRight[1] = (worldObject->sceneTransform().map(worldObject->boundingRect().bottomRight())).y();
 }
-
+/**
+ * @brief PhysicsCalc::getBottomLeft calculates the bottom left point of the objects bounding rectangle in scene coordinates
+ * @param worldObject
+ * @param bottomLeft the point position
+ */
 void PhysicsCalc::getBottomLeft(WorldObject *worldObject, double *bottomLeft)
 {
     QPointF point = worldObject->sceneTransform().map(worldObject->boundingRect().bottomLeft());
