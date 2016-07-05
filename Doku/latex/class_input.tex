@@ -35,10 +35,12 @@ void {\bfseries player\+Two\+Shoot} ()\hypertarget{class_input_af8eba659f268b7cb
 \item 
 \hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input} ()\hypertarget{class_input_abae3f379d3f157cf42dc857309832dba}{}\label{class_input_abae3f379d3f157cf42dc857309832dba}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input\+::\+Input} constructor. \end{DoxyCompactList}\item 
-void {\bfseries key\+Press\+Event} (Q\+Key\+Event $\ast$k)\hypertarget{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}{}\label{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input\+::\+Input} This function is the constructor of the \hyperlink{class_input}{Input} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}{key\+Press\+Event} (Q\+Key\+Event $\ast$k)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}{Input\+::key\+Press\+Event} This function reacts on any keyboard input and emit a signal if the control buttons for player one or player two had been pressed. \end{DoxyCompactList}\item 
+\hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{$\sim$\+Input} ()\hypertarget{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{}\label{class_input_af2db35ba67c8a8ccd23bef6a482fc291}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{Input\+::$\sim$\+Input} Destructor of the \hyperlink{class_input}{Input} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -54,7 +56,26 @@ Detailed\+: it is the focused Q\+Graphics\+Pixmap\+Item in our \hyperlink{class_
 
 Also because of early architecture decisions, it has the Q\+Timer refresh\+Rate\+Timer which is connected() with every unit and projectile in our game. This Q\+Timer triggers the move() function in \hyperlink{class_world_object}{World\+Object} every certain amount of milliseconds set in \hyperlink{class_game_settings}{Game\+Settings}. -\/\+Tomas 
 
+\subsection{Member Function Documentation}
+\index{Input@{Input}!key\+Press\+Event@{key\+Press\+Event}}
+\index{key\+Press\+Event@{key\+Press\+Event}!Input@{Input}}
+\subsubsection[{\texorpdfstring{key\+Press\+Event(\+Q\+Key\+Event $\ast$k)}{keyPressEvent(QKeyEvent *k)}}]{\setlength{\rightskip}{0pt plus 5cm}void Input\+::key\+Press\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Key\+Event $\ast$}]{k}
+\end{DoxyParamCaption}
+)}\hypertarget{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}{}\label{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}
+
+
+\hyperlink{class_input_af33a8e4ba483419bd40b1c20ccc1cd7f}{Input\+::key\+Press\+Event} This function reacts on any keyboard input and emit a signal if the control buttons for player one or player two had been pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & is the keyboard button which has been pressed. \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-World\+War\+Jump/\+World\+War\+Jump/input.\+h\item 
-World\+War\+Jump/\+World\+War\+Jump/input.\+cpp\end{DoxyCompactItemize}
+input.\+h\item 
+input.\+cpp\end{DoxyCompactItemize}

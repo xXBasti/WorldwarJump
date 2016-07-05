@@ -1,5 +1,14 @@
 \hypertarget{class_sound_player}{}\section{Sound\+Player Class Reference}
 \label{class_sound_player}\index{Sound\+Player@{Sound\+Player}}
+
+
+This is our sound system. -\/ Wang and Can.  
+
+
+
+
+{\ttfamily \#include $<$soundplayer.\+h$>$}
+
 Inheritance diagram for Sound\+Player\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,21 +18,23 @@ Inheritance diagram for Sound\+Player\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries play\+Projectile\+Type\+Shoot} (int type)\hypertarget{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}{}\label{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}
+\hyperlink{class_sound_player_ac7107aecd54bdcfac29486487768ebc6}{Sound\+Player} ()\hypertarget{class_sound_player_ac7107aecd54bdcfac29486487768ebc6}{}\label{class_sound_player_ac7107aecd54bdcfac29486487768ebc6}
 
-\item 
-void {\bfseries play\+Menu\+B\+GM} ()\hypertarget{class_sound_player_afcffc7d0a0437906496aff6ea1669193}{}\label{class_sound_player_afcffc7d0a0437906496aff6ea1669193}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_sound_player_ac7107aecd54bdcfac29486487768ebc6}{Sound\+Player\+::\+Sound\+Player} initializes the sound players and playlists. \end{DoxyCompactList}\item 
+void \hyperlink{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}{play\+Projectile\+Type\+Shoot} (int type)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}{Sound\+Player\+::play\+Projectile\+Type\+Shoot} plays the correct shooting sound queue to the corresponding projectile type. The projectile sounds cut each other if there is one previously playing. It also plays a taunt voice randomly, with diminishing possibiliy each time. The taunt line is not cut. \end{DoxyCompactList}\item 
+void \hyperlink{class_sound_player_afcffc7d0a0437906496aff6ea1669193}{play\+Menu\+B\+GM} ()\hypertarget{class_sound_player_afcffc7d0a0437906496aff6ea1669193}{}\label{class_sound_player_afcffc7d0a0437906496aff6ea1669193}
 
-\item 
-void {\bfseries play\+Game\+B\+GM} ()\hypertarget{class_sound_player_a896f537cc0518edc7a724554ec35cf27}{}\label{class_sound_player_a896f537cc0518edc7a724554ec35cf27}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_sound_player_afcffc7d0a0437906496aff6ea1669193}{Sound\+Player\+::play\+Menu\+B\+GM} play menu music. \end{DoxyCompactList}\item 
+void \hyperlink{class_sound_player_a896f537cc0518edc7a724554ec35cf27}{play\+Game\+B\+GM} ()\hypertarget{class_sound_player_a896f537cc0518edc7a724554ec35cf27}{}\label{class_sound_player_a896f537cc0518edc7a724554ec35cf27}
 
-\item 
-void {\bfseries play\+Jump} ()\hypertarget{class_sound_player_a854749ef29c5620f8b3b6355b7015d01}{}\label{class_sound_player_a854749ef29c5620f8b3b6355b7015d01}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_sound_player_a896f537cc0518edc7a724554ec35cf27}{Sound\+Player\+::play\+Game\+B\+GM} play game music. \end{DoxyCompactList}\item 
+void \hyperlink{class_sound_player_a854749ef29c5620f8b3b6355b7015d01}{play\+Jump} ()\hypertarget{class_sound_player_a854749ef29c5620f8b3b6355b7015d01}{}\label{class_sound_player_a854749ef29c5620f8b3b6355b7015d01}
 
-\item 
-void {\bfseries play\+Hit} ()\hypertarget{class_sound_player_a620011ab815ca67880615766518e3157}{}\label{class_sound_player_a620011ab815ca67880615766518e3157}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_sound_player_a854749ef29c5620f8b3b6355b7015d01}{Sound\+Player\+::play\+Jump} plays the jump sound when a unit jumps. \end{DoxyCompactList}\item 
+void \hyperlink{class_sound_player_a620011ab815ca67880615766518e3157}{play\+Hit} ()\hypertarget{class_sound_player_a620011ab815ca67880615766518e3157}{}\label{class_sound_player_a620011ab815ca67880615766518e3157}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_sound_player_a620011ab815ca67880615766518e3157}{Sound\+Player\+::play\+Hit} plays the hit sound when a unit gets hit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -53,7 +64,29 @@ int {\bfseries random\+Index}\hypertarget{class_sound_player_aa3bf410aa75678aad3
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+This is our sound system. -\/ Wang and Can. 
+
+\subsection{Member Function Documentation}
+\index{Sound\+Player@{Sound\+Player}!play\+Projectile\+Type\+Shoot@{play\+Projectile\+Type\+Shoot}}
+\index{play\+Projectile\+Type\+Shoot@{play\+Projectile\+Type\+Shoot}!Sound\+Player@{Sound\+Player}}
+\subsubsection[{\texorpdfstring{play\+Projectile\+Type\+Shoot(int type)}{playProjectileTypeShoot(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}void Sound\+Player\+::play\+Projectile\+Type\+Shoot (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}{}\label{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}
+
+
+\hyperlink{class_sound_player_a22e1a489bbbb6cfcab3662c41f8168bc}{Sound\+Player\+::play\+Projectile\+Type\+Shoot} plays the correct shooting sound queue to the corresponding projectile type. The projectile sounds cut each other if there is one previously playing. It also plays a taunt voice randomly, with diminishing possibiliy each time. The taunt line is not cut. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-World\+War\+Jump/\+World\+War\+Jump/soundplayer.\+h\item 
-World\+War\+Jump/\+World\+War\+Jump/soundplayer.\+cpp\end{DoxyCompactItemize}
+soundplayer.\+h\item 
+soundplayer.\+cpp\end{DoxyCompactItemize}
