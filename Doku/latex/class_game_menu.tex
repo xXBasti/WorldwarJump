@@ -2,7 +2,7 @@
 \label{class_game_menu}\index{Game\+Menu@{Game\+Menu}}
 
 
-The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things for a functional game menu\+: Pages, buttons and images. It also has parameters which save custom options. -\/ Wang.  
+The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things for a functional game menu\+: Pages, buttons and images. It also has parameters which save custom options. -\/ W\+A\+NG.  
 
 
 
@@ -31,8 +31,9 @@ void \hyperlink{class_game_menu_abb166085ca8e741d1901cdedda86f0d3}{change\+S\+Ev
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}{Game\+Menu} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}{Game\+Menu\+::\+Game\+Menu(\+Sound\+Player $\ast$soundplayer)} constructor instantiates the setting of the game, start\+Scene, which is the main menu, and several buttons and pictures. \end{DoxyCompactList}\item 
+{\bfseries Game\+Menu} (\hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}{}\label{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}
+
+\item 
 int \hyperlink{class_game_menu_adc24456c629b662425a461b7171da615}{get\+Game\+Menu\+Size} () const 
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_adc24456c629b662425a461b7171da615}{Game\+Menu\+::get\+Game\+Menu\+Size()} returns the set resolution of the game menu. \end{DoxyCompactList}\item 
 void \hyperlink{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{set\+Game\+Menu\+Size} (int value)
@@ -40,9 +41,11 @@ void \hyperlink{class_game_menu_aeb35fbd4176b7069dd59395b39d1950c}{set\+Game\+Me
 void \hyperlink{class_game_menu_ab043085d1280afd8f33c5e962a171373}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)\hypertarget{class_game_menu_ab043085d1280afd8f33c5e962a171373}{}\label{class_game_menu_ab043085d1280afd8f33c5e962a171373}
 
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_ab043085d1280afd8f33c5e962a171373}{Game\+Menu\+::mouse\+Press\+Event(\+Q\+Mouse\+Event $\ast$event)} secures the main functionality of the menu. It detects mouse clicks and compares the Q\+Graphics\+Item on which the mouse is currently positioned with buttons, which are inherited from Q\+Graphics\+Pixmap\+Item, then acts correspondingly. \end{DoxyCompactList}\item 
-int \hyperlink{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}{get\+Player1\+Unit\+Count} () const 
+int {\bfseries get\+Player1\+Unit\+Count} () const \hypertarget{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}{}\label{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}
+
 \item 
-int \hyperlink{class_game_menu_a9fd03816511faec236d787298237b231}{get\+Player2\+Unit\+Count} () const 
+int {\bfseries get\+Player2\+Unit\+Count} () const \hypertarget{class_game_menu_a9fd03816511faec236d787298237b231}{}\label{class_game_menu_a9fd03816511faec236d787298237b231}
+
 \item 
 int \hyperlink{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{get\+Which\+Stage} () const 
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{Game\+Menu\+::get\+Which\+Stage()} returns the index of the currently selected stage. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -52,42 +55,42 @@ int \hyperlink{class_game_menu_a45729234e7d5e250608217f0b24ac8da}{get\+Which\+St
 \hyperlink{class_game_settings}{Game\+Settings} $\ast$ {\bfseries settings}\hypertarget{class_game_menu_a0047e42e8cef38e9faa5ba67d6dea508}{}\label{class_game_menu_a0047e42e8cef38e9faa5ba67d6dea508}
 
 \item 
-\hyperlink{class_sound_player}{Sound\+Player} $\ast$ \hyperlink{class_game_menu_a9dfd20cecbc58d41918f85f08942065d}{soundpointer}\hypertarget{class_game_menu_a9dfd20cecbc58d41918f85f08942065d}{}\label{class_game_menu_a9dfd20cecbc58d41918f85f08942065d}
-
-\begin{DoxyCompactList}\small\item\em because soundplayer is instantiated in main, we need this as a reference to gain access on it. \end{DoxyCompactList}\item 
-\hyperlink{class_game_world}{Game\+World} $\ast$ \hyperlink{class_game_menu_acd0a5b94ff397f9247088d5942c27341}{reference}\hypertarget{class_game_menu_acd0a5b94ff397f9247088d5942c27341}{}\label{class_game_menu_acd0a5b94ff397f9247088d5942c27341}
-
-\begin{DoxyCompactList}\small\item\em used to gain access on created game. \end{DoxyCompactList}\item 
-\hyperlink{class_main_window}{Main\+Window} $\ast$ {\bfseries w} = new \hyperlink{class_main_window}{Main\+Window}\hypertarget{class_game_menu_ab2cbc2fb13a1e67c958efe22a58c5ec2}{}\label{class_game_menu_ab2cbc2fb13a1e67c958efe22a58c5ec2}
+\hyperlink{class_sound_player}{Sound\+Player} $\ast$ {\bfseries soundpointer}\hypertarget{class_game_menu_a9dfd20cecbc58d41918f85f08942065d}{}\label{class_game_menu_a9dfd20cecbc58d41918f85f08942065d}
 
 \item 
+\hyperlink{class_game_world}{Game\+World} $\ast$ {\bfseries reference}\hypertarget{class_game_menu_acd0a5b94ff397f9247088d5942c27341}{}\label{class_game_menu_acd0a5b94ff397f9247088d5942c27341}
+
+\item 
+\hyperlink{class_main_window}{Main\+Window} $\ast$ \hyperlink{class_game_menu_ab2cbc2fb13a1e67c958efe22a58c5ec2}{w} = new \hyperlink{class_main_window}{Main\+Window}\hypertarget{class_game_menu_ab2cbc2fb13a1e67c958efe22a58c5ec2}{}\label{class_game_menu_ab2cbc2fb13a1e67c958efe22a58c5ec2}
+
+\begin{DoxyCompactList}\small\item\em Mainwindow of World\+War\+Jump. \end{DoxyCompactList}\item 
 Q\+Graphics\+Scene $\ast$ \hyperlink{class_game_menu_ab72c5ce17a0f06580b74c495cb9694ce}{start\+Scene}\hypertarget{class_game_menu_ab72c5ce17a0f06580b74c495cb9694ce}{}\label{class_game_menu_ab72c5ce17a0f06580b74c495cb9694ce}
 
-\begin{DoxyCompactList}\small\item\em is the main menu. \end{DoxyCompactList}\item 
-Q\+Graphics\+Scene $\ast$ \hyperlink{class_game_menu_a96efe4b74ad120a5920e141cec544f94}{before\+Game\+Scene}\hypertarget{class_game_menu_a96efe4b74ad120a5920e141cec544f94}{}\label{class_game_menu_a96efe4b74ad120a5920e141cec544f94}
-
-\begin{DoxyCompactList}\small\item\em is the scene between main menu and game scene. \end{DoxyCompactList}\item 
-Q\+Graphics\+Scene $\ast$ \hyperlink{class_game_menu_a034da5f5a381412e92d1764f5af32883}{settings\+Scene}\hypertarget{class_game_menu_a034da5f5a381412e92d1764f5af32883}{}\label{class_game_menu_a034da5f5a381412e92d1764f5af32883}
-
-\begin{DoxyCompactList}\small\item\em is the setting menu for sound. \end{DoxyCompactList}\item 
-Q\+Graphics\+Scene $\ast$ \hyperlink{class_game_menu_a347306846ed65b9ed5ed3d457e46c5ac}{about\+Scene}\hypertarget{class_game_menu_a347306846ed65b9ed5ed3d457e46c5ac}{}\label{class_game_menu_a347306846ed65b9ed5ed3d457e46c5ac}
-
-\begin{DoxyCompactList}\small\item\em is the about page. \end{DoxyCompactList}\item 
-Q\+Graphics\+Scene $\ast$ \hyperlink{class_game_menu_a235b359eff5bab01a8ca9d2b75466af1}{end\+Scene}\hypertarget{class_game_menu_a235b359eff5bab01a8ca9d2b75466af1}{}\label{class_game_menu_a235b359eff5bab01a8ca9d2b75466af1}
-
-\begin{DoxyCompactList}\small\item\em is the scene after someone has won. \end{DoxyCompactList}\item 
-Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_ab6fd3496d0426f663e9893a893764fcf}{start\+Scene\+Background}\hypertarget{class_game_menu_ab6fd3496d0426f663e9893a893764fcf}{}\label{class_game_menu_ab6fd3496d0426f663e9893a893764fcf}
-
-\begin{DoxyCompactList}\small\item\em is the background picture for main menu. \end{DoxyCompactList}\item 
-Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_a59aa0e84b5d4db53a62bb52480856c25}{before\+Game\+Scene\+Background}\hypertarget{class_game_menu_a59aa0e84b5d4db53a62bb52480856c25}{}\label{class_game_menu_a59aa0e84b5d4db53a62bb52480856c25}
-
-\begin{DoxyCompactList}\small\item\em is the background picture for pregame settings. \end{DoxyCompactList}\item 
-Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_a32c0e1b35559b840ffc5628cb59c8639}{end\+Scene\+Background}\hypertarget{class_game_menu_a32c0e1b35559b840ffc5628cb59c8639}{}\label{class_game_menu_a32c0e1b35559b840ffc5628cb59c8639}
-
-\begin{DoxyCompactList}\small\item\em is the background picture for winning scene. \end{DoxyCompactList}\item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries start\+Button}\hypertarget{class_game_menu_a22c3e73fc24f9699e6a9f4bc1d6fbd52}{}\label{class_game_menu_a22c3e73fc24f9699e6a9f4bc1d6fbd52}
+\begin{DoxyCompactList}\small\item\em Different Scenes of \hyperlink{class_game_menu}{Game\+Menu}. \end{DoxyCompactList}\item 
+Q\+Graphics\+Scene $\ast$ {\bfseries before\+Game\+Scene}\hypertarget{class_game_menu_a96efe4b74ad120a5920e141cec544f94}{}\label{class_game_menu_a96efe4b74ad120a5920e141cec544f94}
 
 \item 
+Q\+Graphics\+Scene $\ast$ {\bfseries settings\+Scene}\hypertarget{class_game_menu_a034da5f5a381412e92d1764f5af32883}{}\label{class_game_menu_a034da5f5a381412e92d1764f5af32883}
+
+\item 
+Q\+Graphics\+Scene $\ast$ {\bfseries about\+Scene}\hypertarget{class_game_menu_a347306846ed65b9ed5ed3d457e46c5ac}{}\label{class_game_menu_a347306846ed65b9ed5ed3d457e46c5ac}
+
+\item 
+Q\+Graphics\+Scene $\ast$ {\bfseries end\+Scene}\hypertarget{class_game_menu_a235b359eff5bab01a8ca9d2b75466af1}{}\label{class_game_menu_a235b359eff5bab01a8ca9d2b75466af1}
+
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_ab6fd3496d0426f663e9893a893764fcf}{start\+Scene\+Background}\hypertarget{class_game_menu_ab6fd3496d0426f663e9893a893764fcf}{}\label{class_game_menu_ab6fd3496d0426f663e9893a893764fcf}
+
+\begin{DoxyCompactList}\small\item\em Background pictures. \end{DoxyCompactList}\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries before\+Game\+Scene\+Background}\hypertarget{class_game_menu_a59aa0e84b5d4db53a62bb52480856c25}{}\label{class_game_menu_a59aa0e84b5d4db53a62bb52480856c25}
+
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries end\+Scene\+Background}\hypertarget{class_game_menu_a32c0e1b35559b840ffc5628cb59c8639}{}\label{class_game_menu_a32c0e1b35559b840ffc5628cb59c8639}
+
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_a22c3e73fc24f9699e6a9f4bc1d6fbd52}{start\+Button}\hypertarget{class_game_menu_a22c3e73fc24f9699e6a9f4bc1d6fbd52}{}\label{class_game_menu_a22c3e73fc24f9699e6a9f4bc1d6fbd52}
+
+\begin{DoxyCompactList}\small\item\em Buttons on start\+Scene. \end{DoxyCompactList}\item 
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries settings\+Button}\hypertarget{class_game_menu_aca49d1e3a9dfec037cbc85a01cb6df82}{}\label{class_game_menu_aca49d1e3a9dfec037cbc85a01cb6df82}
 
 \item 
@@ -97,9 +100,9 @@ Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries about\+Button}\hypertarget{class_gam
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries exit\+Button}\hypertarget{class_game_menu_a76bcbc6a772fb628f39140c9365eccd8}{}\label{class_game_menu_a76bcbc6a772fb628f39140c9365eccd8}
 
 \item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries add\+Player1\+Unit\+Button}\hypertarget{class_game_menu_aedcd8869665d66f9489ab41f0c038df8}{}\label{class_game_menu_aedcd8869665d66f9489ab41f0c038df8}
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_aedcd8869665d66f9489ab41f0c038df8}{add\+Player1\+Unit\+Button}\hypertarget{class_game_menu_aedcd8869665d66f9489ab41f0c038df8}{}\label{class_game_menu_aedcd8869665d66f9489ab41f0c038df8}
 
-\item 
+\begin{DoxyCompactList}\small\item\em Buttons on before\+Game\+Scene. \end{DoxyCompactList}\item 
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries add\+Player2\+Unit\+Button}\hypertarget{class_game_menu_a1027a5d9f67523cee6782d6413a75281}{}\label{class_game_menu_a1027a5d9f67523cee6782d6413a75281}
 
 \item 
@@ -148,9 +151,9 @@ Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries friendly\+Fire\+Button}\hypertarget{
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries yesorno}\hypertarget{class_game_menu_ad650020a1b9c6076803203746289cca3}{}\label{class_game_menu_ad650020a1b9c6076803203746289cca3}
 
 \item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries player1\+Unit\+Picture}\hypertarget{class_game_menu_a7b6ec049efa3d2edb073b0c6f8d4410c}{}\label{class_game_menu_a7b6ec049efa3d2edb073b0c6f8d4410c}
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_a7b6ec049efa3d2edb073b0c6f8d4410c}{player1\+Unit\+Picture}\hypertarget{class_game_menu_a7b6ec049efa3d2edb073b0c6f8d4410c}{}\label{class_game_menu_a7b6ec049efa3d2edb073b0c6f8d4410c}
 
-\item 
+\begin{DoxyCompactList}\small\item\em Pictures on before\+Game\+Scene. \end{DoxyCompactList}\item 
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries player2\+Unit\+Picture}\hypertarget{class_game_menu_af1854743b63b9756bfd6ce0761918e7e}{}\label{class_game_menu_af1854743b63b9756bfd6ce0761918e7e}
 
 \item 
@@ -193,9 +196,9 @@ Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries blue\+Tank\+Picture}\hypertarget{cla
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries thumbnail}\hypertarget{class_game_menu_ab8ec0b01e303715a988e5e51cccb14de}{}\label{class_game_menu_ab8ec0b01e303715a988e5e51cccb14de}
 
 \item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries mute\+B\+G\+M\+Button}\hypertarget{class_game_menu_aaf654b46140ebb546578a3fefd72934c}{}\label{class_game_menu_aaf654b46140ebb546578a3fefd72934c}
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_aaf654b46140ebb546578a3fefd72934c}{mute\+B\+G\+M\+Button}\hypertarget{class_game_menu_aaf654b46140ebb546578a3fefd72934c}{}\label{class_game_menu_aaf654b46140ebb546578a3fefd72934c}
 
-\item 
+\begin{DoxyCompactList}\small\item\em Buttons on settings\+Scene. \end{DoxyCompactList}\item 
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries mute\+S\+E\+Button}\hypertarget{class_game_menu_a23666659fe3b9f0642fd53d308e9a8e0}{}\label{class_game_menu_a23666659fe3b9f0642fd53d308e9a8e0}
 
 \item 
@@ -214,41 +217,19 @@ Q\+Slider $\ast$ {\bfseries B\+G\+Mslider}\hypertarget{class_game_menu_a2554f022
 Q\+Slider $\ast$ {\bfseries S\+Eslider}\hypertarget{class_game_menu_a1571c2f246e226b8fcc1ff927183d178}{}\label{class_game_menu_a1571c2f246e226b8fcc1ff927183d178}
 
 \item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries settings\+Background}\hypertarget{class_game_menu_a1883be9e761bc6ddf651d076792a6536}{}\label{class_game_menu_a1883be9e761bc6ddf651d076792a6536}
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_a1883be9e761bc6ddf651d076792a6536}{settings\+Background}\hypertarget{class_game_menu_a1883be9e761bc6ddf651d076792a6536}{}\label{class_game_menu_a1883be9e761bc6ddf651d076792a6536}
 
-\item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries about\+Background}\hypertarget{class_game_menu_abef2252ea78c533c26e57aeaa4b7ac75}{}\label{class_game_menu_abef2252ea78c533c26e57aeaa4b7ac75}
+\begin{DoxyCompactList}\small\item\em Pictures on settings\+Scene. \end{DoxyCompactList}\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_menu_a607f26f22eabdc52789ec0fcb9ae1fd8}{playeronewins\+Pic}\hypertarget{class_game_menu_a607f26f22eabdc52789ec0fcb9ae1fd8}{}\label{class_game_menu_a607f26f22eabdc52789ec0fcb9ae1fd8}
 
-\item 
-Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries playeronewins\+Pic}\hypertarget{class_game_menu_a607f26f22eabdc52789ec0fcb9ae1fd8}{}\label{class_game_menu_a607f26f22eabdc52789ec0fcb9ae1fd8}
-
-\item 
+\begin{DoxyCompactList}\small\item\em Pictures on end\+Scene. \end{DoxyCompactList}\item 
 Q\+Graphics\+Pixmap\+Item $\ast$ {\bfseries playertwowins\+Pic}\hypertarget{class_game_menu_a0aa1ea5e275d456d9eaaae032cbf798f}{}\label{class_game_menu_a0aa1ea5e275d456d9eaaae032cbf798f}
 
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things for a functional game menu\+: Pages, buttons and images. It also has parameters which save custom options. -\/ Wang. 
-
-\subsection{Constructor \& Destructor Documentation}
-\index{Game\+Menu@{Game\+Menu}!Game\+Menu@{Game\+Menu}}
-\index{Game\+Menu@{Game\+Menu}!Game\+Menu@{Game\+Menu}}
-\subsubsection[{\texorpdfstring{Game\+Menu(\+Sound\+Player $\ast$soundplayer)}{GameMenu(SoundPlayer *soundplayer)}}]{\setlength{\rightskip}{0pt plus 5cm}Game\+Menu\+::\+Game\+Menu (
-\begin{DoxyParamCaption}
-\item[{{\bf Sound\+Player} $\ast$}]{soundplayer}
-\end{DoxyParamCaption}
-)}\hypertarget{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}{}\label{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}
-
-
-\hyperlink{class_game_menu_acc7215518fa676e7985aa3f34ca55ef7}{Game\+Menu\+::\+Game\+Menu(\+Sound\+Player $\ast$soundplayer)} constructor instantiates the setting of the game, start\+Scene, which is the main menu, and several buttons and pictures. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em soundplayer} & Because the soundplayer is instantiated already in main.\+cpp, we need to pass it from main to \hyperlink{class_game_menu}{Game\+Menu}. \\
-\hline
-\end{DoxyParams}
-
+The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things for a functional game menu\+: Pages, buttons and images. It also has parameters which save custom options. -\/ W\+A\+NG. 
 
 \subsection{Member Function Documentation}
 \index{Game\+Menu@{Game\+Menu}!change\+B\+G\+Mvolume@{change\+B\+G\+Mvolume}}
@@ -264,7 +245,7 @@ The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things 
 
 
 \begin{DoxyParams}{Parameters}
-{\em volume} & wished volume. \\
+{\em wished} & volume. \\
 \hline
 \end{DoxyParams}
 \index{Game\+Menu@{Game\+Menu}!change\+S\+Evolume@{change\+S\+Evolume}}
@@ -280,7 +261,7 @@ The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things 
 
 
 \begin{DoxyParams}{Parameters}
-{\em volume} & wished volume \\
+{\em wished} & volume \\
 \hline
 \end{DoxyParams}
 \index{Game\+Menu@{Game\+Menu}!get\+Game\+Menu\+Size@{get\+Game\+Menu\+Size}}
@@ -297,21 +278,7 @@ The \hyperlink{class_game_menu}{Game\+Menu} class contains all necessary things 
 \begin{DoxyReturn}{Returns}
 the set resolution of the menu 
 \end{DoxyReturn}
-\index{Game\+Menu@{Game\+Menu}!get\+Player1\+Unit\+Count@{get\+Player1\+Unit\+Count}}
-\index{get\+Player1\+Unit\+Count@{get\+Player1\+Unit\+Count}!Game\+Menu@{Game\+Menu}}
-\subsubsection[{\texorpdfstring{get\+Player1\+Unit\+Count() const }{getPlayer1UnitCount() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Menu\+::get\+Player1\+Unit\+Count (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}{}\label{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}
-\hyperlink{class_game_menu_ac37e4932a0aa396be6ffb04cad2061b2}{Game\+Menu\+::get\+Player1\+Unit\+Count()} returns the unit count of player red (redundant). \index{Game\+Menu@{Game\+Menu}!get\+Player2\+Unit\+Count@{get\+Player2\+Unit\+Count}}
-\index{get\+Player2\+Unit\+Count@{get\+Player2\+Unit\+Count}!Game\+Menu@{Game\+Menu}}
-\subsubsection[{\texorpdfstring{get\+Player2\+Unit\+Count() const }{getPlayer2UnitCount() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Menu\+::get\+Player2\+Unit\+Count (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_game_menu_a9fd03816511faec236d787298237b231}{}\label{class_game_menu_a9fd03816511faec236d787298237b231}
-\hyperlink{class_game_menu_a9fd03816511faec236d787298237b231}{Game\+Menu\+::get\+Player2\+Unit\+Count()} returns the unit cound of blue player (redundant). \index{Game\+Menu@{Game\+Menu}!get\+Which\+Stage@{get\+Which\+Stage}}
+\index{Game\+Menu@{Game\+Menu}!get\+Which\+Stage@{get\+Which\+Stage}}
 \index{get\+Which\+Stage@{get\+Which\+Stage}!Game\+Menu@{Game\+Menu}}
 \subsubsection[{\texorpdfstring{get\+Which\+Stage() const }{getWhichStage() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Game\+Menu\+::get\+Which\+Stage (
 \begin{DoxyParamCaption}
@@ -338,12 +305,12 @@ index of the current stage.
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & is the wished resolution \\
+{\em the} & wished resolutio \\
 \hline
 \end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-gamemenu.\+h\item 
-gamemenu.\+cpp\end{DoxyCompactItemize}
+World\+War\+Jump/\+World\+War\+Jump/gamemenu.\+h\item 
+World\+War\+Jump/\+World\+War\+Jump/gamemenu.\+cpp\end{DoxyCompactItemize}

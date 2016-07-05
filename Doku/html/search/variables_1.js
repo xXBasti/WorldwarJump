@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['beforegamescene',['beforeGameScene',['../class_game_menu.html#a96efe4b74ad120a5920e141cec544f94',1,'GameMenu']]],
-  ['beforegamescenebackground',['beforeGameSceneBackground',['../class_game_menu.html#a59aa0e84b5d4db53a62bb52480856c25',1,'GameMenu']]]
+  ['mutebgmbutton',['muteBGMButton',['../class_game_menu.html#aaf654b46140ebb546578a3fefd72934c',1,'GameMenu']]]
 ];

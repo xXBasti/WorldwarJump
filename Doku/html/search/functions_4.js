@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['gamemenu',['GameMenu',['../class_game_menu.html#acc7215518fa676e7985aa3f34ca55ef7',1,'GameMenu']]],
-  ['gameplayinterface',['GameplayInterface',['../class_gameplay_interface.html#ab75b8894a36f5697edc87e0acc2d31ce',1,'GameplayInterface']]],
-  ['gameworld',['GameWorld',['../class_game_world.html#a4917d80cbe417b0dc1d9023499d83f72',1,'GameWorld']]],
-  ['getbounced',['getBounced',['../class_world_object.html#ae31450bcd5b77c1dbed862cb55ea6694',1,'WorldObject']]],
-  ['getcenterofmass',['getCenterOfMass',['../class_world_object.html#adec5084311ea0477db37e9bbeddeb401',1,'WorldObject']]],
-  ['getchar',['getChar',['../class_world_object.html#a4899b4a491e10707af9df49c6e6b4323',1,'WorldObject']]],
-  ['getfiredirection',['getFiredirection',['../class_battle_unit.html#aa5a7ea370e2f789b51f5617b45822bdb',1,'BattleUnit']]],
-  ['getgamemenusize',['getGameMenuSize',['../class_game_menu.html#adc24456c629b662425a461b7171da615',1,'GameMenu']]],
-  ['gethitcounter',['getHitCounter',['../class_world_object.html#a22888de0c352adf646e4c87584efe39c',1,'WorldObject']]],
-  ['getimpactpoint',['getImpactPoint',['../class_physics_calc.html#a9bbfe3998836451d84697577c0e6195d',1,'PhysicsCalc']]],
-  ['getorientation',['getOrientation',['../class_world_object.html#a19516f1bc3450350c42cfe467dabf4f8',1,'WorldObject']]],
-  ['getplayer',['getPlayer',['../class_world_object.html#ac3ff724096106165c68e3e9600032233',1,'WorldObject']]],
-  ['getplayer1unitcount',['getPlayer1UnitCount',['../class_game_menu.html#ac37e4932a0aa396be6ffb04cad2061b2',1,'GameMenu']]],
-  ['getplayer2unitcount',['getPlayer2UnitCount',['../class_game_menu.html#a9fd03816511faec236d787298237b231',1,'GameMenu']]],
-  ['getrotvel',['getRotVel',['../class_world_object.html#a92c64315b40802ee97bf3cd5f16a3538',1,'WorldObject']]],
-  ['getshootingunit',['getshootingUnit',['../class_projectile.html#aa8868e4a292212337b3d6de12e9da63a',1,'Projectile']]],
-  ['getspeed',['getSpeed',['../class_world_object.html#a4a9c0e80e36b49cd7d4f574ca6351249',1,'WorldObject']]],
-  ['getweight',['getWeight',['../class_world_object.html#a8061ac1f99f6ed3f78d42a39cb82d0c2',1,'WorldObject']]],
-  ['getwhichstage',['getWhichStage',['../class_game_menu.html#a45729234e7d5e250608217f0b24ac8da',1,'GameMenu']]],
-  ['gravityangledifference',['gravityAngleDifference',['../class_physics_calc.html#a515dcab8395108cb37b7526adbab6ed0',1,'PhysicsCalc']]],
-  ['gravvec',['gravVec',['../class_physics_calc.html#ad1eaa72eeff1b031b08db33730d8decb',1,'PhysicsCalc']]]
+  ['hitunit',['hitUnit',['../class_physics_calc.html#a75c4cfbeb112120f4ffd4839182ca25c',1,'PhysicsCalc']]]
 ];

@@ -11,13 +11,13 @@ Inheritance diagram for World\+Object\+:\begin{figure}[H]
 \item 
 void \hyperlink{class_world_object_af0a581ca569f51047d53677e5d48cf30}{move} ()\hypertarget{class_world_object_af0a581ca569f51047d53677e5d48cf30}{}\label{class_world_object_af0a581ca569f51047d53677e5d48cf30}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_af0a581ca569f51047d53677e5d48cf30}{World\+Object\+::move} This function is called every timestep and gets the new position and speed values for the \hyperlink{class_world_object}{World\+Object} from the physicscalc. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a923e9f81e48251574f1b69f09ebc1c12}{jump} ()\hypertarget{class_world_object_a923e9f81e48251574f1b69f09ebc1c12}{}\label{class_world_object_a923e9f81e48251574f1b69f09ebc1c12}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_af0a581ca569f51047d53677e5d48cf30}{World\+Object\+::move}. \end{DoxyCompactList}\item 
+void {\bfseries jump} ()\hypertarget{class_world_object_a923e9f81e48251574f1b69f09ebc1c12}{}\label{class_world_object_a923e9f81e48251574f1b69f09ebc1c12}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a923e9f81e48251574f1b69f09ebc1c12}{World\+Object\+::jump} makes the unit jump in the direction of its head and introduces random rotation. The unit is able to jump in certain proximity to the ground, or when it is colliding with an other unit. The rotation has constant magnitude, but the direction is random. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a5630a513886f232da0174fc992a13ad7}{hit} ()\hypertarget{class_world_object_a5630a513886f232da0174fc992a13ad7}{}\label{class_world_object_a5630a513886f232da0174fc992a13ad7}
+\item 
+void {\bfseries hit} ()\hypertarget{class_world_object_a5630a513886f232da0174fc992a13ad7}{}\label{class_world_object_a5630a513886f232da0174fc992a13ad7}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a5630a513886f232da0174fc992a13ad7}{World\+Object\+::hit} This function is called every timestep by ervery \hyperlink{class_projectile}{Projectile} subclass to check if itself hit any \hyperlink{class_world_object}{World\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \subsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,37 +27,54 @@ void {\bfseries send\+Health} (int health)\hypertarget{class_world_object_a92ca6
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}{World\+Object} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, Player p, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}{World\+Object\+::\+World\+Object} constructor. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}{set\+Speed} (double $\ast$new\+Speed)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}{World\+Object\+::set\+Speed} set the speed of the unit and limit to a max speed. \end{DoxyCompactList}\item 
+{\bfseries World\+Object} (\hyperlink{class_game_world}{Game\+World} $\ast$parent\+View, Player p, \hyperlink{class_sound_player}{Sound\+Player} $\ast$soundplayer)\hypertarget{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}{}\label{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}
+
+\item 
+void {\bfseries set\+Speed} (double $\ast$new\+Speed)\hypertarget{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}{}\label{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}
+
+\item 
 void {\bfseries get\+Position} (double $\ast$output\+Pointer)\hypertarget{class_world_object_a5e4d104947f9068c4d84669aad29c792}{}\label{class_world_object_a5e4d104947f9068c4d84669aad29c792}
 
 \item 
-double $\ast$ \hyperlink{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}{get\+Speed} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}{World\+Object\+::get\+Speed} returns the speed of the unit. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}{set\+Orientation} (double new\+Orientation)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}{World\+Object\+::set\+Orientation} set the turning angle of the unit in degrees. \end{DoxyCompactList}\item 
-double \hyperlink{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}{get\+Orientation} () const 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}{World\+Object\+::get\+Orientation} get the turning angle of the unit in degrees. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a4fc971089870ff9db55c767694056f2f}{set\+Rot\+Vel} (double new\+Rot\+Vel)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a4fc971089870ff9db55c767694056f2f}{World\+Object\+::set\+Rot\+Vel} set the rotational velocity in degrees and limit it. \end{DoxyCompactList}\item 
-double \hyperlink{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}{get\+Rot\+Vel} () const 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}{World\+Object\+::get\+Rot\+Vel} returns the rotational velocity in degrees. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a14befa1bd922a8c9f7134352103de942}{set\+Center\+Of\+Mass} (double $\ast$new\+Center\+Of\+Mass)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a14befa1bd922a8c9f7134352103de942}{World\+Object\+::set\+Center\+Of\+Mass} sets the position of units center of mass in scene coordinates. \end{DoxyCompactList}\item 
-double $\ast$ \hyperlink{class_world_object_adec5084311ea0477db37e9bbeddeb401}{get\+Center\+Of\+Mass} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_adec5084311ea0477db37e9bbeddeb401}{World\+Object\+::get\+Center\+Of\+Mass} gets the position of units center of mass in scene coordinates. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}{set\+Hit\+Counter} (int \hyperlink{class_world_object_a5630a513886f232da0174fc992a13ad7}{hit})
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}{World\+Object\+::set\+Hit\+Counter} set how many times the unit has hit the ground. \end{DoxyCompactList}\item 
-int \hyperlink{class_world_object_a22888de0c352adf646e4c87584efe39c}{get\+Hit\+Counter} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a22888de0c352adf646e4c87584efe39c}{World\+Object\+::get\+Hit\+Counter} get how many times the unit has hit the ground. \end{DoxyCompactList}\item 
-Player \hyperlink{class_world_object_ac3ff724096106165c68e3e9600032233}{get\+Player} () const 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_ac3ff724096106165c68e3e9600032233}{World\+Object\+::get\+Player} returns the player controlling the unit. \end{DoxyCompactList}\item 
-int \hyperlink{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}{get\+Weight} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}{World\+Object\+::get\+Weight} returns the weight value of the unit. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}{set\+Weight} (int w)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}{World\+Object\+::set\+Weight} sets the weight value of the unit. \end{DoxyCompactList}\item 
+double $\ast$ {\bfseries get\+Speed} ()\hypertarget{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}{}\label{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}
+
+\item 
+void {\bfseries set\+Orientation} (double new\+Orientation)\hypertarget{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}{}\label{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}
+
+\item 
+double {\bfseries get\+Orientation} () const \hypertarget{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}{}\label{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}
+
+\item 
+void {\bfseries set\+Rot\+Vel} (double new\+Rot\+Vel)\hypertarget{class_world_object_a4fc971089870ff9db55c767694056f2f}{}\label{class_world_object_a4fc971089870ff9db55c767694056f2f}
+
+\item 
+double {\bfseries get\+Rot\+Vel} () const \hypertarget{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}{}\label{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}
+
+\item 
+void {\bfseries get\+Top\+Right} (double $\ast$top\+Right)\hypertarget{class_world_object_a4e9ecc19617703dcb35ccf6fd8cd1c5b}{}\label{class_world_object_a4e9ecc19617703dcb35ccf6fd8cd1c5b}
+
+\item 
+void {\bfseries set\+Center\+Of\+Mass} (double $\ast$new\+Center\+Of\+Mass)\hypertarget{class_world_object_a14befa1bd922a8c9f7134352103de942}{}\label{class_world_object_a14befa1bd922a8c9f7134352103de942}
+
+\item 
+double $\ast$ {\bfseries get\+Center\+Of\+Mass} ()\hypertarget{class_world_object_adec5084311ea0477db37e9bbeddeb401}{}\label{class_world_object_adec5084311ea0477db37e9bbeddeb401}
+
+\item 
+void {\bfseries set\+Hit\+Counter} (int hit)\hypertarget{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}{}\label{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}
+
+\item 
+int {\bfseries get\+Hit\+Counter} ()\hypertarget{class_world_object_a22888de0c352adf646e4c87584efe39c}{}\label{class_world_object_a22888de0c352adf646e4c87584efe39c}
+
+\item 
+Player {\bfseries get\+Player} () const \hypertarget{class_world_object_ac3ff724096106165c68e3e9600032233}{}\label{class_world_object_ac3ff724096106165c68e3e9600032233}
+
+\item 
+int {\bfseries get\+Weight} ()\hypertarget{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}{}\label{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}
+
+\item 
+void {\bfseries set\+Weight} (int w)\hypertarget{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}{}\label{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}
+
+\item 
 int {\bfseries get\+Healthpoints} ()\hypertarget{class_world_object_ac6f9accf985f4f67f1219ad0196a5096}{}\label{class_world_object_ac6f9accf985f4f67f1219ad0196a5096}
 
 \item 
@@ -67,20 +84,24 @@ int {\bfseries get\+Damage} ()\hypertarget{class_world_object_ab391ed4eceba196ca
 void {\bfseries set\+Damage} (int d)\hypertarget{class_world_object_a62cc2d1b031251c40343d2b453acbd3a}{}\label{class_world_object_a62cc2d1b031251c40343d2b453acbd3a}
 
 \item 
-void \hyperlink{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}{set\+Healthpoints} (int points)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}{World\+Object\+::set\+Healthpoints} This function sets the Healthpoints and emit a signal with the healthpoints to the healthpointsbar. \end{DoxyCompactList}\item 
+void {\bfseries set\+Healthpoints} (int points)\hypertarget{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}{}\label{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}
+
+\item 
 void {\bfseries set\+Projectile} (int proj)\hypertarget{class_world_object_a58f877e00d7a0a05af52939e5e07c441}{}\label{class_world_object_a58f877e00d7a0a05af52939e5e07c441}
 
 \item 
 int {\bfseries get\+Projectile} ()\hypertarget{class_world_object_ae5736660e64943d305f1a400bd8f0173}{}\label{class_world_object_ae5736660e64943d305f1a400bd8f0173}
 
 \item 
-char \hyperlink{class_world_object_a4899b4a491e10707af9df49c6e6b4323}{get\+Char} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a4899b4a491e10707af9df49c6e6b4323}{World\+Object\+::get\+Char} returns the character indicating the unit type. If it is a battle unit, the character is \textquotesingle{}b\textquotesingle{} If it is a projectile, the character is \textquotesingle{}p\textquotesingle{} If it is neither, the character is \textquotesingle{}o\textquotesingle{}. \end{DoxyCompactList}\item 
-bool \hyperlink{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}{get\+Bounced} () const 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}{World\+Object\+::get\+Bounced} returns if the object has bounced before. \end{DoxyCompactList}\item 
-void \hyperlink{class_world_object_a10f95129b8b184c880412181552f2208}{set\+Bounced} (bool value)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_world_object_a10f95129b8b184c880412181552f2208}{World\+Object\+::set\+Bounced} sets if the object has bounced before. \end{DoxyCompactList}\item 
+char {\bfseries get\+Char} ()\hypertarget{class_world_object_a4899b4a491e10707af9df49c6e6b4323}{}\label{class_world_object_a4899b4a491e10707af9df49c6e6b4323}
+
+\item 
+bool {\bfseries get\+Bounced} () const \hypertarget{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}{}\label{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}
+
+\item 
+void {\bfseries set\+Bounced} (bool value)\hypertarget{class_world_object_a10f95129b8b184c880412181552f2208}{}\label{class_world_object_a10f95129b8b184c880412181552f2208}
+
+\item 
 bool {\bfseries get\+Firstcollide} () const \hypertarget{class_world_object_a34d76ee6f6856829c59793491cab8d45}{}\label{class_world_object_a34d76ee6f6856829c59793491cab8d45}
 
 \item 
@@ -122,289 +143,7 @@ char {\bfseries Object\+Type}\hypertarget{class_world_object_a06b54b3198229f49b5
 \end{DoxyCompactItemize}
 
 
-\subsection{Constructor \& Destructor Documentation}
-\index{World\+Object@{World\+Object}!World\+Object@{World\+Object}}
-\index{World\+Object@{World\+Object}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{World\+Object(\+Game\+World $\ast$parent\+View, Player p, Sound\+Player $\ast$soundplayer)}{WorldObject(GameWorld *parentView, Player p, SoundPlayer *soundplayer)}}]{\setlength{\rightskip}{0pt plus 5cm}World\+Object\+::\+World\+Object (
-\begin{DoxyParamCaption}
-\item[{{\bf Game\+World} $\ast$}]{parent\+View, }
-\item[{Player}]{p, }
-\item[{{\bf Sound\+Player} $\ast$}]{soundplayer}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}{}\label{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}
-
-
-\hyperlink{class_world_object_a064fcf6f95ab0bcef4eaacaad35d1aee}{World\+Object\+::\+World\+Object} constructor. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em parent\+View} & pointer to connect() the \hyperlink{class_battle_unit}{Battle\+Unit} to the player\textquotesingle{}s input and the game\textquotesingle{}s refresh rate. \\
-\hline
-{\em p} & the player controlling the unit \\
-\hline
-{\em soundplayer} & the pointer to the global sound player \\
-\hline
-\end{DoxyParams}
-
-
-\subsection{Member Function Documentation}
-\index{World\+Object@{World\+Object}!get\+Bounced@{get\+Bounced}}
-\index{get\+Bounced@{get\+Bounced}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Bounced() const }{getBounced() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool World\+Object\+::get\+Bounced (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}{}\label{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}
-
-
-\hyperlink{class_world_object_ae31450bcd5b77c1dbed862cb55ea6694}{World\+Object\+::get\+Bounced} returns if the object has bounced before. 
-
-\begin{DoxyReturn}{Returns}
-if the object has bounced before 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Center\+Of\+Mass@{get\+Center\+Of\+Mass}}
-\index{get\+Center\+Of\+Mass@{get\+Center\+Of\+Mass}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Center\+Of\+Mass()}{getCenterOfMass()}}]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ World\+Object\+::get\+Center\+Of\+Mass (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_adec5084311ea0477db37e9bbeddeb401}{}\label{class_world_object_adec5084311ea0477db37e9bbeddeb401}
-
-
-\hyperlink{class_world_object_adec5084311ea0477db37e9bbeddeb401}{World\+Object\+::get\+Center\+Of\+Mass} gets the position of units center of mass in scene coordinates. 
-
-\begin{DoxyReturn}{Returns}
-the center of mass position 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Char@{get\+Char}}
-\index{get\+Char@{get\+Char}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Char()}{getChar()}}]{\setlength{\rightskip}{0pt plus 5cm}char World\+Object\+::get\+Char (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a4899b4a491e10707af9df49c6e6b4323}{}\label{class_world_object_a4899b4a491e10707af9df49c6e6b4323}
-
-
-\hyperlink{class_world_object_a4899b4a491e10707af9df49c6e6b4323}{World\+Object\+::get\+Char} returns the character indicating the unit type. If it is a battle unit, the character is \textquotesingle{}b\textquotesingle{} If it is a projectile, the character is \textquotesingle{}p\textquotesingle{} If it is neither, the character is \textquotesingle{}o\textquotesingle{}. 
-
-\begin{DoxyReturn}{Returns}
-the units type 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Hit\+Counter@{get\+Hit\+Counter}}
-\index{get\+Hit\+Counter@{get\+Hit\+Counter}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Hit\+Counter()}{getHitCounter()}}]{\setlength{\rightskip}{0pt plus 5cm}int World\+Object\+::get\+Hit\+Counter (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a22888de0c352adf646e4c87584efe39c}{}\label{class_world_object_a22888de0c352adf646e4c87584efe39c}
-
-
-\hyperlink{class_world_object_a22888de0c352adf646e4c87584efe39c}{World\+Object\+::get\+Hit\+Counter} get how many times the unit has hit the ground. 
-
-\begin{DoxyReturn}{Returns}
-the number of collisions with ground 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Orientation@{get\+Orientation}}
-\index{get\+Orientation@{get\+Orientation}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Orientation() const }{getOrientation() const }}]{\setlength{\rightskip}{0pt plus 5cm}double World\+Object\+::get\+Orientation (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}{}\label{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}
-
-
-\hyperlink{class_world_object_a19516f1bc3450350c42cfe467dabf4f8}{World\+Object\+::get\+Orientation} get the turning angle of the unit in degrees. 
-
-\begin{DoxyReturn}{Returns}
-the turning angle in degrees 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Player@{get\+Player}}
-\index{get\+Player@{get\+Player}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Player() const }{getPlayer() const }}]{\setlength{\rightskip}{0pt plus 5cm}Player World\+Object\+::get\+Player (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_world_object_ac3ff724096106165c68e3e9600032233}{}\label{class_world_object_ac3ff724096106165c68e3e9600032233}
-
-
-\hyperlink{class_world_object_ac3ff724096106165c68e3e9600032233}{World\+Object\+::get\+Player} returns the player controlling the unit. 
-
-\begin{DoxyReturn}{Returns}
-the player controlling the unit 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Rot\+Vel@{get\+Rot\+Vel}}
-\index{get\+Rot\+Vel@{get\+Rot\+Vel}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Rot\+Vel() const }{getRotVel() const }}]{\setlength{\rightskip}{0pt plus 5cm}double World\+Object\+::get\+Rot\+Vel (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}\hypertarget{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}{}\label{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}
-
-
-\hyperlink{class_world_object_a92c64315b40802ee97bf3cd5f16a3538}{World\+Object\+::get\+Rot\+Vel} returns the rotational velocity in degrees. 
-
-\begin{DoxyReturn}{Returns}
-the rotational velocity in degrees 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Speed@{get\+Speed}}
-\index{get\+Speed@{get\+Speed}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Speed()}{getSpeed()}}]{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ World\+Object\+::get\+Speed (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}{}\label{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}
-
-
-\hyperlink{class_world_object_a4a9c0e80e36b49cd7d4f574ca6351249}{World\+Object\+::get\+Speed} returns the speed of the unit. 
-
-\begin{DoxyReturn}{Returns}
-the pointer to the speed array 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!get\+Weight@{get\+Weight}}
-\index{get\+Weight@{get\+Weight}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{get\+Weight()}{getWeight()}}]{\setlength{\rightskip}{0pt plus 5cm}int World\+Object\+::get\+Weight (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}{}\label{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}
-
-
-\hyperlink{class_world_object_a8061ac1f99f6ed3f78d42a39cb82d0c2}{World\+Object\+::get\+Weight} returns the weight value of the unit. 
-
-\begin{DoxyReturn}{Returns}
-the weight 
-\end{DoxyReturn}
-\index{World\+Object@{World\+Object}!set\+Bounced@{set\+Bounced}}
-\index{set\+Bounced@{set\+Bounced}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Bounced(bool value)}{setBounced(bool value)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Bounced (
-\begin{DoxyParamCaption}
-\item[{bool}]{value}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a10f95129b8b184c880412181552f2208}{}\label{class_world_object_a10f95129b8b184c880412181552f2208}
-
-
-\hyperlink{class_world_object_a10f95129b8b184c880412181552f2208}{World\+Object\+::set\+Bounced} sets if the object has bounced before. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em value} & the bool value indicating if the object has bounced before or not \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Center\+Of\+Mass@{set\+Center\+Of\+Mass}}
-\index{set\+Center\+Of\+Mass@{set\+Center\+Of\+Mass}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Center\+Of\+Mass(double $\ast$new\+Center\+Of\+Mass)}{setCenterOfMass(double *newCenterOfMass)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Center\+Of\+Mass (
-\begin{DoxyParamCaption}
-\item[{double $\ast$}]{new\+Center\+Of\+Mass}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a14befa1bd922a8c9f7134352103de942}{}\label{class_world_object_a14befa1bd922a8c9f7134352103de942}
-
-
-\hyperlink{class_world_object_a14befa1bd922a8c9f7134352103de942}{World\+Object\+::set\+Center\+Of\+Mass} sets the position of units center of mass in scene coordinates. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em new\+Center\+Of\+Mass} & the new center of mass position \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Healthpoints@{set\+Healthpoints}}
-\index{set\+Healthpoints@{set\+Healthpoints}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Healthpoints(int points)}{setHealthpoints(int points)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Healthpoints (
-\begin{DoxyParamCaption}
-\item[{int}]{points}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}{}\label{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}
-
-
-\hyperlink{class_world_object_a2ad8e7e458a573830f1609f4d9d3eacf}{World\+Object\+::set\+Healthpoints} This function sets the Healthpoints and emit a signal with the healthpoints to the healthpointsbar. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em points} & are the lifepoints \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Hit\+Counter@{set\+Hit\+Counter}}
-\index{set\+Hit\+Counter@{set\+Hit\+Counter}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Hit\+Counter(int hit)}{setHitCounter(int hit)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Hit\+Counter (
-\begin{DoxyParamCaption}
-\item[{int}]{hit}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}{}\label{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}
-
-
-\hyperlink{class_world_object_aae9c6fd3df711b5e0df44ad1e6fcabab}{World\+Object\+::set\+Hit\+Counter} set how many times the unit has hit the ground. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em hit} & the number of collisions with ground \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Orientation@{set\+Orientation}}
-\index{set\+Orientation@{set\+Orientation}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Orientation(double new\+Orientation)}{setOrientation(double newOrientation)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Orientation (
-\begin{DoxyParamCaption}
-\item[{double}]{new\+Orientation}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}{}\label{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}
-
-
-\hyperlink{class_world_object_a0dbc4225453661d4578c7fd9eb00ab73}{World\+Object\+::set\+Orientation} set the turning angle of the unit in degrees. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em new\+Orientation} & the new angle in degrees \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Rot\+Vel@{set\+Rot\+Vel}}
-\index{set\+Rot\+Vel@{set\+Rot\+Vel}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Rot\+Vel(double new\+Rot\+Vel)}{setRotVel(double newRotVel)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Rot\+Vel (
-\begin{DoxyParamCaption}
-\item[{double}]{new\+Rot\+Vel}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a4fc971089870ff9db55c767694056f2f}{}\label{class_world_object_a4fc971089870ff9db55c767694056f2f}
-
-
-\hyperlink{class_world_object_a4fc971089870ff9db55c767694056f2f}{World\+Object\+::set\+Rot\+Vel} set the rotational velocity in degrees and limit it. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em new\+Rot\+Vel} & the new rotational velocity in degrees \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Speed@{set\+Speed}}
-\index{set\+Speed@{set\+Speed}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Speed(double $\ast$new\+Speed)}{setSpeed(double *newSpeed)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Speed (
-\begin{DoxyParamCaption}
-\item[{double $\ast$}]{new\+Speed}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}{}\label{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}
-
-
-\hyperlink{class_world_object_a0a4c93b5c06696aa664aae256d5378d9}{World\+Object\+::set\+Speed} set the speed of the unit and limit to a max speed. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em new\+Speed} & the pointer to the new speed array \\
-\hline
-\end{DoxyParams}
-\index{World\+Object@{World\+Object}!set\+Weight@{set\+Weight}}
-\index{set\+Weight@{set\+Weight}!World\+Object@{World\+Object}}
-\subsubsection[{\texorpdfstring{set\+Weight(int w)}{setWeight(int w)}}]{\setlength{\rightskip}{0pt plus 5cm}void World\+Object\+::set\+Weight (
-\begin{DoxyParamCaption}
-\item[{int}]{w}
-\end{DoxyParamCaption}
-)}\hypertarget{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}{}\label{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}
-
-
-\hyperlink{class_world_object_a39b88d87246ad4d526d6b7c54aeb7e82}{World\+Object\+::set\+Weight} sets the weight value of the unit. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em w} & the new weight value \\
-\hline
-\end{DoxyParams}
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-worldobject.\+h\item 
-worldobject.\+cpp\end{DoxyCompactItemize}
+World\+War\+Jump/\+World\+War\+Jump/worldobject.\+h\item 
+World\+War\+Jump/\+World\+War\+Jump/worldobject.\+cpp\end{DoxyCompactItemize}
