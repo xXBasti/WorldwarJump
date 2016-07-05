@@ -7,6 +7,9 @@
 
 #include "gamesettings.h"
 
+/** @brief The background class covers the empty circle in the hollow circle in game. - Wang
+ */
+
 class BackGround : public QGraphicsPixmapItem
 {
 public:
