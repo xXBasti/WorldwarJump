@@ -14,41 +14,27 @@
 
 
 /**
-<<<<<<< HEAD
  * @brief WorldObject::move updates the unit position and orientation every timestep
  *
-=======
- * @brief WorldObject::move
- * This function is called every timestep and gets the new position and speed values for the WorldObject from the physicscalc.
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
  */
 void WorldObject::move()
 {
     getNewValuesFromPhysicsCalc();
 }
 
-<<<<<<< HEAD
-=======
+
 /**
  * @brief WorldObject::hit
  * This function is called every timestep by ervery Projectile subclass to check if itself hit any WorldObject.
  */
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
 void WorldObject::hit(){
     ((GameplayInterface*)scene())->physicsCalulator->hitUnit(this);
 }
 
 /**
-<<<<<<< HEAD
  * @brief WorldObject::jump makes the unit jump in the direction of its head and introduces random rotation.
  * The unit is able to jump in certain proximity to the ground, or when it is colliding with an other unit.
  * The rotation has constant magnitude, but the direction is random.
-=======
- * @brief WorldObject::jump
- * This function exceutes a jump if the right key is pressed and the Input class sends a signal.
- * The jump will be only excuted if the unit is on the ground or collides with an other WorldObject.
- *
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
  */
 void WorldObject::jump()
 {
@@ -120,14 +106,11 @@ double * WorldObject::getSpeed(){
     return speed;
 }
 
-<<<<<<< HEAD
 
-=======
 /**
  * @brief WorldObject::getNewValuesFromPhysicsCalc
  * This function start the update of the old values by the physicsCalc class.
  */
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
 void WorldObject::getNewValuesFromPhysicsCalc()
 {
     ((GameplayInterface*)scene())->physicsCalulator->calculateNewRotValues(this);
@@ -170,17 +153,9 @@ Player WorldObject::getPlayer() const
 {
     return p;
 }
-<<<<<<< HEAD
 /**
  * @brief WorldObject::setSpeed set the speed of the unit and limit to a max speed
  * @param newSpeed the pointer to the new speed array
-=======
-
-/**
- * @brief WorldObject::setSpeed
- * This function sets the speed to the new values, if the speed maximum is not reached.
- * @param newSpeed
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
  */
 void WorldObject::setSpeed(double *newSpeed){
     //Limit to max Speed
@@ -221,17 +196,10 @@ double WorldObject::getOrientation() const
 {
     return(orientation);
 }
-<<<<<<< HEAD
+
 /**
  * @brief WorldObject::setRotVel set the rotational velocity in degrees and limit it
  * @param newRotVel the new rotational velocity in degrees
-=======
-
-/**
- * @brief WorldObject::setRotVel
- * This function sets the rotationvalue, if the limit is not reached.
- * @param newRotVel
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
  */
 void WorldObject::setRotVel(double newRotVel)
 {

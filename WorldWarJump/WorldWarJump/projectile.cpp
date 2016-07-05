@@ -12,7 +12,6 @@
 #define M_PI 3.14159
 
 /**
-<<<<<<< HEAD
  * @brief Projectile::Projectile constructor. Initializes  the position, the initial angle ,
  * the initial speed ,the projectile type , the weight and the damage and connects the timer
  * @param parentView pointer to connect() the BattleUnit to the player's input and the game's refresh rate.
@@ -20,16 +19,6 @@
  * @param p the enum that gives the projectile type
  * @param soundplayer the pointer to the global sound player
  * @param shootingPoint the point in scene coordinates where the projectile should spawn
-=======
- * @brief Projectile::Projectile
- * This function is the constructor of the Projectile class and creates an instance of this class.
- * Moreover this class sets the picture and damage depending on the enum Player and ProjectileType.
- * @param parentView is the window in which the projectile will be add
- * @param shootingUnit is the Unit which has shoot the projectile
- * @param p is the ProjectileType which will be spawned
- * @param soundplayer is the player which play the shooting sound
- * @param shootingPoint is the point where the projectile spawns.
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
  */
 Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,ProjectileType p,SoundPlayer *soundplayer , double *shootingPoint) :WorldObject(parentView, getPlayer(),soundplayer){
 
@@ -101,10 +90,7 @@ Projectile::Projectile(GameWorld *parentView, BattleUnit *shootingUnit,Projectil
     this->setSpeed(speedEul);
     connect(parentView->input->refreshRateTimer, SIGNAL(timeout()),this , SLOT(hit()));
     recoil(shootingUnit,this);
-<<<<<<< HEAD
 
-=======
->>>>>>> 79a360f3e7cf83f904fd018d217cd8736557f20e
 }
 
 /**
