@@ -629,7 +629,7 @@ void PhysicsCalc::inverseSpeed(WorldObject* colliding1,WorldObject* colliding2){
 /**
  * @brief PhysicsCalc::meeleDamage
  * calculates the Meele Damage between two Objects.
- * The unit which has a 5 values higher speed than the other deals the damage.
+ * The unit which has a 8 values higher speed than the other deals the damage.
  * @param colliding1 is the first colliding object.
  * @param colliding2 is the secound colliding object.
  */
@@ -639,13 +639,13 @@ void PhysicsCalc::meeleDamage(WorldObject* colliding1,WorldObject* colliding2){
     double* v2=colliding2->getSpeed();
 
     if( (colliding1->getPlayer()!=colliding2->getPlayer())  ){
-        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>5){
+        if(vectorsAbsoluteValue(v2)-vectorsAbsoluteValue(v1)>8){
            colliding1->setHealthpoints(colliding1->getHealthpoints()-colliding2->getDamage());
            impuls(colliding1,colliding2);
            checkHealth(colliding1);
            emit meeleDmg();
         }
-        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>5){
+        if(vectorsAbsoluteValue(v1)-vectorsAbsoluteValue(v2)>8){
             colliding2->setHealthpoints(colliding2->getHealthpoints()-colliding1->getDamage());
             impuls(colliding1,colliding2);
             checkHealth(colliding2);
