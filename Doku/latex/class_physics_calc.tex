@@ -38,18 +38,14 @@ void \hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{update\+Ro
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_afaa9837f796074797ea731066f09dfc3}{Physics\+Calc\+::update\+Rot\+Values} sets the objects new orientation and new angular velocity. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_ad1eaa72eeff1b031b08db33730d8decb}{grav\+Vec} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$gravity\+Vector)
 \begin{DoxyCompactList}\small\item\em Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects center of mass at a certain time. First element gives the x and the second gives the y coordinate. \end{DoxyCompactList}\item 
-void {\bfseries get\+Top\+Right} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$top\+Right)\hypertarget{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}{}\label{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}
-
-\item 
-void {\bfseries get\+Top\+Left} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$top\+Left)\hypertarget{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}{}\label{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}
-
-\item 
-void {\bfseries get\+Bottom\+Right} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$bottom\+Right)\hypertarget{class_physics_calc_af118ca721ecccebab2c88e53b7471320}{}\label{class_physics_calc_af118ca721ecccebab2c88e53b7471320}
-
-\item 
-void {\bfseries get\+Bottom\+Left} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$bottom\+Left)\hypertarget{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}{}\label{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}
-
-\item 
+void \hyperlink{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}{get\+Top\+Right} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$top\+Right)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}{Physics\+Calc\+::get\+Top\+Right} calculates the top right point of the objects bounding rectangle in scene coordinates. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}{get\+Top\+Left} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$top\+Left)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}{Physics\+Calc\+::get\+Top\+Left} calculates the top left point of the objects bounding rectangle in scene coordinates. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_af118ca721ecccebab2c88e53b7471320}{get\+Bottom\+Right} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$bottom\+Right)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_af118ca721ecccebab2c88e53b7471320}{Physics\+Calc\+::get\+Bottom\+Right} calculates the bottom right point of the objects bounding rectangle in scene coordinates. \end{DoxyCompactList}\item 
+void \hyperlink{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}{get\+Bottom\+Left} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$bottom\+Left)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}{Physics\+Calc\+::get\+Bottom\+Left} calculates the bottom left point of the objects bounding rectangle in scene coordinates. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_a9bbfe3998836451d84697577c0e6195d}{get\+Impact\+Point} (\hyperlink{class_world_object}{World\+Object} $\ast$world\+Object, double $\ast$impact\+Point)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a9bbfe3998836451d84697577c0e6195d}{Physics\+Calc\+::get\+Impact\+Point} calculates the impact point with the cornerpoints of the given \hyperlink{class_world_object}{World\+Object}. \end{DoxyCompactList}\item 
 double \hyperlink{class_physics_calc_a515dcab8395108cb37b7526adbab6ed0}{gravity\+Angle\+Difference} (double rotation, double $\ast$gravity\+Vector)
@@ -80,7 +76,7 @@ void \hyperlink{class_physics_calc_a611a891e2f01de112884cc09f25d1e33}{check\+Win
 void \hyperlink{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}{inverse\+Speed} (\hyperlink{class_world_object}{World\+Object} $\ast$colliding1, \hyperlink{class_world_object}{World\+Object} $\ast$colliding2)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a22379e7ef119411e03fc8c4ba211c724}{Physics\+Calc\+::inverse\+Speed} invertes the speed of the first given Worldobject. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{meele\+Damage} (\hyperlink{class_world_object}{World\+Object} $\ast$colliding1, \hyperlink{class_world_object}{World\+Object} $\ast$colliding2)
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{Physics\+Calc\+::meele\+Damage} calculates the Meele Damage between two Objects. The unit which has a 10 values higher speed than the other deals the damage. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{Physics\+Calc\+::meele\+Damage} calculates the Meele Damage between two Objects. The unit which has a 8 values higher speed than the other deals the damage. \end{DoxyCompactList}\item 
 bool \hyperlink{class_physics_calc_a8529b4af50316ef96a6bcbd029c39077}{collide\+With\+Any} (\hyperlink{class_world_object}{World\+Object} $\ast$object)
 \begin{DoxyCompactList}\small\item\em \hyperlink{class_physics_calc_a8529b4af50316ef96a6bcbd029c39077}{Physics\+Calc\+::collide\+With\+Any} checks it the given object collides with either an unit or the terrain. \end{DoxyCompactList}\item 
 void \hyperlink{class_physics_calc_aacab28a38556f2a29e52068f09a3a4f0}{unit\+Unit\+Collision\+Func} (\hyperlink{class_world_object}{World\+Object} $\ast$bat1, \hyperlink{class_world_object}{World\+Object} $\ast$bat2)
@@ -273,6 +269,44 @@ is a pointer to the object, the object collides with
 {\em type} & type of the translation, v -\/$>$ velocity, p -\/$>$ position \\
 \hline
 \end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!get\+Bottom\+Left@{get\+Bottom\+Left}}
+\index{get\+Bottom\+Left@{get\+Bottom\+Left}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{get\+Bottom\+Left(\+World\+Object $\ast$world\+Object, double $\ast$bottom\+Left)}{getBottomLeft(WorldObject *worldObject, double *bottomLeft)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::get\+Bottom\+Left (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object, }
+\item[{double $\ast$}]{bottom\+Left}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}{}\label{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}
+
+
+\hyperlink{class_physics_calc_a9a74039e739a8649547c6d2f8aaf7fab}{Physics\+Calc\+::get\+Bottom\+Left} calculates the bottom left point of the objects bounding rectangle in scene coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & \\
+\hline
+{\em bottom\+Left} & the point position \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!get\+Bottom\+Right@{get\+Bottom\+Right}}
+\index{get\+Bottom\+Right@{get\+Bottom\+Right}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{get\+Bottom\+Right(\+World\+Object $\ast$world\+Object, double $\ast$bottom\+Right)}{getBottomRight(WorldObject *worldObject, double *bottomRight)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::get\+Bottom\+Right (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object, }
+\item[{double $\ast$}]{bottom\+Right}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_af118ca721ecccebab2c88e53b7471320}{}\label{class_physics_calc_af118ca721ecccebab2c88e53b7471320}
+
+
+\hyperlink{class_physics_calc_af118ca721ecccebab2c88e53b7471320}{Physics\+Calc\+::get\+Bottom\+Right} calculates the bottom right point of the objects bounding rectangle in scene coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & \\
+\hline
+{\em bottom\+Right} & the point position \\
+\hline
+\end{DoxyParams}
 \index{Physics\+Calc@{Physics\+Calc}!get\+Impact\+Point@{get\+Impact\+Point}}
 \index{get\+Impact\+Point@{get\+Impact\+Point}!Physics\+Calc@{Physics\+Calc}}
 \subsubsection[{\texorpdfstring{get\+Impact\+Point(\+World\+Object $\ast$world\+Object, double $\ast$impact\+Point)}{getImpactPoint(WorldObject *worldObject, double *impactPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::get\+Impact\+Point (
@@ -290,6 +324,44 @@ is a pointer to the object, the object collides with
 {\em world\+Object} & the object, which impact point should be calculated. \\
 \hline
 {\em impact\+Point} & is pointer to the array where the point will be saved. \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!get\+Top\+Left@{get\+Top\+Left}}
+\index{get\+Top\+Left@{get\+Top\+Left}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{get\+Top\+Left(\+World\+Object $\ast$world\+Object, double $\ast$top\+Left)}{getTopLeft(WorldObject *worldObject, double *topLeft)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::get\+Top\+Left (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object, }
+\item[{double $\ast$}]{top\+Left}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}{}\label{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}
+
+
+\hyperlink{class_physics_calc_a518d1c85e39c54bd349e02659c92b134}{Physics\+Calc\+::get\+Top\+Left} calculates the top left point of the objects bounding rectangle in scene coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & \\
+\hline
+{\em top\+Left} & the point position \\
+\hline
+\end{DoxyParams}
+\index{Physics\+Calc@{Physics\+Calc}!get\+Top\+Right@{get\+Top\+Right}}
+\index{get\+Top\+Right@{get\+Top\+Right}!Physics\+Calc@{Physics\+Calc}}
+\subsubsection[{\texorpdfstring{get\+Top\+Right(\+World\+Object $\ast$world\+Object, double $\ast$top\+Right)}{getTopRight(WorldObject *worldObject, double *topRight)}}]{\setlength{\rightskip}{0pt plus 5cm}void Physics\+Calc\+::get\+Top\+Right (
+\begin{DoxyParamCaption}
+\item[{{\bf World\+Object} $\ast$}]{world\+Object, }
+\item[{double $\ast$}]{top\+Right}
+\end{DoxyParamCaption}
+)}\hypertarget{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}{}\label{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}
+
+
+\hyperlink{class_physics_calc_af23c90f3041fe0b8be343ef2a35245d2}{Physics\+Calc\+::get\+Top\+Right} calculates the top right point of the objects bounding rectangle in scene coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world\+Object} & \\
+\hline
+{\em top\+Right} & the point position \\
 \hline
 \end{DoxyParams}
 \index{Physics\+Calc@{Physics\+Calc}!gravity\+Angle\+Difference@{gravity\+Angle\+Difference}}
@@ -395,7 +467,7 @@ Physics\+Calc\+::gravity\+Vector gives the gravity vector effecting an objects c
 )}\hypertarget{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{}\label{class_physics_calc_a10a603c3fb290521b301a19600c067c4}
 
 
-\hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{Physics\+Calc\+::meele\+Damage} calculates the Meele Damage between two Objects. The unit which has a 10 values higher speed than the other deals the damage. 
+\hyperlink{class_physics_calc_a10a603c3fb290521b301a19600c067c4}{Physics\+Calc\+::meele\+Damage} calculates the Meele Damage between two Objects. The unit which has a 8 values higher speed than the other deals the damage. 
 
 
 \begin{DoxyParams}{Parameters}

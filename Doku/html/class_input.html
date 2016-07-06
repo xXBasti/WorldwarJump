@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class receives the players' key hits.  
+<p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits - Basti. ">Input</a> class receives the players' key hits - Basti.  
  <a href="class_input.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="input_8h_source.html">input.h</a>&gt;</code></p>
@@ -126,14 +126,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>playerTwoShoot</b> ()
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abae3f379d3f157cf42dc857309832dba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abae3f379d3f157cf42dc857309832dba"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba">Input</a> ()</td></tr>
-<tr class="memdesc:abae3f379d3f157cf42dc857309832dba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba" title="Input::Input This function is the constructor of the Input class. ">Input::Input</a> This function is the constructor of the <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class. <br /></td></tr>
+<tr class="memdesc:abae3f379d3f157cf42dc857309832dba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#abae3f379d3f157cf42dc857309832dba" title="Input::Input This function is the constructor of the Input class. ">Input::Input</a> This function is the constructor of the <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits - Basti. ">Input</a> class. <br /></td></tr>
 <tr class="separator:abae3f379d3f157cf42dc857309832dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#af33a8e4ba483419bd40b1c20ccc1cd7f">keyPressEvent</a> (QKeyEvent *k)</td></tr>
 <tr class="memdesc:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#af33a8e4ba483419bd40b1c20ccc1cd7f" title="Input::keyPressEvent This function reacts on any keyboard input and emit a signal if the control butt...">Input::keyPressEvent</a> This function reacts on any keyboard input and emit a signal if the control buttons for player one or player two had been pressed.  <a href="#af33a8e4ba483419bd40b1c20ccc1cd7f">More...</a><br /></td></tr>
 <tr class="separator:af33a8e4ba483419bd40b1c20ccc1cd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2db35ba67c8a8ccd23bef6a482fc291"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2db35ba67c8a8ccd23bef6a482fc291"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input.html#af2db35ba67c8a8ccd23bef6a482fc291">~Input</a> ()</td></tr>
-<tr class="memdesc:af2db35ba67c8a8ccd23bef6a482fc291"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#af2db35ba67c8a8ccd23bef6a482fc291" title="Input::~Input Destructor of the Input class. ">Input::~Input</a> Destructor of the <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class. <br /></td></tr>
+<tr class="memdesc:af2db35ba67c8a8ccd23bef6a482fc291"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_input.html#af2db35ba67c8a8ccd23bef6a482fc291" title="Input::~Input Destructor of the Input class. ">Input::~Input</a> Destructor of the <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits - Basti. ">Input</a> class. <br /></td></tr>
 <tr class="separator:af2db35ba67c8a8ccd23bef6a482fc291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -144,9 +144,9 @@ QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 <tr class="separator:a3196d6cd66f0491bc90fd7a48e2d9c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits. ">Input</a> class receives the players' key hits. </p>
+<div class="textblock"><p>The <a class="el" href="class_input.html" title="The Input class receives the players&#39; key hits - Basti. ">Input</a> class receives the players' key hits - Basti. </p>
 <p>Detailed: it is the focused QGraphicsPixmapItem in our <a class="el" href="class_gameplay_interface.html" title="The GameplayInterface class displays the Terrain, and the players&#39; multiple BattleUnit and Projectile...">GameplayInterface</a> scene, and therefore able to receive keyboard input. It receives the input for both players and sends according SIGNALs.</p>
-<p>Also because of early architecture decisions, it has the QTimer refreshRateTimer which is connected() with every unit and projectile in our game. This QTimer triggers the move() function in <a class="el" href="class_world_object.html">WorldObject</a> every certain amount of milliseconds set in <a class="el" href="class_game_settings.html" title="GameSettings saves the in-game setting... - Tomas and Wang. ">GameSettings</a>. -Tomas </p>
+<p>Also because of early architecture decisions, it has the QTimer refreshRateTimer which is connected() with every unit and projectile in our game. This QTimer triggers the move() function in <a class="el" href="class_world_object.html" title="Basic implementation of a physical object for other classes to inheriting from. - Tomas...">WorldObject</a> every certain amount of milliseconds set in <a class="el" href="class_game_settings.html" title="GameSettings saves the in-game setting... - Tomas,Basti and Wang. ">GameSettings</a>. -Tomas </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af33a8e4ba483419bd40b1c20ccc1cd7f"></a>
 <div class="memitem">

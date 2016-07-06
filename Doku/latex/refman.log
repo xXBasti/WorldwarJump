@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.7.5)  5 JUL 2016 18:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.7.5)  6 JUL 2016 10:49
 entering extended mode
 **./refman.tex
 (refman.tex
@@ -1026,8 +1026,7 @@ Package caption Info: longtable package is loaded.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
-))
-No file refman.aux.
+)) (refman.aux)
 \openout1 = `refman.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
@@ -1044,6 +1043,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
 LaTeX Font Info:    ... okay on input line 117.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 117.
+
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -1133,6 +1133,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 117.
 LaTeX Info: Redefining \pageref on input line 117.
 LaTeX Info: Redefining \nameref on input line 117.
+
+(refman.out) (refman.out)
 \@outlinefile=\write4
 \openout4 = `refman.out'.
 
@@ -1176,14 +1178,23 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 134.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 22.39185pt on input line 134.
+ (refman.toc
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 1.
+ [3
+
+]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 66.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 66.
+ [4] [5])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [3
-
-] [4
-
-]
+ [6]
 Package hyperref Info: Option `pageanchor' set `true' on input line 137.
 
 Chapter 1.
@@ -1202,138 +1213,22 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 3.
-
-
-LaTeX Warning: Reference `class_game_settings' on page 1 undefined on input lin
-e 3.
-
-
-LaTeX Warning: Reference `class_back_ground' on page 1 undefined on input line 
-5.
-
-
-LaTeX Warning: Reference `class_terrain' on page 1 undefined on input line 6.
-
-
-LaTeX Warning: Reference `class_world_object' on page 1 undefined on input line
- 7.
-
-
-LaTeX Warning: Reference `class_battle_unit' on page 1 undefined on input line 
-9.
-
-
-LaTeX Warning: Reference `class_projectile' on page 1 undefined on input line 1
-0.
-
-
-LaTeX Warning: Reference `class_input' on page 1 undefined on input line 14.
-
-
-LaTeX Warning: Reference `class_gameplay_interface' on page 1 undefined on inpu
-t line 17.
-
-
-LaTeX Warning: Reference `class_game_menu' on page 1 undefined on input line 20
-.
-
-
-LaTeX Warning: Reference `class_game_world' on page 1 undefined on input line 2
-1.
-
-
-LaTeX Warning: Reference `class_main_window' on page 1 undefined on input line 
-24.
-
-
-LaTeX Warning: Reference `class_input' on page 1 undefined on input line 27.
-
-
-LaTeX Warning: Reference `class_physics_calc' on page 1 undefined on input line
- 28.
-
-
-LaTeX Warning: Reference `class_sound_player' on page 1 undefined on input line
- 29.
-
-
-LaTeX Warning: Reference `class_world_object' on page 1 undefined on input line
- 30.
-
 ) [1
 
-]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 142.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 142.
- [2
+
+] [2
 
 ]
 Chapter 2.
 (annotated.tex
-
-LaTeX Warning: Reference `class_back_ground' on page 3 undefined on input line 
-3.
-
 LaTeX Font Info:    Try loading font information for TS1+phv on input line 4.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1phv.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1phv.fd"
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 4.
-
-
-LaTeX Warning: Reference `class_battle_unit' on page 3 undefined on input line 
-4.
-
-
-LaTeX Warning: Reference `class_game_menu' on page 3 undefined on input line 5.
-
-
-
-LaTeX Warning: Reference `class_gameplay_interface' on page 3 undefined on inpu
-t line 6.
-
-
-LaTeX Warning: Reference `class_game_settings' on page 3 undefined on input lin
-e 7.
-
-
-LaTeX Warning: Reference `class_game_world' on page 3 undefined on input line 8
-.
-
-
-LaTeX Warning: Reference `class_input' on page 3 undefined on input line 9.
-
-
-LaTeX Warning: Reference `class_main_window' on page 3 undefined on input line 
-10.
-
-
-LaTeX Warning: Reference `class_physics_calc' on page 3 undefined on input line
- 11.
-
-
-LaTeX Warning: Reference `class_projectile' on page 3 undefined on input line 1
-2.
-
-
-LaTeX Warning: Reference `class_sound_player' on page 3 undefined on input line
- 13.
-
-
-LaTeX Warning: Reference `class_terrain' on page 3 undefined on input line 14.
-
-
-LaTeX Warning: Reference `class_world_object' on page 3 undefined on input line
- 15.
-
-) [3] [4
+)
+[3] [4
 
 ]
 Chapter 3.
@@ -1343,7 +1238,7 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 10.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) <class_back_ground.pdf, id=76, 501.875pt x 281.05pt>
+) <class_back_ground.pdf, id=603, 501.875pt x 281.05pt>
 File: class_back_ground.pdf Graphic file (type pdf)
 
 <use class_back_ground.pdf>
@@ -1356,7 +1251,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 18.
 ) (class_battle_unit.tex
-<class_battle_unit.pdf, id=80, 501.875pt x 210.7875pt>
+<class_battle_unit.pdf, id=607, 501.875pt x 210.7875pt>
 File: class_battle_unit.pdf Graphic file (type pdf)
 
 <use class_battle_unit.pdf>
@@ -1384,24 +1279,11 @@ LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <7> not available
 LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
 (Font)              scaled to size 6.29996pt on input line 63.
  [6 <./class_battle_unit.pdf>]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.1 on input line 78.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.2 on input line 97.
-
-
 Underfull \hbox (badness 10000) detected at line 109
 [][][]
  []
 
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.3 on input line 127.
-
-) (class_game_menu.tex <class_game_menu.pdf, id=149, 501.875pt x 368.37625pt>
+) (class_game_menu.tex <class_game_menu.pdf, id=668, 501.875pt x 368.37625pt>
 File: class_game_menu.pdf Graphic file (type pdf)
 
 <use class_game_menu.pdf>
@@ -1414,20 +1296,8 @@ LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 23.
  [8 <./class_game_menu.pdf>] [9]
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.4 on input line 250.
-
-
 LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
 (Font)              using `T1/pcr/m/n' instead on input line 260.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.5 on input line 269.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.6 on input line 285.
 
 [10]
 Underfull \hbox (badness 10000) detected at line 297
@@ -1439,245 +1309,212 @@ Underfull \hbox (badness 10000) detected at line 325
 [][][]
  []
 
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.7 on input line 343.
-
 ) (class_gameplay_interface.tex
-<class_gameplay_interface.pdf, id=314, 501.875pt x 319.1925pt>
+<class_gameplay_interface.pdf, id=822, 501.875pt x 319.1925pt>
 File: class_gameplay_interface.pdf Graphic file (type pdf)
 
 <use class_gameplay_interface.pdf>
 Package pdftex.def Info: class_gameplay_interface.pdf used on input line 15.
 (pdftex.def)             Requested size: 89.46825pt x 56.9055pt.
- [11]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.8 on input line 52.
-
-) (class_game_settings.tex [12 <./class_gameplay_interface.pdf>] [13])
-(class_game_world.tex <class_game_world.pdf, id=415, 501.875pt x 368.37625pt>
+ [11]) (class_game_settings.tex [12 <./class_gameplay_interface.pdf>] [13]) (cl
+ass_game_world.tex
+<class_game_world.pdf, id=914, 501.875pt x 368.37625pt>
 File: class_game_world.pdf Graphic file (type pdf)
 
 <use class_game_world.pdf>
 Package pdftex.def Info: class_game_world.pdf used on input line 15.
 (pdftex.def)             Requested size: 77.52179pt x 56.9055pt.
  [14 <./class_game_world.pdf>]) (class_input.tex
-<class_input.pdf, id=459, 501.875pt x 157.58875pt>
+<class_input.pdf, id=956, 501.875pt x 157.58875pt>
 File: class_input.pdf Graphic file (type pdf)
  <use class_input.pdf>
 Package pdftex.def Info: class_input.pdf used on input line 15.
 (pdftex.def)             Requested size: 181.22623pt x 56.9055pt.
 
-[15 <./class_input.pdf>]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.9 on input line 75.
-
-) (class_main_window.tex
-<class_main_window.pdf, id=502, 501.875pt x 394.47375pt>
+[15 <./class_input.pdf>]) (class_main_window.tex
+<class_main_window.pdf, id=996, 501.875pt x 394.47375pt>
 File: class_main_window.pdf Graphic file (type pdf)
 
 <use class_main_window.pdf>
 Package pdftex.def Info: class_main_window.pdf used on input line 6.
 (pdftex.def)             Requested size: 72.39859pt x 56.9055pt.
  [16]) (class_physics_calc.tex
-<class_physics_calc.pdf, id=518, 501.875pt x 446.66875pt>
+<class_physics_calc.pdf, id=1008, 501.875pt x 446.66875pt>
 File: class_physics_calc.pdf Graphic file (type pdf)
 
 <use class_physics_calc.pdf>
 Package pdftex.def Info: class_physics_calc.pdf used on input line 15.
 (pdftex.def)             Requested size: 63.93652pt x 56.9055pt.
- [17 <./class_main_window.pdf> <./class_physics_calc.pdf>] [18]
+ [17 <./class_main_window.pdf> <./class_physics_calc.pdf>] [18] [19]
+Underfull \hbox (badness 10000) detected at line 207
+[][][]
+ []
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.10 on input line 141.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.11 on input line 160.
-
-
-Overfull \vbox (4.42316pt too high) has occurred while \output is active []
+[20]
+Underfull \hbox (badness 10000) detected at line 228
+[][][]
+ []
 
 
-[19]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.12 on input line 178.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.13 on input line 194.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.14 on input line 210.
-
-
-Underfull \hbox (badness 10000) detected at line 211
+Underfull \hbox (badness 10000) detected at line 247
 [][][]
  []
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.15 on input line 231.
+(longtable)                in table 3.18 on input line 290.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1024) has occurred while \output is active []
 
- [20]
-Underfull \hbox (badness 10000) detected at line 232
-[][][]
- []
+ [21]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.19 on input line 309.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.16 on input line 250.
-
-
-Underfull \hbox (badness 10000) detected at line 251
-[][][]
- []
+(longtable)                in table 3.20 on input line 328.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.17 on input line 275.
+(longtable)                in table 3.21 on input line 347.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.18 on input line 294.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.19 on input line 313.
-
-
-Overfull \vbox (11.30444pt too high) has occurred while \output is active []
-
-
-[21]
-Underfull \hbox (badness 10000) detected at line 314
-[][][]
- []
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.20 on input line 333.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.21 on input line 349.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.22 on input line 368.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.23 on input line 387.
+(longtable)                in table 3.22 on input line 366.
 
 [22]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.24 on input line 406.
+(longtable)                in table 3.23 on input line 385.
 
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.25 on input line 428.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.26 on input line 447.
-
-
-Underfull \hbox (badness 10000) detected at line 448
+Underfull \hbox (badness 10000) detected at line 386
 [][][]
  []
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.27 on input line 469.
+(longtable)                in table 3.24 on input line 405.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.25 on input line 421.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.26 on input line 440.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.27 on input line 459.
+
+
+Overfull \vbox (1.68947pt too high) has occurred while \output is active []
+
 
 [23]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.28 on input line 488.
+(longtable)                in table 3.28 on input line 478.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.29 on input line 504.
+(longtable)                in table 3.29 on input line 500.
 
 
-Underfull \hbox (badness 10000) detected at line 505
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.30 on input line 519.
+
+
+Underfull \hbox (badness 10000) detected at line 520
 [][][]
  []
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.30 on input line 534.
+(longtable)                in table 3.31 on input line 541.
 
-) (class_projectile.tex <class_projectile.pdf, id=786, 501.875pt x 210.7875pt>
+[24]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.32 on input line 560.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.33 on input line 576.
+
+
+Underfull \hbox (badness 10000) detected at line 577
+[][][]
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.34 on input line 606.
+
+) (class_projectile.tex
+<class_projectile.pdf, id=1274, 501.875pt x 210.7875pt>
 File: class_projectile.pdf Graphic file (type pdf)
 
 <use class_projectile.pdf>
-Package pdftex.def Info: class_projectile.pdf used on input line 6.
+Package pdftex.def Info: class_projectile.pdf used on input line 15.
 (pdftex.def)             Requested size: 203.23528pt x 85.35826pt.
- [24]
+ [25]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.31 on input line 55.
+(longtable)                in table 3.35 on input line 69.
 
-[25 <./class_projectile.pdf>]
-Underfull \hbox (badness 10000) detected at line 70
+
+Overfull \vbox (58.39948pt too high) has occurred while \output is active []
+
+
+[26 <./class_projectile.pdf>]
+Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.32 on input line 91.
+(longtable)                in table 3.36 on input line 105.
 
 ) (class_sound_player.tex
-<class_sound_player.pdf, id=846, 501.875pt x 432.61626pt>
+<class_sound_player.pdf, id=1331, 501.875pt x 432.61626pt>
 File: class_sound_player.pdf Graphic file (type pdf)
 
 <use class_sound_player.pdf>
 Package pdftex.def Info: class_sound_player.pdf used on input line 15.
 (pdftex.def)             Requested size: 66.01183pt x 56.9055pt.
- [26 <./class_sound_player.pdf>]
+ [27 <./class_sound_player.pdf>]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.33 on input line 86.
+(longtable)                in table 3.37 on input line 86.
 
-) (class_terrain.tex <class_terrain.pdf, id=879, 501.875pt x 281.05pt>
+) (class_terrain.tex <class_terrain.pdf, id=1361, 501.875pt x 281.05pt>
 File: class_terrain.pdf Graphic file (type pdf)
 
 <use class_terrain.pdf>
 Package pdftex.def Info: class_terrain.pdf used on input line 15.
 (pdftex.def)             Requested size: 101.6138pt x 56.9055pt.
- [27 <./class_terrain.pdf>]) (class_world_object.tex
-<class_world_object.pdf, id=906, 501.875pt x 210.7875pt>
+ [28]) (class_world_object.tex
+<class_world_object.pdf, id=1383, 501.875pt x 210.7875pt>
 File: class_world_object.pdf Graphic file (type pdf)
 
 <use class_world_object.pdf>
-Package pdftex.def Info: class_world_object.pdf used on input line 6.
+Package pdftex.def Info: class_world_object.pdf used on input line 15.
 (pdftex.def)             Requested size: 203.23528pt x 85.35826pt.
- [28 <./class_world_object.pdf>] [29]
+ [29 <./class_terrain.pdf> <./class_world_object.pdf>] [30]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.34 on input line 147.
-
-
-Underfull \hbox (badness 10000) detected at line 162
-[][][]
- []
+(longtable)                in table 3.38 on input line 161.
 
 
 Underfull \hbox (badness 10000) detected at line 176
 [][][]
  []
 
-[30]
+[31]
 Underfull \hbox (badness 10000) detected at line 190
 [][][]
  []
@@ -1712,44 +1549,54 @@ Underfull \hbox (badness 10000) detected at line 274
 [][][]
  []
 
-[31]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.35 on input line 292.
-
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.36 on input line 308.
+[32]
+Underfull \hbox (badness 10000) detected at line 288
+[][][]
+ []
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.37 on input line 324.
-
-
-Underfull \vbox (badness 4328) has occurred while \output is active []
-
- [32]
-
-Package longtable Warning: Column widths have changed
-(longtable)                in table 3.38 on input line 340.
+(longtable)                in table 3.39 on input line 306.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.39 on input line 356.
+(longtable)                in table 3.40 on input line 322.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.41 on input line 338.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.40 on input line 372.
+(longtable)                in table 3.42 on input line 354.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.41 on input line 388.
+(longtable)                in table 3.43 on input line 370.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 3.42 on input line 404.
+(longtable)                in table 3.44 on input line 386.
 
-) [33] [34]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.45 on input line 402.
+
+
+Underfull \vbox (badness 1655) has occurred while \output is active []
+
+ [34]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 3.46 on input line 418.
+
+) [35] [36
+
+]
 No file refman.ind.
 
 Package longtable Warning: Table widths have changed. Rerun LaTeX.
@@ -1766,13 +1613,10 @@ Package rerunfilecheck Warning: File `refman.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `refman.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  47717A31F518A77F77099EBED54DDE9A;27302.
+(rerunfilecheck)             Before: 47717A31F518A77F77099EBED54DDE9A;27302
+(rerunfilecheck)             After:  6FC5E60C87E00435E3E96B2CD98DE614;29407.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
@@ -1780,27 +1624,84 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 168.
  ) 
 Here is how much of TeX's memory you used:
- 15644 strings out of 493335
- 239781 string characters out of 3139261
- 317157 words of memory out of 3000000
- 18413 multiletter control sequences out of 15000+200000
+ 15786 strings out of 493335
+ 242498 string characters out of 3139261
+ 337514 words of memory out of 3000000
+ 18516 multiletter control sequences out of 15000+200000
  67161 words of font info for 82 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,1637b,635s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/urw/helvetic/uhvbo8ac.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
-vetic/uhvro8a.pfb>
-Output written on refman.pdf (38 pages, 342345 bytes).
+ 53i,16n,92p,1637b,634s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{subsubsection.3.13.2.17} has been referenced but 
+does not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.16} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.15} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.14} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.13} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.12} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.11} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.10} has been referenced but do
+es not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.9} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.8} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.7} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.6} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.5} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.4} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.3} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.2.2} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.13.1.1} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.10.2.2} has been referenced but doe
+s not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsubsection.3.10.1.1} has been referenced but doe
+s not exist, replaced by a fixed one
+
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/urw/helvetic/uhvbo8ac.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helve
+tic/uhvro8a.pfb>
+Output written on refman.pdf (42 pages, 429112 bytes).
 PDF statistics:
- 1229 PDF objects out of 1440 (max. 8388607)
- 490 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1719 PDF objects out of 1728 (max. 8388607)
+ 521 named destinations out of 1000 (max. 500000)
+ 845 words of extra memory for PDF output out of 10000 (max. 10000000)
 
