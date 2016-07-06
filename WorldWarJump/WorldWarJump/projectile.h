@@ -7,7 +7,7 @@
 #include <QObject>
 
 /**
- * @brief are shot by BattleUnit and have different types. - Basti
+ * @brief are shot by BattleUnit and have different types. - Basti and Can
  *
  * Detailed: types include missile, ballistic and ray, and their QGraphicPixmapItem, velocity and damage is dependant on this.
  */
@@ -22,7 +22,7 @@ public:
     //Basti
     void recoil(WorldObject* obj1,WorldObject* obj2);
     //Basti
-    //I needed to transport this //Wtf?
+    //!Due to unknown issues, this had to be copied here from physics calculator
     void polToEul(double * pol, double* eul,char type);
     WorldObject *getshootingUnit();
 
