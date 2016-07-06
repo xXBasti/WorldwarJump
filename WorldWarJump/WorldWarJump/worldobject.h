@@ -9,7 +9,7 @@
 
 
 /**
- * @brief Basic implementation of a physical object for other classes to inheriting from. -Tomas
+ * @brief Basic implementation of a physical object for other classes to inheriting from. - Tomas, Basti
  *
  * Detailed: functions like move(), jump() + basic physical attributes like speed, rot, orientation and more.
  */

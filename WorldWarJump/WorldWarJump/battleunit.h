@@ -6,7 +6,7 @@
 #include <QTimer>
 
 /**
- * @brief The BattleUnit class is a subclass of WorldObject and represents the player's fighting units on the field.
+ * @brief The BattleUnit class is a subclass of WorldObject and represents the player's fighting units on the field. - Basti
  */
 class BattleUnit :public WorldObject
 {

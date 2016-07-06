@@ -57,11 +57,12 @@ GameWorld::GameWorld(SoundPlayer *soundplayer)
     addUnits();
 
     display=new QLabel();
-    display->setGeometry(650,700,150,100);
+    display->setGeometry(670,700,150,100);
     display->setAttribute(Qt::WA_TranslucentBackground);
     display->setStyleSheet("QLabel {color: red; font-weight: bold}");
-    display->setText("MELEE");
+    display->setText("Melee!");
     QFont font =display->font();
+    font.setFamily("Impact");
     font.setPointSize(20);
     display->setFont(font);
     scene->addWidget(display);

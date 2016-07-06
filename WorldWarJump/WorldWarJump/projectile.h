@@ -7,7 +7,7 @@
 #include <QObject>
 
 /**
- * @brief are shot by BattleUnit and have different types.
+ * @brief are shot by BattleUnit and have different types. - Basti
  *
  * Detailed: types include missile, ballistic and ray, and their QGraphicPixmapItem, velocity and damage is dependant on this.
  */

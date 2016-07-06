@@ -4,7 +4,7 @@
 #include <QTimer>
 
 /**
- * @brief The Input class receives the players' key hits
+ * @brief The Input class receives the players' key hits - Basti
  *
  * Detailed: it is the focused QGraphicsPixmapItem in our GameplayInterface scene, and therefore able to receive
  * keyboard input. It receives the input for both players and sends according SIGNALs.

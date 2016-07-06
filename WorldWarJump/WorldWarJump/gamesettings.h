@@ -2,7 +2,7 @@
 #define GAMESETTINGS_H
 
 /**
- * @brief GameSettings saves the in-game setting... - Tomas and Wang
+ * @brief GameSettings saves the in-game setting... - Tomas,Basti and Wang
  *
  * All the game's variables are accessible as static member for other classes that include GameSettings 's header.
  **/
