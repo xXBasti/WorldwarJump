@@ -11,6 +11,6 @@ The project contains multiple stages and different unit types.
    <img src="https://github.com/xXBasti/WorldwarJump/blob/master/Images/Map1.png "  alt="Stage2" width="45%">
   </div>
   <div class="column">
-    <img src="https://github.com/xXBasti/WorldwarJump/blob/master/Images/Map2.jpg " alt="Stage2" style="45%">
+    <img src="https://github.com/xXBasti/WorldwarJump/blob/master/Images/Map2.jpg " alt="Stage2" width="45%">
   </div>
 </div> 
