@@ -2,4 +2,4 @@ This Repository contains the Final Project of the TUM Course "Grundkurs C++" EI0
 
 The goal of the Project is a Physics based Game with C++ Qt.
 
-![alt text](https://github.com/xXBasti/WorldwarJump/blob/master/Images/Map1.png)
+![alt text](https://github.com/xXBasti/WorldwarJump/blob/master/Images/Map1.png =24x48)
